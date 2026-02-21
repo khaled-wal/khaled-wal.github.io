@@ -1,0 +1,9 @@
+# إعدادات الموقع الأساسية
+title: "اسمك هنا | مسوق رقمي"
+description: "ملف أعمالي ودراسات الحالة التسويقية التي أعمل عليها."
+author: "اسمك الأول"
+email: "your-email@example.com"
+
+# إعدادات البناء (لا تقم بتعديلها)
+permalink: /:year/:month/:title/
+markdown: kramdown
