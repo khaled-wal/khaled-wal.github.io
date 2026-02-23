@@ -1,0 +1,26 @@
+<header class="site-header">
+    <nav class="navbar">
+       <div class="logo">
+            <a href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="My Logo" class="site-logo">
+                <span> Khaled Waleed | Portfolio </span>
+            </a>
+        </div>
+        
+        <div class="actions">
+            
+            <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
+                AR / EN
+            </button>
+
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                🌙 / ☀️
+            </button>
+
+            <a href="{{ site.cv_link | relative_url }}" download class="btn-cv">
+                Download CV
+            </a>
+        </div>
+    </nav>
+</header>
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Strategic Marketer Portfolio</title>
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</head>
+<body>
+
+    <header class="site-header">
+    <nav class="navbar">
+       <div class="logo">
+            <a href="/">
+                <img src="/assets/images/LOGO.png" alt="My Logo" class="site-logo">
+                <span> Khaled Waleed | Portfolio </span>
+            </a>
+        </div>
+        
+        <div class="actions">
+            
+            <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
+                AR / EN
+            </button>
+
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                🌙 / ☀️
+            </button>
+
+            <a href="/assets/files/KhaledWaleedCV.pdf" download class="btn-cv">
+                Download CV
+            </a>
+        </div>
+    </nav>
+</header>
+
+
+
+    <main class="main-content">
+        <section class="hero-section">
+    <div class="container">
+        <h1>Hello, I'm <span class="highlight">Khaled Hashem</span></h1>
+        <p class="subtitle">A Data-Driven Strategic Marketer</p>
+        <p>I help brands grow through innovative marketing strategies and measurable results.</p>
+    </div>
+</section>
+
+<section class="case-studies-section">
+    <div class="container">
+        <h2>Featured Case Studies</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <h3><a href="/portfolio/tech-startup-growth/">Scaling a SaaS Startup to $1M ARR</a></h3>
+                <p><strong>Client:</strong> TechFlow Inc.</p>
+                <p><strong>ROI:</strong> <span class="success-text">+300% Revenue in 6 Months</span></p>
+                <a href="/portfolio/tech-startup-growth/" class="read-more">View Case Study &rarr;</a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="blog-section">
+    <div class="container">
+        <h2>Latest Insights</h2>
+        <ul class="post-list">
+            
+        </ul>
+    </div>
+</section>
+    </main>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

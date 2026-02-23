@@ -1,0 +1,158 @@
+/* =========================================
+   1. CSS Variables (Theming System)
+   ========================================= */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #2563eb; /* أزرق احترافي */
+    --secondary-bg: #f3f4f6;
+    --border-color: #e5e7eb;
+    --success-color: #16a34a;
+}
+
+/* عندما يتفعل الوضع الداكن، تتغير هذه الألوان فقط */
+[data-theme="dark"] {
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+    --primary-color: #60a5fa;
+    --secondary-bg: #1f2937;
+    --border-color: #374151;
+    --success-color: #4ade80;
+}
+
+/* =========================================
+   2. Global Styles
+   ========================================= */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* انتقال سلس بين الأوضاع */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =========================================
+   3. Header & Navigation
+   ========================================= */
+.site-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    background-color: var(--bg-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo a {
+    display: flex; /* يجعل الشعار والنص بجانب بعضهما */
+    align-items: center; /* يضبطهما على نفس الخط الأفقي */
+    gap: 12px; /* المسافة بين الشعار والاسم */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* تحكم بحجم الشعار من هنا */
+.site-logo {
+    height: 40px; /* يمكنك زيادة أو تقليل هذا الرقم حسب رغبتك */
+    width: auto;
+    border-radius: 4px; /* اختياري: لجعل حواف الصورة ناعمة */
+}
+.actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-cv, .btn-icon {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.btn-cv:hover, .btn-icon:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* =========================================
+   4. Sections (Hero, Cards, Lists)
+   ========================================= */
+.hero-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.success-text {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: 20px;
+}
+
+.post-date {
+    color: #6b7280;
+    min-width: 120px;
+}

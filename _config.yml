@@ -1,9 +1,18 @@
-# إعدادات الموقع الأساسية
-title: "خالد | مسوق رقمي"
-description: "ملف أعمالي ودراسات الحالة التسويقية التي أعمل عليها."
-author: "اسمك الأول"
-email: "your-email@example.com"
+# Basic Site Settings
+title: "Khaled Hashem - Markiting student"
+description: "Portfolio and Strategic Marketing Blog"
+url: "https://khaled-wal.github.io/" 
+baseurl: "" # اتركه فارغاً إذا كان الموقع على الرابط الرئيسي، أو ضع اسم المستودع إذا كان فرعياً مثل "/portfolio"
 
-# إعدادات البناء (لا تقم بتعديلها)
-permalink: /:year/:month/:title/
-markdown: kramdown
+# Resume Link
+cv_link: "/assets/files/KhaledWaleedCV.pdf"
+
+# Default Language & Direction (English Base)
+lang: "en"
+dir: "ltr"
+
+# Collections for Portfolio/Case Studies
+collections:
+  case_studies:
+    output: true
+    permalink: /portfolio/:title/

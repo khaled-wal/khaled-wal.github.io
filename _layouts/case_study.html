@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="case-study">
+    <header class="study-header">
+        <h1 class="study-title">{{ page.title }}</h1>
+        
+        <div class="metrics-grid">
+            <div class="metric"><strong>Client:</strong> {{ page.client }}</div>
+            <div class="metric"><strong>Objective:</strong> {{ page.objective }}</div>
+            <div class="metric"><strong>ROI:</strong> {{ page.roi }}</div>
+        </div>
+    </header>
+
+    <div class="study-content">
+        {{ content }}
+    </div>
+</article>
