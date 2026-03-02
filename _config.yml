@@ -1,18 +1,48 @@
-# Basic Site Settings
-title: "Khaled Hashem - Markiting student"
-description: "Portfolio and Strategic Marketing Blog"
-url: "https://khaled-wal.github.io/" 
-baseurl: "" # اتركه فارغاً إذا كان الموقع على الرابط الرئيسي، أو ضع اسم المستودع إذا كان فرعياً مثل "/portfolio"
+title: "Khaled waleed | Marketing Communications student"
+description: "Portfolio & Blog"
+url: "https://username.github.io"
+baseurl: ""
 
-# Resume Link
-cv_link: "/assets/files/KhaledWaleedCV.pdf"
+# CV Path
+cv_path: "/assets/files/KhaledWaleedCV.pdf"
 
-# Default Language & Direction (English Base)
-lang: "en"
-dir: "ltr"
-
-# Collections for Portfolio/Case Studies
+# Collections
 collections:
   case_studies:
     output: true
-    permalink: /portfolio/:title/
+    permalink: /portfolio/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: "ar"
+      dir: "rtl"
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+      dir: "ltr"
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: case_studies
+    values:
+      layout: case_study
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: case_study
+
+# Build
+markdown: kramdown
+permalink: /:year/:month/:day/:title/

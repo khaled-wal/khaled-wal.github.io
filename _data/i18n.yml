@@ -1,0 +1,31 @@
+# Arabic UI Strings
+ar:
+  site_name: "خالد هاشم"
+  home: "الرئيسية"
+  cv: "السيرة الذاتية"
+  my_work: "أعمالي"
+  featured_work: "أبرز أعمالي"
+  projects: "المشاريع"
+  blog: "المقالات"
+  contact: "تواصل معي"
+  read_more: "اقرأ المزيد &rarr;"
+  switch_lang: "English"
+  latest_articles: "أحدث المقالات"
+  latest_case_studies: "أحدث دراسات الحالة"
+  client: "العميل:"
+
+# English UI Strings
+en:
+  site_name: "Khaled W. Hashem"
+  home: "Home"
+  cv: "CV"
+  my_work: "My Work"
+  featured_work: "Featured Work"
+  projects: "Projects"
+  blog: "Blog"
+  contact: "Contact"
+  read_more: "Read More &rarr;"
+  switch_lang: "العربية"
+  latest_articles: "Latest Articles"
+  latest_case_studies: "Latest Case Studies"
+  client: "Client:"

@@ -1,26 +1,66 @@
 <header class="site-header">
-    <nav class="navbar">
-       <div class="logo">
-            <a href="{{ '/' | relative_url }}">
-                <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="My Logo" class="site-logo">
-                <span> Khaled Waleed | Portfolio </span>
-            </a>
-        </div>
-        
-        <div class="actions">
-            
-            <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
-                AR / EN
-            </button>
+  {% if page.url contains '/en/' %}
+  {% assign current_lang = 'en' %}
+  {% assign is_en = true %}
+  {% else %}
+  {% assign current_lang = 'ar' %}
+  {% assign is_en = false %}
+  {% endif %}
 
-            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
-                🌙 / ☀️
-            </button>
+  {% assign t = site.data.i18n[current_lang] %}
 
-            <a href="{{ site.cv_link | relative_url }}" download class="btn-cv">
-                Download CV
-            </a>
-        </div>
+  <div class="container header-inner">
+    <a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="logo">
+      <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="Logo">
+      {{ t.site_name }}<span>.</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{{ t.home
+            }}</a></li>
+        <li><a
+            href="{% if is_en %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}">{{
+            t.my_work }}</a></li>
+        <li><a
+            href="{% if is_en %}{{ '/en/#cv-section' | relative_url }}{% else %}{{ '/#cv-section' | relative_url }}{% endif %}">{{
+            t.cv }}</a></li>
+        <li>
+          <!-- Language Switcher Logic -->
+          {%- if is_en -%}
+          {%- assign alt_lang = 'ar' -%}
+          {%- assign fallback_url = page.url | remove_first: '/en' | relative_url -%}
+          {%- if fallback_url == '' -%}{%- assign fallback_url = '/' -%}{%- endif -%}
+          {%- else -%}
+          {%- assign alt_lang = 'en' -%}
+          {%- assign fallback_url = '/en' | append: page.url | relative_url -%}
+          {%- endif -%}
+
+          {%- assign alt_url = fallback_url -%}
+
+          {%- if page.translation_key -%}
+          <!-- Search collections for matching translation key -->
+          {%- assign all_docs = site.documents | concat: site.pages -%}
+          {%- for doc in all_docs -%}
+          {%- if doc.translation_key == page.translation_key and doc.lang == alt_lang -%}
+          {%- assign alt_url = doc.url | relative_url -%}
+          {%- break -%}
+          {%- endif -%}
+          {%- endfor -%}
+          {%- endif -%}
+
+          <a href="{{ alt_url }}" class="lang-toggle-btn">
+            <i class="fa-solid fa-globe"></i> <span>{{ t.switch_lang }}</span>
+          </a>
+        </li>
+      </ul>
     </nav>
-</header>
 
+    <a href="{% if is_en %}{{ '/en/#contact' | relative_url }}{% else %}{{ '/#contact' | relative_url }}{% endif %}"
+      class="btn btn-primary cta-btn">{{ t.contact }}</a>
+
+    <button id="mobile-menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>

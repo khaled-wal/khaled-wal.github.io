@@ -1,18 +1,32 @@
 ---
 layout: default
 ---
-<article class="case-study">
-    <header class="study-header">
-        <h1 class="study-title">{{ page.title }}</h1>
-        
-        <div class="metrics-grid">
-            <div class="metric"><strong>Client:</strong> {{ page.client }}</div>
-            <div class="metric"><strong>Objective:</strong> {{ page.objective }}</div>
-            <div class="metric"><strong>ROI:</strong> {{ page.roi }}</div>
+<article class="case-study" style="padding-top: 120px;">
+    <header class="post-header" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+        <div class="container">
+            <h1 style="color: var(--clr-white);">{{ page.title }}</h1>
         </div>
     </header>
 
-    <div class="study-content">
+    <div class="case-study-summary"
+        style="max-width: 800px; margin: 2rem auto; padding: 0 20px; display: flex; gap: 2rem; flex-wrap: wrap; border-bottom: 1px solid var(--clr-border); padding-bottom: 2rem;">
+        <div class="summary-item" style="display: flex; flex-direction: column;">
+            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">Client</strong>
+            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.client }}</span>
+        </div>
+        <div class="summary-item" style="display: flex; flex-direction: column;">
+            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">Objective</strong>
+            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.objective }}</span>
+        </div>
+        {% if page.roi %}
+        <div class="summary-roi" style="display: flex; flex-direction: column;">
+            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">ROI</strong>
+            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.roi }}</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="markdown-content" style="margin-top: 2rem;">
         {{ content }}
     </div>
 </article>
