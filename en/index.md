@@ -18,6 +18,7 @@ translation_key: home
         </div>
         <!-- Profile Image & Floating Badges -->
         <div class="hero-image-wrapper">
+        
             <div class="profile-image-container">
                 <img src="{{ '/assets/images/MY PIC.PNG' | relative_url }}" alt="Khaled Waleed" class="profile-image">
             </div>
