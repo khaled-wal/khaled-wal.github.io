@@ -523,16 +523,100 @@ section {
 /* ==========================================================================
    Resume / Timeline
    ========================================================================== */
-.resume-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
+.cv-container {
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 2rem;
 }
 
-.resume-content {
-  position: sticky;
-  top: 120px;
-  align-self: start;
+.cv-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 1) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.cv-download-btn-wrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.cv-header-center {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cv-header-center .section-desc {
+  margin-bottom: 0;
+}
+
+.cv-grid {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cv-column {
+  flex: 1;
+}
+
+.cv-column-title {
+  font-size: 1.5rem;
+  color: var(--clr-green);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cv-certifications {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.cert-card {
+  background: var(--clr-navy-light);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+}
+
+.cert-card h4 {
+  color: var(--clr-white);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.cert-card p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .cv-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .section-desc {

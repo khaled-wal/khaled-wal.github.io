@@ -18,7 +18,6 @@ translation_key: home
         </div>
         <!-- Profile Image & Floating Badges -->
         <div class="hero-image-wrapper">
-        
             <div class="profile-image-container">
                 <img src="{{ '/assets/images/MY PIC.PNG' | relative_url }}" alt="Khaled Waleed" class="profile-image">
             </div>
@@ -100,35 +99,61 @@ translation_key: home
 
 <!-- Resume / Timeline Section -->
 <section id="cv-section" class="resume bg-navy">
-    <div class="container resume-inner">
-        <div class="resume-content">
+    <div class="container cv-container">
+        <div class="cv-header-center">
             <h2 class="section-title">Resume</h2>
             <p class="section-desc">My academic and professional journey is based on a passion for continuous learning and self-development within communications and marketing.</p>
+        </div>
 
+        <div class="cv-grid">
+            <!-- Experience -->
+            <div class="cv-column">
+                <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023 - Present</div>
+                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
+                        <div class="timeline-company">Freelance</div>
+                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="cv-column">
+                <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Expected: 2026</div>
+                        <div class="timeline-role">B.A. Marketing Communications</div>
+                        <div class="timeline-company">Imam Mohammad Ibn Saud Islamic University</div>
+                        <p>Currently studying Marketing Communications, developing strong skills in PR, Consumer Behavior, Advertising, and Content Creation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cv-certifications">
+            <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+            <div class="certification-grid">
+                <div class="cert-card">
+                    <h4>Digital Marketing Certificate</h4>
+                    <p>Google - 2024</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Data Analytics</h4>
+                    <p>Meta - 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cv-download-btn-wrapper">
             <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" class="btn btn-primary download-cv-btn">
                 <i class="fa-solid fa-download"></i>
                 <span>Download CV</span>
             </a>
-        </div>
-
-        <div class="timeline-container">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Expected: 2026</div>
-                    <div class="timeline-role">B.A. Marketing Communications</div>
-                    <div class="timeline-company">Imam Mohammad Ibn Saud Islamic University</div>
-                    <p>Currently studying Marketing Communications, developing strong skills in PR, Consumer Behavior, Advertising, and Content Creation.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023 - Present</div>
-                    <div class="timeline-role">Marketing Specialist (Freelance)</div>
-                    <div class="timeline-company">Freelance</div>
-                    <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>

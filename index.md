@@ -19,7 +19,6 @@ title: "الصفحة الرئيسية"
         </div>
         <!-- Profile Image & Floating Badges -->
         <div class="hero-image-wrapper">
-        
             <div class="profile-image-container">
                 <img src="{{ '/assets/images/MY PIC.PNG' | relative_url }}" alt="Khaled Waleed" class="profile-image">
             </div>
@@ -100,34 +99,63 @@ title: "الصفحة الرئيسية"
 
 <!-- Resume / Timeline Section -->
 <section id="cv-section" class="resume bg-navy">
-    <div class="container resume-inner">
-        <div class="resume-content">
+    <div class="container cv-container">
+        <div class="cv-header-center">
             <h2 class="section-title">السيرة الذاتية</h2>
             <p class="section-desc">مسيرتي الأكاديمية والمهنية ترتكز على الشغف بالتعلم المستمر وتطوير الذات في مجالات الاتصال والتسويق.</p>
+        </div>
+
+        <div class="cv-grid">
+            <!-- Experience Column -->
+            <div class="cv-column">
+                <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> الخبرات</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023 - الآن</div>
+                        <div class="timeline-role">أخصائي تسويق (عمل حر)</div>
+                        <div class="timeline-company">مستقل</div>
+                        <p>إدارة حملات تسويقية، بناء هوية بصرية، تحليل بيانات وتقارير أداء للعديد من المشاريع.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Column -->
+            <div class="cv-column">
+                <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">متوقع التخرج: 2026</div>
+                        <div class="timeline-role">بكالوريوس اتصال تسويقي</div>
+                        <div class="timeline-company">جامعة الإمام محمد بن سعود الإسلامية</div>
+                        <p>أدرس حالياً في تخصص الاتصال التسويقي، واكتسبت مهارات قوية في العلاقات العامة، سلوك المستهلك، الحملات الإعلانية وصناعة المحتوى.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cv-certifications">
+            <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
+            <div class="certification-grid">
+                <div class="cert-card">
+                    <h4>شهادة التسويق الرقمي</h4>
+                    <p>مقدمة من Google - 2024</p>
+                </div>
+                <div class="cert-card">
+                    <h4>تحليل البيانات</h4>
+                    <p>مقدمة من Meta - 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download CTA -->
+        <div class="cv-download-btn-wrapper">
             <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" class="btn btn-primary download-cv-btn">
                 <i class="fa-solid fa-download"></i>
                 <span>تحميل السيرة الذاتية</span>
             </a>
-        </div>
-
-        <div class="timeline-container">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">متوقع التخرج: 2026</div>
-                    <div class="timeline-role">بكالوريوس اتصال تسويقي</div>
-                    <div class="timeline-company">جامعة الإمام محمد بن سعود الإسلامية</div>
-                    <p>أدرس حالياً في تخصص الاتصال التسويقي، واكتسبت مهارات قوية في العلاقات العامة، سلوك المستهلك، الحملات الإعلانية وصناعة المحتوى.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023 - الآن</div>
-                    <div class="timeline-role">أخصائي تسويق (عمل حر)</div>
-                    <div class="timeline-company">مستقل</div>
-                    <p>إدارة حملات تسويقية، بناء هوية بصرية، تحليل بيانات وتقارير أداء للعديد من المشاريع.</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>
