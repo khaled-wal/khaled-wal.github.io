@@ -1,8 +1,6 @@
-// Dynamic year is handled by Liquid natively now but leaving safe fallback just in case
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Smooth scrolling internal links (mostly handled by CSS)
 
-  // 2. Add active state to header on scroll
+  // ── Header scroll effect ─────────────────────────────────────────────
   const header = document.querySelector('.site-header');
   if (header) {
     window.addEventListener('scroll', () => {
@@ -13,31 +11,42 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.boxShadow = 'none';
         header.style.paddingBlock = '1rem';
       }
-    });
+    }, { passive: true });
   }
 
-  // 3. Mobile Menu Toggle
+  // ── Mobile menu toggle ───────────────────────────────────────────────
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const mainNav = document.getElementById('main-nav');
 
+  function openMenu() {
+    mainNav.classList.add('nav-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.querySelector('i').classList.replace('fa-bars', 'fa-xmark');
+  }
+
+  function closeMenu() {
+    mainNav.classList.remove('nav-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+  }
+
   if (menuToggle && mainNav) {
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
+      const isOpen = mainNav.classList.contains('nav-open');
+      isOpen ? closeMenu() : openMenu();
+    });
 
-      if (mainNav.style.display === 'block') {
-        mainNav.style.display = 'none';
-      } else {
-        mainNav.style.display = 'block';
-        // Inline styles to mimic the old open class behavior
-        mainNav.style.position = 'absolute';
-        mainNav.style.top = '70px';
-        mainNav.style.left = '0';
-        mainNav.style.width = '100%';
-        mainNav.style.backgroundColor = 'var(--clr-navy)';
-        mainNav.style.padding = '20px';
-        mainNav.style.boxShadow = '0 10px 10px rgba(0, 0, 0, 0.1)';
-        mainNav.style.textAlign = 'center';
+    // Close menu when a nav link is clicked (important for same-page anchors)
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target) && mainNav.classList.contains('nav-open')) {
+        closeMenu();
       }
     });
   }
+
 });

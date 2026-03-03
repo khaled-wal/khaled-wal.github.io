@@ -1,32 +1,52 @@
 ---
 layout: default
 translation_key: home
+title: "Home"
+description: "Khaled Waleed — Marketing Communications student specialising in content creation, data analysis, and UX."
 ---
 
-<!-- Hero Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ HERO SECTION ░░
+     ════════════════════════════════════════════════════
+     ✏️ EDIT HERE:
+       - Badge text:              Line ~12
+       - H1 title (name + role):  Line ~13
+       - Short description:       Line ~14
+       - CTA button text:         Lines ~16–18
+       - Profile image filename:  Line ~24
+         (Place your photo in assets/images/ and update the filename)
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="hero" class="hero bg-navy">
     <div class="container hero-inner">
         <div class="hero-content">
+            <!-- ✏️ EDIT: Welcome badge text -->
             <span class="badge">👋 Welcome!</span>
+            <!-- ✏️ EDIT: H1 — your name + professional title -->
             <h1 class="hero-title">I'm Khaled,<br><span class="highlight">Marketing Student</span></h1>
+            <!-- ✏️ EDIT: Short description / elevator pitch -->
             <p class="hero-desc">Turning data into results-driven marketing strategies. Marketing Communications Specialist | Data Analysis | UX.</p>
             <div class="hero-actions">
-                <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">My Portfolio <i
-                        class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
+                <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">My Portfolio <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: Secondary CTA — links to contact section below -->
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
         </div>
-        <!-- Profile Image & Floating Badges -->
+        <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/MY PIC.PNG' | relative_url }}" alt="Khaled Waleed" class="profile-image">
+                <img src="{{ '/assets/images/profile.png' | relative_url }}" alt="Khaled Waleed" class="profile-image">
             </div>
         </div>
     </div>
 
-    <!-- Skills/Tools Horizontal Bar -->
+    <!-- ══════════════════════════════════════════════════════════════════
+         ░░ SKILLS BAR ░░
+         ✏️ Add/edit skills by duplicating a <div class="skill-item"> block
+         ══════════════════════════════════════════════════════════════════ -->
     <div class="container">
         <div class="skills-bar">
+            <!-- ✏️ EDIT: Each skill-item = icon + label -->
             <div class="skill-item">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>Content Creation</span>
@@ -39,6 +59,12 @@ translation_key: home
                 <i class="fa-solid fa-object-group"></i>
                 <span>SEO Optimization</span>
             </div>
+            <!-- Add a new skill by copying the block above:
+            <div class="skill-item">
+                <i class="fa-solid fa-ICON_NAME"></i>
+                <span>Skill Label</span>
+            </div>
+            -->
         </div>
     </div>
 </section>
@@ -46,19 +72,24 @@ translation_key: home
 <!-- Gradient Divider -->
 <div class="section-divider bg-navy-to-light"></div>
 
-<!-- Portfolio Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ FEATURED PORTFOLIO SECTION ░░
+     ════════════════════════════════════════════════
+     ✏️ This section auto-displays the first item from each collection.
+     To add work: create a new .md file in _case_studies/ or _projects/
+     with lang: en in the front-matter. It will appear here automatically.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="portfolio" class="portfolio bg-light">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title dark-text">{{ site.data.i18n.en.featured_work }}</h2>
-            <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i
-                    class="fa-solid fa-arrow-left arrow-icon"></i></a>
+            <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
         </div>
 
         <div class="portfolio-grid">
             {% assign en_case_studies = site.case_studies | where: "lang", "en" %}
             {% assign en_projects = site.projects | where: "lang", "en" %}
-            
+
             {% assign featured_items = "" | split: "" %}
             {% if en_case_studies.size > 0 %}{% assign featured_items = featured_items | push: en_case_studies[0] %}{% endif %}
             {% if en_projects.size > 0 %}{% assign featured_items = featured_items | push: en_projects[0] %}{% endif %}
@@ -69,8 +100,8 @@ translation_key: home
                     {% if item.image %}
                     <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
                     {% else %}
-                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: var(--clr-border);">
-                      <i class="fa-solid fa-briefcase fa-3x"></i>
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
                     </div>
                     {% endif %}
                 </div>
@@ -97,75 +128,143 @@ translation_key: home
 <!-- Gradient Divider -->
 <div class="section-divider bg-light-to-navy"></div>
 
-<!-- Resume / Timeline Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ RESUME / CV SECTION ░░
+     ═════════════════════════════════════════════════
+     ✏️ EDIT HERE:
+       - Experience entries:   Duplicate a timeline-item block under "Experience"
+       - Education entries:    Duplicate a timeline-item block under "Education"
+       - Certifications:       Duplicate a cert-card block
+       - CV file path:         Set cv_path in _config.yml
+
+     💡 Design note: The section has a max-height in style.css keeping it compact.
+        The gradient fade and download button are always pinned to the bottom.
+        If you add many entries, increase max-height in .cv-container in style.css.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="cv-section" class="resume bg-navy">
     <div class="container cv-container">
         <div class="cv-header-center">
+            <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Resume</h2>
             <p class="section-desc">My academic and professional journey is based on a passion for continuous learning and self-development within communications and marketing.</p>
         </div>
 
         <div class="cv-grid">
-            <!-- Experience -->
+            <!-- ── Experience Column ─────────────────────────── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
                 <div class="timeline">
+                    <!-- ✏️ EDIT: Duplicate this block for each new role -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
                         <div class="timeline-date">2023 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Marketing Specialist (Freelance)</div>
+                        <!-- ✏️ EDIT: Company / client name -->
                         <div class="timeline-company">Freelance</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
                         <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
                     </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">2023 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">Freelance</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">2023 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">Freelance</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
+                    </div>
+                    <!-- Add new experience here by copying the block above -->
                 </div>
             </div>
 
-            <!-- Education -->
+            <!-- ── Education Column ──────────────────────────── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
                 <div class="timeline">
+                    <!-- ✏️ EDIT: Duplicate this block for each degree -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Expected graduation year or date range -->
                         <div class="timeline-date">Expected: 2026</div>
+                        <!-- ✏️ EDIT: Degree name -->
                         <div class="timeline-role">B.A. Marketing Communications</div>
+                        <!-- ✏️ EDIT: University / institution name -->
                         <div class="timeline-company">Imam Mohammad Ibn Saud Islamic University</div>
+                        <!-- ✏️ EDIT: Additional details -->
                         <p>Currently studying Marketing Communications, developing strong skills in PR, Consumer Behavior, Advertising, and Content Creation.</p>
                     </div>
+                    <!-- Add new education here by copying the block above -->
                 </div>
             </div>
         </div>
 
+        <!-- ── Certifications ──────────────────────────────── -->
         <div class="cv-certifications">
             <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
             <div class="certification-grid">
+                <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
                 <div class="cert-card">
+                    <!-- ✏️ EDIT: Certificate name -->
                     <h4>Digital Marketing Certificate</h4>
+                    <!-- ✏️ EDIT: Issuer and year -->
                     <p>Google - 2024</p>
                 </div>
                 <div class="cert-card">
                     <h4>Data Analytics</h4>
                     <p>Meta - 2023</p>
                 </div>
+                <div class="cert-card">
+                    <h4>Data Analytics</h4>
+                    <p>Meta - 2023</p>
+                </div>
+                <!-- Add new cert here by copying a cert-card block above -->
             </div>
         </div>
 
+        <!-- Download CV button — pinned above the fade gradient -->
+        <!-- ✏️ EDIT: Update cv_path in _config.yml to point to your PDF file -->
         <div class="cv-download-btn-wrapper">
-            <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" class="btn btn-primary download-cv-btn">
-                <i class="fa-solid fa-download"></i>
+            <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary download-cv-btn" aria-label="Download CV (PDF)">
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
                 <span>Download CV</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Contact Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ CONTACT SECTION ░░
+     ═════════════════════════════════════════════════
+     ✏️ EDIT HERE:
+       - Your email address:   update the <strong> tag and mailto: link
+       - LinkedIn URL + label: update the <a href="..."> link
+       - Formspree form ID:    replace YOUR_FORM_ID in the <form action>
+         Go to https://formspree.io, create a form, copy the URL here.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
     <div class="container contact-inner">
         <div class="contact-text">
+            <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Contact Me</h2>
             <p class="section-desc">I am always open to discussing new projects, creative ideas or opportunities to make a difference together.</p>
 
             <div class="contact-info">
+                <!-- ✏️ EDIT: Your email address -->
                 <div class="info-item">
                     <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
                     <div>
@@ -173,18 +272,23 @@ translation_key: home
                         <strong>Khaledwal20@hotmail.com</strong>
                     </div>
                 </div>
+                <!-- ✏️ EDIT: Your LinkedIn profile URL and display name -->
                 <div class="info-item">
                     <div class="icon-box"><i class="fa-brands fa-linkedin"></i></div>
                     <div>
                         <span>LinkedIn</span>
-                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank">in/khaledw-hashem</a></strong>
+                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer">in/khaledw-hashem</a></strong>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="contact-form-wrapper">
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- ✏️ EDIT: Replace YOUR_FORM_ID with your Formspree form ID -->
+            <!-- Example: action="https://formspree.io/f/xabc1234" -->
+            <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
+                <!-- Formspree custom redirect — do not remove this hidden field -->
+                <input type="hidden" name="_next" value="/en/thanks.html">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name" required>
@@ -197,8 +301,7 @@ translation_key: home
                     <label for="message">Message</label>
                     <textarea name="message" id="message" rows="5" placeholder="Tell me more about your project..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submit-btn">Send Message <i
-                        class="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" class="btn btn-primary submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
     </div>

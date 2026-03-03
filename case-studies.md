@@ -3,6 +3,7 @@ layout: default
 title: "أعمالي"
 translation_key: case_studies
 permalink: /portfolio/
+description: "استعرض دراسات الحالة والمشاريع التي أبدعتها خالد وليد في مجال التسويق والاتصال."
 ---
 
 <section class="portfolio-page-section bg-light">
@@ -18,8 +19,8 @@ permalink: /portfolio/
               {% if item.image %}
               <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
               {% else %}
-              <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: var(--clr-border);">
-                <i class="fa-solid fa-briefcase fa-3x"></i>
+              <div class="card-placeholder">
+                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
               </div>
               {% endif %}
           </div>
@@ -44,8 +45,8 @@ permalink: /portfolio/
               {% if item.image %}
               <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
               {% else %}
-              <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: var(--clr-border);">
-                <i class="fa-solid fa-briefcase fa-3x"></i>
+              <div class="card-placeholder">
+                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
               </div>
               {% endif %}
           </div>

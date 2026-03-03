@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Variables & Theme Defaults (RTL First, Logical Properties used where possible)
+   Variables & Theme Defaults
    ========================================================================== */
 :root {
   /* Colors */
@@ -19,6 +19,8 @@
   /* Light Gray Text on Dark bg */
   --clr-text-dark: #334155;
   /* Dark Gray Text on Light bg */
+  --clr-muted: #94a3b8;
+  /* Muted gray — used for secondary text in dark sections */
   --clr-border: #334155;
   /* Borders in dark sections */
 
@@ -36,6 +38,9 @@
   --radius-md: 12px;
   --radius-lg: 24px;
   --radius-pill: 50px;
+
+  /* Header height (used by sections that need to clear the fixed header) */
+  --header-height: 70px;
 
   /* Shadows & Transitions */
   --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -96,7 +101,7 @@ section {
   padding-block: var(--spacing-section);
 }
 
-/* Typography Utility */
+/* Typography Utilities */
 .highlight {
   color: var(--clr-green);
   font-weight: 800;
@@ -157,7 +162,7 @@ section {
 }
 
 /* ==========================================================================
-   Section Dividers (Gradient Shadows)
+   Section Dividers
    ========================================================================== */
 .section-divider {
   height: 80px;
@@ -260,16 +265,34 @@ section {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--clr-white);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* Mobile nav open state */
+.nav-open {
+  display: block !important;
+  position: absolute;
+  top: var(--header-height);
+  inset-inline-start: 0;
+  width: 100%;
+  background-color: var(--clr-navy);
+  padding: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.nav-open ul {
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 /* ==========================================================================
    Hero Section
    ========================================================================== */
 .hero {
-  padding-top: calc(80px + var(--spacing-section));
+  padding-top: calc(var(--header-height) + var(--spacing-section));
   position: relative;
   overflow: hidden;
 }
@@ -304,7 +327,7 @@ section {
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
   max-width: 90%;
-  color: #cbd5e1;
+  color: var(--clr-muted);
 }
 
 .hero-actions {
@@ -343,7 +366,6 @@ section {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
   transform: translateY(2rem);
-  /* الإزاحة للأسفل قليلاً */
 }
 
 /* Floating Badges */
@@ -366,13 +388,11 @@ section {
 .badge-top {
   top: 10%;
   inset-inline-end: 0%;
-  /* Logical end for RTL */
 }
 
 .badge-bottom {
   bottom: 20%;
   inset-inline-start: 0%;
-  /* Logical start for RTL */
   animation-delay: 1.5s;
 }
 
@@ -407,7 +427,7 @@ section {
   gap: 2rem;
   flex-wrap: wrap;
   margin-top: 4rem;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   background-color: var(--clr-navy-light);
   border-radius: var(--radius-lg);
   border: 1px solid var(--clr-border);
@@ -463,7 +483,6 @@ section {
 .card-image {
   height: 240px;
   background-color: #e2e8f0;
-  /* Fallback */
   overflow: hidden;
   padding: 1rem;
   display: flex;
@@ -480,6 +499,16 @@ section {
 
 .portfolio-card:hover .card-image img {
   transform: scale(1.05);
+}
+
+/* Fallback placeholder for cards without an image */
+.card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-border);
 }
 
 .card-content {
@@ -521,33 +550,61 @@ section {
 }
 
 /* ==========================================================================
-   Resume / Timeline
+   Resume / CV Section
+   -- DYNAMIC HEIGHT: The section uses a flexible max-height so new timeline
+   -- items don't break the layout. The fade gradient and the download button
+   -- are always pinned to the bottom of .cv-container via absolute positioning.
    ========================================================================== */
-.cv-container {
-  max-height: 600px;
-  overflow: hidden;
+.resume {
+  /* Allow Certifications section to be visible but fade out near the button */
   position: relative;
-  padding-bottom: 2rem;
 }
 
+.cv-container {
+  /*
+   * We use a flexible max-height: it is tall enough for current content +
+   * a few more entries, yet short enough to always show the fade effect.
+   * Increase this value if you add many more entries.
+   */
+  max-height: 750px;
+  overflow: hidden;
+  position: relative;
+  /* Extra bottom padding reserves space for the absolutely-placed download btn */
+  padding-bottom: 6rem;
+}
+
+/* Fade-out gradient — always anchored to the bottom of .cv-container */
 .cv-container::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: 100%;
-  height: 40%;
-  background: linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 1) 100%);
+  /* Gradient covers roughly the cert-card area to fade it into the background */
+  height: 45%;
+  background: linear-gradient(to bottom,
+      rgba(15, 23, 42, 0) 0%,
+      rgba(15, 23, 42, 0.85) 60%,
+      rgba(15, 23, 42, 1) 100%);
   pointer-events: none;
   z-index: 5;
 }
 
+/* Download CV button — floats above the gradient, horizontally centered (RTL-safe) */
 .cv-download-btn-wrapper {
   position: absolute;
-  bottom: 30px;
-  left: 50%;
+  bottom: 1.5rem;
+  /* RTL-safe centering: push from the start by 50%, pull back by half button width */
+  inset-inline-start: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  white-space: nowrap;
+}
+
+/* RTL: translateX direction is reversed by the browser's logical properties,
+   but we need to compensate explicitly because translateX is physical */
+html[dir="rtl"] .cv-download-btn-wrapper {
+  transform: translateX(50%);
 }
 
 .cv-header-center {
@@ -608,21 +665,14 @@ section {
 }
 
 .cert-card p {
-  color: #cbd5e1;
+  color: var(--clr-muted);
   font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .cv-grid {
-    flex-direction: column;
-    gap: 2rem;
-  }
 }
 
 .section-desc {
   margin-bottom: 2rem;
   font-size: 1.1rem;
-  color: #cbd5e1;
+  color: var(--clr-muted);
 }
 
 .timeline {
@@ -630,14 +680,13 @@ section {
   padding-inline-start: 2rem;
 }
 
-/* The vertical line */
+/* Vertical timeline line */
 .timeline::before {
   content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   inset-inline-start: 0;
-  /* Logical start */
   width: 2px;
   background-color: var(--clr-border);
 }
@@ -654,7 +703,6 @@ section {
 .timeline-dot {
   position: absolute;
   inset-inline-start: -2.35rem;
-  /* Position dot on the line */
   top: 5px;
   width: 16px;
   height: 16px;
@@ -679,7 +727,7 @@ section {
 
 .timeline-company {
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: var(--clr-muted);
   margin-bottom: 1rem;
 }
 
@@ -715,12 +763,13 @@ section {
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
+  flex-shrink: 0;
 }
 
 .info-item span {
   display: block;
   font-size: 0.85rem;
-  color: #cbd5e1;
+  color: var(--clr-muted);
 }
 
 .info-item strong {
@@ -755,6 +804,7 @@ section {
   border-radius: var(--radius-sm);
   color: var(--clr-white);
   font-family: inherit;
+  font-size: 1rem;
   transition: border-color var(--transition-fast);
 }
 
@@ -764,12 +814,10 @@ section {
   border-color: var(--clr-green);
 }
 
-.w-100 {
-  width: 100%;
-}
-
-.d-block {
-  display: block;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--clr-muted);
+  opacity: 0.7;
 }
 
 /* ==========================================================================
@@ -795,7 +843,7 @@ section {
 
 .brand-col p {
   margin-top: 1rem;
-  color: #cbd5e1;
+  color: var(--clr-muted);
   max-width: 80%;
 }
 
@@ -803,6 +851,11 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.links-col a {
+  color: var(--clr-muted);
+  transition: all var(--transition-fast);
 }
 
 .links-col a:hover {
@@ -837,23 +890,18 @@ section {
   text-align: center;
   padding-block: 1.5rem;
   border-top: 1px solid var(--clr-border);
-  color: #cbd5e1;
+  color: var(--clr-muted);
   font-size: 0.9rem;
 }
 
 /* ==========================================================================
-   Responsive Logic (RTL/LTR handling handled mainly by Logical Properties above)
+   Arrow Icon — RTL/LTR Direction Utility
+   fa-arrow-left points "forward" in RTL. In LTR it must flip to point right.
    ========================================================================== */
-
-/* Utility for arrows that need to flip in RTL/LTR */
 html[dir="rtl"] .arrow-icon {
   transform: rotate(0deg);
-  /* Assuming generic left-pointing arrow icon used in HTML, fontawesome arrow-left */
 }
 
-/* Since HTML uses fa-arrow-left which points left. 
-   In RTL, pointing left means "forward" / "more".
-   In LTR, pointing left means "back" (wrong). We want it pointing right. */
 html[dir="ltr"] .arrow-icon {
   transform: rotate(180deg);
 }
@@ -862,13 +910,14 @@ html[dir="ltr"] .arrow-icon {
    Portfolio List Page Layout
    ========================================================================== */
 .portfolio-page-section {
-  padding-top: 120px;
+  padding-top: calc(var(--header-height) + 3rem);
   padding-bottom: 60px;
+  min-height: 100vh;
 }
 
 .portfolio-page-title {
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   margin-bottom: 3rem;
   color: var(--clr-navy);
@@ -892,12 +941,24 @@ html[dir="ltr"] .arrow-icon {
 }
 
 /* ==========================================================================
-   Markdown Content Styling (.prose / .markdown-content)
+   Markdown / Prose Content Styling
+   (Used in Case Study and Project detail pages)
    ========================================================================== */
-.markdown-content {
+.markdown-content,
+.page-content {
   max-width: 800px;
-  margin: 120px auto 50px;
-  padding: 0 20px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.markdown-content {
+  /* Clear the fixed header using the CSS variable */
+  padding-top: calc(var(--header-height) + 2rem);
+  padding-bottom: 4rem;
+}
+
+.page-content {
+  padding-bottom: var(--spacing-section);
 }
 
 .markdown-content h1,
@@ -910,31 +971,45 @@ html[dir="ltr"] .arrow-icon {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 800;
+  line-height: 1.3;
 }
 
-.markdown-content p {
-  color: #E2E8F0;
-  line-height: 1.8;
+.page-content h2 {
+  color: var(--clr-green);
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.markdown-content p,
+.page-content p {
+  /* Use clr-text-light instead of clr-muted for improved readability */
+  color: var(--clr-text-light);
+  line-height: 1.9;
   margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .markdown-content img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   margin-block: 2rem;
   box-shadow: var(--shadow-sm);
 }
 
 .markdown-content ul,
-.markdown-content ol {
+.markdown-content ol,
+.page-content ul,
+.page-content ol {
   margin-bottom: 1.5rem;
   padding-inline-start: 2rem;
-  color: #E2E8F0;
-  line-height: 1.8;
+  color: var(--clr-text-light);
+  line-height: 1.9;
 }
 
-.markdown-content li {
+.markdown-content li,
+.page-content li {
   margin-bottom: 0.5rem;
 }
 
@@ -949,18 +1024,121 @@ html[dir="ltr"] .arrow-icon {
 
 .markdown-content blockquote {
   border-inline-start: 4px solid var(--clr-green);
-  padding-inline-start: 1rem;
-  margin-inline-start: 0;
+  padding-inline-start: 1.25rem;
+  margin-inline: 0;
   margin-bottom: 1.5rem;
   font-style: italic;
-  color: #94A3B8;
+  color: var(--clr-muted);
+  background-color: rgba(16, 185, 129, 0.05);
+  padding-block: 0.75rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-/* Media Queries */
+/* Markdown tables */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.markdown-content th {
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+  padding: 0.75rem 1rem;
+  text-align: start;
+  font-weight: 700;
+}
+
+.markdown-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: var(--clr-text-light);
+}
+
+.markdown-content tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown-content tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================================================
+   Single Post / Case Study Layout
+   ========================================================================== */
+.case-study.cs-header {
+  padding-top: var(--header-height);
+  background-color: var(--clr-navy);
+  min-height: 100vh;
+}
+
+/* Post header (title banner at top of case study) */
+.post-header {
+  background: linear-gradient(135deg, var(--clr-navy-light) 0%, var(--clr-navy) 100%);
+  border-bottom: 1px solid var(--clr-border);
+  padding-block: 3rem;
+  position: relative;
+}
+
+.post-header h1 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.3;
+}
+
+.cs-meta-bar {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cs-meta-label {
+  color: var(--clr-green);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cs-meta-value {
+  color: var(--clr-white);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   Utility helpers
+   ========================================================================== */
+.w-100 {
+  width: 100%;
+}
+
+.d-block {
+  display: block;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+/* ── Tablet / Small Desktop ─────────────────────────── */
 @media (max-width: 992px) {
 
   .hero-inner,
-  .resume-inner,
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -978,14 +1156,19 @@ html[dir="ltr"] .arrow-icon {
 
   .hero-image-wrapper {
     order: -1;
-    /* Move image to top on mobile */
+  }
+
+  .cv-grid {
+    gap: 2rem;
   }
 }
 
+/* ── Mobile ─────────────────────────────────────────── */
 @media (max-width: 768px) {
+
+  /* Navigation */
   .main-nav {
     display: none;
-    /* simple mobile menu hiding for prototype */
   }
 
   .menu-toggle {
@@ -996,17 +1179,14 @@ html[dir="ltr"] .arrow-icon {
     display: none;
   }
 
+  /* Hero */
   .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .footer-inner {
-    grid-template-columns: 1fr;
+    font-size: 2rem;
   }
 
   .profile-image-container {
     width: 100%;
-    max-width: 350px;
+    max-width: 280px;
     margin-inline: auto;
   }
 
@@ -1025,38 +1205,101 @@ html[dir="ltr"] .arrow-icon {
   .hero-image-wrapper {
     flex-direction: column;
   }
+
+  /* Skills bar */
+  .skills-bar {
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* CV section */
+  .cv-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Reduce cv-container height for mobile but keep the gradient */
+  .cv-container {
+    max-height: 560px;
+  }
+
+  /* Contact form */
+  .contact-form-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Portfolio page */
+  .portfolio-page-title {
+    font-size: 2rem;
+  }
+
+  .portfolio-page-subtitle {
+    font-size: 1.5rem;
+  }
+
+  /* Case study meta bar */
+  .cs-meta-bar {
+    flex-direction: column;
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .brand-col p {
+    max-width: 100%;
+  }
 }
 
-/* Internal Pages / Case Studies (Basic styling integration) */
-.page-header {
-  padding-top: calc(80px + var(--spacing-section));
-  padding-bottom: var(--spacing-section);
-  text-align: center;
-}
+/* ── Very small phones ──────────────────────────────── */
+@media (max-width: 480px) {
 
-.page-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: var(--spacing-section);
-}
+  :root {
+    --spacing-section: 3rem;
+  }
 
-.page-content h2 {
-  color: var(--clr-green);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
+  .hero-title {
+    font-size: 1.75rem;
+  }
 
-.page-content p {
-  margin-bottom: 1.5rem;
-}
+  .hero-desc {
+    font-size: 1rem;
+    max-width: 100%;
+  }
 
-.page-content ul,
-.page-content ol {
-  padding-inline-start: 2rem;
-  margin-bottom: 1.5rem;
-}
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
 
-.page-content li {
-  margin-bottom: 0.5rem;
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .portfolio-grid,
+  .portfolio-grid-custom {
+    grid-template-columns: 1fr;
+  }
+
+  .certification-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrapper {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .markdown-content {
+    padding-inline: 1rem;
+  }
+
+  .post-header h1 {
+    font-size: 1.5rem;
+  }
 }

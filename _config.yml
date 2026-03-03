@@ -1,10 +1,12 @@
 title: "Khaled waleed | Marketing Communications student"
 description: "Portfolio & Blog"
-url: "https://khaled-wal.github.io/"
+url: "https://khaled-wal.github.io"
 baseurl: ""
 
-# CV Path
+# ─── EDIT HERE: Your CV PDF path ──────────────────────────────────────────
+# Upload your CV file to /assets/files/ and update the filename below
 cv_path: "/assets/files/KhaledWaleedCV.pdf"
+# ──────────────────────────────────────────────────────────────────────────
 
 # Collections
 collections:
@@ -37,12 +39,37 @@ defaults:
       type: case_studies
     values:
       layout: case_study
+      lang: "ar"
+  - scope:
+      path: "en"
+      type: case_studies
+    values:
+      layout: case_study
+      lang: "en"
   - scope:
       path: ""
       type: projects
     values:
       layout: case_study
+      lang: "ar"
+  - scope:
+      path: "en"
+      type: projects
+    values:
+      layout: case_study
+      lang: "en"
 
-# Build
+# Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+
+# Exclude development files from the _site output
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.sh"
+  - vendor/
+  - .jekyll-cache/
+  - .ruby-lsp/
+  - node_modules/

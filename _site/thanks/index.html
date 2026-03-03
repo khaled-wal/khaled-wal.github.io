@@ -10,21 +10,21 @@
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
-    <title>أعمالي | خالد هاشم</title>
+    <title>شكراً لتواصلك | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
     <!-- EDIT: Set 'description:' in each page's front-matter               -->
-    <meta name="description" content="استعرض دراسات الحالة والمشاريع التي أبدعتها خالد وليد في مجال التسويق والاتصال.">
+    <meta name="description" content="تم إرسال رسالتك بنجاح.">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
-    <link rel="canonical" href="http://localhost:4000/portfolio/">
+    <link rel="canonical" href="http://localhost:4000/thanks/">
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="أعمالي | خالد هاشم">
-    <meta property="og:description" content="استعرض دراسات الحالة والمشاريع التي أبدعتها خالد وليد في مجال التسويق والاتصال.">
-    <meta property="og:url" content="http://localhost:4000/portfolio/">
+    <meta property="og:title" content="شكراً لتواصلك | خالد هاشم">
+    <meta property="og:description" content="تم إرسال رسالتك بنجاح.">
+    <meta property="og:url" content="http://localhost:4000/thanks/">
     <meta property="og:locale" content="ar_SA">
     <meta property="og:image" content="http://localhost:4000/assets/images/LOGO.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
@@ -65,7 +65,7 @@
         <li><a
             href="/#cv-section">السيرة الذاتية</a></li>
         <li>
-          <!-- Language Switcher --><a href="/en/portfolio/" class="lang-toggle-btn"
+          <!-- Language Switcher --><a href="/en/thanks/" class="lang-toggle-btn"
             aria-label="Switch to English">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span>English</span>
@@ -87,57 +87,86 @@
 </header>
 
     <main id="main-content">
-        <section class="portfolio-page-section bg-light">
-  <div class="container">
-    <h1 class="portfolio-page-title">أعمالي</h1>
-    
-    <h2 class="portfolio-page-subtitle">دراسات الحالة</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <div class="card-placeholder">
-                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
-              </div>
-              
-          </div>
-          <div class="card-content">
-              <span class="category">العميل: علامة تجارية محلية للأزياء</span>
-              <h3>حملة السوشيال ميديا — الربع الأول 2025</h3>
-              <p>رفع الوعي بالعلامة التجارية وزيادة المبيعات الرقمية</p>
-              <a href="/portfolio/social-media-campaign-q1-2025/" class="read-more">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
-          </div>
-      </article>
-      
+        <section class="thanks-section bg-navy">
+    <div class="container thanks-inner">
+        <div class="thanks-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h1 class="thanks-title">شكراً لتواصلك!</h1>
+        <p class="thanks-message">
+            لقد تم إرسال رسالتك بنجاح، سأقوم بالرد عليك قريباً.
+        </p>
+        <a href="/" class="btn btn-primary thanks-btn">
+            <i class="fa-solid fa-house"></i>
+            العودة إلى الصفحة الرئيسية
+        </a>
     </div>
-
-    <h2 class="portfolio-page-subtitle">المشاريع</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <div class="card-placeholder">
-                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
-              </div>
-              
-          </div>
-          <div class="card-content">
-              <span class="category">المشاريع</span>
-              <h3>إعادة بناء وتنشيط متجر إكسسوارات إلكتروني</h3>
-              <p>تحسين الهوية البصرية وزيادة المبيعات عبر حملات تسويقية متكاملة.</p>
-              <a href="/portfolio/ecommerce-accessories/" class="read-more">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
-          </div>
-      </article>
-      
-    </div>
-
-  </div>
 </section>
 
+<style>
+    .thanks-section {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 1rem;
+    }
+
+    .thanks-inner {
+        text-align: center;
+        max-width: 560px;
+        margin: 0 auto;
+    }
+
+    .thanks-icon {
+        font-size: 5rem;
+        color: var(--clr-green, #2dd4bf);
+        margin-bottom: 1.5rem;
+        animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes pop-in {
+        from {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .thanks-title {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        color: #ffffff;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .thanks-message {
+        font-size: 1.1rem;
+        color: #cbd5e1;
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+    }
+
+    .thanks-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1rem;
+        padding: 0.85rem 2rem;
+        border-radius: 50px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .thanks-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(45, 212, 191, 0.4);
+    }
+</style>
     </main>
 
     <!-- ═══════════════════════════════════════════════════════════════════

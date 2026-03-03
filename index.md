@@ -2,32 +2,53 @@
 layout: default
 translation_key: home
 title: "الصفحة الرئيسية"
+description: "خالد وليد — طالب اتصالات تسويقية متخصص في صناعة المحتوى وتحليل البيانات وتجربة المستخدم."
 ---
 
-<!-- Hero Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ قسم الهيرو (Hero Section) — أعلى الصفحة ░░
+     ════════════════════════════════════════════════════
+     ✏️ ما يمكنك تعديله هنا:
+       - نص الشارة (badge):             السطر 12
+       - العنوان الرئيسي h1:            السطر 13
+       - الوصف القصير (hero-desc):      السطر 14
+       - نص زر "أعمالي السابقة":        السطر 16-17
+       - نص زر "تواصل":                 السطر 18
+       - صورة الملف الشخصي (profile):   السطر 24
+         (ضع صورتك في assets/images/ وعدّل اسمها)
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="hero" class="hero bg-navy">
     <div class="container hero-inner">
         <div class="hero-content">
+            <!-- ✏️ EDIT: نص الشارة الترحيبية -->
             <span class="badge">👋 مرحباً بك!</span>
+            <!-- ✏️ EDIT: العنوان الرئيسي — اسمك + لقبك -->
             <h1 class="hero-title">أنا خالد،<br><span class="highlight">طالب اتصالات تسويقية</span></h1>
+            <!-- ✏️ EDIT: الوصف المختصر تحت العنوان -->
             <p class="hero-desc">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. متخصص في الاتصال التسويقي | تحليل البيانات | تجربة المستخدم.</p>
             <div class="hero-actions">
-                <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-primary">أعمالي السابقة <i
-                        class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: الزر الأول يقود إلى صفحة الأعمال — لا تغيير في الرابط -->
+                <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-primary">أعمالي السابقة <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: الزر الثاني يقود لقسم التواصل في نفس الصفحة -->
                 <a href="#contact" class="btn btn-secondary">تواصل معي الآن</a>
             </div>
         </div>
-        <!-- Profile Image & Floating Badges -->
+        <!-- ✏️ EDIT: صورة الملف الشخصي -->
+        <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/MY PIC.PNG' | relative_url }}" alt="Khaled Waleed" class="profile-image">
+                <img src="{{ '/assets/images/profile.png' | relative_url }}" alt="خالد وليد" class="profile-image">
             </div>
         </div>
     </div>
 
-    <!-- Skills/Tools Horizontal Bar -->
+    <!-- ══════════════════════════════════════════════════════════════════
+         ░░ شريط المهارات (Skills Bar) ░░
+         ✏️ أضف أو عدّل مهاراتك بتكرار كتلة <div class="skill-item">
+         ══════════════════════════════════════════════════════════════════ -->
     <div class="container">
         <div class="skills-bar">
+            <!-- ✏️ EDIT: كل skill-item = أيقونة + نص المهارة -->
             <div class="skill-item">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span>صناعة المحتوى</span>
@@ -40,6 +61,12 @@ title: "الصفحة الرئيسية"
                 <i class="fa-solid fa-object-group"></i>
                 <span>تحسين محركات البحث SEO</span>
             </div>
+            <!-- أضف مهارة جديدة هنا:
+            <div class="skill-item">
+                <i class="fa-solid fa-ICON_NAME"></i>
+                <span>اسم المهارة</span>
+            </div>
+            -->
         </div>
     </div>
 </section>
@@ -47,18 +74,23 @@ title: "الصفحة الرئيسية"
 <!-- Gradient Divider -->
 <div class="section-divider bg-navy-to-light"></div>
 
-<!-- Portfolio Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ قسم الأعمال المميزة (Featured Portfolio) ░░
+     ════════════════════════════════════════════════
+     ✏️ هذا القسم يعرض أول عمل من كل مجموعة (_case_studies و _projects).
+     لإضافة عمل جديد: أضف ملف .md جديد في _case_studies/ أو _projects/
+     وستظهر أحدث الأعمال هنا تلقائياً.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="portfolio" class="portfolio bg-light">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title dark-text">{{ site.data.i18n.ar.featured_work }}</h2>
-            <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i
-                    class="fa-solid fa-arrow-left arrow-icon"></i></a>
+            <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
         </div>
         <div class="portfolio-grid">
             {% assign ar_case_studies = site.case_studies | where: "lang", "ar" %}
             {% assign ar_projects = site.projects | where: "lang", "ar" %}
-            
+
             {% assign featured_items = "" | split: "" %}
             {% if ar_case_studies.size > 0 %}{% assign featured_items = featured_items | push: ar_case_studies[0] %}{% endif %}
             {% if ar_projects.size > 0 %}{% assign featured_items = featured_items | push: ar_projects[0] %}{% endif %}
@@ -69,8 +101,8 @@ title: "الصفحة الرئيسية"
                     {% if item.image %}
                     <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
                     {% else %}
-                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; color: var(--clr-border);">
-                      <i class="fa-solid fa-briefcase fa-3x"></i>
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
                     </div>
                     {% endif %}
                 </div>
@@ -97,76 +129,146 @@ title: "الصفحة الرئيسية"
 <!-- Gradient Divider -->
 <div class="section-divider bg-light-to-navy"></div>
 
-<!-- Resume / Timeline Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ قسم السيرة الذاتية (CV / Resume Section) ░░
+     ════════════════════════════════════════════════
+     ✏️ ما يمكنك تعديله هنا:
+       - عنوان القسم الفرعي:            السطور أدناه
+       - الخبرات (timeline-item):       أضف/عدّل كتل timeline-item تحت "الخبرات"
+       - التعليم (timeline-item):       أضف/عدّل كتل timeline-item تحت "التعليم"
+       - الشهادات (cert-card):          أضف/عدّل كتل cert-card
+       - مسار ملف PDF:                  عدّل cv_path في _config.yml
+
+     💡 ملاحظة التصميم:
+       القسم له حد أقصى للارتفاع (max-height في style.css) يمنع التمدد المبالغ فيه.
+       عند إضافة خبرات كثيرة جداً، قد تحتاج لزيادة max-height في .cv-container.
+       التأثير الضبابي (gradient) وزر التحميل ثابتان دائماً في الأسفل.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="cv-section" class="resume bg-navy">
     <div class="container cv-container">
         <div class="cv-header-center">
+            <!-- ✏️ EDIT: عنوان قسم السيرة الذاتية -->
             <h2 class="section-title">السيرة الذاتية</h2>
+            <!-- ✏️ EDIT: الوصف المختصر للقسم -->
             <p class="section-desc">مسيرتي الأكاديمية والمهنية ترتكز على الشغف بالتعلم المستمر وتطوير الذات في مجالات الاتصال والتسويق.</p>
         </div>
 
         <div class="cv-grid">
-            <!-- Experience Column -->
+            <!-- ── عمود الخبرات ─────────────────────────────────── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> الخبرات</h3>
                 <div class="timeline">
+                    <!-- ✏️ EDIT: عنصر خبرة — كرّر هذه الكتلة لكل خبرة جديدة -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
                         <div class="timeline-date">2023 - الآن</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
                         <div class="timeline-role">أخصائي تسويق (عمل حر)</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
                         <div class="timeline-company">مستقل</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
                         <p>إدارة حملات تسويقية، بناء هوية بصرية، تحليل بيانات وتقارير أداء للعديد من المشاريع.</p>
                     </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">2023 - الآن</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">أخصائي تسويق (عمل حر)</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">مستقل</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>إدارة حملات تسويقية، بناء هوية بصرية، تحليل بيانات وتقارير أداء للعديد من المشاريع.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">2023 - الآن</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">أخصائي تسويق (عمل حر)</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">مستقل</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>إدارة حملات تسويقية، بناء هوية بصرية، تحليل بيانات وتقارير أداء للعديد من المشاريع.</p>
+                    </div>
+                    <!-- أضف خبرة جديدة هنا بنسخ الكتلة أعلاه -->
+                    
                 </div>
             </div>
 
-            <!-- Education Column -->
+            <!-- ── عمود التعليم ─────────────────────────────────── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
                 <div class="timeline">
+                    <!-- ✏️ EDIT: عنصر تعليمي — كرّر هذه الكتلة لكل درجة علمية -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: سنة التخرج أو الفترة -->
                         <div class="timeline-date">متوقع التخرج: 2026</div>
+                        <!-- ✏️ EDIT: الدرجة العلمية أو الشهادة -->
                         <div class="timeline-role">بكالوريوس اتصال تسويقي</div>
+                        <!-- ✏️ EDIT: اسم المؤسسة التعليمية -->
                         <div class="timeline-company">جامعة الإمام محمد بن سعود الإسلامية</div>
+                        <!-- ✏️ EDIT: تفاصيل إضافية -->
                         <p>أدرس حالياً في تخصص الاتصال التسويقي، واكتسبت مهارات قوية في العلاقات العامة، سلوك المستهلك، الحملات الإعلانية وصناعة المحتوى.</p>
                     </div>
+                    <!-- أضف تعليماً جديداً هنا بنسخ الكتلة أعلاه -->
                 </div>
             </div>
         </div>
 
-        <!-- Certifications -->
+        <!-- ── الشهادات ──────────────────────────────────────────── -->
         <div class="cv-certifications">
             <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
             <div class="certification-grid">
+                <!-- ✏️ EDIT: كرّر كتلة cert-card لكل شهادة -->
                 <div class="cert-card">
+                    <!-- ✏️ EDIT: اسم الشهادة -->
                     <h4>شهادة التسويق الرقمي</h4>
+                    <!-- ✏️ EDIT: الجهة المُصدِرة والسنة -->
                     <p>مقدمة من Google - 2024</p>
                 </div>
                 <div class="cert-card">
                     <h4>تحليل البيانات</h4>
                     <p>مقدمة من Meta - 2023</p>
                 </div>
+                <div class="cert-card">
+                    <h4>تحليل البيانات</h4>
+                    <p>مقدمة من Meta - 2023</p>
+                </div>
+                <!-- أضف شهادة جديدة هنا بنسخ cert-card أعلاه -->
             </div>
         </div>
 
-        <!-- Download CTA -->
+        <!-- زر تحميل السيرة الذاتية — ثابت فوق التأثير الضبابي -->
+        <!-- ✏️ EDIT: مسار الملف يُعدَّل في _config.yml (cv_path) -->
         <div class="cv-download-btn-wrapper">
-            <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" class="btn btn-primary download-cv-btn">
-                <i class="fa-solid fa-download"></i>
+            <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary download-cv-btn" aria-label="تحميل السيرة الذاتية (PDF)">
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
                 <span>تحميل السيرة الذاتية</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Contact Section -->
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ░░ قسم التواصل (Contact Section) ░░
+     ═════════════════════════════════════
+     ✏️ ما يمكنك تعديله هنا:
+       - بريدك الإلكتروني:              السطور أدناه (info-item)
+       - رابط LinkedIn:                 السطور أدناه (info-item)
+       - معرّف Formspree (action):      سطر <form action="...">
+         اذهب إلى https://formspree.io وأنشئ نموذجاً، ثم ضع الرابط هنا.
+     ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
     <div class="container contact-inner">
         <div class="contact-text">
+            <!-- ✏️ EDIT: عنوان ووصف قسم التواصل -->
             <h2 class="section-title">تواصل معي</h2>
             <p class="section-desc">أنا دائماً منفتح لمناقشة المشاريع الجديدة، الأفكار الإبداعية، والفرص التي يمكن أن نصنع من خلالها فرقاً معاً.</p>
             <div class="contact-info">
+                <!-- ✏️ EDIT: البريد الإلكتروني -->
                 <div class="info-item">
                     <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
                     <div>
@@ -174,18 +276,23 @@ title: "الصفحة الرئيسية"
                         <strong>Khaledwal20@hotmail.com</strong>
                     </div>
                 </div>
+                <!-- ✏️ EDIT: رابط LinkedIn -->
                 <div class="info-item">
                     <div class="icon-box"><i class="fa-brands fa-linkedin"></i></div>
                     <div>
                         <span>لينكد إن</span>
-                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank">in/khaledw-hashem</a></strong>
+                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer">in/khaledw-hashem</a></strong>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="contact-form-wrapper">
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- ✏️ EDIT: استبدل YOUR_FORM_ID برابط Formspree الخاص بك -->
+            <!-- مثال: action="https://formspree.io/f/xabc1234" -->
+            <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
+                <!-- Formspree custom redirect — do not remove this hidden field -->
+                <input type="hidden" name="_next" value="/thanks.html">
                 <div class="form-group">
                     <label for="name">الاسم الكامل</label>
                     <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" required>
@@ -198,8 +305,7 @@ title: "الصفحة الرئيسية"
                     <label for="message">الرسالة</label>
                     <textarea name="message" id="message" rows="5" placeholder="حدثني أكثر عن ما تود إنجازه..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary submit-btn">إرسال الرسالة <i
-                        class="fa-solid fa-paper-plane"></i></button>
+                <button type="submit" class="btn btn-primary submit-btn">إرسال الرسالة <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
     </div>

@@ -1,32 +1,56 @@
 ---
 layout: default
 ---
-<article class="case-study" style="padding-top: 120px;">
-    <header class="post-header" style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+{% assign current_lang = page.lang | default: 'ar' %}
+{% assign t = site.data.i18n[current_lang] %}
+
+<article class="case-study cs-header">
+
+    <!-- Case Study Title Banner -->
+    <header class="post-header">
         <div class="container">
-            <h1 style="color: var(--clr-white);">{{ page.title }}</h1>
+            <!-- Back link to portfolio list -->
+            <a href="{{ '/portfolio/' | relative_url }}" class="read-more"
+                style="margin-bottom:1rem; display:inline-flex;">
+                <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
+                {% if current_lang == 'en' %}Back to Portfolio{% else %}العودة إلى الأعمال{% endif %}
+            </a>
+            <h1>{{ page.title }}</h1>
         </div>
     </header>
 
-    <div class="case-study-summary"
-        style="max-width: 800px; margin: 2rem auto; padding: 0 20px; display: flex; gap: 2rem; flex-wrap: wrap; border-bottom: 1px solid var(--clr-border); padding-bottom: 2rem;">
-        <div class="summary-item" style="display: flex; flex-direction: column;">
-            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">Client</strong>
-            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.client }}</span>
+    <!-- ═══ Meta Bar: Client / Objective / ROI ════════════════════════════
+       EDIT: These values come from the front-matter of each case study file.
+       Example front-matter fields: client, objective, roi (optional)
+       ══════════════════════════════════════════════════════════════════ -->
+    <div class="cs-meta-bar">
+        {% if page.client %}
+        <div class="cs-meta-item">
+            <strong class="cs-meta-label">{% if current_lang == 'en' %}Client{% else %}العميل{% endif %}</strong>
+            <span class="cs-meta-value">{{ page.client }}</span>
         </div>
-        <div class="summary-item" style="display: flex; flex-direction: column;">
-            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">Objective</strong>
-            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.objective }}</span>
+        {% endif %}
+        {% if page.objective %}
+        <div class="cs-meta-item">
+            <strong class="cs-meta-label">{% if current_lang == 'en' %}Objective{% else %}الهدف{% endif %}</strong>
+            <span class="cs-meta-value">{{ page.objective }}</span>
         </div>
+        {% endif %}
         {% if page.roi %}
-        <div class="summary-roi" style="display: flex; flex-direction: column;">
-            <strong style="color: var(--clr-green); font-size: 0.9rem; text-transform: uppercase;">ROI</strong>
-            <span style="color: var(--clr-white); font-weight: 600; font-size: 1.1rem;">{{ page.roi }}</span>
+        <div class="cs-meta-item">
+            <strong class="cs-meta-label">{% if current_lang == 'en' %}ROI{% else %}العائد{% endif %}</strong>
+            <span class="cs-meta-value">{{ page.roi }}</span>
         </div>
         {% endif %}
     </div>
 
-    <div class="markdown-content" style="margin-top: 2rem;">
+    <!-- ═══ Main Content ══════════════════════════════════════════════════
+       EDIT: Write the body of each case study / project in Markdown below
+       the front-matter dashes (---) in the source .md file.
+       See _case_studies/ and _projects/ folders.
+       ══════════════════════════════════════════════════════════════════ -->
+    <div class="markdown-content">
         {{ content }}
     </div>
+
 </article>

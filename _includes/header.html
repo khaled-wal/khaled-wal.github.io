@@ -11,11 +11,11 @@
 
   <div class="container header-inner">
     <a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="logo">
-      <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="Logo">
+      <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo">
       {{ t.site_name }}<span>.</span>
     </a>
 
-    <nav class="main-nav" id="main-nav">
+    <nav class="main-nav" id="main-nav" aria-label="{% if is_en %}Main navigation{% else %}التنقل الرئيسي{% endif %}">
       <ul>
         <li><a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{{ t.home
             }}</a></li>
@@ -26,7 +26,7 @@
             href="{% if is_en %}{{ '/en/#cv-section' | relative_url }}{% else %}{{ '/#cv-section' | relative_url }}{% endif %}">{{
             t.cv }}</a></li>
         <li>
-          <!-- Language Switcher Logic -->
+          <!-- Language Switcher -->
           {%- if is_en -%}
           {%- assign alt_lang = 'ar' -%}
           {%- assign fallback_url = page.url | remove_first: '/en' | relative_url -%}
@@ -39,7 +39,6 @@
           {%- assign alt_url = fallback_url -%}
 
           {%- if page.translation_key -%}
-          <!-- Search collections for matching translation key -->
           {%- assign all_docs = site.documents | concat: site.pages -%}
           {%- for doc in all_docs -%}
           {%- if doc.translation_key == page.translation_key and doc.lang == alt_lang -%}
@@ -49,8 +48,10 @@
           {%- endfor -%}
           {%- endif -%}
 
-          <a href="{{ alt_url }}" class="lang-toggle-btn">
-            <i class="fa-solid fa-globe"></i> <span>{{ t.switch_lang }}</span>
+          <a href="{{ alt_url }}" class="lang-toggle-btn"
+            aria-label="{% if is_en %}Switch to Arabic{% else %}Switch to English{% endif %}">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>{{ t.switch_lang }}</span>
           </a>
         </li>
       </ul>
@@ -59,8 +60,11 @@
     <a href="{% if is_en %}{{ '/en/#contact' | relative_url }}{% else %}{{ '/#contact' | relative_url }}{% endif %}"
       class="btn btn-primary cta-btn">{{ t.contact }}</a>
 
-    <button id="mobile-menu-toggle" class="menu-toggle" aria-label="Toggle Menu">
-      <i class="fa-solid fa-bars"></i>
+    <button id="mobile-menu-toggle" class="menu-toggle"
+      aria-label="{% if is_en %}Toggle navigation menu{% else %}فتح/إغلاق القائمة{% endif %}" aria-expanded="false"
+      aria-controls="main-nav">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
   </div>
+
 </header>
