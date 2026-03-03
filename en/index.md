@@ -285,10 +285,9 @@ description: "Khaled Waleed — Marketing Communications student specialising in
 
         <div class="contact-form-wrapper">
             <!-- ✏️ EDIT: Replace YOUR_FORM_ID with your Formspree form ID -->
-            <!-- Example: action="https://formspree.io/f/xabc1234" -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
-                <input type="hidden" name="_next" value="/en/thanks.html">
+                <input type="hidden" name="_next" value="https://khaled-wal.github.io/en/thanks/">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name" required>
