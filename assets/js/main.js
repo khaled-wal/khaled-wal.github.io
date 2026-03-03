@@ -14,6 +14,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // ── Contact form — AJAX submit + custom redirect ─────────────────────
+  // Submits via fetch() so we control the redirect ourselves,
+  // bypassing Formspree's default thank-you page entirely.
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      // Visual feedback while sending
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          // Redirect to the correct thanks page based on language
+          const isEnglish = window.location.pathname.startsWith('/en');
+          window.location.href = isEnglish
+            ? 'https://khaled-wal.github.io/en/thanks/'
+            : 'https://khaled-wal.github.io/thanks/';
+        } else {
+          // Server returned an error — restore button and alert user
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          alert('Something went wrong. Please try again or email me directly.');
+        }
+      } catch (err) {
+        // Network error
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        alert('Could not send your message. Please check your connection.');
+      }
+    });
+  }
+
   // ── Mobile menu toggle ───────────────────────────────────────────────
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const mainNav = document.getElementById('main-nav');
