@@ -1221,7 +1221,7 @@ html[dir="ltr"] .arrow-icon {
 
   /* Reduce cv-container height for mobile but keep the gradient */
   .cv-container {
-    max-height: 560px;
+    max-height: 650px;
   }
 
   /* Contact form */
