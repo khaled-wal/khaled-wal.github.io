@@ -92,4 +92,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── CV Carousel (mobile only): 3 slides — Experience, Education, Certifications ──
+  // On mobile (≤768px), pulls .cv-certifications out of its parent cv-column
+  // and appends it to .cv-grid as a 3rd independent scroll slide.
+  // On desktop resize, it is moved back inside the Education column.
+  const cvGrid = document.querySelector('.cv-grid');
+  const cvContainer = document.querySelector('.cv-container');
+  const educationColumn = cvGrid ? cvGrid.querySelectorAll('.cv-column')[1] : null;
+  const certSection = educationColumn ? educationColumn.querySelector('.cv-certifications') : null;
+
+  let dotsWrapper = null;
+  let isMobileCarousel = false;
+
+  function buildCarousel() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile && !isMobileCarousel && certSection && cvGrid) {
+      // Move certifications out of Education column → becomes 3rd slide
+      certSection.classList.add('cv-carousel-slide');
+      cvGrid.appendChild(certSection);
+      isMobileCarousel = true;
+      renderDots();
+    } else if (!isMobile && isMobileCarousel && certSection && educationColumn) {
+      // Restore certifications back inside Education column
+      certSection.classList.remove('cv-carousel-slide');
+      educationColumn.appendChild(certSection);
+      isMobileCarousel = false;
+      if (dotsWrapper) dotsWrapper.remove();
+      dotsWrapper = null;
+    }
+  }
+
+  function renderDots() {
+    if (dotsWrapper) dotsWrapper.remove();
+
+    const slides = cvGrid.querySelectorAll('.cv-column, .cv-certifications.cv-carousel-slide');
+    dotsWrapper = document.createElement('div');
+    dotsWrapper.className = 'cv-dots';
+
+    slides.forEach((slide, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'cv-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        cvGrid.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
+      });
+      dotsWrapper.appendChild(dot);
+    });
+
+    cvContainer.appendChild(dotsWrapper);
+
+    // Update active dot on scroll
+    cvGrid.addEventListener('scroll', () => {
+      const dots = dotsWrapper.querySelectorAll('.cv-dot');
+      const allSlides = cvGrid.querySelectorAll('.cv-column, .cv-certifications.cv-carousel-slide');
+      const scrollMid = cvGrid.scrollLeft + cvGrid.clientWidth / 2;
+      let activeIndex = 0;
+      allSlides.forEach((s, i) => {
+        if (s.offsetLeft <= scrollMid) activeIndex = i;
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+    }, { passive: true });
+  }
+
+  if (cvGrid && cvContainer && certSection) {
+    buildCarousel();
+    window.addEventListener('resize', buildCarousel, { passive: true });
+  }
+
 });

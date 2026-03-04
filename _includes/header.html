@@ -25,6 +25,11 @@
         <li><a
             href="{% if is_en %}{{ '/en/#cv-section' | relative_url }}{% else %}{{ '/#cv-section' | relative_url }}{% endif %}">{{
             t.cv }}</a></li>
+        <!-- Contact CTA — only visible in the mobile hamburger menu -->
+        <li class="mobile-cta-item">
+          <a href="{% if is_en %}{{ '/en/#contact' | relative_url }}{% else %}{{ '/#contact' | relative_url }}{% endif %}"
+            class="btn btn-primary">{{ t.contact }}</a>
+        </li>
         <li>
           <!-- Language Switcher -->
           {%- if is_en -%}

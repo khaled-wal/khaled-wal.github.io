@@ -66,6 +66,10 @@ html[lang="en"] {
 
 html {
   scroll-behavior: smooth;
+  /* overflow-x: clip prevents horizontal scrollbar WITHOUT breaking smooth-scroll.
+     (overflow-x: hidden on body is a known Chrome/Safari bug that disables
+     scroll-behavior: smooth on desktop — using clip here avoids that.) */
+  overflow-x: clip;
 }
 
 body {
@@ -73,7 +77,6 @@ body {
   color: var(--clr-text-light);
   background-color: var(--clr-navy);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 a {
@@ -286,6 +289,16 @@ section {
 .nav-open ul {
   flex-direction: column;
   gap: 1.25rem;
+}
+
+/* Mobile Contact CTA in nav — hidden on desktop (desktop uses .cta-btn) */
+.mobile-cta-item {
+  display: none;
+}
+
+.mobile-cta-item .btn {
+  width: 100%;
+  justify-content: center;
 }
 
 /* ==========================================================================
@@ -645,6 +658,18 @@ html[dir="rtl"] .cv-download-btn-wrapper {
   z-index: 2;
 }
 
+/* When Certifications are nested inside a cv-column, force single-column grid
+   so cards stack neatly and match the Experience column's visual height */
+.cv-column .cv-certifications .certification-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Dot indicators: hidden on desktop, shown only by mobile media query */
+.cv-dots {
+  display: none;
+}
+
 .certification-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -734,11 +759,16 @@ html[dir="rtl"] .cv-download-btn-wrapper {
 /* ==========================================================================
    Contact Section
    ========================================================================== */
+/* Single-column layout: form always on top, alternatives below.
+   DOM order in index.md controls the visual order (form-wrapper first). */
 .contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 680px;
+  margin-inline: auto;
 }
+
 
 .contact-info {
   margin-top: 3rem;
@@ -819,6 +849,72 @@ html[dir="rtl"] .cv-download-btn-wrapper {
   color: var(--clr-muted);
   opacity: 0.7;
 }
+
+.submit-btn {
+  width: 100%;
+}
+
+/* ── Contact: direct-link alternatives ──────────────────────────────── */
+.contact-alternatives {
+  margin-top: 2rem;
+}
+
+.contact-alternatives-label {
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.contact-alternatives-label::before,
+.contact-alternatives-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--clr-border);
+}
+
+.direct-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-pill);
+  color: var(--clr-text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.direct-link i {
+  color: var(--clr-green);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.direct-link:hover {
+  border-color: var(--clr-green);
+  color: var(--clr-green);
+  transform: translateX(-4px);
+}
+
+html[dir="ltr"] .direct-link:hover {
+  transform: translateX(4px);
+}
+
 
 /* ==========================================================================
    Footer
@@ -1179,6 +1275,11 @@ html[dir="ltr"] .arrow-icon {
     display: none;
   }
 
+  /* Show the Contact CTA inside the hamburger menu */
+  .mobile-cta-item {
+    display: block;
+  }
+
   /* Hero */
   .hero-title {
     font-size: 2rem;
@@ -1213,20 +1314,93 @@ html[dir="ltr"] .arrow-icon {
     margin-top: 2rem;
   }
 
-  /* CV section */
-  .cv-grid {
-    flex-direction: column;
-    gap: 2rem;
+  /* CV section — horizontal swipe carousel on mobile */
+  .cv-container {
+    /* Allow the inner grid to scroll horizontally while
+       keeping the fade overlay + download btn fixed */
+    overflow-x: visible;
+    max-height: 680px;
   }
 
-  /* Reduce cv-container height for mobile but keep the gradient */
-  .cv-container {
-    max-height: 560px;
+  .cv-grid {
+    /* Convert to horizontal scroll-snap carousel */
+    flex-direction: row;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Hide the scrollbar visually but keep it functional */
+    scrollbar-width: none;
+    padding-bottom: 2.5rem;
+    /* space for dot indicators */
+  }
+
+  .cv-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cv-column {
+    /* Each column = one full slide */
+    min-width: 88%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding-inline-end: 1.5rem;
+  }
+
+  /* Make certifications a 3rd independent carousel slide on mobile.
+     Extract it visually from inside its parent cv-column:
+     we treat it as a direct flex child of .cv-grid (JS moves it at runtime). */
+  .cv-certifications.cv-carousel-slide {
+    min-width: 88%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding-inline-end: 1.5rem;
+    /* Reset the margin-top that was set for desktop nesting */
+    margin-top: 0;
+  }
+
+  /* Swipe dot indicators */
+  .cv-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    position: absolute;
+    bottom: 5.5rem;
+    /* sits above the download button */
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  html[dir="rtl"] .cv-dots {
+    transform: translateX(50%);
+  }
+
+  .cv-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clr-border);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .cv-dot.active {
+    background: var(--clr-green);
+    transform: scale(1.3);
   }
 
   /* Contact form */
   .contact-form-wrapper {
     padding: 1.5rem 1rem;
+  }
+
+  /* On mobile: single-column layout, form on top (primary), alternatives below */
+  .contact-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "form" "info";
+    gap: 2rem;
   }
 
   /* Portfolio page */

@@ -64,6 +64,11 @@
             href="/portfolio/">أعمالي</a></li>
         <li><a
             href="/#cv-section">السيرة الذاتية</a></li>
+        <!-- Contact CTA — only visible in the mobile hamburger menu -->
+        <li class="mobile-cta-item">
+          <a href="/#contact"
+            class="btn btn-primary">تواصل معي</a>
+        </li>
         <li>
           <!-- Language Switcher --><a href="/en/" class="lang-toggle-btn"
             aria-label="Switch to English">
@@ -110,9 +115,9 @@
             <p class="hero-desc">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. متخصص في الاتصال التسويقي | تحليل البيانات | تجربة المستخدم.</p>
             <div class="hero-actions">
                 <!-- ✏️ EDIT: الزر الأول يقود إلى صفحة الأعمال — لا تغيير في الرابط -->
-                <a href="/portfolio/" class="btn btn-primary">أعمالي السابقة <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
-                <!-- ✏️ EDIT: الزر الثاني يقود لقسم التواصل في نفس الصفحة -->
-                <a href="#contact" class="btn btn-secondary">تواصل معي الآن</a>
+                <a href="/portfolio/" class="btn btn-primary">اكتشف أعمالي <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: الزر الثاني يفتح السيرة الذاتية PDF -->
+                <a href="/assets/files/KhaledWaleedCV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> تحميل السيرة الذاتية</a>
             </div>
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
@@ -293,7 +298,7 @@
                 </div>
             </div>
 
-            <!-- ── عمود التعليم ─────────────────────────────────── -->
+            <!-- ── عمود التعليم والشهادات ─────────────────────────────── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
                 <div class="timeline">
@@ -311,29 +316,29 @@
                     </div>
                     <!-- أضف تعليماً جديداً هنا بنسخ الكتلة أعلاه -->
                 </div>
-            </div>
-        </div>
 
-        <!-- ── الشهادات ──────────────────────────────────────────── -->
-        <div class="cv-certifications">
-            <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
-            <div class="certification-grid">
-                <!-- ✏️ EDIT: كرّر كتلة cert-card لكل شهادة -->
-                <div class="cert-card">
-                    <!-- ✏️ EDIT: اسم الشهادة -->
-                    <h4>شهادة التسويق الرقمي</h4>
-                    <!-- ✏️ EDIT: الجهة المُصدِرة والسنة -->
-                    <p>مقدمة من Google - 2024</p>
+                <!-- ── الشهادات (داخل عمود التعليم لتوازن العمودين) ────── -->
+                <div class="cv-certifications">
+                    <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
+                    <div class="certification-grid">
+                        <!-- ✏️ EDIT: كرّر كتلة cert-card لكل شهادة -->
+                        <div class="cert-card">
+                            <!-- ✏️ EDIT: اسم الشهادة -->
+                            <h4>شهادة التسويق الرقمي</h4>
+                            <!-- ✏️ EDIT: الجهة المُصدِرة والسنة -->
+                            <p>مقدمة من Google - 2024</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>تحليل البيانات</h4>
+                            <p>مقدمة من Meta - 2023</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>تحليل البيانات</h4>
+                            <p>مقدمة من Meta - 2023</p>
+                        </div>
+                        <!-- أضف شهادة جديدة هنا بنسخ cert-card أعلاه -->
+                    </div>
                 </div>
-                <div class="cert-card">
-                    <h4>تحليل البيانات</h4>
-                    <p>مقدمة من Meta - 2023</p>
-                </div>
-                <div class="cert-card">
-                    <h4>تحليل البيانات</h4>
-                    <p>مقدمة من Meta - 2023</p>
-                </div>
-                <!-- أضف شهادة جديدة هنا بنسخ cert-card أعلاه -->
             </div>
         </div>
 
@@ -352,46 +357,30 @@
      ░░ قسم التواصل (Contact Section) ░░
      ═════════════════════════════════════
      ✏️ ما يمكنك تعديله هنا:
-       - بريدك الإلكتروني:              السطور أدناه (info-item)
-       - رابط LinkedIn:                 السطور أدناه (info-item)
+       - بريدك الإلكتروني:              رابط direct-link (الإيميل)
+       - رابط LinkedIn:                 رابط direct-link (لينكدإن)
        - معرّف Formspree (action):      سطر <form action="...">
-         اذهب إلى https://formspree.io وأنشئ نموذجاً، ثم ضع الرابط هنا.
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
     <div class="container contact-inner">
-        <div class="contact-text">
-            <!-- ✏️ EDIT: عنوان ووصف قسم التواصل -->
+
+        <!-- 1. العنوان والوصف -->
+        <div class="contact-header">
             <h2 class="section-title">تواصل معي</h2>
             <p class="section-desc">أنا دائماً منفتح لمناقشة المشاريع الجديدة، الأفكار الإبداعية، والفرص التي يمكن أن نصنع من خلالها فرقاً معاً.</p>
-            <div class="contact-info">
-                <!-- ✏️ EDIT: البريد الإلكتروني -->
-                <div class="info-item">
-                    <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
-                    <div>
-                        <span>البريد الإلكتروني</span>
-                        <strong>Khaledwal20@hotmail.com</strong>
-                    </div>
-                </div>
-                <!-- ✏️ EDIT: رابط LinkedIn -->
-                <div class="info-item">
-                    <div class="icon-box"><i class="fa-brands fa-linkedin"></i></div>
-                    <div>
-                        <span>لينكد إن</span>
-                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer">in/khaledw-hashem</a></strong>
-                    </div>
-                </div>
-            </div>
         </div>
 
+        <!-- 2. نموذج الإرسال (الخيار الأساسي) -->
         <div class="contact-form-wrapper">
             <!-- ✏️ EDIT: استبدل YOUR_FORM_ID برابط Formspree الخاص بك -->
             <!-- مثال: action="https://formspree.io/f/xabc1234" -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
                 <input type="hidden" name="_next" value="https://khaled-wal.github.io/thanks/" />
+                <div class="form-group">
                     <label for="name">الاسم الكامل</label>
                     <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" required="" />
-                &lt;/div&gt;
+                </div>
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني</label>
                     <input type="email" name="email" id="email" placeholder="البريد الإلكتروني الخاص بك" required="" />
@@ -403,8 +392,32 @@
                 <button type="submit" class="btn btn-primary submit-btn">إرسال الرسالة <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
+
+        <!-- 3. بدائل التواصل المباشر (الخيار الثانوي) -->
+        <div class="contact-alternatives">
+            <p class="contact-alternatives-label">أو تواصل مباشرة</p>
+            <div class="direct-links">
+                <!-- ✏️ EDIT: البريد الإلكتروني -->
+                <a href="mailto:Khaledwal20@hotmail.com" class="direct-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    Khaledwal20@hotmail.com
+                </a>
+                <!-- ✏️ EDIT: رابط LinkedIn -->
+                <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer" class="direct-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    in/khaledw-hashem
+                </a>
+                <!-- ✏️ EDIT: رابط X (تويتر) -->
+                <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" class="direct-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    @K72A76ED
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
+
 
     </main>
 

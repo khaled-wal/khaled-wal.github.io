@@ -27,9 +27,9 @@ description: "Khaled Waleed — Marketing Communications student specialising in
             <p class="hero-desc">Turning data into results-driven marketing strategies. Marketing Communications Specialist | Data Analysis | UX.</p>
             <div class="hero-actions">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
-                <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">My Portfolio <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
-                <!-- ✏️ EDIT: Secondary CTA — links to contact section below -->
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                <!-- ✏️ EDIT: Secondary CTA — opens CV PDF in a new tab -->
+                <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
@@ -192,7 +192,7 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                 </div>
             </div>
 
-            <!-- ── Education Column ──────────────────────────── -->
+            <!-- ── Education + Certifications Column (merged for visual balance) ── -->
             <div class="cv-column">
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
                 <div class="timeline">
@@ -210,29 +210,29 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                     </div>
                     <!-- Add new education here by copying the block above -->
                 </div>
-            </div>
-        </div>
 
-        <!-- ── Certifications ──────────────────────────────── -->
-        <div class="cv-certifications">
-            <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
-            <div class="certification-grid">
-                <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
-                <div class="cert-card">
-                    <!-- ✏️ EDIT: Certificate name -->
-                    <h4>Digital Marketing Certificate</h4>
-                    <!-- ✏️ EDIT: Issuer and year -->
-                    <p>Google - 2024</p>
+                <!-- ── Certifications (inside Education column for visual balance) ── -->
+                <div class="cv-certifications">
+                    <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+                    <div class="certification-grid">
+                        <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
+                        <div class="cert-card">
+                            <!-- ✏️ EDIT: Certificate name -->
+                            <h4>Digital Marketing Certificate</h4>
+                            <!-- ✏️ EDIT: Issuer and year -->
+                            <p>Google - 2024</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>Data Analytics</h4>
+                            <p>Meta - 2023</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>Data Analytics</h4>
+                            <p>Meta - 2023</p>
+                        </div>
+                        <!-- Add new cert here by copying a cert-card block above -->
+                    </div>
                 </div>
-                <div class="cert-card">
-                    <h4>Data Analytics</h4>
-                    <p>Meta - 2023</p>
-                </div>
-                <div class="cert-card">
-                    <h4>Data Analytics</h4>
-                    <p>Meta - 2023</p>
-                </div>
-                <!-- Add new cert here by copying a cert-card block above -->
             </div>
         </div>
 
@@ -251,40 +251,23 @@ description: "Khaled Waleed — Marketing Communications student specialising in
      ░░ CONTACT SECTION ░░
      ═════════════════════════════════════════════════
      ✏️ EDIT HERE:
-       - Your email address:   update the <strong> tag and mailto: link
-       - LinkedIn URL + label: update the <a href="..."> link
-       - Formspree form ID:    replace YOUR_FORM_ID in the <form action>
-         Go to https://formspree.io, create a form, copy the URL here.
+       - Email address:  update the direct-link href
+       - LinkedIn URL:   update the direct-link href
+       - Formspree ID:   replace the form action URL
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
     <div class="container contact-inner">
-        <div class="contact-text">
-            <!-- ✏️ EDIT: Section heading and description -->
+
+        <!-- 1. Heading and description -->
+        <div class="contact-header">
             <h2 class="section-title">Contact Me</h2>
             <p class="section-desc">I am always open to discussing new projects, creative ideas or opportunities to make a difference together.</p>
-
-            <div class="contact-info">
-                <!-- ✏️ EDIT: Your email address -->
-                <div class="info-item">
-                    <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
-                    <div>
-                        <span>Email Address</span>
-                        <strong>Khaledwal20@hotmail.com</strong>
-                    </div>
-                </div>
-                <!-- ✏️ EDIT: Your LinkedIn profile URL and display name -->
-                <div class="info-item">
-                    <div class="icon-box"><i class="fa-brands fa-linkedin"></i></div>
-                    <div>
-                        <span>LinkedIn</span>
-                        <strong dir="ltr"><a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer">in/khaledw-hashem</a></strong>
-                    </div>
-                </div>
-            </div>
         </div>
 
+        <!-- 2. Contact form (primary action) -->
         <div class="contact-form-wrapper">
             <!-- ✏️ EDIT: Replace YOUR_FORM_ID with your Formspree form ID -->
+            <!-- Example: action="https://formspree.io/f/xabc1234" -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
                 <input type="hidden" name="_next" value="https://khaled-wal.github.io/en/thanks/">
@@ -303,5 +286,29 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                 <button type="submit" class="btn btn-primary submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
+
+        <!-- 3. Direct contact alternatives (secondary) -->
+        <div class="contact-alternatives">
+            <p class="contact-alternatives-label">Or reach me directly</p>
+            <div class="direct-links">
+                <!-- ✏️ EDIT: Your email address -->
+                <a href="mailto:Khaledwal20@hotmail.com" class="direct-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    Khaledwal20@hotmail.com
+                </a>
+                <!-- ✏️ EDIT: Your LinkedIn profile URL -->
+                <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer" class="direct-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    in/khaledw-hashem
+                </a>
+                <!-- ✏️ EDIT: X (Twitter) profile URL -->
+                <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" class="direct-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    @K72A76ED
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
+
