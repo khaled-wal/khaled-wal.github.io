@@ -14,6 +14,7 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
     <div class="portfolio-grid-custom">
       {% assign en_case_studies = site.case_studies | where: "lang", "en" %}
       {% for item in en_case_studies %}
+      <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
       <article class="portfolio-card">
           <div class="card-image">
               {% if item.image %}
@@ -28,9 +29,10 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
               <span class="category">{{ site.data.i18n.en.client }} {{ item.client }}</span>
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-              <a href="{{ item.url | relative_url }}" class="read-more">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+              <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
           </div>
       </article>
+      </a>
       {% else %}
       <p>No case studies available yet.</p>
       {% endfor %}
@@ -40,6 +42,7 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
     <div class="portfolio-grid-custom">
       {% assign en_projects = site.projects | where: "lang", "en" %}
       {% for item in en_projects %}
+      <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
       <article class="portfolio-card">
           <div class="card-image">
               {% if item.image %}
@@ -54,9 +57,10 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
               <span class="category">{{ site.data.i18n.en.projects }}</span>
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-              <a href="{{ item.url | relative_url }}" class="read-more">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+              <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
           </div>
       </article>
+      </a>
       {% else %}
       <p>No projects available yet.</p>
       {% endfor %}

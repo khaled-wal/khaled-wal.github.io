@@ -473,10 +473,49 @@ section {
   font-weight: 800;
 }
 
+/* Counter badge next to 'View All' button */
+.view-all-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-direction: row;
+}
+
+.portfolio-counter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.85rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--clr-green);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
+}
+
+/* ── Full-card clickable link wrapper ──────────────────────────────── */
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  /* Stretch to fill the grid cell so the card occupies the full height */
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.card-link:focus-visible {
+  outline: 2px solid var(--clr-green);
+  outline-offset: 3px;
+  border-radius: var(--radius-lg);
 }
 
 .portfolio-card {
@@ -486,11 +525,14 @@ section {
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-smooth);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  height: 100%;
 }
 
+.card-link:hover .portfolio-card,
 .portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: var(--shadow-md), 0 0 24px rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.2);
 }
 
 .card-image {

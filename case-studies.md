@@ -14,6 +14,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
     <div class="portfolio-grid-custom">
       {% assign ar_case_studies = site.case_studies | where: "lang", "ar" %}
       {% for item in ar_case_studies %}
+      <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
       <article class="portfolio-card">
           <div class="card-image">
               {% if item.image %}
@@ -28,9 +29,10 @@ description: "استعرض دراسات الحالة والمشاريع التي
               <span class="category">{{ site.data.i18n.ar.client }} {{ item.client }}</span>
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-              <a href="{{ item.url | relative_url }}" class="read-more">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
           </div>
       </article>
+      </a>
       {% else %}
       <p>لا توجد دراسات حالة حالياً.</p>
       {% endfor %}
@@ -40,6 +42,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
     <div class="portfolio-grid-custom">
       {% assign ar_projects = site.projects | where: "lang", "ar" %}
       {% for item in ar_projects %}
+      <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
       <article class="portfolio-card">
           <div class="card-image">
               {% if item.image %}
@@ -54,9 +57,10 @@ description: "استعرض دراسات الحالة والمشاريع التي
               <span class="category">{{ site.data.i18n.ar.projects }}</span>
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-              <a href="{{ item.url | relative_url }}" class="read-more">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
           </div>
       </article>
+      </a>
       {% else %}
       <p>لا توجد مشاريع حالياً.</p>
       {% endfor %}

@@ -13,6 +13,7 @@ ar:
   latest_articles: "أحدث المقالات"
   latest_case_studies: "أحدث دراسات الحالة"
   client: "العميل:"
+  portfolio_count_label: "أعمال متخصصة"
 
 # English UI Strings
 en:
@@ -29,3 +30,4 @@ en:
   latest_articles: "Latest Articles"
   latest_case_studies: "Latest Case Studies"
   client: "Client:"
+  portfolio_count_label: "Specialised Works"

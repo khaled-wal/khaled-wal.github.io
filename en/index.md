@@ -83,7 +83,13 @@ description: "Khaled Waleed — Marketing Communications student specialising in
     <div class="container">
         <div class="section-header">
             <h2 class="section-title dark-text">{{ site.data.i18n.en.featured_work }}</h2>
-            <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+            {% assign en_all_works = site.case_studies | where: "lang", "en" %}
+            {% assign en_all_projects = site.projects | where: "lang", "en" %}
+            {% assign en_total = en_all_works.size | plus: en_all_projects.size %}
+            <div class="view-all-group">
+                <span class="portfolio-counter-badge">+{{ en_total }} {{ site.data.i18n.en.portfolio_count_label }}</span>
+                <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+            </div>
         </div>
 
         <div class="portfolio-grid">
@@ -95,6 +101,7 @@ description: "Khaled Waleed — Marketing Communications student specialising in
             {% if en_projects.size > 0 %}{% assign featured_items = featured_items | push: en_projects[0] %}{% endif %}
 
             {% for item in featured_items %}
+            <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
                 <div class="card-image">
                     {% if item.image %}
@@ -115,9 +122,10 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                     </span>
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                    <a href="{{ item.url | relative_url }}" class="read-more">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
                 </div>
             </article>
+            </a>
             {% else %}
             <p>No work yet.</p>
             {% endfor %}
