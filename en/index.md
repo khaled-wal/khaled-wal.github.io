@@ -2,7 +2,7 @@
 layout: default
 translation_key: home
 title: "Home"
-description: "Khaled Waleed — Marketing Communications student specialising in content creation, data analysis, and UX."
+description: "Khaled Hashem — MarCom Student | Interested in branding and consumer behavior analysis"
 ---
 
 <!-- ══════════════════════════════════════════════════════════════════════════
@@ -22,9 +22,9 @@ description: "Khaled Waleed — Marketing Communications student specialising in
             <!-- ✏️ EDIT: Welcome badge text -->
             <span class="badge">👋 Welcome!</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title">I'm Khaled,<br><span class="highlight">Marketing Student</span></h1>
+            <h1 class="hero-title">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
-            <p class="hero-desc">Turning data into results-driven marketing strategies. Marketing Communications Specialist | Data Analysis | UX.</p>
+            <p class="hero-desc">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
             <div class="hero-actions">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
@@ -154,97 +154,9 @@ description: "Khaled Waleed — Marketing Communications student specialising in
         <div class="cv-header-center">
             <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Resume</h2>
-            <p class="section-desc">My academic and professional journey is based on a passion for continuous learning and self-development within communications and marketing.</p>
+            <p class="section-desc">My academic and professional journey is based on a passion for continuous learning and self-development in the field of marketing and strategic planning.</p>
         </div>
-
-        <div class="cv-grid">
-            <!-- ── Experience Column ─────────────────────────── -->
-            <div class="cv-column">
-                <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
-                <div class="timeline">
-                    <!-- ✏️ EDIT: Duplicate this block for each new role -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">2023 - Present</div>
-                        <!-- ✏️ EDIT: Job title -->
-                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
-                        <!-- ✏️ EDIT: Company / client name -->
-                        <div class="timeline-company">Freelance</div>
-                        <!-- ✏️ EDIT: Brief description of responsibilities -->
-                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">2023 - Present</div>
-                        <!-- ✏️ EDIT: Job title -->
-                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
-                        <!-- ✏️ EDIT: Company / client name -->
-                        <div class="timeline-company">Freelance</div>
-                        <!-- ✏️ EDIT: Brief description of responsibilities -->
-                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">2023 - Present</div>
-                        <!-- ✏️ EDIT: Job title -->
-                        <div class="timeline-role">Marketing Specialist (Freelance)</div>
-                        <!-- ✏️ EDIT: Company / client name -->
-                        <div class="timeline-company">Freelance</div>
-                        <!-- ✏️ EDIT: Brief description of responsibilities -->
-                        <p>Managing marketing campaigns, building brand identities, and analyzing performance data for various projects.</p>
-                    </div>
-                    <!-- Add new experience here by copying the block above -->
-                </div>
-            </div>
-
-            <!-- ── Education + Certifications Column (merged for visual balance) ── -->
-            <div class="cv-column">
-                <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
-                <div class="timeline">
-                    <!-- ✏️ EDIT: Duplicate this block for each degree -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: Expected graduation year or date range -->
-                        <div class="timeline-date">Expected: 2026</div>
-                        <!-- ✏️ EDIT: Degree name -->
-                        <div class="timeline-role">B.A. Marketing Communications</div>
-                        <!-- ✏️ EDIT: University / institution name -->
-                        <div class="timeline-company">Imam Mohammad Ibn Saud Islamic University</div>
-                        <!-- ✏️ EDIT: Additional details -->
-                        <p>Currently studying Marketing Communications, developing strong skills in PR, Consumer Behavior, Advertising, and Content Creation.</p>
-                    </div>
-                    <!-- Add new education here by copying the block above -->
-                </div>
-
-                <!-- ── Certifications (inside Education column for visual balance) ── -->
-                <div class="cv-certifications">
-                    <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
-                    <div class="certification-grid">
-                        <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
-                        <div class="cert-card">
-                            <!-- ✏️ EDIT: Certificate name -->
-                            <h4>Digital Marketing Certificate</h4>
-                            <!-- ✏️ EDIT: Issuer and year -->
-                            <p>Google - 2024</p>
-                        </div>
-                        <div class="cert-card">
-                            <h4>Data Analytics</h4>
-                            <p>Meta - 2023</p>
-                        </div>
-                        <div class="cert-card">
-                            <h4>Data Analytics</h4>
-                            <p>Meta - 2023</p>
-                        </div>
-                        <!-- Add new cert here by copying a cert-card block above -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Download CV button — pinned above the fade gradient -->
+        <!-- Download CV button — directly below the heading, independent of the expandable area -->
         <!-- ✏️ EDIT: Update cv_path in _config.yml to point to your PDF file -->
         <div class="cv-download-btn-wrapper">
             <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary download-cv-btn" aria-label="Download CV (PDF)">
@@ -252,8 +164,136 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                 <span>Download CV</span>
             </a>
         </div>
+        <!-- ═══ Expandable area  ════════════════════════════════════════ -->
+        <div class="cv-grid">
+            <!-- ── Experience Column ─────────────────────────── -->
+            <div class="cv-column">
+                <!-- Section separator heading — visible on mobile only -->
+                <h3 class="cv-column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
+                <div class="timeline">
+                    <!-- ✏️ EDIT: Duplicate this block for each new role -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">February 2026 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Strategic Planning Officer</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">نادي إيجاد | IMSIU EJAD</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Led organizational analysis (SWOT), developed operational plans, and monitored initiative performance to ensure alignment with the club’s vision and goals.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">January 2026 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Deputy Creative Campaigns Lead</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Supported strategic planning, managed team operations and task distribution, and ensured quality control and cross-departmental alignment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">September 2025 - January 2026</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Creative Campaign Planner</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Developed integrated marketing strategies, coordinated digital content across departments, and analyzed campaign performance to enhance the club’s digital impact.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">April 2024 - November 2024</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Visual Content Designer</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Developed visual identity using AI & Photoshop, designed interactive content templates, and assisted in the technical organization of major events.</p>
+                    </div>
+                    <!-- Add new experience here by copying the block above -->
+                </div>
+            </div>
+            <!-- ── Education + Certifications Column (merged for visual balance) ── -->
+            <div class="cv-column">
+                <!-- Section separator heading — visible on mobile only -->
+                <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+                <div class="timeline">
+                    <!-- ✏️ EDIT: Duplicate this block for each degree -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Expected graduation year or date range -->
+                        <div class="timeline-date">Expected: 2027</div>
+                        <!-- ✏️ EDIT: Degree name -->
+                        <div class="timeline-role">Bachelor of Advertising and Marketing Communication</div>
+                        <!-- ✏️ EDIT: University / institution name -->
+                        <div class="timeline-company">Imam Mohammad Ibn Saud Islamic University</div>
+                        <!-- ✏️ EDIT: Additional details -->
+                        <p>Currently studying Marketing Communications, and I have acquired strong skills in Consumer Behavior Analysis, Advertising Campaigns, Public Relations and Content Creation.</p>
+                    </div>
+                    <!-- Add new education here by copying the block above -->
+                </div>
+                <!-- ── Certifications (inside Education column for visual balance) ── -->
+                <div class="cv-certifications">
+                    <!-- Section separator heading — visible on mobile only -->
+                    <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                    <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
+                    <div class="certification-grid">
+                        <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
+                        <div class="cert-card">
+                            <!-- ✏️ EDIT: Certificate name -->
+                            <h4>Art of Selling</h4>
+                            <!-- ✏️ EDIT: Issuer and year -->
+                            <p>Issued by "Edraak Platform", 2025</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>IBM: Intro to Artificial Intelligence</h4>
+                            <p>Issued by "IBM", 2025</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>Workshop: From Idea to Market</h4>
+                            <p>Issued by "Monsha'at", 2025</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>CS50: Intro to Computer Science</h4>
+                            <p>Issued by "Harvard University", 2023</p>
+                        </div>
+                        <!-- Add new cert here by copying a cert-card block above -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- /.cv-container -->
+    <div class="cv-action-area">
+        <!-- Show More button (desktop + mobile) -->
+        <button class="cv-expand-btn" id="cv-expand-btn-en" aria-expanded="false" aria-controls="cv-container-en">
+            <span class="btn-label">Show More</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
+    </div>
+
 </section>
+
+<script>
+(function () {
+    var btn = document.getElementById('cv-expand-btn-en');
+    var panel = document.querySelector('#cv-section .cv-container');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function () {
+        var expanded = panel.classList.toggle('is-expanded');
+        btn.classList.toggle('is-expanded', expanded);
+        btn.setAttribute('aria-expanded', expanded);
+        btn.querySelector('.btn-label').textContent = expanded ? 'Show Less' : 'Show More';
+    });
+})();
+</script>
 
 <!-- ══════════════════════════════════════════════════════════════════════════
      ░░ CONTACT SECTION ░░
@@ -265,13 +305,11 @@ description: "Khaled Waleed — Marketing Communications student specialising in
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
     <div class="container contact-inner">
-
         <!-- 1. Heading and description -->
         <div class="contact-header">
             <h2 class="section-title">Contact Me</h2>
             <p class="section-desc">I am always open to discussing new projects, creative ideas or opportunities to make a difference together.</p>
         </div>
-
         <!-- 2. Contact form (primary action) -->
         <div class="contact-form-wrapper">
             <!-- ✏️ EDIT: Replace YOUR_FORM_ID with your Formspree form ID -->
@@ -294,7 +332,6 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                 <button type="submit" class="btn btn-primary submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
-
         <!-- 3. Direct contact alternatives (secondary) -->
         <div class="contact-alternatives">
             <p class="contact-alternatives-label">Or reach me directly</p>
@@ -316,7 +353,6 @@ description: "Khaled Waleed — Marketing Communications student specialising in
                 </a>
             </div>
         </div>
-
     </div>
 </section>
 

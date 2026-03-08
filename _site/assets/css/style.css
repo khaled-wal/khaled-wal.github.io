@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
   /* Colors */
-  --clr-navy: #0f172a;
+  --clr-navy: #0f192a;
   /* Dark Navy - Main Background */
   --clr-navy-light: #1e293b;
   /* Lighter Navy - Cards/Inputs in Dark */
@@ -381,58 +381,6 @@ section {
   transform: translateY(2rem);
 }
 
-/* Floating Badges */
-.floating-badge {
-  position: absolute;
-  background: var(--clr-white);
-  color: var(--clr-navy);
-  padding: 1rem 1.5rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  animation: float 6s ease-in-out infinite;
-}
-
-.badge-top {
-  top: 10%;
-  inset-inline-end: 0%;
-}
-
-.badge-bottom {
-  bottom: 20%;
-  inset-inline-start: 0%;
-  animation-delay: 1.5s;
-}
-
-.floating-badge .stars {
-  color: #fbbf24;
-  letter-spacing: 2px;
-}
-
-.floating-badge .icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 /* Skills Bar */
 .skills-bar {
   display: flex;
@@ -616,51 +564,55 @@ section {
 }
 
 .cv-container {
-  /*
-   * We use a flexible max-height: it is tall enough for current content +
-   * a few more entries, yet short enough to always show the fade effect.
-   * Increase this value if you add many more entries.
-   */
-  max-height: 750px;
-  overflow: hidden;
   position: relative;
-  /* Extra bottom padding reserves space for the absolutely-placed download btn */
-  padding-bottom: 6rem;
+  /* Basic height cap applied globally */
+  max-height: 700px;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Extra bottom padding so the fade doesn't obscure the last line of text immediately */
+  padding-bottom: 2rem;
 }
 
-/* Fade-out gradient — always anchored to the bottom of .cv-container */
+/* Expanded state */
+.cv-container.is-expanded {
+  max-height: 9999px;
+  padding-bottom: 50px;
+}
+
+/* Fade-out gradient inside the container */
 .cv-container::after {
   content: '';
   position: absolute;
   bottom: 0;
   inset-inline-start: 0;
   width: 100%;
-  /* Gradient covers roughly the cert-card area to fade it into the background */
-  height: 45%;
+  height: 200px;
+  /* fixed soft fade height */
   background: linear-gradient(to bottom,
       rgba(15, 23, 42, 0) 0%,
-      rgba(15, 23, 42, 0.85) 60%,
+      rgba(15, 23, 42, 0.9) 60%,
       rgba(15, 23, 42, 1) 100%);
   pointer-events: none;
   z-index: 5;
+  transition: opacity 0.3s ease;
 }
 
-/* Download CV button — floats above the gradient, horizontally centered (RTL-safe) */
+.cv-container.is-expanded::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* Download CV button — centered below the section heading, above the expandable area */
 .cv-download-btn-wrapper {
-  position: absolute;
-  bottom: 1.5rem;
-  /* RTL-safe centering: push from the start by 50%, pull back by half button width */
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* RTL: translateX direction is reversed by the browser's logical properties,
-   but we need to compensate explicitly because translateX is physical */
-html[dir="rtl"] .cv-download-btn-wrapper {
-  transform: translateX(50%);
-}
+/* RTL/LTR: no directional override needed since we use flexbox centering */
 
 .cv-header-center {
   text-align: center;
@@ -707,9 +659,78 @@ html[dir="rtl"] .cv-download-btn-wrapper {
   gap: 1rem;
 }
 
-/* Dot indicators: hidden on desktop, shown only by mobile media query */
+/* Dot indicators: hidden everywhere — replaced by expand button on mobile */
 .cv-dots {
   display: none;
+}
+
+/* ── Mobile vertical timeline section separators ───────────────────── */
+.cv-mobile-section-title {
+  display: none;
+  /* shown only in mobile media query */
+}
+
+/* ── Expandable CV wrapper — controls height + fade on ALL viewports ── */
+/* ── Action Area (Holds the Expand Button Outside Container) ────────── */
+.cv-action-area {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  margin-top: -3rem;
+  /* pull button up slightly over the fade */
+}
+
+/* ── Show More / Show Less button (desktop + mobile) ───────────────── */
+.cv-expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.75rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--clr-green);
+  border-radius: var(--radius-pill);
+  color: var(--clr-green);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  animation: cv-btn-pulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+
+.cv-expand-btn:hover {
+  background: rgba(18, 255, 176, 0.2);
+}
+
+.cv-expand-btn.is-expanded {
+  animation: none;
+}
+
+.cv-expand-btn i {
+  font-size: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.cv-expand-btn.is-expanded i {
+  transform: rotate(180deg);
+}
+
+@keyframes cv-btn-pulse {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
 }
 
 .certification-grid {
@@ -770,9 +791,9 @@ html[dir="rtl"] .cv-download-btn-wrapper {
 .timeline-dot {
   position: absolute;
   inset-inline-start: -2.35rem;
-  top: 5px;
-  width: 16px;
-  height: 16px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: var(--clr-green);
   border: 4px solid var(--clr-navy);
@@ -1302,7 +1323,7 @@ html[dir="ltr"] .arrow-icon {
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
   /* Navigation */
   .main-nav {
@@ -1356,82 +1377,76 @@ html[dir="ltr"] .arrow-icon {
     margin-top: 2rem;
   }
 
-  /* CV section — horizontal swipe carousel on mobile */
-  .cv-container {
-    /* Allow the inner grid to scroll horizontally while
-       keeping the fade overlay + download btn fixed */
-    overflow-x: visible;
-    max-height: 680px;
+  /* ── CV section: vertical expandable timeline on mobile ──────────── */
+
+
+  /* Remove the desktop absolutely-positioned download button */
+  .cv-download-btn-wrapper {
+    position: static;
+    inset-inline-start: auto;
+    transform: none !important;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
   }
 
+  /* Convert the 2-column desktop grid to a single-column vertical flow */
   .cv-grid {
-    /* Convert to horizontal scroll-snap carousel */
-    flex-direction: row;
+    flex-direction: column;
     gap: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    /* Hide the scrollbar visually but keep it functional */
-    scrollbar-width: none;
-    padding-bottom: 2.5rem;
-    /* space for dot indicators */
-  }
-
-  .cv-grid::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
 
   .cv-column {
-    /* Each column = one full slide */
-    min-width: 88%;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    padding-inline-end: 1.5rem;
+    min-width: 100%;
+    flex-shrink: 1;
+    padding-inline-end: 0;
   }
 
-  /* Make certifications a 3rd independent carousel slide on mobile.
-     Extract it visually from inside its parent cv-column:
-     we treat it as a direct flex child of .cv-grid (JS moves it at runtime). */
-  .cv-certifications.cv-carousel-slide {
-    min-width: 88%;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    padding-inline-end: 1.5rem;
-    /* Reset the margin-top that was set for desktop nesting */
+  /* Vertical dotted green timeline line (replaces solid desktop line) */
+  .cv-column .timeline::before,
+  .cv-certifications .timeline::before {
+    border-inline-start: 2px dashed rgba(16, 185, 129, 0.45);
+    background: none;
+    width: 0;
+  }
+
+  /* ── Mobile section divider headings ──────────────────────────────── */
+  .cv-mobile-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--clr-green);
+    margin-top: 2rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed rgba(16, 185, 129, 0.3);
+  }
+
+  .cv-mobile-section-title:first-child {
     margin-top: 0;
   }
 
-  /* Swipe dot indicators */
-  .cv-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
-    position: absolute;
-    bottom: 5.5rem;
-    /* sits above the download button */
-    inset-inline-start: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+  .cv-mobile-section-title i {
+    font-size: 1rem;
+    opacity: 0.8;
   }
 
-  html[dir="rtl"] .cv-dots {
-    transform: translateX(50%);
+  /* ── CV Container height override for mobile ──────────────────────── */
+  .cv-container {
+    /* تم زيادة الارتفاع هنا ليُظهر قسم الخبرات بالكامل في الجوال */
+    max-height: 1100px;
   }
 
-  .cv-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--clr-border);
-    transition: background var(--transition-fast), transform var(--transition-fast);
-    cursor: pointer;
+  .cv-container.is-expanded {
+    max-height: 9999px;
   }
 
-  .cv-dot.active {
-    background: var(--clr-green);
-    transform: scale(1.3);
-  }
+
+  /* ── Show More / Show Less button (mobile overrides only) ────────── */
+  /* الأنماط الأساسية مُعرَّفة بالأعلى في الطبقة الافتراضية */
 
   /* Contact form */
   .contact-form-wrapper {
