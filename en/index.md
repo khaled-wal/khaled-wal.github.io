@@ -35,11 +35,10 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/profile.png' | relative_url }}" alt="Khaled Waleed" class="profile-image">
+                <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image">
             </div>
         </div>
     </div>
-
     <!-- ══════════════════════════════════════════════════════════════════
          ░░ SKILLS BAR ░░
          ✏️ Add/edit skills by duplicating a <div class="skill-item"> block
@@ -91,7 +90,6 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
-
         <div class="portfolio-grid">
             {% assign en_case_studies = site.case_studies | where: "lang", "en" %}
             {% assign en_projects = site.projects | where: "lang", "en" %}

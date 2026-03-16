@@ -31,7 +31,7 @@
   /* Default to Arabic */
 
   /* Spacing & Layout */
-  --container-width: 1200px;
+  --container-width: 1300px;
   --spacing-section: 5rem;
   --spacing-element: 2rem;
   --radius-sm: 8px;
@@ -320,7 +320,7 @@ section {
 .badge {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(16, 185, 129, 0.169);
   color: var(--clr-green);
   border-radius: var(--radius-pill);
   font-weight: 700;

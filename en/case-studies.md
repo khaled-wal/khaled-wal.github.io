@@ -9,7 +9,6 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
 <section class="portfolio-page-section bg-light">
   <div class="container">
     <h1 class="portfolio-page-title">My Work</h1>
-    
     <h2 class="portfolio-page-subtitle">Case Studies</h2>
     <div class="portfolio-grid-custom">
       {% assign en_case_studies = site.case_studies | where: "lang", "en" %}
@@ -37,7 +36,6 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
       <p>No case studies available yet.</p>
       {% endfor %}
     </div>
-
     <h2 class="portfolio-page-subtitle">Projects</h2>
     <div class="portfolio-grid-custom">
       {% assign en_projects = site.projects | where: "lang", "en" %}
@@ -65,6 +63,5 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
       <p>No projects available yet.</p>
       {% endfor %}
     </div>
-
   </div>
 </section>

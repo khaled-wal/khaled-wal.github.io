@@ -3,13 +3,12 @@ layout: default
 title: "أعمالي"
 translation_key: case_studies
 permalink: /portfolio/
-description: "استعرض دراسات الحالة والمشاريع التي أبدعتها خالد وليد في مجال التسويق والاتصال."
+description: "استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال."
 ---
 
 <section class="portfolio-page-section bg-light">
   <div class="container">
     <h1 class="portfolio-page-title">أعمالي</h1>
-    
     <h2 class="portfolio-page-subtitle">دراسات الحالة</h2>
     <div class="portfolio-grid-custom">
       {% assign ar_case_studies = site.case_studies | where: "lang", "ar" %}
@@ -37,7 +36,6 @@ description: "استعرض دراسات الحالة والمشاريع التي
       <p>لا توجد دراسات حالة حالياً.</p>
       {% endfor %}
     </div>
-
     <h2 class="portfolio-page-subtitle">المشاريع</h2>
     <div class="portfolio-grid-custom">
       {% assign ar_projects = site.projects | where: "lang", "ar" %}
@@ -65,6 +63,5 @@ description: "استعرض دراسات الحالة والمشاريع التي
       <p>لا توجد مشاريع حالياً.</p>
       {% endfor %}
     </div>
-
   </div>
 </section>
