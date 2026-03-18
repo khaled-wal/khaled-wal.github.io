@@ -41,7 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1773874693">
+
+    <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
+    <!-- Portfolio detail-page styles (case studies + projects) -->
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1773874693">
 </head>
 
 <body>
@@ -92,56 +96,183 @@
 </header>
 
     <main id="main-content">
+        <!-- ═══════════════════════════════════════════════════════════════════════════
+     تخطيط دراسة الحالة — التصميم التحليلي (Whitepaper Style)
+     ─────────────────────────────────────────────────────────────────────────
+     الغرض: عرض تحليلات الحملات التسويقية بشكل احترافي.
+     يدعم نوعين:
+       • خارجي (external): تحليل حملات/علامات تجارية لم أعمل عليها مباشرة
+       • داخلي (internal — الافتراضي): عرض قبل/بعد لعملي الشخصي
+     
+     المتغيرات المطلوبة في الـ Front Matter:
+       study_type: "internal" أو "external"
+       title, hero_image, objective, roi
+       (داخلي): client, my_role, budget, kpi_*
+       (خارجي): brand_analyzed, campaign_name, key_takeaway, core_critique
+       toc_items: مصفوفة [{ id: "...", label: "..." }] للفهرس الجانبي
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     القسم 1: الهيدر الرئيسي (Hero)
+     يعرض صورة الغلاف + العنوان + البيانات الوصفية
+     يتغير المحتوى حسب نوع الدراسة (داخلي/خارجي)
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<article class="mkt-cs-page">
+
+    <header class="mkt-cs-hero">
+        <!-- صورة الغلاف — تُعرض إذا وُجد حقل hero_image في الـ Front Matter -->
         
 
-
-<article class="case-study cs-header">
-
-    <!-- Case Study Title Banner -->
-    <header class="post-header">
-        <div class="container">
-            <!-- Back link to portfolio list -->
-            <a href="/portfolio/" class="read-more"
-                style="margin-bottom:1rem; display:inline-flex;">
+        <div class="container mkt-cs-hero-content">
+            <!-- رابط العودة إلى صفحة الأعمال -->
+            <a href="/portfolio/"
+               class="mkt-cs-back-link">
                 <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
                 العودة إلى الأعمال
             </a>
-            <h1>حملة السوشيال ميديا — الربع الأول 2025</h1>
+
+            <!-- شارة نوع الدراسة — تميّز بين الدراسة الداخلية والخارجية بصرياً -->
+            <span class="mkt-cs-type-badge">
+                
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                     دراسة حالة - تحليل داخلي
+                
+            </span>
+
+            <!-- عنوان الدراسة الرئيسي -->
+            <h1 class="mkt-cs-title">حملة السوشيال ميديا — الربع الأول 2025</h1>
+
+            <!-- ─── شريط البيانات الوصفية (Meta Bar) ────────────────────────
+                 يتغير حسب نوع الدراسة:
+                 خارجي → العلامة التجارية، اسم الحملة، الخلاصة
+                 داخلي → العميل، دوري، الميزانية
+                 ──────────────────────────────────────────────────────────── -->
+            <div class="mkt-cs-meta-bar">
+                
+                    <!-- ═══ بيانات الدراسة الداخلية ═══ -->
+                    
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">العميل</span>
+                            <span class="mkt-cs-meta-value">علامة تجارية محلية للأزياء</span>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                
+
+                <!-- الهدف — يظهر لكلا النوعين -->
+                
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">الهدف</span>
+                        <span class="mkt-cs-meta-value">رفع الوعي بالعلامة التجارية وزيادة المبيعات الرقمية</span>
+                    </div>
+                </div>
+                
+
+                <!-- العائد على الاستثمار — يظهر لكلا النوعين -->
+                
+                <div class="mkt-cs-meta-chip mkt-cs-meta-chip--highlight">
+                    <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">العائد على الاستثمار</span>
+                        <span class="mkt-cs-meta-value">240%</span>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </header>
 
-    <!-- ═══ Meta Bar: Client / Objective / ROI ════════════════════════════
-       EDIT: These values come from the front-matter of each case study file.
-       Example front-matter fields: client, objective, roi (optional)
-       ══════════════════════════════════════════════════════════════════ -->
-    <div class="cs-meta-bar">
-        
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">العميل</strong>
-            <span class="cs-meta-value">علامة تجارية محلية للأزياء</span>
-        </div>
-        
-        
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">الهدف</strong>
-            <span class="cs-meta-value">رفع الوعي بالعلامة التجارية وزيادة المبيعات الرقمية</span>
-        </div>
-        
-        
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">العائد</strong>
-            <span class="cs-meta-value">240%</span>
-        </div>
-        
-    </div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         بطاقات مؤشرات الأداء (KPI Cards)
+         تظهر فقط إذا وُجدت حقول kpi_1_label و kpi_1_value في Front Matter
+         يمكنك إضافة حتى 4 بطاقات KPI
+         ═══════════════════════════════════════════════════════════════════════ -->
+    
 
-    <!-- ═══ Main Content ══════════════════════════════════════════════════
-       EDIT: Write the body of each case study / project in Markdown below
-       the front-matter dashes (---) in the source .md file.
-       See _case_studies/ and _projects/ folders.
-       ══════════════════════════════════════════════════════════════════ -->
-    <div class="markdown-content">
-        <h2 id="التحدي">التحدي</h2>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 2: جسم الدراسة — الفهرس الجانبي + المحتوى
+         الفهرس (TOC) يستخدم position: sticky ويختفي على الموبايل
+         المحتوى يأتي من ملف الـ Markdown (<h2 id="التحدي">التحدي</h2>
+<p>كانت العلامة التجارية تعاني من ضعف في الوصول العضوي وتفاعل منخفض مع المتابعين، مما أثر سلبًا على حجم المبيعات من القنوات الرقمية خلال العام الماضي.</p>
+
+<h2 id="الاستراتيجية">الاستراتيجية</h2>
+<p>اعتمدنا على ثلاثة محاور رئيسية لتحسين الأداء:</p>
+<ol>
+  <li><strong>إنتاج محتوى UGC أصيل</strong>: عمل شراكات مع صغار المؤثرين لإنشاء محتوى يبدو طبيعياً ويجذب الفئة المستهدفة.</li>
+  <li><strong>استهداف دقيق عبر Meta Ads</strong>: بناء حملات إعلانية تعتمد بيانات المستخدمين واهتماماتهم لإعادة الاستهداف ومضاعفة التحويلات.</li>
+  <li><strong>تحليل A/B Testing</strong>: اختبار مستمر للصور والنصوص والـ CTA لمعرفة ما يحقق أفضل استجابة.</li>
+</ol>
+
+<h2 id="النتائج">النتائج</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>المقياس</th>
+      <th>قبل</th>
+      <th>بعد</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reach الشهري</td>
+      <td>12K</td>
+      <td>89K</td>
+    </tr>
+    <tr>
+      <td>معدل التفاعل</td>
+      <td>1.2%</td>
+      <td>4.8%</td>
+    </tr>
+    <tr>
+      <td>المبيعات الرقمية</td>
+      <td>45K ر.س</td>
+      <td>153K ر.س</td>
+    </tr>
+    <tr>
+      <td>ROI</td>
+      <td>—</td>
+      <td><strong>240%</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>من خلال هذه الاستراتيجيات، تمكنا من تحقيق نتائج تتجاوز الأهداف المحددة مسبقًا للحملة بكثير.</p>
+)
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div class="container mkt-cs-body">
+
+        <!-- ─── الفهرس الجانبي الثابت (Sticky Table of Contents) ────────
+             يُبنى من مصفوفة toc_items في الـ Front Matter
+             كل عنصر يحتوي: id (معرّف العنوان) و label (اسم العرض)
+             مثال في الـ Front Matter:
+               toc_items:
+                 - id: "challenge"
+                   label: "التحدي"
+                 - id: "strategy"
+                   label: "الاستراتيجية"
+             ──────────────────────────────────────────────────────────────── -->
+        
+
+        <!-- ─── منطقة المحتوى الرئيسية ────────────────────────────────── -->
+        <div class="mkt-cs-content mkt-cs-content--full">
+
+            <!-- النقد الأساسي — يظهر فقط في الدراسات الخارجية (أعلى المحتوى) -->
+            
+
+            <!-- محتوى الـ Markdown — يُكتب في ملف .md بعد الـ Front Matter -->
+            <div class="mkt-cs-prose">
+                <h2 id="التحدي">التحدي</h2>
 <p>كانت العلامة التجارية تعاني من ضعف في الوصول العضوي وتفاعل منخفض مع المتابعين، مما أثر سلبًا على حجم المبيعات من القنوات الرقمية خلال العام الماضي.</p>
 
 <h2 id="الاستراتيجية">الاستراتيجية</h2>
@@ -188,7 +319,63 @@
 
 <p>من خلال هذه الاستراتيجيات، تمكنا من تحقيق نتائج تتجاوز الأهداف المحددة مسبقًا للحملة بكثير.</p>
 
+            </div>
+
+            <!-- ═══ مقارنة قبل/بعد — تظهر إذا وُجدت صور before/after ═══
+                 أضف في الـ Front Matter:
+                   before_image: "/assets/images/projects/before.jpg"
+                   after_image: "/assets/images/projects/after.jpg"
+                 ═══════════════════════════════════════════════════════════ -->
+            
+
+            <!-- الأدوات المستخدمة — تُعرض كشارات (badges) -->
+            
+
+        </div><!-- /.mkt-cs-content -->
+    </div><!-- /.mkt-cs-body -->
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         القسم 3: دعوة للتواصل (CTA) — مكوّن مُعاد الاستخدام
+         ═══════════════════════════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+     قسم الدعوة للتواصل (CTA) — مكوّن قابل لإعادة الاستخدام
+     ─────────────────────────────────────────────────────────────────────────
+     الغرض: يظهر في نهاية صفحات دراسات الحالة والمشاريع لتشجيع الزائر
+             على التواصل. يدعم العربية والإنجليزية تلقائياً.
+     الاستخدام: هذا المكون يستخدم كقسم للتواصل أسفل الصفحات
+     التعديل: غيّر النص أدناه أو رابط الزر حسب الحاجة.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
+
+
+<!-- حاوية CTA الرئيسية — خلفية متدرجة مع حدود خضراء خفيفة -->
+<section class="mkt-cta-section">
+    <div class="mkt-cta-inner">
+
+        <!-- أيقونة زخرفية — صاروخ يرمز للانطلاق والنتائج -->
+        <div class="mkt-cta-icon" aria-hidden="true">
+            <i class="fa-solid fa-rocket"></i>
+        </div>
+
+        <!-- العنوان الرئيسي للـ CTA -->
+        <h2 class="mkt-cta-heading">
+            
+                هل تواجه تحدياً مشابهاً؟
+            
+        </h2>
+
+        <!-- النص الوصفي — يُشجّع الزائر على التواصل -->
+        <p class="mkt-cta-text">
+            
+                تواصل معي لنحقق نتائج مماثلة.
+            
+        </p>
+
+        <!-- زر التواصل — يستخدم أنماط btn الموجودة مسبقاً + رابط قسم التواصل -->
+            
     </div>
+</section>
+
 
 </article>
     </main>

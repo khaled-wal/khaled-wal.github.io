@@ -41,7 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
+    <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
+    <!-- Portfolio detail-page styles (case studies + projects) -->
+    <link rel="stylesheet" href="{{ '/assets/css/portfolio-layouts.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 
 <body>

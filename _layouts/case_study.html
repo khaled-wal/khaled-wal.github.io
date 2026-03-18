@@ -1,56 +1,298 @@
 ---
 layout: default
 ---
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     تخطيط دراسة الحالة — التصميم التحليلي (Whitepaper Style)
+     ─────────────────────────────────────────────────────────────────────────
+     الغرض: عرض تحليلات الحملات التسويقية بشكل احترافي.
+     يدعم نوعين:
+       • خارجي (external): تحليل حملات/علامات تجارية لم أعمل عليها مباشرة
+       • داخلي (internal — الافتراضي): عرض قبل/بعد لعملي الشخصي
+     
+     المتغيرات المطلوبة في الـ Front Matter:
+       study_type: "internal" أو "external"
+       title, hero_image, objective, roi
+       (داخلي): client, my_role, budget, kpi_*
+       (خارجي): brand_analyzed, campaign_name, key_takeaway, core_critique
+       toc_items: مصفوفة [{ id: "...", label: "..." }] للفهرس الجانبي
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
 {% assign current_lang = page.lang | default: 'ar' %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign study_type = page.study_type | default: "internal" %}
 
-<article class="case-study cs-header">
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     القسم 1: الهيدر الرئيسي (Hero)
+     يعرض صورة الغلاف + العنوان + البيانات الوصفية
+     يتغير المحتوى حسب نوع الدراسة (داخلي/خارجي)
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<article class="mkt-cs-page">
 
-    <!-- Case Study Title Banner -->
-    <header class="post-header">
-        <div class="container">
-            <!-- Back link to portfolio list -->
-            <a href="{{ '/portfolio/' | relative_url }}" class="read-more"
-                style="margin-bottom:1rem; display:inline-flex;">
+    <header class="mkt-cs-hero">
+        <!-- صورة الغلاف — تُعرض إذا وُجد حقل hero_image في الـ Front Matter -->
+        {% if page.hero_image %}
+        <div class="mkt-cs-hero-img-wrapper">
+            <img src="{{ page.hero_image | relative_url }}" 
+                 alt="{{ page.title }}" 
+                 class="mkt-cs-hero-img">
+            <!-- تدرج شفاف فوق الصورة لضمان وضوح النص -->
+            <div class="mkt-cs-hero-overlay" aria-hidden="true"></div>
+        </div>
+        {% endif %}
+
+        <div class="container mkt-cs-hero-content">
+            <!-- رابط العودة إلى صفحة الأعمال -->
+            <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}"
+               class="mkt-cs-back-link">
                 <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
-                {% if current_lang == 'en' %}Back to Portfolio{% else %}العودة إلى الأعمال{% endif %}
+                {{ t.cs_back }}
             </a>
-            <h1>{{ page.title }}</h1>
+
+            <!-- شارة نوع الدراسة — تميّز بين الدراسة الداخلية والخارجية بصرياً -->
+            <span class="mkt-cs-type-badge">
+                {% if study_type == "external" %}
+                    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                    {% if current_lang == 'en' %}External Analysis{% else %}تحليل خارجي{% endif %}
+                {% else %}
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    {% if current_lang == 'en' %}Internal Case Study{% else %} دراسة حالة - تحليل داخلي{% endif %}
+                {% endif %}
+            </span>
+
+            <!-- عنوان الدراسة الرئيسي -->
+            <h1 class="mkt-cs-title">{{ page.title }}</h1>
+
+            <!-- ─── شريط البيانات الوصفية (Meta Bar) ────────────────────────
+                 يتغير حسب نوع الدراسة:
+                 خارجي → العلامة التجارية، اسم الحملة، الخلاصة
+                 داخلي → العميل، دوري، الميزانية
+                 ──────────────────────────────────────────────────────────── -->
+            <div class="mkt-cs-meta-bar">
+                {% if study_type == "external" %}
+                    <!-- ═══ بيانات الدراسة الخارجية ═══ -->
+                    {% if page.brand_analyzed %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-building" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_brand_analyzed }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.brand_analyzed }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.campaign_name %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_campaign_name }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.campaign_name }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.key_takeaway %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_key_takeaway }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.key_takeaway }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% else %}
+                    <!-- ═══ بيانات الدراسة الداخلية ═══ -->
+                    {% if page.client %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.client | replace: ':', '' }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.client }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.my_role %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_my_role }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.my_role }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.budget %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_budget }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.budget }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endif %}
+
+                <!-- الهدف — يظهر لكلا النوعين -->
+                {% if page.objective %}
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-crosshairs" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_objective }}</span>
+                        <span class="mkt-cs-meta-value">{{ page.objective }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- العائد على الاستثمار — يظهر لكلا النوعين -->
+                {% if page.roi %}
+                <div class="mkt-cs-meta-chip mkt-cs-meta-chip--highlight">
+                    <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_roi }}</span>
+                        <span class="mkt-cs-meta-value">{{ page.roi }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </header>
 
-    <!-- ═══ Meta Bar: Client / Objective / ROI ════════════════════════════
-       EDIT: These values come from the front-matter of each case study file.
-       Example front-matter fields: client, objective, roi (optional)
-       ══════════════════════════════════════════════════════════════════ -->
-    <div class="cs-meta-bar">
-        {% if page.client %}
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">{% if current_lang == 'en' %}Client{% else %}العميل{% endif %}</strong>
-            <span class="cs-meta-value">{{ page.client }}</span>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         بطاقات مؤشرات الأداء (KPI Cards)
+         تظهر فقط إذا وُجدت حقول kpi_1_label و kpi_1_value في Front Matter
+         يمكنك إضافة حتى 4 بطاقات KPI
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.kpi_1_label and page.kpi_1_value %}
+    <section class="mkt-shared-kpi-section">
+        <div class="container">
+            <div class="mkt-shared-kpi-grid">
+                <!-- بطاقة KPI رقم 1 -->
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_1_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_1_label }}</span>
+                </div>
+                <!-- بطاقة KPI رقم 2 -->
+                {% if page.kpi_2_label and page.kpi_2_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_2_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_2_label }}</span>
+                </div>
+                {% endif %}
+                <!-- بطاقة KPI رقم 3 -->
+                {% if page.kpi_3_label and page.kpi_3_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_3_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_3_label }}</span>
+                </div>
+                {% endif %}
+                <!-- بطاقة KPI رقم 4 (اختيارية) -->
+                {% if page.kpi_4_label and page.kpi_4_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_4_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_4_label }}</span>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
-        {% if page.objective %}
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">{% if current_lang == 'en' %}Objective{% else %}الهدف{% endif %}</strong>
-            <span class="cs-meta-value">{{ page.objective }}</span>
-        </div>
-        {% endif %}
-        {% if page.roi %}
-        <div class="cs-meta-item">
-            <strong class="cs-meta-label">{% if current_lang == 'en' %}ROI{% else %}العائد{% endif %}</strong>
-            <span class="cs-meta-value">{{ page.roi }}</span>
-        </div>
-        {% endif %}
-    </div>
+    </section>
+    {% endif %}
 
-    <!-- ═══ Main Content ══════════════════════════════════════════════════
-       EDIT: Write the body of each case study / project in Markdown below
-       the front-matter dashes (---) in the source .md file.
-       See _case_studies/ and _projects/ folders.
-       ══════════════════════════════════════════════════════════════════ -->
-    <div class="markdown-content">
-        {{ content }}
-    </div>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 2: جسم الدراسة — الفهرس الجانبي + المحتوى
+         الفهرس (TOC) يستخدم position: sticky ويختفي على الموبايل
+         المحتوى يأتي من ملف الـ Markdown ({{ content }})
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <div class="container mkt-cs-body">
+
+        <!-- ─── الفهرس الجانبي الثابت (Sticky Table of Contents) ────────
+             يُبنى من مصفوفة toc_items في الـ Front Matter
+             كل عنصر يحتوي: id (معرّف العنوان) و label (اسم العرض)
+             مثال في الـ Front Matter:
+               toc_items:
+                 - id: "challenge"
+                   label: "التحدي"
+                 - id: "strategy"
+                   label: "الاستراتيجية"
+             ──────────────────────────────────────────────────────────────── -->
+        {% if page.toc_items and page.toc_items.size > 0 %}
+        <aside class="mkt-cs-toc" aria-label="{{ t.cs_toc_title }}">
+            <h3 class="mkt-cs-toc-heading">
+                <i class="fa-solid fa-list" aria-hidden="true"></i>
+                {{ t.cs_toc_title }}
+            </h3>
+            <nav>
+                <ul class="mkt-cs-toc-list">
+                    {% for item in page.toc_items %}
+                    <li>
+                        <a href="#{{ item.id }}" class="mkt-cs-toc-link">{{ item.label }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </aside>
+        {% endif %}
+
+        <!-- ─── منطقة المحتوى الرئيسية ────────────────────────────────── -->
+        <div class="mkt-cs-content {% unless page.toc_items and page.toc_items.size > 0 %}mkt-cs-content--full{% endunless %}">
+
+            <!-- النقد الأساسي — يظهر فقط في الدراسات الخارجية (أعلى المحتوى) -->
+            {% if study_type == "external" and page.core_critique %}
+            <blockquote class="mkt-cs-critique-box">
+                <div class="mkt-cs-critique-header">
+                    <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+                    <strong>{{ t.cs_core_critique }}</strong>
+                </div>
+                <p>{{ page.core_critique }}</p>
+            </blockquote>
+            {% endif %}
+
+            <!-- محتوى الـ Markdown — يُكتب في ملف .md بعد الـ Front Matter -->
+            <div class="mkt-cs-prose">
+                {{ content }}
+            </div>
+
+            <!-- ═══ مقارنة قبل/بعد — تظهر إذا وُجدت صور before/after ═══
+                 أضف في الـ Front Matter:
+                   before_image: "/assets/images/projects/before.jpg"
+                   after_image: "/assets/images/projects/after.jpg"
+                 ═══════════════════════════════════════════════════════════ -->
+            {% if page.before_image and page.after_image %}
+            <div class="mkt-cs-comparison" id="comparison">
+                <h2 class="mkt-cs-section-heading">
+                    {{ t.cs_before }} / {{ t.cs_after }}
+                </h2>
+                <div class="mkt-cs-comparison-grid">
+                    <figure class="mkt-cs-comparison-item">
+                        <img src="{{ page.before_image | relative_url }}" 
+                             alt="{{ t.cs_before }}">
+                        <figcaption>{{ t.cs_before }}</figcaption>
+                    </figure>
+                    <figure class="mkt-cs-comparison-item">
+                        <img src="{{ page.after_image | relative_url }}" 
+                             alt="{{ t.cs_after }}">
+                        <figcaption>{{ t.cs_after }}</figcaption>
+                    </figure>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- الأدوات المستخدمة — تُعرض كشارات (badges) -->
+            {% if page.tools_used and page.tools_used.size > 0 %}
+            <div class="mkt-cs-tools" id="tools">
+                <h3 class="mkt-cs-tools-heading">
+                    <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                    {{ t.cs_tools_used }}
+                </h3>
+                <div class="mkt-cs-tools-list">
+                    {% for tool in page.tools_used %}
+                    <span class="mkt-cs-tool-badge">{{ tool }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+        </div><!-- /.mkt-cs-content -->
+    </div><!-- /.mkt-cs-body -->
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         القسم 3: دعوة للتواصل (CTA) — مكوّن مُعاد الاستخدام
+         ═══════════════════════════════════════════════════════════════════ -->
+    {% include cta-contact.html %}
 
 </article>

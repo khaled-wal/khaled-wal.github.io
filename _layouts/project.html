@@ -1,0 +1,313 @@
+---
+layout: default
+---
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     تخطيط المشروع — رحلة العميل الاحترافية (Client Journey Layout)
+     ─────────────────────────────────────────────────────────────────────────
+     الغرض: عرض مشاريع العملاء الفعلية بتسلسل احترافي يُثبت القدرة
+            الاستراتيجية والتنفيذية. مُصمم كـ funnel تسويقي.
+     
+     الأقسام:
+       1. الهيدر — يبدأ بالنتيجة النهائية/ROI + صورة الغلاف
+       2. شريط البيانات السريعة (المدة، الميزانية، الدور، الأدوات)
+       3. العميل والتحدي الأساسي
+       4. البحث والاكتشاف (بيانات ورؤى)
+       5. المحتوى النصي (الاستراتيجية + التنفيذ) — من Markdown
+       6. المعرض البصري
+       7. التقييم والنتائج النهائية (KPI cards)
+       8. CTA
+     
+     المتغيرات المطلوبة في الـ Front Matter:
+       title, client, industry, duration, budget, my_role
+       hero_image, project_result, roi
+       client_overview, core_problem
+       research_insights: [{ icon, label, value }]
+       gallery: [مسارات صور]
+       kpi_1_label, kpi_1_value, ...
+       tools_used: [قائمة أدوات]
+     ═══════════════════════════════════════════════════════════════════════════ -->
+
+{% assign current_lang = page.lang | default: 'ar' %}
+{% assign t = site.data.i18n[current_lang] %}
+
+<article class="mkt-pro-page">
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 1: هيدر التأثير (Impact Hero)
+         يُبرز النتيجة النهائية أولاً — لأن العميل المحتمل يريد رؤية ما حققته
+         قبل أن يقرأ التفاصيل. يشمل: صورة الغلاف + شارة النتيجة + العنوان.
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <header class="mkt-pro-hero">
+        {% if page.hero_image %}
+        <div class="mkt-pro-hero-img-wrapper">
+            <img src="{{ page.hero_image | relative_url }}" 
+                 alt="{{ page.title }}" 
+                 class="mkt-pro-hero-img">
+            <div class="mkt-pro-hero-overlay" aria-hidden="true"></div>
+        </div>
+        {% endif %}
+
+        <div class="container mkt-pro-hero-content">
+            <!-- رابط العودة -->
+            <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}"
+               class="mkt-pro-back-link">
+                <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
+                {{ t.pro_back }}
+            </a>
+
+            <!-- شارة القطاع — تُظهر مجال العمل -->
+            {% if page.industry %}
+            <span class="mkt-pro-industry-badge">
+                <i class="fa-solid fa-industry" aria-hidden="true"></i>
+                {{ page.industry }}
+            </span>
+            {% endif %}
+
+            <h1 class="mkt-pro-title">{{ page.title }}</h1>
+
+            <!-- شارة النتيجة/ROI — بارزة وكبيرة لجذب الانتباه فوراً -->
+            {% if page.project_result or page.roi %}
+            <div class="mkt-pro-result-highlight">
+                {% if page.project_result %}
+                <div class="mkt-pro-result-card">
+                    <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-result-label">{{ t.pro_result }}</span>
+                        <span class="mkt-pro-result-value">{{ page.project_result }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.roi %}
+                <div class="mkt-pro-result-card mkt-pro-result-card--roi">
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-result-label">{{ t.pro_roi }}</span>
+                        <span class="mkt-pro-result-value">{{ page.roi }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 2: شريط البيانات السريعة (Quick Stats Bar)
+         يُعرض أسفل الهيدر مباشرة — معلومات سريعة على شكل chips/رقائق
+         كل عنصر يحتوي أيقونة + تسمية + قيمة
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="mkt-pro-stats-section">
+        <div class="container">
+            <div class="mkt-pro-stats-bar">
+                {% if page.client %}
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">{{ t.client | replace: ':', '' }}</span>
+                        <span class="mkt-pro-stat-value">{{ page.client }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.duration %}
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">{{ t.pro_duration }}</span>
+                        <span class="mkt-pro-stat-value">{{ page.duration }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.budget %}
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">{{ t.pro_budget }}</span>
+                        <span class="mkt-pro-stat-value">{{ page.budget }}</span>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.my_role %}
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">{{ t.pro_my_role }}</span>
+                        <span class="mkt-pro-stat-value">{{ page.my_role }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 3: العميل والتحدي الأساسي
+         يُقدّم سياق المشروع — من هو العميل؟ ما المشكلة التي واجهها؟
+         يعتمد على حقلي client_overview و core_problem في الـ Front Matter
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.client_overview or page.core_problem %}
+    <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">01</span>
+                <h2 class="mkt-pro-section-title">{{ t.pro_client_problem }}</h2>
+            </div>
+            <div class="mkt-pro-section-body">
+                {% if page.client_overview %}
+                <div class="mkt-pro-text-block">
+                    <p>{{ page.client_overview }}</p>
+                </div>
+                {% endif %}
+                {% if page.core_problem %}
+                <blockquote class="mkt-pro-problem-quote">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <p>{{ page.core_problem }}</p>
+                </blockquote>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 4: البحث والاكتشاف (Research & Discovery)
+         يعرض نقاط البيانات والرؤى البحثية كبطاقات مُنسقة
+         يعتمد على مصفوفة research_insights في الـ Front Matter
+         مثال:
+           research_insights:
+             - icon: "fa-solid fa-users"
+               label: "الجمهور المستهدف"
+               value: "شباب 18-35، مهتمون بالتقنية"
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.research_insights and page.research_insights.size > 0 %}
+    <section class="mkt-pro-section" id="research">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">02</span>
+                <h2 class="mkt-pro-section-title">{{ t.pro_research }}</h2>
+            </div>
+            <div class="mkt-pro-insights-grid">
+                {% for insight in page.research_insights %}
+                <div class="mkt-pro-insight-card">
+                    <div class="mkt-pro-insight-icon">
+                        <i class="{{ insight.icon | default: 'fa-solid fa-chart-simple' }}" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="mkt-pro-insight-label">{{ insight.label }}</h4>
+                    <p class="mkt-pro-insight-value">{{ insight.value }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
+         هذا القسم يحتوي محتوى الـ Markdown الكامل من ملف .md
+         يمكنك تنظيم المحتوى باستخدام عناوين h2/h3 في الـ Markdown
+         مثلاً:
+           ## الخطة الاستراتيجية
+           ## التنفيذ والتطبيق
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section class="mkt-pro-section mkt-pro-section--alt" id="content">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-prose">
+                {{ content }}
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 7: المعرض البصري (Visual Gallery)
+         يعرض صور المشروع في شبكة متجاوبة
+         يعتمد على مصفوفة gallery في الـ Front Matter
+         مثال:
+           gallery:
+             - "/assets/images/projects/screenshot-1.jpg"
+             - "/assets/images/projects/screenshot-2.jpg"
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.gallery and page.gallery.size > 0 %}
+    <section class="mkt-pro-section" id="gallery">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">
+                    <i class="fa-solid fa-images" aria-hidden="true"></i>
+                </span>
+                <h2 class="mkt-pro-section-title">{{ t.pro_gallery_title }}</h2>
+            </div>
+            <div class="mkt-pro-gallery-grid">
+                {% for img in page.gallery %}
+                <figure class="mkt-pro-gallery-item">
+                    <img src="{{ img | relative_url }}" 
+                         alt="{{ page.title }} — {{ forloop.index }}" 
+                         loading="lazy">
+                </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
+         تُعرض كبطاقات أرقام بارزة — نفس المكوّن المشترك مع دراسة الحالة
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.kpi_1_label and page.kpi_1_value %}
+    <section class="mkt-pro-section mkt-pro-section--alt" id="results">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">
+                    <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+                </span>
+                <h2 class="mkt-pro-section-title">{{ t.pro_evaluation }}</h2>
+            </div>
+            <div class="mkt-shared-kpi-grid">
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_1_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_1_label }}</span>
+                </div>
+                {% if page.kpi_2_label and page.kpi_2_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_2_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_2_label }}</span>
+                </div>
+                {% endif %}
+                {% if page.kpi_3_label and page.kpi_3_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_3_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_3_label }}</span>
+                </div>
+                {% endif %}
+                {% if page.kpi_4_label and page.kpi_4_value %}
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">{{ page.kpi_4_value }}</span>
+                    <span class="mkt-shared-kpi-label">{{ page.kpi_4_label }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- الأدوات المستخدمة — تُعرض كشارات -->
+    {% if page.tools_used and page.tools_used.size > 0 %}
+    <section class="mkt-pro-section" id="tools">
+        <div class="container mkt-pro-section-inner">
+            <h3 class="mkt-cs-tools-heading">
+                <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                {{ t.pro_tools_used }}
+            </h3>
+            <div class="mkt-cs-tools-list">
+                {% for tool in page.tools_used %}
+                <span class="mkt-cs-tool-badge">{{ tool }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         القسم 9: دعوة للتواصل (CTA)
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% include cta-contact.html %}
+
+</article>

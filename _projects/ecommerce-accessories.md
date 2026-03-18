@@ -1,10 +1,12 @@
 ---
-layout: case_study
+layout: project
 title: "إعادة بناء وتنشيط متجر إكسسوارات إلكتروني"
 client: "متجر تقني"
+industry: "التجارة الإلكترونية"
 objective: "تحسين الهوية البصرية وزيادة المبيعات عبر حملات تسويقية متكاملة."
 lang: ar
 date: 2026-03-01
+image: /assets/images/projects/ecommerce-accessories.png
 permalink: /portfolio/ecommerce-accessories/
 ---
 
@@ -19,7 +21,8 @@ permalink: /portfolio/ecommerce-accessories/
 
 ## صناعة المحتوى
 إنتاج محتوى مرئي وتثقيفي يسلط الضوء على مميزات المنتجات وكيفية استخدامها بطرق إبداعية.
-
+#photo
+![ecommerce-accessories](/assets/images/projects/ecommerce-accessories.png)
 ## النتائج
 - زيادة ملحوظة في حركة المرور (Traffic) بنسبة 45%.
 - ارتفاع في المبيعات الشهرية بنسبة 30%.

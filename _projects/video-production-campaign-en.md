@@ -1,7 +1,8 @@
 ---
-layout: case_study
+layout: project
 title: "Marketing Video Production for an Awareness Campaign"
 client: "Charitable Association"
+industry: "Media Production"
 objective: "Produce compelling short-form videos to raise awareness and increase donations"
 lang: en
 date: 2025-08-01

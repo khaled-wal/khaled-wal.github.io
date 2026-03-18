@@ -1,7 +1,8 @@
 ---
-layout: case_study
+layout: project
 title: "إنتاج فيديوهات تسويقية لحملة توعوية"
 client: "جمعية خيرية"
+industry: "إنتاج إعلامي"
 objective: "إنتاج مقاطع فيديو قصيرة جذابة لرفع الوعي بالقضية وزيادة التبرعات"
 lang: ar
 date: 2025-08-01

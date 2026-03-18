@@ -50,13 +50,13 @@ defaults:
       path: ""
       type: projects
     values:
-      layout: case_study
+      layout: project
       lang: "ar"
   - scope:
       path: "en"
       type: projects
     values:
-      layout: case_study
+      layout: project
       lang: "en"
 
 # Build settings

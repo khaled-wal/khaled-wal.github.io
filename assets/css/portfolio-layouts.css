@@ -1,0 +1,1205 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   أنماط صفحات دراسات الحالة والمشاريع — Portfolio Detail Layouts
+   ─────────────────────────────────────────────────────────────────────────
+   ⚠️  جميع الأنماط هنا معزولة بالكامل عن style.css العام.
+       نستخدم بادئات (prefixes) لمنع أي تعارض:
+         • mkt-cs-*    → أنماط دراسة الحالة (Case Study)
+         • mkt-pro-*   → أنماط المشروع (Project)
+         • mkt-shared-* → أنماط مشتركة بين الاثنين
+         • mkt-cta-*   → أنماط قسم الدعوة للتواصل (CTA)
+   
+       نستخدم متغيرات CSS الموجودة مسبقاً في :root (ألوان، خطوط، مسافات)
+       لضمان التناسق مع بقية الموقع.
+   
+   التعديل: يمكنك تغيير القيم أدناه بحرية — كل قسم مُعلّم بتعليقات عربية.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   القسم المشترك: بطاقات مؤشرات الأداء (KPI Cards)
+   تُستخدم في كلا التخطيطين (دراسة الحالة والمشروع)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* حاوية KPI — خلفية بلون الخلفية الفاتح مع مسافة علوية وسفلية */
+.mkt-shared-kpi-section {
+  padding-block: 3rem;
+  /* لون الخلفية: كحلي فاتح لتمييز القسم */
+  background-color: var(--clr-navy-light);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* شبكة بطاقات KPI — responsive: 4 أعمدة على Desktop، عمود واحد على Mobile */
+.mkt-shared-kpi-grid {
+  display: grid;
+  /* minmax يضمن استجابة الشبكة تلقائياً */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* بطاقة KPI واحدة — تصميم بسيط مع تأثير hover */
+.mkt-shared-kpi-card {
+  background-color: var(--clr-navy);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition-smooth);
+  /* تأثير رفع خفيف عند التحويم */
+}
+
+.mkt-shared-kpi-card:hover {
+  /* عند التحويم: حدود خضراء + ظل خفيف */
+  border-color: var(--clr-green);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+}
+
+/* القيمة الرقمية — كبيرة وبارزة باللون الأخضر */
+.mkt-shared-kpi-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--clr-green);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* تسمية KPI — نص ثانوي */
+.mkt-shared-kpi-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة (Case Study): الهيدر
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* صفحة دراسة الحالة الكاملة — خلفية كحلية + مسافة للهيدر الثابت */
+.mkt-cs-page {
+  background-color: var(--clr-navy);
+  padding-top: var(--header-height);
+}
+
+/* حاوية الهيدر — موضع relative لوضع الأوفرلاي فوق الصورة */
+.mkt-cs-hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* صورة الغلاف — تملأ الحاوية بالكامل */
+.mkt-cs-hero-img-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mkt-cs-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* تدرج شفاف فوق الصورة — يضمن وضوح النص الأبيض فوق أي صورة */
+.mkt-cs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* تدرج من شفاف في الأعلى إلى كحلي غامق في الأسفل */
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 25, 42, 0.3) 0%,
+    rgba(15, 25, 42, 0.85) 70%,
+    rgba(15, 25, 42, 1) 100%
+  );
+}
+
+/* محتوى الهيدر — فوق الأوفرلاي */
+.mkt-cs-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-block: 3rem 2.5rem;
+}
+
+/* رابط العودة —  مع أيقونة سهم */
+.mkt-cs-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  transition: color var(--transition-fast);
+}
+
+.mkt-cs-back-link:hover {
+  color: var(--clr-green-dark);
+}
+
+/* شارة نوع الدراسة (داخلي/خارجي) */
+.mkt-cs-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--clr-green);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+}
+
+/* عنوان الدراسة */
+.mkt-cs-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+/* شريط البيانات الوصفية — رقائق (chips) بجانب بعضها */
+.mkt-cs-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* رقاقة بيانات واحدة — أيقونة + تسمية + قيمة */
+.mkt-cs-meta-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.mkt-cs-meta-chip:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* أيقونة الرقاقة */
+.mkt-cs-meta-chip > i {
+  color: var(--clr-green);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* تسمية البيانات — حجم صغير وأحرف كبيرة */
+.mkt-cs-meta-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--clr-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* قيمة البيانات — حجم أكبر ولون أبيض */
+.mkt-cs-meta-value {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+/* رقاقة مُميّزة (مثل ROI) — حدود خضراء */
+.mkt-cs-meta-chip--highlight {
+  border-color: rgba(16, 185, 129, 0.4);
+  background-color: rgba(16, 185, 129, 0.08);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة: جسم المحتوى + الفهرس الجانبي (TOC)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* الحاوية الرئيسية — شبكة من عمودين: فهرس + محتوى */
+.mkt-cs-body {
+  display: grid;
+  /* الفهرس 240px ثابت + المحتوى يأخذ الباقي */
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  padding-block: 3rem;
+  align-items: start;
+}
+
+/* الفهرس الجانبي — يلتصق بأعلى الشاشة أثناء التمرير */
+.mkt-cs-toc {
+  /* position: sticky يجعل الفهرس يتبع التمرير */
+  position: sticky;
+  /* المسافة من أعلى الشاشة (بعد الهيدر الثابت) */
+  top: calc(var(--header-height) + 2rem);
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  /* الحد الأقصى للارتفاع مع شريط تمرير إن لزم */
+  max-height: calc(100vh - var(--header-height) - 4rem);
+  overflow-y: auto;
+}
+
+/* عنوان الفهرس */
+.mkt-cs-toc-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.mkt-cs-toc-heading i {
+  font-size: 0.8rem;
+}
+
+/* قائمة عناصر الفهرس */
+.mkt-cs-toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* رابط الفهرس — خط جانبي أخضر عند التحويم */
+.mkt-cs-toc-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border-inline-start: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.mkt-cs-toc-link:hover {
+  color: var(--clr-green);
+  background-color: rgba(16, 185, 129, 0.05);
+  border-inline-start-color: var(--clr-green);
+}
+
+/* منطقة المحتوى — تأخذ العمود الثاني */
+.mkt-cs-content {
+  min-width: 0;
+  /* يمنع overflow في CSS Grid */
+}
+
+/* إذا لم يوجد فهرس — المحتوى يأخذ العرض الكامل بحد أقصى 800px */
+.mkt-cs-content--full {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* عندما لا يوجد فهرس، نجعل الـ body عمود واحد */
+.mkt-cs-body:has(.mkt-cs-content--full) {
+  grid-template-columns: 1fr;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة: صندوق النقد الأساسي (Critique Box) — للدراسات الخارجية
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-cs-critique-box {
+  background-color: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-inline-start: 4px solid var(--clr-green);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mkt-cs-critique-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--clr-green);
+  font-size: 0.9rem;
+}
+
+.mkt-cs-critique-header i {
+  font-size: 1.25rem;
+  opacity: 0.7;
+}
+
+.mkt-cs-critique-box p {
+  color: var(--clr-text-light);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة: أنماط النصوص (Prose) داخل المحتوى
+   نطبّق الأنماط فقط داخل .mkt-cs-prose لمنع التعارض مع بقية الموقع
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* عناوين المحتوى */
+.mkt-cs-prose h2,
+.mkt-pro-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+  line-height: 1.3;
+}
+
+.mkt-cs-prose h3,
+.mkt-pro-prose h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* فقرات النص */
+.mkt-cs-prose p,
+.mkt-pro-prose p {
+  color: var(--clr-text-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* القوائم */
+.mkt-cs-prose ul,
+.mkt-cs-prose ol,
+.mkt-pro-prose ul,
+.mkt-pro-prose ol {
+  margin-bottom: 1.5rem;
+  padding-inline-start: 2rem;
+  color: var(--clr-text-light);
+  line-height: 1.9;
+}
+
+.mkt-cs-prose li,
+.mkt-pro-prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* الروابط */
+.mkt-cs-prose a,
+.mkt-pro-prose a {
+  color: var(--clr-green);
+  text-decoration: underline;
+}
+
+.mkt-cs-prose a:hover,
+.mkt-pro-prose a:hover {
+  color: var(--clr-green-dark);
+}
+
+/* الاقتباسات — مُحسّنة لعرض "الدروس المستفادة" أو "النقد" */
+.mkt-cs-prose blockquote,
+.mkt-pro-prose blockquote {
+  border-inline-start: 4px solid var(--clr-green);
+  padding: 1rem 1.25rem;
+  margin-inline: 0;
+  margin-bottom: 1.5rem;
+  background-color: rgba(16, 185, 129, 0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-style: italic;
+  color: var(--clr-muted);
+}
+
+/* الجداول */
+.mkt-cs-prose table,
+.mkt-pro-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.mkt-cs-prose th,
+.mkt-pro-prose th {
+  background-color: var(--clr-green);
+  color: var(--clr-white);
+  padding: 0.75rem 1rem;
+  text-align: start;
+  font-weight: 700;
+}
+
+.mkt-cs-prose td,
+.mkt-pro-prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: var(--clr-text-light);
+}
+
+.mkt-cs-prose tr:nth-child(even) td,
+.mkt-pro-prose tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* الصور داخل المحتوى */
+.mkt-cs-prose img,
+.mkt-pro-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 2rem auto;
+  display: block;
+  box-shadow: var(--shadow-md);
+}
+
+/* النص القوي (bold) */
+.mkt-cs-prose strong,
+.mkt-pro-prose strong {
+  color: var(--clr-white);
+  font-weight: 700;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة: عنوان قسم فرعي + مقارنة قبل/بعد
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-cs-section-heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+}
+
+/* شبكة المقارنة — عمودين */
+.mkt-cs-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* عنصر المقارنة — صورة + تسمية */
+.mkt-cs-comparison-item {
+  margin: 0;
+}
+
+.mkt-cs-comparison-item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  transition: transform var(--transition-smooth);
+}
+
+.mkt-cs-comparison-item img:hover {
+  transform: scale(1.02);
+}
+
+.mkt-cs-comparison-item figcaption {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة + المشروع: شارات الأدوات المستخدمة (Tool Badges)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-cs-tools {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.mkt-cs-tools-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  margin-bottom: 1rem;
+}
+
+.mkt-cs-tools-heading i {
+  font-size: 0.95rem;
+}
+
+.mkt-cs-tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* شارة أداة واحدة */
+.mkt-cs-tool-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-pill);
+  color: var(--clr-text-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.mkt-cs-tool-badge:hover {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: var(--clr-green);
+  color: var(--clr-green);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المشروع (Project): الهيدر (Impact Hero)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* الصفحة الكاملة */
+.mkt-pro-page {
+  background-color: var(--clr-navy);
+  padding-top: var(--header-height);
+}
+
+/* حاوية الهيدر */
+.mkt-pro-hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* صورة الغلاف */
+.mkt-pro-hero-img-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mkt-pro-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* الأوفرلاي */
+.mkt-pro-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 25, 42, 0.2) 0%,
+    rgba(15, 25, 42, 0.8) 60%,
+    rgba(15, 25, 42, 1) 100%
+  );
+}
+
+/* محتوى الهيدر */
+.mkt-pro-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-block: 3rem 2.5rem;
+}
+
+/* رابط العودة */
+.mkt-pro-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-green);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  transition: color var(--transition-fast);
+}
+
+.mkt-pro-back-link:hover {
+  color: var(--clr-green-dark);
+}
+
+/* شارة القطاع */
+.mkt-pro-industry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--clr-green);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+}
+
+/* عنوان المشروع */
+.mkt-pro-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+/* شارات النتيجة/ROI — كبيرة وبارزة */
+.mkt-pro-result-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* بطاقة نتيجة واحدة */
+.mkt-pro-result-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast);
+}
+
+.mkt-pro-result-card:hover {
+  transform: translateY(-2px);
+}
+
+.mkt-pro-result-card > i {
+  color: var(--clr-green);
+  font-size: 1.5rem;
+}
+
+.mkt-pro-result-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.mkt-pro-result-value {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--clr-white);
+  font-weight: 800;
+}
+
+/* بطاقة ROI — تمييز إضافي */
+.mkt-pro-result-card--roi {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: var(--clr-green);
+}
+
+.mkt-pro-result-card--roi .mkt-pro-result-value {
+  color: var(--clr-green);
+  font-size: 1.5rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المشروع: شريط البيانات السريعة (Quick Stats Bar)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-pro-stats-section {
+  padding-block: 2rem;
+  background-color: var(--clr-navy-light);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* الشريط — رقائق بجانب بعضها */
+.mkt-pro-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* رقاقة واحدة */
+.mkt-pro-stat-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--clr-navy);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.mkt-pro-stat-chip:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.mkt-pro-stat-chip > i {
+  color: var(--clr-green);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.mkt-pro-stat-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.mkt-pro-stat-value {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--clr-white);
+  font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المشروع: أقسام المحتوى (Content Sections)
+   كل قسم يحتوي رقم + عنوان + محتوى
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-pro-section {
+  padding-block: 3.5rem;
+}
+
+/* خلفية بديلة للأقسام المتناوبة — تمييز بصري */
+.mkt-pro-section--alt {
+  background-color: var(--clr-navy-light);
+  border-block: 1px solid var(--clr-border);
+}
+
+.mkt-pro-section-inner {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* رأس القسم — الرقم + العنوان */
+.mkt-pro-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* رقم القسم — دائرة خضراء */
+.mkt-pro-section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--clr-green);
+  color: var(--clr-green);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* عنوان القسم */
+.mkt-pro-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.3;
+}
+
+/* كتلة نصية عادية */
+.mkt-pro-text-block p {
+  color: var(--clr-text-light);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+/* اقتباس المشكلة — مُميّز بأيقونة تحذير */
+.mkt-pro-problem-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 168, 38, 0.06);
+  border: 1px solid rgba(255, 168, 38, 0.2);
+  border-inline-start: 4px solid #ffa826;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-top: 1.5rem;
+}
+
+.mkt-pro-problem-quote > i {
+  color: #ffa826;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.mkt-pro-problem-quote p {
+  color: var(--clr-text-light);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-style: italic;
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المشروع: بطاقات الرؤى البحثية (Research Insight Cards)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-pro-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.mkt-pro-insight-card {
+  background-color: var(--clr-navy);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition-smooth);
+}
+
+.mkt-pro-insight-card:hover {
+  border-color: var(--clr-green);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.1);
+}
+
+/* أيقونة الرؤية */
+.mkt-pro-insight-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--clr-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.25rem;
+}
+
+.mkt-pro-insight-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.mkt-pro-insight-value {
+  font-size: 0.95rem;
+  color: var(--clr-text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المشروع: المعرض البصري (Gallery Grid)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-pro-gallery-grid {
+  display: grid;
+  /* شبكة متجاوبة: 2 أعمدة على Desktop، عمود واحد على Mobile */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.mkt-pro-gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  transition: all var(--transition-smooth);
+}
+
+.mkt-pro-gallery-item:hover {
+  border-color: var(--clr-green);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+}
+
+.mkt-pro-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.mkt-pro-gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   قسم الدعوة للتواصل (CTA Section)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-cta-section {
+  padding-block: 4rem;
+  /* خلفية متدرجة — من الكحلي الفاتح إلى الكحلي الغامق */
+  background: linear-gradient(
+    135deg,
+    var(--clr-navy-light) 0%,
+    var(--clr-navy) 100%
+  );
+  border-top: 1px solid var(--clr-border);
+}
+
+.mkt-cta-inner {
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
+  padding-inline: 1.5rem;
+}
+
+/* أيقونة CTA الزخرفية */
+.mkt-cta-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--clr-green);
+  font-size: 1.5rem;
+  /* حركة دوران بطيئة */
+  animation: mkt-cta-float 3s ease-in-out infinite;
+}
+
+@keyframes mkt-cta-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* عنوان CTA */
+.mkt-cta-heading {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* نص CTA الوصفي */
+.mkt-cta-text {
+  font-size: 1.05rem;
+  color: var(--clr-muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* زر CTA — يستخدم .btn و .btn-primary الموجودة مسبقاً مع حجم أكبر */
+.mkt-cta-btn {
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   استجابة الشاشات (Responsive Design) — Mobile First
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── الأجهزة اللوحية / Desktop صغير (992px وأقل) ────────────────────── */
+@media (max-width: 992px) {
+  
+  /* الفهرس الجانبي يختفي على الشاشات المتوسطة */
+  .mkt-cs-body {
+    grid-template-columns: 1fr;
+  }
+
+  .mkt-cs-toc {
+    /* يتحول إلى شريط أفقي أعلى المحتوى */
+    position: static;
+    max-height: none;
+  }
+
+  .mkt-cs-toc-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mkt-cs-toc-link {
+    border-inline-start: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .mkt-cs-toc-link:hover {
+    border-inline-start-color: transparent;
+    border-bottom-color: var(--clr-green);
+  }
+
+  /* أقسام المشروع — تقليل المسافات */
+  .mkt-pro-section-inner {
+    padding-inline: 1rem;
+  }
+}
+
+/* ─── الموبايل (767px وأقل) ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  
+  /* ─ الهيدر ─ */
+  .mkt-cs-hero,
+  .mkt-pro-hero {
+    min-height: 260px;
+  }
+
+  .mkt-cs-hero-content,
+  .mkt-pro-hero-content {
+    padding-block: 2rem 1.5rem;
+  }
+
+  .mkt-cs-title,
+  .mkt-pro-title {
+    font-size: 1.5rem;
+  }
+
+  /* شريط البيانات — عمود واحد على الموبايل */
+  .mkt-cs-meta-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mkt-pro-result-highlight {
+    flex-direction: column;
+  }
+
+  /* شريط الإحصائيات — عمودين على الموبايل */
+  .mkt-pro-stats-bar {
+    gap: 0.75rem;
+  }
+
+  .mkt-pro-stat-chip {
+    flex: 1 1 calc(50% - 0.375rem);
+    min-width: 0;
+  }
+
+  /* بطاقات KPI — عمودين على الموبايل */
+  .mkt-shared-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .mkt-shared-kpi-value {
+    font-size: 1.5rem;
+  }
+
+  /* المقارنة — عمود واحد على الموبايل */
+  .mkt-cs-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* أقسام المشروع — مسافات أقل */
+  .mkt-pro-section {
+    padding-block: 2.5rem;
+  }
+
+  .mkt-pro-section-header {
+    gap: 0.75rem;
+  }
+
+  .mkt-pro-section-number {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+
+  .mkt-pro-section-title {
+    font-size: 1.25rem;
+  }
+
+  /* بطاقات الرؤى — عمود واحد */
+  .mkt-pro-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* المعرض — عمود واحد */
+  .mkt-pro-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA */
+  .mkt-cta-section {
+    padding-block: 3rem;
+  }
+
+  .mkt-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ─── هواتف صغيرة جداً (480px وأقل) ─────────────────────────────────── */
+@media (max-width: 480px) {
+  
+  .mkt-cs-hero,
+  .mkt-pro-hero {
+    min-height: 220px;
+  }
+
+  .mkt-cs-title,
+  .mkt-pro-title {
+    font-size: 1.25rem;
+  }
+
+  /* بطاقات KPI — عمود واحد على الهواتف الصغيرة */
+  .mkt-shared-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* شريط الإحصائيات — عمود واحد */
+  .mkt-pro-stat-chip {
+    flex: 1 1 100%;
+  }
+
+  .mkt-pro-result-card > i {
+    font-size: 1.25rem;
+  }
+
+  .mkt-pro-result-value {
+    font-size: 1.1rem;
+  }
+
+  .mkt-pro-result-card--roi .mkt-pro-result-value {
+    font-size: 1.25rem;
+  }
+}

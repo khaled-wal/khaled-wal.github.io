@@ -1,10 +1,12 @@
 ---
-layout: case_study
+layout: project
 title: "Tech Accessories Store Rebuild & Activation"
 client: "Tech Store"
+industry: "E-Commerce"
 objective: "Improve visual identity and increase sales through integrated marketing campaigns."
 lang: en
 date: 2026-03-01
+image: /assets/images/projects/ecommerce-accessories.png
 permalink: /en/portfolio/ecommerce-accessories/
 ---
 
