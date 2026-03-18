@@ -10,21 +10,21 @@
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
-    <title>إعادة بناء وتنشيط متجر إكسسوارات إلكتروني | خالد هاشم</title>
+    <title>عنوان المشروع هنا | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
     <!-- EDIT: Set 'description:' in each page's front-matter               -->
     <meta name="description" content="Portfolio & Blog">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
-    <link rel="canonical" href="http://localhost:4000/portfolio/ecommerce-accessories/">
+    <link rel="canonical" href="http://localhost:4000/portfolio/template-project/">
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="إعادة بناء وتنشيط متجر إكسسوارات إلكتروني | خالد هاشم">
+    <meta property="og:title" content="عنوان المشروع هنا | خالد هاشم">
     <meta property="og:description" content="Portfolio & Blog">
-    <meta property="og:url" content="http://localhost:4000/portfolio/ecommerce-accessories/">
+    <meta property="og:url" content="http://localhost:4000/portfolio/template-project/">
     <meta property="og:locale" content="ar_SA">
     <meta property="og:image" content="http://localhost:4000/assets/images/LOGO.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
@@ -74,7 +74,7 @@
             class="btn btn-primary">تواصل معي</a>
         </li>
         <li>
-          <!-- Language Switcher --><a href="/en/portfolio/ecommerce-accessories/" class="lang-toggle-btn"
+          <!-- Language Switcher --><a href="/en/portfolio/template-project-en/" class="lang-toggle-btn"
             aria-label="Switch to English">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span>English</span>
@@ -134,6 +134,13 @@
          ═══════════════════════════════════════════════════════════════════════ -->
     <header class="mkt-pro-hero">
         
+        <div class="mkt-pro-hero-img-wrapper">
+            <img src="/assets/images/projects/cover.png" 
+                 alt="عنوان المشروع هنا" 
+                 class="mkt-pro-hero-img">
+            <div class="mkt-pro-hero-overlay" aria-hidden="true"></div>
+        </div>
+        
 
         <div class="container mkt-pro-hero-content">
             <!-- رابط العودة -->
@@ -147,13 +154,34 @@
             
             <span class="mkt-pro-industry-badge">
                 <i class="fa-solid fa-industry" aria-hidden="true"></i>
-                التجارة الإلكترونية
+                التقنية / الأزياء / المطاعم
             </span>
             
 
-            <h1 class="mkt-pro-title">إعادة بناء وتنشيط متجر إكسسوارات إلكتروني</h1>
+            <h1 class="mkt-pro-title">عنوان المشروع هنا</h1>
 
             <!-- شارة النتيجة/ROI — بارزة وكبيرة لجذب الانتباه فوراً -->
+            
+            <div class="mkt-pro-result-highlight">
+                
+                <div class="mkt-pro-result-card">
+                    <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-result-label">النتيجة</span>
+                        <span class="mkt-pro-result-value">زيادة المبيعات بنسبة 45%</span>
+                    </div>
+                </div>
+                
+                
+                <div class="mkt-pro-result-card mkt-pro-result-card--roi">
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-result-label">العائد</span>
+                        <span class="mkt-pro-result-value">180%</span>
+                    </div>
+                </div>
+                
+            </div>
             
         </div>
     </header>
@@ -171,12 +199,36 @@
                     <i class="fa-solid fa-handshake" aria-hidden="true"></i>
                     <div>
                         <span class="mkt-pro-stat-label">العميل</span>
-                        <span class="mkt-pro-stat-value">متجر تقني</span>
+                        <span class="mkt-pro-stat-value">اسم العميل</span>
                     </div>
                 </div>
                 
                 
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">المدة</span>
+                        <span class="mkt-pro-stat-value">3 أشهر</span>
+                    </div>
+                </div>
                 
+                
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">الميزانية</span>
+                        <span class="mkt-pro-stat-value">75,000 ر.س</span>
+                    </div>
+                </div>
+                
+                
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">دوري</span>
+                        <span class="mkt-pro-stat-value">مدير التسويق / استشاري استراتيجي</span>
+                    </div>
+                </div>
                 
             </div>
         </div>
@@ -187,6 +239,28 @@
          يُقدّم سياق المشروع — من هو العميل؟ ما المشكلة التي واجهها؟
          يعتمد على حقلي client_overview و core_problem في الـ Front Matter
          ═══════════════════════════════════════════════════════════════════════ -->
+    
+    <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">01</span>
+                <h2 class="mkt-pro-section-title">العميل والتحدي</h2>
+            </div>
+            <div class="mkt-pro-section-body">
+                
+                <div class="mkt-pro-text-block">
+                    <p>وصف مختصر عن العميل — من هو؟ ما حجمه؟ ما هو نشاطه التجاري؟ ما هي أهدافه العامة؟</p>
+                </div>
+                
+                
+                <blockquote class="mkt-pro-problem-quote">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    <p>ما التحدي أو المشكلة الجوهرية التي واجهها العميل قبل التعاون معك؟ — يظهر بتنسيق تحذيري مميز</p>
+                </blockquote>
+                
+            </div>
+        </div>
+    </section>
     
 
     <!-- ═══════════════════════════════════════════════════════════════════════
@@ -200,6 +274,42 @@
                value: "شباب 18-35، مهتمون بالتقنية"
          ═══════════════════════════════════════════════════════════════════════ -->
     
+    <section class="mkt-pro-section" id="research">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">02</span>
+                <h2 class="mkt-pro-section-title">البحث والاكتشاف</h2>
+            </div>
+            <div class="mkt-pro-insights-grid">
+                
+                <div class="mkt-pro-insight-card">
+                    <div class="mkt-pro-insight-icon">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="mkt-pro-insight-label">الجمهور المستهدف</h4>
+                    <p class="mkt-pro-insight-value">شباب 18-35، مهتمون بالتقنية والابتكار</p>
+                </div>
+                
+                <div class="mkt-pro-insight-card">
+                    <div class="mkt-pro-insight-icon">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="mkt-pro-insight-label">حصة السوق</h4>
+                    <p class="mkt-pro-insight-value">12% قبل المشروع — هدف الوصول إلى 20%</p>
+                </div>
+                
+                <div class="mkt-pro-insight-card">
+                    <div class="mkt-pro-insight-icon">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="mkt-pro-insight-label">تحليل المنافسين</h4>
+                    <p class="mkt-pro-insight-value">3 منافسين رئيسيين — نقاط ضعفهم في المحتوى الرقمي</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
@@ -212,24 +322,38 @@
     <section class="mkt-pro-section mkt-pro-section--alt" id="content">
         <div class="container mkt-pro-section-inner">
             <div class="mkt-pro-prose">
-                <h2 id="نبذة-عن-المشروع">نبذة عن المشروع</h2>
-<p>هذا المشروع يهدف إلى إعادة هيكلة وتطوير شامل لمتجر متخصص في بيع الإكسسوارات الإلكترونية. شمل العمل تحسين واجهة المستخدم، وإعداد خطة تسويق رقمية متكاملة لزيادة الوعي بالعلامة التجارية وتحقيق نمو في المبيعات المستهدفة.</p>
+                <!-- ═══════════════════════════════════════════════════════════════════════
+     المحتوى النصي — الاستراتيجية والتنفيذ
+     ─────────────────────────────────────────────────────────────────────
+     هذا القسم يظهر بين البحث/الاكتشاف والمعرض البصري.
+     اكتب هنا تفاصيل الخطة الاستراتيجية وكيف تم التنفيذ.
+     استخدم العناوين (##) لتنظيم المحتوى.
+     ═══════════════════════════════════════════════════════════════════════ -->
 
-<h2 id="الهوية-البصرية">الهوية البصرية</h2>
-<p>تم تحديث الشعار واختيار لوحة ألوان تعكس التطور التقني والجاذبية، بالإضافة إلى توحيد تصاميم المنشورات على منصات التواصل الاجتماعي لضمان تماسك العلامة التجارية.</p>
+<h2 id="الخطة-الاستراتيجية">الخطة الاستراتيجية</h2>
+<p>اشرح هنا المنهجية والخطة التي وضعتها لحل تحدي العميل.</p>
 
-<h2 id="الحملات-التسويقية">الحملات التسويقية</h2>
-<p>تم تنفيذ حملات إعلانية مدفوعة عبر منصتي Google Ads و Meta Ads تستهدف الفئة العمرية (١٨-٣٥ عاماً) المهتمة بالتقنية.</p>
+<h3 id="المحور-الأول-الهوية-البصرية">المحور الأول: الهوية البصرية</h3>
+<p>وصف ما تم عمله في هذا المحور.</p>
 
-<h2 id="صناعة-المحتوى">صناعة المحتوى</h2>
-<p>إنتاج محتوى مرئي وتثقيفي يسلط الضوء على مميزات المنتجات وكيفية استخدامها بطرق إبداعية.
-#photo
-<img src="/assets/images/projects/ecommerce-accessories.png" alt="ecommerce-accessories" /></p>
-<h2 id="النتائج">النتائج</h2>
+<h3 id="المحور-الثاني-الحملات-الإعلانية">المحور الثاني: الحملات الإعلانية</h3>
+<p>وصف الحملات واستهدافها.</p>
+
+<h3 id="المحور-الثالث-صناعة-المحتوى">المحور الثالث: صناعة المحتوى</h3>
+<p>نوع المحتوى وخطة النشر.</p>
+
+<h2 id="التنفيذ-والتطبيق">التنفيذ والتطبيق</h2>
+<p>اشرح مراحل التنفيذ — الجدول الزمني، التحديات التي ظهرت، الحلول التي اتخذتها.</p>
+
+<blockquote>
+  <p>💡 <strong>ملاحظة مهمة</strong>: ضع هنا أي ملاحظات أو دروس مستفادة من مرحلة التنفيذ.</p>
+</blockquote>
+
+<h2 id="ملخص-النتائج">ملخص النتائج</h2>
 <ul>
-  <li>زيادة ملحوظة في حركة المرور (Traffic) بنسبة 45%.</li>
-  <li>ارتفاع في المبيعات الشهرية بنسبة 30%.</li>
-  <li>تعزيز التفاعل على قنوات التواصل الاجتماعي وتحقيق نمو في عدد المتابعين.</li>
+  <li>النتيجة الأولى وتأثيرها</li>
+  <li>النتيجة الثانية وتأثيرها</li>
+  <li>النتيجة الثالثة وتأثيرها</li>
 </ul>
 
             </div>
@@ -246,14 +370,106 @@
              - "/assets/images/projects/screenshot-2.jpg"
          ═══════════════════════════════════════════════════════════════════════ -->
     
+    <section class="mkt-pro-section" id="gallery">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">
+                    <i class="fa-solid fa-images" aria-hidden="true"></i>
+                </span>
+                <h2 class="mkt-pro-section-title">معرض المشروع</h2>
+            </div>
+            <div class="mkt-pro-gallery-grid">
+                
+                <figure class="mkt-pro-gallery-item">
+                    <img src="/assets/images/projects/screenshot-1.png" 
+                         alt="عنوان المشروع هنا — 1" 
+                         loading="lazy">
+                </figure>
+                
+                <figure class="mkt-pro-gallery-item">
+                    <img src="/assets/images/projects/screenshot-2.png" 
+                         alt="عنوان المشروع هنا — 2" 
+                         loading="lazy">
+                </figure>
+                
+                <figure class="mkt-pro-gallery-item">
+                    <img src="/assets/images/projects/screenshot-3.png" 
+                         alt="عنوان المشروع هنا — 3" 
+                         loading="lazy">
+                </figure>
+                
+                <figure class="mkt-pro-gallery-item">
+                    <img src="/assets/images/projects/screenshot-4.png" 
+                         alt="عنوان المشروع هنا — 4" 
+                         loading="lazy">
+                </figure>
+                
+            </div>
+        </div>
+    </section>
+    
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
          تُعرض كبطاقات أرقام بارزة — نفس المكوّن المشترك مع دراسة الحالة
          ═══════════════════════════════════════════════════════════════════════ -->
     
+    <section class="mkt-pro-section mkt-pro-section--alt" id="results">
+        <div class="container mkt-pro-section-inner">
+            <div class="mkt-pro-section-header">
+                <span class="mkt-pro-section-number">
+                    <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+                </span>
+                <h2 class="mkt-pro-section-title">التقييم والنتائج النهائية</h2>
+            </div>
+            <div class="mkt-shared-kpi-grid">
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">+45%</span>
+                    <span class="mkt-shared-kpi-label">نمو حركة المرور</span>
+                </div>
+                
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">+30%</span>
+                    <span class="mkt-shared-kpi-label">المبيعات الشهرية</span>
+                </div>
+                
+                
+                <div class="mkt-shared-kpi-card">
+                    <span class="mkt-shared-kpi-value">+2.5K</span>
+                    <span class="mkt-shared-kpi-label">نمو المتابعين</span>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    
 
     <!-- الأدوات المستخدمة — تُعرض كشارات -->
+    
+    <section class="mkt-pro-section" id="tools">
+        <div class="container mkt-pro-section-inner">
+            <h3 class="mkt-cs-tools-heading">
+                <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                الأدوات المستخدمة
+            </h3>
+            <div class="mkt-cs-tools-list">
+                
+                <span class="mkt-cs-tool-badge">Google Ads</span>
+                
+                <span class="mkt-cs-tool-badge">Meta Ads</span>
+                
+                <span class="mkt-cs-tool-badge">Google Analytics</span>
+                
+                <span class="mkt-cs-tool-badge">Shopify</span>
+                
+                <span class="mkt-cs-tool-badge">Canva</span>
+                
+                <span class="mkt-cs-tool-badge">Notion</span>
+                
+            </div>
+        </div>
+    </section>
     
 
     <!-- ═══════════════════════════════════════════════════════════════════════

@@ -15,6 +15,7 @@
 layout: case_study
 lang: ar                          # اللغة: ar أو en
 translation_key: unique_key_here  # مفتاح ربط النسخة العربية بالإنجليزية — يجب أن يكون متطابقاً بين اللغتين
+permalink: /portfolio/template-case-study/
 
 # ─── نوع الدراسة ──────────────────────────────────────────────────────
 study_type: "internal"            # غيّر إلى "external" لتحليل حملات خارجية
