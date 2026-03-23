@@ -1,102 +1,102 @@
 ---
 # ═══════════════════════════════════════════════════════════════════════════
-# قالب دراسة الحالة — Template: Case Study
+# Template: Case Study
 # ─────────────────────────────────────────────────────────────────────────
-# انسخ هذا الملف إلى مجلد _case_studies/ وغيّر اسمه.
-# مثال: _case_studies/my-new-case-study.md
-# للإنجليزية: _case_studies/my-new-case-study-en.md (مع lang: en)
+# Copy this file to the _case_studies/ folder and rename it.
+# Example: _case_studies/my-new-case-study.md
+# For English: _case_studies/my-new-case-study-en.md (with lang: en)
 #
-# نوع الدراسة (study_type):
-#   "internal" → دراسة لعمل شخصي (يظهر: العميل، دوري، الميزانية)
-#   "external" → تحليل حملة/علامة تجارية خارجية (يظهر: العلامة، الحملة، الخلاصة)
+# Study Type (study_type):
+#   "internal" → Personal work study (shows: Client, My Role, Budget)
+#   "external" → External campaign/brand analysis (shows: Brand, Campaign, Takeaway)
 # ═══════════════════════════════════════════════════════════════════════════
 
-# ─── إعدادات أساسية ───────────────────────────────────────────────────
+# ─── Basic Settings ───────────────────────────────────────────────────
 layout: case_study
-lang: en                         # اللغة: ar أو en
-translation_key: unique_key_here  # مفتاح ربط النسخة العربية بالإنجليزية — يجب أن يكون متطابقاً بين اللغتين
+lang: en                         # Language: ar or en
+translation_key: unique_key_here  # Link key between Arabic and English — must be identical in both
 permalink: /en/portfolio/template-case-study-en/
 image: /assets/images/case-studies/after.png
-# ─── نوع الدراسة ──────────────────────────────────────────────────────
-study_type: "internal"            # غيّر إلى "external" لتحليل حملات خارجية
 
-# ─── معلومات أساسية ───────────────────────────────────────────────────
-title: "عنوان دراسة الحالة هنا"
-#hero_image: ""  # صورة الغلاف — المقاس المثالي 1200×600
-objective: "الهدف الرئيسي من الدراسة/الحملة"
-roi: "240%"                       # العائد على الاستثمار — اتركه فارغاً إذا لم ينطبق
+# ─── Study Type ──────────────────────────────────────────────────────
+study_type: "internal"            # Change to "external" for analyzing external campaigns
 
-# ─── حقول الدراسة الداخلية (internal) ─────────────────────────────────
-# تظهر فقط عندما يكون study_type: "internal"
-client: "اسم العميل"
-my_role: "مدير التسويق / استشاري"
-budget: "50,000 ر.س"
+# ─── Basic Information ───────────────────────────────────────────────────
+title: "Case Study Title Here"
+#hero_image: ""  # Cover image — ideal size 1200×600
+objective: "Primary goal of the study/campaign"
+roi: "240%"                       # Return on Investment — leave empty if not applicable
 
-# ─── حقول الدراسة الخارجية (external) ─────────────────────────────────
-# تظهر فقط عندما يكون study_type: "external"
-brand_analyzed: "اسم العلامة التجارية"
-campaign_name: "اسم الحملة التسويقية"
-key_takeaway: "الدرس الأساسي المستفاد من هذه الحملة"
-core_critique: "النقد أو الملاحظة الرئيسية على الحملة/العلامة التجارية — يظهر كصندوق بارز أعلى المحتوى"
+# ─── Internal Study Fields (internal) ─────────────────────────────────
+# Appears only when study_type: "internal"
+client: "Client Name"
+my_role: "Marketing Manager / Consultant"
+budget: "50,000 SAR"
 
-# ─── مؤشرات الأداء (KPI) — تُعرض كبطاقات أرقام بارزة ──────────────
-# أضف حتى 4 مؤشرات — احذف أي زوج label/value لإخفاء البطاقة
-kpi_1_label: "الوصول الشهري"
+# ─── External Study Fields (external) ─────────────────────────────────
+# Appears only when study_type: "external"
+brand_analyzed: "Brand Name"
+campaign_name: "Marketing Campaign Name"
+key_takeaway: "Core lesson learned from this campaign"
+core_critique: "Main critique or observation on the campaign/brand — appears as a prominent box above content"
+
+# ─── Key Performance Indicators (KPI) — Displayed as prominent number cards ──────────────
+# Add up to 4 indicators — delete any label/value pair to hide the card
+kpi_1_label: "Monthly Reach"
 kpi_1_value: "89K"
-kpi_2_label: "معدل التفاعل"
+kpi_2_label: "Engagement Rate"
 kpi_2_value: "4.8%"
-kpi_3_label: "المبيعات"
-kpi_3_value: "153K ر.س"
+kpi_3_label: "Sales"
+kpi_3_value: "153K SAR"
 # kpi_4_label: ""
 # kpi_4_value: ""
 
-# ─── صور المقارنة (قبل/بعد) ──────────────────────────────────────────
-# تظهر كعمودين جنباً إلى جنب — اتركها فارغة إذا لم تنطبق
+# ─── Comparison Images (Before/After) ──────────────────────────────────────────
+# Displayed as two columns side-by-side — leave empty if not applicable
 before_image: "/assets/images/case-studies/before.png"
 after_image: "/assets/images/case-studies/after.png"
 
-# ─── الأدوات المستخدمة — تُعرض كشارات (badges) ──────────────────────
+# ─── Tools Used — Displayed as badges ──────────────────────
 tools_used:
   - "Meta Ads"
   - "Google Analytics"
   - "Canva"
   - "Notion"
 
-# ─── الفهرس الجانبي (Sticky TOC) ────────────────────────────────────
-# كل عنصر يحتوي: id (معرّف العنوان في HTML) و label (الاسم المعروض)
-# يجب أن يتطابق id مع العناوين في المحتوى أدناه
+# ─── Sticky TOC (Table of Contents) ────────────────────────────────────
+# Each item contains: id (HTML heading identifier) and label (Display name)
+# id must match the headings in the content below
 toc_items:
-  - id: "التحدي"
-    label: "التحدي"
-  - id: "الاستراتيجية"
-    label: "الاستراتيجية"
-  - id: "النتائج"
-    label: "النتائج"
+  - id: "the-challenge"
+    label: "The Challenge"
+  - id: "strategy"
+    label: "Strategy"
+  - id: "results"
+    label: "Results"
   - id: "comparison"
-    label: "قبل / بعد"
+    label: "Before / After"
   - id: "tools"
-    label: "الأدوات"
+    label: "Tools"
 ---
 
+## The Challenge
+Explain the challenge or problem you faced here. What was the situation before intervention?
 
-## التحدي
-اشرح هنا التحدي أو المشكلة التي واجهتها. ما هو الوضع قبل التدخل؟
+## Strategy
+Explain the methodology and plan you followed to solve the problem.
 
-## الاستراتيجية
-اشرح المنهجية والخطة التي اتبعتها لحل المشكلة.
+1. **First Pillar**: Brief description
+2. **Second Pillar**: Brief description
+3. **Third Pillar**: Brief description
 
-1. **المحور الأول**: وصف مختصر
-2. **المحور الثاني**: وصف مختصر
-3. **المحور الثالث**: وصف مختصر
+> 💡 **Lesson Learned**: You can place important notes and lessons learned in blockquotes — they will appear in a distinct format.
 
-> 💡 **درس مستفاد**: يمكنك وضع الملاحظات المهمة والدروس المستفادة في اقتباسات — ستظهر بتنسيق مميز.
+## Results
 
-## النتائج
-
-| المقياس | قبل | بعد |
+| Metric | Before | After |
 |---------|-----|-----|
-| المقياس الأول | X | Y |
-| المقياس الثاني | X | Y |
-| المقياس الثالث | X | Y |
+| First Metric | X | Y |
+| Second Metric | X | Y |
+| Third Metric | X | Y |
 
-اكتب ملخصاً للنتائج هنا.
+Write a summary of the results here.

@@ -18,55 +18,55 @@
 
 # ─── إعدادات أساسية ───────────────────────────────────────────────────
 layout: project
-lang: en                         # اللغة: ar أو en
-translation_key: unique_key  # مفتاح ربط النسخة العربية بالإنجليزية
-date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
-permalink: /en/portfolio/template-project-en/  # الرابط المخصص — غيّره حسب اسم المشروع
+lang: en                          # Language: ar or en
+translation_key: unique_key       # Key to link Arabic version with English
+date: 2026-01-01                  # Project date — used for sorting
+permalink: en/portfolio/template-project-en/  # Custom link — change based on project name
 
 # ─── معلومات المشروع الأساسية ─────────────────────────────────────────
-title: "عنوان المشروع هنا"
-client: "اسم العميل"
-industry: "التقنية / الأزياء / المطاعم"  # قطاع العمل
-duration: "3 أشهر"                        # مدة المشروع
-budget: "75,000 ر.س"                      # ميزانية المشروع
-my_role: "مدير التسويق / استشاري استراتيجي"
+title: "Project Title Here"
+client: "Client Name"
+industry: "Tech / Fashion / Restaurants"  # Business sector
+duration: "3 Months"                        # Project duration
+budget: "75,000 SAR"                      # Project budget
+my_role: "Marketing Manager / Strategic Consultant"
 
 # ─── صورة الغلاف والنتائج ─────────────────────────────────────────────
-hero_image: "/assets/images/projects/cover.png"  # المقاس المثالي 1200×600
-project_result: "زيادة المبيعات بنسبة 45%"      # النتيجة الرئيسية — تظهر في الهيدر بشكل بارز
-roi: "180%"                                       # العائد على الاستثمار
+hero_image: "/assets/images/projects/cover.png"  # Ideal size 1200×600
+project_result: "45% Increase in Sales"      # Main result — appears prominently in header
+roi: "180%"                                       # Return on Investment
 
 # ─── العميل والتحدي (القسم 1) ────────────────────────────────────────
-# هذه الحقول تملأ قسم "العميل والتحدي" تلقائياً
-client_overview: "وصف مختصر عن العميل — من هو؟ ما حجمه؟ ما هو نشاطه التجاري؟ ما هي أهدافه العامة؟"
-core_problem: "ما التحدي أو المشكلة الجوهرية التي واجهها العميل قبل التعاون معك؟ — يظهر بتنسيق تحذيري مميز"
+# These fields automatically fill the "Client & Challenge" section
+client_overview: "Brief description of the client — who are they? What is their size? What is their business activity? What are their general goals?"
+core_problem: "What was the core challenge or problem the client faced before collaborating with you? — appears in a distinct warning format"
 
 # ─── البحث والاكتشاف (القسم 2) ───────────────────────────────────────
-# مصفوفة رؤى بحثية — كل عنصر يحتوي: icon (أيقونة FontAwesome)، label، value
-# يمكنك إضافة أي عدد من الرؤى
+# Research insights array — each item contains: icon (FontAwesome icon), label, value
+# You can add any number of insights
 research_insights:
   - icon: "fa-solid fa-users"
-    label: "الجمهور المستهدف"
-    value: "شباب 18-35، مهتمون بالتقنية والابتكار"
+    label: "Target Audience"
+    value: "Youth 18-35, interested in tech and innovation"
   - icon: "fa-solid fa-chart-pie"
-    label: "حصة السوق"
-    value: "12% قبل المشروع — هدف الوصول إلى 20%"
+    label: "Market Share"
+    value: "12% before project — goal to reach 20%"
   - icon: "fa-solid fa-magnifying-glass"
-    label: "تحليل المنافسين"
-    value: "3 منافسين رئيسيين — نقاط ضعفهم في المحتوى الرقمي"
+    label: "Competitor Analysis"
+    value: "3 main competitors — weaknesses in digital content"
 
 # ─── مؤشرات الأداء (KPI) — تُعرض كبطاقات أرقام بارزة ──────────────
-kpi_1_label: "نمو حركة المرور"
+kpi_1_label: "Traffic Growth"
 kpi_1_value: "+45%"
-kpi_2_label: "المبيعات الشهرية"
+kpi_2_label: "Monthly Sales"
 kpi_2_value: "+30%"
-kpi_3_label: "نمو المتابعين"
+kpi_3_label: "Followers Growth"
 kpi_3_value: "+2.5K"
 # kpi_4_label: ""
 # kpi_4_value: ""
 
 # ─── المعرض البصري — مسارات الصور ────────────────────────────────────
-# تُعرض في شبكة متجاوبة — أضف أي عدد من المسارات
+# Displayed in a responsive grid — add any number of paths
 gallery:
   - "/assets/images/projects/screenshot-1.png"
   - "/assets/images/projects/screenshot-2.png"
@@ -90,25 +90,24 @@ tools_used:
      اكتب هنا تفاصيل الخطة الاستراتيجية وكيف تم التنفيذ.
      استخدم العناوين (##) لتنظيم المحتوى.
      ═══════════════════════════════════════════════════════════════════════ -->
+## Strategic Plan
+Explain here the methodology and the plan you developed to solve the client's challenge.
 
-## الخطة الاستراتيجية
-اشرح هنا المنهجية والخطة التي وضعتها لحل تحدي العميل.
+### First Pillar: Visual Identity
+Description of what was accomplished in this pillar.
 
-### المحور الأول: الهوية البصرية
-وصف ما تم عمله في هذا المحور.
+### Second Pillar: Advertising Campaigns
+Description of the campaigns and their targeting.
 
-### المحور الثاني: الحملات الإعلانية
-وصف الحملات واستهدافها.
+### Third Pillar: Content Creation
+Type of content and the publishing plan.
 
-### المحور الثالث: صناعة المحتوى
-نوع المحتوى وخطة النشر.
+## Execution and Implementation
+Explain the implementation phases — the timeline, challenges that arose, and the solutions you implemented.
 
-## التنفيذ والتطبيق
-اشرح مراحل التنفيذ — الجدول الزمني، التحديات التي ظهرت، الحلول التي اتخذتها.
+> 💡 **Important Note**: Place any notes or lessons learned from the implementation phase here.
 
-> 💡 **ملاحظة مهمة**: ضع هنا أي ملاحظات أو دروس مستفادة من مرحلة التنفيذ.
-
-## ملخص النتائج
-- النتيجة الأولى وتأثيرها
-- النتيجة الثانية وتأثيرها
-- النتيجة الثالثة وتأثيرها
+## Results Summary
+- The first result and its impact
+- The second result and its impact
+- The third result and its impact
