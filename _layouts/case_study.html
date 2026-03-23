@@ -126,6 +126,15 @@ layout: default
                         </div>
                     </div>
                     {% endif %}
+                    {% if page.status %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-spinner" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_status }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.status }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
                 {% endif %}
 
                 <!-- الهدف — يظهر لكلا النوعين -->

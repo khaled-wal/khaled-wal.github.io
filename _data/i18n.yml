@@ -29,6 +29,7 @@ ar:
   cs_after: "بعد"
   cs_core_critique: "النقد الأساسي"
   cs_tools_used: "الأدوات المستخدمة"
+  cs_status: "حالة المشروع"
 
   # ─── سلاسل المشروع (Project) ───
   pro_back: "العودة إلى الأعمال"
@@ -45,6 +46,7 @@ ar:
   pro_evaluation: "التقييم والنتائج النهائية"
   pro_tools_used: "الأدوات المستخدمة"
   pro_gallery_title: "معرض المشروع"
+  pro_status: "حالة المشروع"
 
 # English UI Strings
 en:
@@ -77,6 +79,7 @@ en:
   cs_after: "After"
   cs_core_critique: "Core Critique"
   cs_tools_used: "Tools Used"
+  cs_status: "Status"
 
   # ─── Project Strings ───
   pro_back: "Back to Portfolio"
@@ -93,3 +96,4 @@ en:
   pro_evaluation: "Evaluation & Final Results"
   pro_tools_used: "Tools Used"
   pro_gallery_title: "Project Gallery"
+  pro_status: "Status"

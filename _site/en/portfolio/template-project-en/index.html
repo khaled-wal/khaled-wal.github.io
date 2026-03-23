@@ -41,11 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1773876682">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1774295814">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1773876682">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1774295814">
 </head>
 
 <body>
@@ -136,7 +136,6 @@
         
         <div class="mkt-pro-hero-img-wrapper">
             <img src="/assets/images/projects/cover.png" 
-                 alt="عنوان المشروع هنا" 
                  class="mkt-pro-hero-img">
             <div class="mkt-pro-hero-overlay" aria-hidden="true"></div>
         </div>
@@ -230,22 +229,29 @@
                     </div>
                 </div>
                 
+                
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 3: العميل والتحدي الأساسي
-         يُقدّم سياق المشروع — من هو العميل؟ ما المشكلة التي واجهها؟
-         يعتمد على حقلي client_overview و core_problem في الـ Front Matter
-         ═══════════════════════════════════════════════════════════════════════ -->
-    
-    <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
-                <span class="mkt-pro-section-number">01</span>
-                <h2 class="mkt-pro-section-title">The Client & The Challenge</h2>
-            </div>
+    <div class="container mkt-cs-body">
+        <!-- ═══════════════════════════════════════════════════════════════════════
+             الفهرس الجانبي (Table of Contents)
+             ═══════════════════════════════════════════════════════════════════════ -->
+        
+
+        <div class="mkt-cs-content mkt-cs-content--full">
+            
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 3: العميل والتحدي الأساسي
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            
+            <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
+                        <span class="mkt-pro-section-number auto-num"></span>
+                        <h2 class="mkt-pro-section-title">The Client & The Challenge</h2>
+                    </div>
             <div class="mkt-pro-section-body">
                 
                 <div class="mkt-pro-text-block">
@@ -263,23 +269,16 @@
     </section>
     
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 4: البحث والاكتشاف (Research & Discovery)
-         يعرض نقاط البيانات والرؤى البحثية كبطاقات مُنسقة
-         يعتمد على مصفوفة research_insights في الـ Front Matter
-         مثال:
-           research_insights:
-             - icon: "fa-solid fa-users"
-               label: "الجمهور المستهدف"
-               value: "شباب 18-35، مهتمون بالتقنية"
-         ═══════════════════════════════════════════════════════════════════════ -->
-    
-    <section class="mkt-pro-section" id="research">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
-                <span class="mkt-pro-section-number">02</span>
-                <h2 class="mkt-pro-section-title">Research & Discovery</h2>
-            </div>
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 4: البحث والاكتشاف (Research & Discovery)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            
+            <section class="mkt-pro-section" id="research">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
+                        <span class="mkt-pro-section-number auto-num"></span>
+                        <h2 class="mkt-pro-section-title">Research & Discovery</h2>
+                    </div>
             <div class="mkt-pro-insights-grid">
                 
                 <div class="mkt-pro-insight-card">
@@ -311,17 +310,12 @@
     </section>
     
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
-         هذا القسم يحتوي محتوى الـ Markdown الكامل من ملف .md
-         يمكنك تنظيم المحتوى باستخدام عناوين h2/h3 في الـ Markdown
-         مثلاً:
-           ## الخطة الاستراتيجية
-           ## التنفيذ والتطبيق
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="mkt-pro-section mkt-pro-section--alt" id="content">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-prose">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            <section class="mkt-pro-section mkt-pro-section--alt" id="content">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-prose">
                 <!-- ═══════════════════════════════════════════════════════════════════════
      المحتوى النصي — الاستراتيجية والتنفيذ
      ─────────────────────────────────────────────────────────────────────
@@ -360,19 +354,13 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 7: المعرض البصري (Visual Gallery)
-         يعرض صور المشروع في شبكة متجاوبة
-         يعتمد على مصفوفة gallery في الـ Front Matter
-         مثال:
-           gallery:
-             - "/assets/images/projects/screenshot-1.jpg"
-             - "/assets/images/projects/screenshot-2.jpg"
-         ═══════════════════════════════════════════════════════════════════════ -->
-    
-    <section class="mkt-pro-section" id="gallery">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 7: المعرض البصري (Visual Gallery)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            
+            <section class="mkt-pro-section" id="gallery">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
                 <span class="mkt-pro-section-number">
                     <i class="fa-solid fa-images" aria-hidden="true"></i>
                 </span>
@@ -409,14 +397,13 @@
     </section>
     
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
-         تُعرض كبطاقات أرقام بارزة — نفس المكوّن المشترك مع دراسة الحالة
-         ═══════════════════════════════════════════════════════════════════════ -->
-    
-    <section class="mkt-pro-section mkt-pro-section--alt" id="results">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            
+            <section class="mkt-pro-section mkt-pro-section--alt" id="results">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
                 <span class="mkt-pro-section-number">
                     <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
                 </span>
@@ -445,32 +432,35 @@
     </section>
     
 
-    <!-- الأدوات المستخدمة — تُعرض كشارات -->
-    
-    <section class="mkt-pro-section" id="tools">
-        <div class="container mkt-pro-section-inner">
-            <h3 class="mkt-cs-tools-heading">
-                <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
-                Tools Used
-            </h3>
-            <div class="mkt-cs-tools-list">
-                
-                <span class="mkt-cs-tool-badge">Google Ads</span>
-                
-                <span class="mkt-cs-tool-badge">Meta Ads</span>
-                
-                <span class="mkt-cs-tool-badge">Google Analytics</span>
-                
-                <span class="mkt-cs-tool-badge">Shopify</span>
-                
-                <span class="mkt-cs-tool-badge">Canva</span>
-                
-                <span class="mkt-cs-tool-badge">Notion</span>
-                
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 الأدوات المستخدمة
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            
+            <div class="mkt-cs-tools" id="tools" style="margin-left: 3rem; margin-right: 3rem; margin-bottom: 3rem;">
+                <div class="mkt-cs-tools-heading">
+                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                    Tools Used
+                </div>
+                <div class="mkt-cs-tools-list">
+                    
+                    <span class="mkt-cs-tool-badge">Google Ads</span>
+                    
+                    <span class="mkt-cs-tool-badge">Meta Ads</span>
+                    
+                    <span class="mkt-cs-tool-badge">Google Analytics</span>
+                    
+                    <span class="mkt-cs-tool-badge">Shopify</span>
+                    
+                    <span class="mkt-cs-tool-badge">Canva</span>
+                    
+                    <span class="mkt-cs-tool-badge">Notion</span>
+                    
+                </div>
             </div>
-        </div>
-    </section>
-    
+            
+
+        </div> <!-- End of mkt-cs-content -->
+    </div> <!-- End of mkt-cs-body -->
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 9: دعوة للتواصل (CTA)

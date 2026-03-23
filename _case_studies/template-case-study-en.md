@@ -16,13 +16,13 @@ layout: case_study
 lang: en                         # اللغة: ar أو en
 translation_key: unique_key_here  # مفتاح ربط النسخة العربية بالإنجليزية — يجب أن يكون متطابقاً بين اللغتين
 permalink: /en/portfolio/template-case-study-en/
-
+image: /assets/images/case-studies/after.png
 # ─── نوع الدراسة ──────────────────────────────────────────────────────
 study_type: "internal"            # غيّر إلى "external" لتحليل حملات خارجية
 
 # ─── معلومات أساسية ───────────────────────────────────────────────────
 title: "عنوان دراسة الحالة هنا"
-hero_image: "/assets/images/case-studies/cover.png"  # صورة الغلاف — المقاس المثالي 1200×600
+#hero_image: ""  # صورة الغلاف — المقاس المثالي 1200×600
 objective: "الهدف الرئيسي من الدراسة/الحملة"
 roi: "240%"                       # العائد على الاستثمار — اتركه فارغاً إذا لم ينطبق
 

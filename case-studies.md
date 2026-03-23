@@ -26,6 +26,9 @@ description: "استعرض دراسات الحالة والمشاريع التي
           </div>
           <div class="card-content">
               <span class="category">{{ site.data.i18n.ar.client }} {{ item.client }}</span>
+              {% if item.status %}
+              <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.status }}</span>
+              {% endif %}
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
               <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
@@ -53,6 +56,9 @@ description: "استعرض دراسات الحالة والمشاريع التي
           </div>
           <div class="card-content">
               <span class="category">{{ site.data.i18n.ar.projects }}</span>
+              {% if item.status %}
+              <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.status }}</span>
+              {% endif %}
               <h3>{{ item.title }}</h3>
               <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
               <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>

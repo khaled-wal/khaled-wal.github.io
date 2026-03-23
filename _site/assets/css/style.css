@@ -9,8 +9,8 @@
   /* Lighter Navy - Cards/Inputs in Dark */
   --clr-green: #10b981;
   /* Emerald Green - Primary Accent */
-  --clr-green-dark: #059669;
-  /* Darker Green - Hover states */
+  --clr-green-light: #40d7a7;
+  /* Lighter Green - Hover states */
   --clr-offwhite: #f8fafc;
   /* Off-white - Light Section Background */
   --clr-white: #ffffff;
@@ -40,7 +40,7 @@
   --radius-pill: 50px;
 
   /* Header height (used by sections that need to clear the fixed header) */
-  --header-height: 70px;
+  --header-height: 50px;
 
   /* Shadows & Transitions */
   --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -124,7 +124,7 @@ section {
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   border-radius: var(--radius-pill);
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   transition: all var(--transition-smooth);
   text-align: center;
@@ -137,7 +137,7 @@ section {
 }
 
 .btn-primary:hover {
-  background-color: var(--clr-green-dark);
+  background-color: var(--clr-green-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
 }
@@ -149,7 +149,7 @@ section {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.114);
   transform: translateY(-2px);
 }
 
@@ -199,7 +199,7 @@ section {
   top: 0;
   width: 100%;
   background-color: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-block: 1rem;
@@ -238,7 +238,7 @@ section {
 
 .main-nav a {
   color: var(--clr-white);
-  font-weight: 600;
+  font-weight: 800;
   position: relative;
 }
 
@@ -312,8 +312,8 @@ section {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 6rem;
   align-items: center;
 }
 
@@ -330,14 +330,14 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: var(--clr-white);
 }
 
 .hero-desc {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   margin-bottom: 2.5rem;
   max-width: 90%;
   color: var(--clr-muted);
@@ -387,7 +387,7 @@ section {
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding: 1.5rem 2rem;
   background-color: var(--clr-navy-light);
   border-radius: var(--radius-lg);
@@ -398,7 +398,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .skill-item i {
@@ -435,7 +435,7 @@ section {
   gap: 0.35rem;
   padding: 0.3rem 0.85rem;
   background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1.2px solid rgba(0, 255, 170, 0.443);
   color: var(--clr-green);
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
@@ -548,7 +548,7 @@ section {
 }
 
 .read-more:hover {
-  color: var(--clr-green-dark);
+  color: var(--clr-green-light);
 }
 
 /* ==========================================================================
@@ -626,8 +626,8 @@ section {
 
 .cv-grid {
   display: flex;
-  gap: 4rem;
-  margin-bottom: 2rem;
+  gap: 5rem;
+  margin-bottom: 5rem;
   position: relative;
   z-index: 2;
 }
@@ -676,7 +676,7 @@ section {
   justify-content: center;
   position: relative;
   z-index: 10;
-  margin-top: -3rem;
+  margin-top: -1rem;
   /* pull button up slightly over the fade */
 }
 
@@ -1068,7 +1068,7 @@ html[dir="ltr"] .arrow-icon {
    Portfolio List Page Layout
    ========================================================================== */
 .portfolio-page-section {
-  padding-top: calc(var(--header-height) + 3rem);
+  padding-top: calc(var(--header-height) + 5rem);
   padding-bottom: 60px;
   min-height: 100vh;
 }
@@ -1177,7 +1177,7 @@ html[dir="ltr"] .arrow-icon {
 }
 
 .markdown-content a:hover {
-  color: var(--clr-green-dark);
+  color: var(--clr-green-light);
 }
 
 .markdown-content blockquote {
@@ -1322,7 +1322,7 @@ html[dir="ltr"] .arrow-icon {
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
-@media (max-width: 767px) {
+@media (max-width: 791px) {
 
   /* Navigation */
   .main-nav {
@@ -1487,7 +1487,7 @@ html[dir="ltr"] .arrow-icon {
 }
 
 /* ── Very small phones ──────────────────────────────── */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
 
   :root {
     --spacing-section: 3rem;
@@ -1532,4 +1532,22 @@ html[dir="ltr"] .arrow-icon {
   .post-header h1 {
     font-size: 1.5rem;
   }
+}
+
+/* ==========================================================================
+   Project Status Tags (Cards)
+   ========================================================================== */
+.project-status-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--clr-green);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  width: fit-content;
 }

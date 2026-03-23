@@ -14,6 +14,25 @@
    التعديل: يمكنك تغيير القيم أدناه بحرية — كل قسم مُعلّم بتعليقات عربية.
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   إصلاح تمرير الروابط المرجعية (Anchor Scroll Offset)
+   التطبيق فقط على عناصر صفحة تفاصيل الأعمال لمنع تداخل الشريط العلوي
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mkt-pro-section,
+.mkt-shared-kpi-section,
+.mkt-cs-tools,
+.mkt-pro-prose h2,
+.mkt-cs-prose h2,
+.mkt-pro-prose h3,
+.mkt-cs-prose h3,
+#gallery,
+#results,
+#tools,
+#client-problem,
+#research {
+  scroll-margin-top: calc(var(--header-height) + 3rem);
+}
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
    القسم المشترك: بطاقات مؤشرات الأداء (KPI Cards)
@@ -356,8 +375,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* عناوين المحتوى */
-.mkt-cs-prose h2,
-.mkt-pro-prose h2 {
+.mkt-cs-prose h2 {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--clr-white);
@@ -366,6 +384,36 @@
   padding-bottom: 0.5rem;
   border-bottom: 2px solid rgba(16, 185, 129, 0.2);
   line-height: 1.3;
+}
+
+/* عناوين المشروع (prose) مزودة بترقيم تلقائي */
+.mkt-pro-prose h2 {
+  counter-increment: pro-section-counter;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.3;
+}
+
+.mkt-pro-prose h2::before {
+  content: "0" counter(pro-section-counter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--clr-green);
+  color: var(--clr-green);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .mkt-cs-prose h3,
@@ -586,6 +634,7 @@
 .mkt-pro-page {
   background-color: var(--clr-navy);
   padding-top: var(--header-height);
+  counter-reset: pro-section-counter;
 }
 
 /* حاوية الهيدر */
@@ -789,18 +838,23 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .mkt-pro-section {
-  padding-block: 3.5rem;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius-md);
+  /* The normal background was implicitly navy, let's keep it that way and just use border if needed */
+  background-color: var(--clr-navy);
+  border: 1px solid var(--clr-border);
 }
 
 /* خلفية بديلة للأقسام المتناوبة — تمييز بصري */
 .mkt-pro-section--alt {
   background-color: var(--clr-navy-light);
-  border-block: 1px solid var(--clr-border);
+  border-color: rgba(16, 185, 129, 0.15);
 }
 
 .mkt-pro-section-inner {
-  max-width: 900px;
-  margin-inline: auto;
+  max-width: 100%;
+  margin-inline: 0;
 }
 
 /* رأس القسم — الرقم + العنوان */
@@ -825,6 +879,14 @@
   font-weight: 800;
   font-size: 1.1rem;
   flex-shrink: 0;
+}
+
+/* الترقيم التلقائي لـ الأقسام المدعومة */
+.mkt-pro-section-number.auto-num {
+  counter-increment: pro-section-counter;
+}
+.mkt-pro-section-number.auto-num::before {
+  content: "0" counter(pro-section-counter);
 }
 
 /* عنوان القسم */
@@ -1093,6 +1155,33 @@
     font-size: 1.5rem;
   }
 
+  /* الحاوية الرئيسية (TOC والمحتوى) */
+  .mkt-cs-body {
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  /* نصوص المحتوى */
+  .mkt-cs-prose h2,
+  .mkt-pro-prose h2 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .mkt-pro-prose h2::before {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .mkt-cs-prose p,
+  .mkt-pro-prose p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
   /* شريط البيانات — عمود واحد على الموبايل */
   .mkt-cs-meta-bar {
     flex-direction: column;
@@ -1128,9 +1217,10 @@
     grid-template-columns: 1fr;
   }
 
-  /* أقسام المشروع — مسافات أقل */
+  /* أقسام المشروع — مسافات أقل وتخفيف الحشوة الجانبية لمنع الانضغاط */
   .mkt-pro-section {
-    padding-block: 2.5rem;
+    padding: 2rem 1rem;
+    border-radius: var(--radius-sm);
   }
 
   .mkt-pro-section-header {

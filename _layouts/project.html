@@ -41,7 +41,6 @@ layout: default
         {% if page.hero_image %}
         <div class="mkt-pro-hero-img-wrapper">
             <img src="{{ page.hero_image | relative_url }}" 
-                 alt="{{ page.title }}" 
                  class="mkt-pro-hero-img">
             <div class="mkt-pro-hero-overlay" aria-hidden="true"></div>
         </div>
@@ -135,22 +134,51 @@ layout: default
                     </div>
                 </div>
                 {% endif %}
+                {% if page.status %}
+                <div class="mkt-pro-stat-chip">
+                    <i class="fa-solid fa-spinner" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-pro-stat-label">{{ t.pro_status }}</span>
+                        <span class="mkt-pro-stat-value">{{ page.status }}</span>
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 3: العميل والتحدي الأساسي
-         يُقدّم سياق المشروع — من هو العميل؟ ما المشكلة التي واجهها؟
-         يعتمد على حقلي client_overview و core_problem في الـ Front Matter
-         ═══════════════════════════════════════════════════════════════════════ -->
-    {% if page.client_overview or page.core_problem %}
-    <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
-                <span class="mkt-pro-section-number">01</span>
-                <h2 class="mkt-pro-section-title">{{ t.pro_client_problem }}</h2>
-            </div>
+    <div class="container mkt-cs-body">
+        <!-- ═══════════════════════════════════════════════════════════════════════
+             الفهرس الجانبي (Table of Contents)
+             ═══════════════════════════════════════════════════════════════════════ -->
+        {% if page.toc_items and page.toc_items.size > 0 %}
+        <aside class="mkt-cs-toc" aria-label="{{ t.cs_toc_title | default: 'الفهرس' }}">
+            <h3 class="mkt-cs-toc-heading">
+                <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
+                {{ t.cs_toc_title | default: 'الفهرس' }}
+            </h3>
+            <ul class="mkt-cs-toc-list" role="list">
+                {% for item in page.toc_items %}
+                <li>
+                    <a href="{{ item.url }}" class="mkt-cs-toc-link">{{ item.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+        {% endif %}
+
+        <div class="mkt-cs-content {% if page.toc_items == null or page.toc_items.size == 0 %}mkt-cs-content--full{% endif %}">
+            
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 3: العميل والتحدي الأساسي
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            {% if page.client_overview or page.core_problem %}
+            <section class="mkt-pro-section mkt-pro-section--alt" id="client-problem">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
+                        <span class="mkt-pro-section-number auto-num"></span>
+                        <h2 class="mkt-pro-section-title">{{ t.pro_client_problem }}</h2>
+                    </div>
             <div class="mkt-pro-section-body">
                 {% if page.client_overview %}
                 <div class="mkt-pro-text-block">
@@ -168,23 +196,16 @@ layout: default
     </section>
     {% endif %}
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 4: البحث والاكتشاف (Research & Discovery)
-         يعرض نقاط البيانات والرؤى البحثية كبطاقات مُنسقة
-         يعتمد على مصفوفة research_insights في الـ Front Matter
-         مثال:
-           research_insights:
-             - icon: "fa-solid fa-users"
-               label: "الجمهور المستهدف"
-               value: "شباب 18-35، مهتمون بالتقنية"
-         ═══════════════════════════════════════════════════════════════════════ -->
-    {% if page.research_insights and page.research_insights.size > 0 %}
-    <section class="mkt-pro-section" id="research">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
-                <span class="mkt-pro-section-number">02</span>
-                <h2 class="mkt-pro-section-title">{{ t.pro_research }}</h2>
-            </div>
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 4: البحث والاكتشاف (Research & Discovery)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            {% if page.research_insights and page.research_insights.size > 0 %}
+            <section class="mkt-pro-section" id="research">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
+                        <span class="mkt-pro-section-number auto-num"></span>
+                        <h2 class="mkt-pro-section-title">{{ t.pro_research }}</h2>
+                    </div>
             <div class="mkt-pro-insights-grid">
                 {% for insight in page.research_insights %}
                 <div class="mkt-pro-insight-card">
@@ -200,35 +221,24 @@ layout: default
     </section>
     {% endif %}
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
-         هذا القسم يحتوي محتوى الـ Markdown الكامل من ملف .md
-         يمكنك تنظيم المحتوى باستخدام عناوين h2/h3 في الـ Markdown
-         مثلاً:
-           ## الخطة الاستراتيجية
-           ## التنفيذ والتطبيق
-         ═══════════════════════════════════════════════════════════════════════ -->
-    <section class="mkt-pro-section mkt-pro-section--alt" id="content">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-prose">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            <section class="mkt-pro-section mkt-pro-section--alt" id="content">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-prose">
                 {{ content }}
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 7: المعرض البصري (Visual Gallery)
-         يعرض صور المشروع في شبكة متجاوبة
-         يعتمد على مصفوفة gallery في الـ Front Matter
-         مثال:
-           gallery:
-             - "/assets/images/projects/screenshot-1.jpg"
-             - "/assets/images/projects/screenshot-2.jpg"
-         ═══════════════════════════════════════════════════════════════════════ -->
-    {% if page.gallery and page.gallery.size > 0 %}
-    <section class="mkt-pro-section" id="gallery">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 7: المعرض البصري (Visual Gallery)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            {% if page.gallery and page.gallery.size > 0 %}
+            <section class="mkt-pro-section" id="gallery">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
                 <span class="mkt-pro-section-number">
                     <i class="fa-solid fa-images" aria-hidden="true"></i>
                 </span>
@@ -247,14 +257,13 @@ layout: default
     </section>
     {% endif %}
 
-    <!-- ═══════════════════════════════════════════════════════════════════════
-         القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
-         تُعرض كبطاقات أرقام بارزة — نفس المكوّن المشترك مع دراسة الحالة
-         ═══════════════════════════════════════════════════════════════════════ -->
-    {% if page.kpi_1_label and page.kpi_1_value %}
-    <section class="mkt-pro-section mkt-pro-section--alt" id="results">
-        <div class="container mkt-pro-section-inner">
-            <div class="mkt-pro-section-header">
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 القسم 8: مؤشرات الأداء والنتائج النهائية (KPI Cards)
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            {% if page.kpi_1_label and page.kpi_1_value %}
+            <section class="mkt-pro-section mkt-pro-section--alt" id="results">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
                 <span class="mkt-pro-section-number">
                     <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
                 </span>
@@ -288,22 +297,25 @@ layout: default
     </section>
     {% endif %}
 
-    <!-- الأدوات المستخدمة — تُعرض كشارات -->
-    {% if page.tools_used and page.tools_used.size > 0 %}
-    <section class="mkt-pro-section" id="tools">
-        <div class="container mkt-pro-section-inner">
-            <h3 class="mkt-cs-tools-heading">
-                <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
-                {{ t.pro_tools_used }}
-            </h3>
-            <div class="mkt-cs-tools-list">
-                {% for tool in page.tools_used %}
-                <span class="mkt-cs-tool-badge">{{ tool }}</span>
-                {% endfor %}
+            <!-- ═══════════════════════════════════════════════════════════════════════
+                 الأدوات المستخدمة
+                 ═══════════════════════════════════════════════════════════════════════ -->
+            {% if page.tools_used %}
+            <div class="mkt-cs-tools" id="tools" style="margin-left: 3rem; margin-right: 3rem; margin-bottom: 3rem;">
+                <div class="mkt-cs-tools-heading">
+                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                    {{ t.pro_tools_used }}
+                </div>
+                <div class="mkt-cs-tools-list">
+                    {% for tool in page.tools_used %}
+                    <span class="mkt-cs-tool-badge">{{ tool }}</span>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </section>
-    {% endif %}
+            {% endif %}
+
+        </div> <!-- End of mkt-cs-content -->
+    </div> <!-- End of mkt-cs-body -->
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 9: دعوة للتواصل (CTA)
