@@ -47,16 +47,20 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         <div class="skills-bar">
             <!-- ✏️ EDIT: Each skill-item = icon + label -->
             <div class="skill-item">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span>Content Creation</span>
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span>Market Analytics</span>
             </div>
             <div class="skill-item">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>Data Analysis</span>
+                <i class="fa-solid fa-brain"></i>
+                <span>Consumer Behavior</span>
             </div>
             <div class="skill-item">
-                <i class="fa-solid fa-object-group"></i>
-                <span>SEO Optimization</span>
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Positioning</span>
+            </div>
+            <div class="skill-item">
+                <i class="fa-solid fa-compass"></i>
+                <span>Marketing Planning</span>
             </div>
             <!-- Add a new skill by copying the block above:
             <div class="skill-item">
