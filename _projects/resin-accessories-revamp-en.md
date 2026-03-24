@@ -23,7 +23,7 @@ translation_key: resin-accessories-revamp  # مفتاح ربط النسخة ال
 date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
 permalink: en/portfolio/resin-accessories-revamp-en/  # الرابط المخصص — غيّره حسب اسم المشروع
 objective: "A complete marketing audit and brand revamp for a local resin accessories business."
-image: /assets/images/projects/Rawnak/Rawnak-hero.png
+image: /assets/images/projects/Rawnak/Rawnak-card.png
 
 # ─── معلومات المشروع الأساسية ─────────────────────────────────────────
 title: "Resin Accessories Revamp"
@@ -89,10 +89,10 @@ kpi_3_value: "Optimized"
 # ─── المعرض البصري — مسارات الصور ────────────────────────────────────
 # تُعرض في شبكة متجاوبة — أضف أي عدد من المسارات
 gallery:
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
+  - "/assets/images/projects/Rawnak/Rawnak-card.png"
+  - "/assets/images/projects/Rawnak/Rawnak-card.png"
+  - "/assets/images/projects/Rawnak/Rawnak-card.png"
+  - "/assets/images/projects/Rawnak/Rawnak-card.png"
 
 # ─── الأدوات المستخدمة — تُعرض كشارات ────────────────────────────────
 tools_used:
@@ -110,20 +110,21 @@ tools_used:
      استخدم العناوين (##) لتنظيم المحتوى.
      ═══════════════════════════════════════════════════════════════════════ -->
 ## Strategic Turnaround Plan {#strategy}
-After analyzing the historical sales data (a mere 3,500 SAR over 5 years), it became evident that the core issue wasn't the quality of the resin craftsmanship, but the absence of a viable business model. The strategic plan focused on transitioning the project from a "personal hobby" to a scalable, profitable e-commerce brand by rebuilding the marketing mix from the ground up across three main pillars:
+After analyzing the historical sales data (a mere 3,500 SAR over 5 years), it became evident that the core issue wasn't the quality of the resin craftsmanship, but the absence of a viable business model. <br>
+The strategic plan focused on transitioning the project from a "personal hobby" to a scalable, profitable e-commerce brand by rebuilding the marketing mix from the ground up across three main pillars:
 
-### Pillar 1: Visual Identity & Customer Experience (UX)
+### -- Pillar 1: Visual Identity & Customer Experience (UX)
 Resin is a highly visual product where purchasing decisions are driven by aesthetics, details, and gloss.
 * **Brand Revamp:** We discarded the old, disconnected brand name and developed a new visual identity with a color palette that reflects premium craftsmanship.
 * **Photography Guidelines:** Established new art direction rules focusing on natural lighting to highlight the epoxy's transparency and embedded details (like gold flakes or dried flowers).
 * **The Unboxing Experience:** Redesigned the packaging to create a memorable unboxing experience that encourages customers to share on social media, generating free User-Generated Content (UGC).
 
-### Pillar 2: Pricing Restructure & Campaign Strategy
+### -- Pillar 2: Pricing Restructure & Campaign Strategy
 Relying solely on seasonal physical bazaars was killing the business. To pivot to e-commerce, we implemented the following:
 * **Value-Based Pricing:** The audit revealed that old prices barely covered raw materials, ignoring manual labor. We built a new pricing structure with healthy profit margins, ensuring future paid ads could be funded without operating at a loss.
 * **Ad Campaign Blueprint:** Developed a structured funnel for Meta Ads, planning "Awareness" campaigns targeting users interested in personalized gifts and handmade arts, followed by "Retargeting" campaigns for store visitors.
 
-### Pillar 3: Engaging Content Creation
+### -- Pillar 3: Engaging Content Creation
 We completely halted the random posting of static, low-quality images and shifted to a storytelling-first content strategy:
 * **Behind the Scenes (BTS):** Pivoted to short-form video formats (Reels/TikTok) showcasing the satisfying process of resin mixing, pouring, and demolding. This content style is highly engaging and has strong viral potential.
 * **Educational Content:** Creating content that educates the audience on the value of one-of-a-kind handmade art and how to care for resin pieces.
