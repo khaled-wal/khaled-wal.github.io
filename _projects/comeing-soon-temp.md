@@ -18,16 +18,18 @@
 
 # ─── إعدادات أساسية ───────────────────────────────────────────────────
 layout: project
-lang: en                         # اللغة: ar أو en
-translation_key: unique_key  # مفتاح ربط النسخة العربية بالإنجليزية
+lang: ar                          # اللغة: ar أو en
+translation_key: project-comeing-soon-temp  # مفتاح ربط النسخة العربية بالإنجليزية
 date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
-permalink: /en/portfolio/template-project-en/  # الرابط المخصص — غيّره حسب اسم المشروع
+permalink: /portfolio/project-comeing-soon-temp/  # الرابط المخصص — غيّره حسب اسم المشروع
+objective: "عنوان المشروع قيد التنفيذ"
+image:
 
 # ─── تصنيف المحتوى (Content Classification) ────────────────────────
 tier: "market"      # "market" = عمل سوقي حقيقي | "lab" = مشروع جامعي/تدريبي
-publish_state: "published" # "published" = منشور | "coming_soon" = قريباً
+publish_state: "coming_soon" # "published" = منشور | "coming_soon" = قريباً
 
-# ─── معلومات المشروع الأساسية ─────────────────────────────────────────
+# ─── معلومات المشروع الأساسية ─────────────────────────
 title: "عنوان المشروع هنا"
 client: "اسم العميل"
 industry: "التقنية / الأزياء / المطاعم"  # قطاع العمل

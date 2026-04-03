@@ -41,14 +41,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
 </head>
 
-<body>
+<body class="page-light-bg">
 
     <header class="site-header">
   
@@ -99,71 +99,175 @@
         <section class="portfolio-page-section bg-light">
   <div class="container">
     <h1 class="portfolio-page-title">أعمالي</h1>
-    <h2 class="portfolio-page-subtitle">دراسات الحالة</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <a href="/portfolio/template-case-study/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
-              
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 1: أعمال السوق الحقيقية (Market Work)
+         کل بطاقة تمثّل مشروعاً حقيقياً مع عميل أو علامة تجارية.
+         الفلتر: status=published AND lang=ar
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-market reveal-element">
+      <div class="portfolio-market-wrapper">
+        <div class="market-sticky-sidebar">
+          <h2 class="market-sidebar-title">أعمال السوق</h2>
+        </div>
+        <div class="market-content-col">
+          <!-- المشاريع -->
+          <h3 class="portfolio-page-subtitle">المشاريع</h3>
+          <div class="portfolio-grid-custom tier-market-grid">
+
+            <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">المشاريع</span>
+                    
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى (التدقيق وإعادة التموضع)</span>
+                    
+                    <h3>إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن</h3>
+                    <p>تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن.</p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
+
+            <a href="/portfolio/template-project/" class="card-link" aria-label="عنوان المشروع هنا">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+                    </div>
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">المشاريع</span>
+                    
+                    <h3>عنوان المشروع هنا</h3>
+                    <p></p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
           </div>
-          <div class="card-content">
-              <span class="category">العميل: اسم العميل</span>
-              
-              <h3>عنوان دراسة الحالة هنا</h3>
-              <p>الهدف الرئيسي من الدراسة/الحملة</p>
-              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+
+          <!-- دراسات الحالة -->
+          <h3 class="portfolio-page-subtitle">دراسات الحالة</h3>
+          <div class="portfolio-grid-custom tier-market-grid">
+
+            <a href="/portfolio/template-case-study/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">العميل: اسم العميل</span>
+                    
+                    <h3>عنوان دراسة الحالة هنا</h3>
+                    <p>الهدف الرئيسي من الدراسة/الحملة</p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
           </div>
-      </article>
-      </a>
-      
+        </div>
+      </div>
     </div>
-    <h2 class="portfolio-page-subtitle">المشاريع</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <img src="/assets/images/projects/Rawnak/Rawnak-card.png" alt="إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن" />
-              
-          </div>
-          <div class="card-content">
-              <span class="category">المشاريع</span>
-              
-              <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى</span>
-              
-              <h3>إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن</h3>
-              <p>تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن.</p>
-              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-          </div>
-      </article>
-      </a>
-      
-      <a href="/portfolio/template-project/" class="card-link" aria-label="عنوان المشروع هنا">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <div class="card-placeholder">
-                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+    <!-- /portfolio-tier-market -->
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 2: أعمال المختبر (Lab / University / Training)
+         مشاريع استكشافية وتدريبية وأكاديمية.
+         الفلتر: من مجموعة (collection) lab
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-lab reveal-element">
+      <span class="tier-label">
+        <i class="fa-solid fa-flask" aria-hidden="true"></i>
+        مختبر الأعمال · مساحة استكشافية
+      </span>
+      <div class="portfolio-grid-custom tier-lab-blueprint">
+        
+        <a href="/portfolio/lab/template-lab/" class="card-link" aria-label="استراتيجية نمو منتج SaaS (نسخة تجريبية)">
+        <article class="portfolio-card">
+            <div class="card-image">
+                
+                <div class="card-placeholder">
+                  <i class="fa-solid fa-flask fa-3x" aria-hidden="true"></i>
+                </div>
+                
+            </div>
+            <div class="card-content">
+                <span class="category">تجربة تسويقية</span>
+                <h3>استراتيجية نمو منتج SaaS (نسخة تجريبية)</h3>
+                <p>استكشاف قدرات الذكاء الاصطناعي في تحليل سلوك المستخدمين وبناء مسارات تحويل مخصصة لمنتجات SaaS.</p>
+                <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
+        </article>
+        </a>
+        
+      </div>
+    </div>
+    
+    <!-- /portfolio-tier-lab -->
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 3: قيد التنفيذ (Coming Soon)
+         مشاريع لم تُكتمل بعد — مُقفلة بصرياً مع Hover Overlay.
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-coming-soon reveal-element">
+      <span class="tier-label">
+        <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
+        قيد التنفيذ
+      </span>
+      <div class="tier-coming-soon-slider">
+        
+        <div class="coming-soon-card" aria-label="عنوان دراسة الحالة هنا — قيد التنفيذ" role="article">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <div class="card-placeholder">
+                    <i class="fa-solid fa-hourglass-half fa-3x" aria-hidden="true"></i>
+                  </div>
+                  
               </div>
-              
-          </div>
-          <div class="card-content">
-              <span class="category">المشاريع</span>
-              
-              <h3>عنوان المشروع هنا</h3>
-              <p></p>
-              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-          </div>
-      </article>
-      </a>
-      
+              <div class="card-content">
+                  <span class="category">قريباً</span>
+                  <h3>عنوان دراسة الحالة هنا</h3>
+                  <p>الهدف الرئيسي من الدراسة/الحملة</p>
+              </div>
+          </article>
+        </div>
+        
+        <div class="coming-soon-card" aria-label="عنوان المشروع هنا — قيد التنفيذ" role="article">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <div class="card-placeholder">
+                    <i class="fa-solid fa-hourglass-half fa-3x" aria-hidden="true"></i>
+                  </div>
+                  
+              </div>
+              <div class="card-content">
+                  <span class="category">قريباً</span>
+                  <h3>عنوان المشروع هنا</h3>
+                  <p>عنوان المشروع قيد التنفيذ</p>
+              </div>
+          </article>
+        </div>
+        
+      </div>
     </div>
+    
+    <!-- /portfolio-tier-coming-soon -->
+
   </div>
 </section>
 

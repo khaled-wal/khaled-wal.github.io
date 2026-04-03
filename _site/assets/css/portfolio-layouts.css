@@ -911,15 +911,15 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: rgba(255, 168, 38, 0.06);
-  border: 1px solid rgba(255, 168, 38, 0.2);
-  border-inline-start: 4px solid #ffa826;
+  background-color: rgba(21, 216, 187, 0.06);
+  border: 1px solid rgba(21, 216, 187, 0.2);
+  border-inline-start: 4px solid var(--clr-green);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-top: 1.5rem;
 }
 
 .mkt-pro-problem-quote > i {
-  color: #ffa826;
+  color: var(--clr-green);
   font-size: 1.25rem;
   flex-shrink: 0;
   margin-top: 0.2rem;
@@ -1292,4 +1292,172 @@
   .mkt-pro-result-card--roi .mkt-pro-result-value {
     font-size: 1.25rem;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   المختبر (The Lab): الهيدر والتصميم التحريري (Editorial Magazine Style)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mkt-lab-page {
+  background-color: #0b1121; /* Cohesive darker background for editorial focus */
+  color: var(--clr-text-light);
+  font-family: var(--font-main);
+  padding-top: var(--header-height);
+}
+
+.mkt-lab-hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(21, 216, 187, 0.1);
+}
+
+.mkt-lab-hero-img-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.mkt-lab-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.1);
+}
+
+.mkt-lab-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 17, 33, 0.4) 0%,
+    rgba(11, 17, 33, 0.8) 50%,
+    rgba(11, 17, 33, 1) 100%
+  );
+}
+
+.mkt-lab-hero-content {
+  position: relative;
+  z-index: 2;
+  padding-block: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mkt-lab-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary-action);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  transition: opacity var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mkt-lab-back-link:hover {
+  opacity: 0.8;
+}
+
+.mkt-lab-type-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--secondary-action);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.mkt-lab-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--clr-white);
+  font-family: "Georgia", serif; /* Hint of editorial typography */
+}
+
+/* Adjust title font for Arabic Lab documents */
+html[lang="ar"] .mkt-lab-title {
+  font-family: inherit; /* Fallback to Cairo for better Arabic legibility */
+}
+
+.mkt-lab-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+  font-style: italic;
+}
+
+.mkt-lab-role {
+  font-weight: 600;
+  color: var(--clr-white);
+  font-style: normal;
+}
+
+.mkt-lab-body {
+  padding-block: 4rem;
+}
+
+.mkt-lab-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mkt-lab-objective, .mkt-lab-learnings {
+  padding: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-inline-start: 4px solid var(--secondary-action);
+  margin-bottom: 3rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.mkt-lab-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--secondary-action);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mkt-lab-objective p, .mkt-lab-learnings p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--clr-text-light);
+  margin: 0;
+}
+
+.mkt-lab-prose {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #d8e2f0;
+  margin-bottom: 4rem;
+}
+
+.mkt-lab-prose h2, .mkt-lab-prose h3 {
+  color: var(--clr-white);
+  font-weight: 800;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.mkt-lab-prose p {
+  margin-bottom: 1.5rem;
+}
+
+.mkt-lab-prose img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 3rem 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }

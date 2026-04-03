@@ -17,14 +17,14 @@
     <meta name="description" content="Portfolio & Blog">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
-    <link rel="canonical" href="http://localhost:4000/portfolio/template-case-study/">
+    <link rel="canonical" href="http://localhost:4000/portfolio/comeing-soon-temp/">
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="عنوان دراسة الحالة هنا | خالد هاشم">
     <meta property="og:description" content="Portfolio & Blog">
-    <meta property="og:url" content="http://localhost:4000/portfolio/template-case-study/">
+    <meta property="og:url" content="http://localhost:4000/portfolio/comeing-soon-temp/">
     <meta property="og:locale" content="ar_SA">
     <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
@@ -74,7 +74,7 @@
             class="btn btn-primary">تواصل معي</a>
         </li>
         <li>
-          <!-- Language Switcher --><a href="/en/portfolio/template-case-study-en/" class="lang-toggle-btn"
+          <!-- Language Switcher --><a href="/en/portfolio/comeing-soon-temp-en/" class="lang-toggle-btn"
             aria-label="Switch to English">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span>English</span>
@@ -125,6 +125,14 @@
 
     <header class="mkt-cs-hero">
         <!-- صورة الغلاف — تُعرض إذا وُجد حقل hero_image في الـ Front Matter -->
+        
+        <div class="mkt-cs-hero-img-wrapper">
+            <img src="/assets/images/case-studies/cover.jpg" 
+                 alt="عنوان دراسة الحالة هنا" 
+                 class="mkt-cs-hero-img">
+            <!-- تدرج شفاف فوق الصورة لضمان وضوح النص -->
+            <div class="mkt-cs-hero-overlay" aria-hidden="true"></div>
+        </div>
         
 
         <div class="container mkt-cs-hero-content">
@@ -247,7 +255,14 @@
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 2: جسم الدراسة — الفهرس الجانبي + المحتوى
          الفهرس (TOC) يستخدم position: sticky ويختفي على الموبايل
-         المحتوى يأتي من ملف الـ Markdown (<h2 id="التحدي">التحدي</h2>
+         المحتوى يأتي من ملف الـ Markdown (<!-- ═══════════════════════════════════════════════════════════════════════
+     المحتوى النصي — اكتب هنا باستخدام Markdown العادي.
+     العناوين (##) ستظهر بتنسيق مميز تلقائياً.
+     الاقتباسات (>) ستظهر بتنسيق "الدروس المستفادة".
+     الجداول تعمل بشكل طبيعي.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<h2 id="التحدي">التحدي</h2>
 <p>اشرح هنا التحدي أو المشكلة التي واجهتها. ما هو الوضع قبل التدخل؟</p>
 
 <h2 id="الاستراتيجية">الاستراتيجية</h2>
@@ -349,7 +364,14 @@
 
             <!-- محتوى الـ Markdown — يُكتب في ملف .md بعد الـ Front Matter -->
             <div class="mkt-cs-prose">
-                <h2 id="التحدي">التحدي</h2>
+                <!-- ═══════════════════════════════════════════════════════════════════════
+     المحتوى النصي — اكتب هنا باستخدام Markdown العادي.
+     العناوين (##) ستظهر بتنسيق مميز تلقائياً.
+     الاقتباسات (>) ستظهر بتنسيق "الدروس المستفادة".
+     الجداول تعمل بشكل طبيعي.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<h2 id="التحدي">التحدي</h2>
 <p>اشرح هنا التحدي أو المشكلة التي واجهتها. ما هو الوضع قبل التدخل؟</p>
 
 <h2 id="الاستراتيجية">الاستراتيجية</h2>
@@ -410,12 +432,12 @@
                 </h2>
                 <div class="mkt-cs-comparison-grid">
                     <figure class="mkt-cs-comparison-item">
-                        <img src="/assets/images/case-studies/before.png" 
+                        <img src="/assets/images/case-studies/before.jpg" 
                              alt="قبل">
                         <figcaption>قبل</figcaption>
                     </figure>
                     <figure class="mkt-cs-comparison-item">
-                        <img src="/assets/images/case-studies/after.png" 
+                        <img src="/assets/images/case-studies/after.jpg" 
                              alt="بعد">
                         <figcaption>بعد</figcaption>
                     </figure>

@@ -20,12 +20,12 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: Welcome badge text -->
-            <span class="badge">👋 Welcome!</span>
+            <span class="badge reveal-element">👋 Welcome!</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
+            <h1 class="hero-title reveal-element">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
-            <p class="hero-desc">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
-            <div class="hero-actions">
+            <p class="hero-desc reveal-element">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
+            <div class="hero-actions reveal-element">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: Secondary CTA — opens CV PDF in a new tab -->
@@ -33,41 +33,32 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper">
+        <div class="hero-image-wrapper reveal-element">
             <div class="profile-image-container">
                 <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image">
             </div>
         </div>
     </div>
     <!-- ══════════════════════════════════════════════════════════════════
-         ░░ SKILLS BAR ░░
-         ✏️ Add/edit skills by duplicating a <div class="skill-item"> block
+         ░░ SKILLS FLOATING TAGS ░░
          ══════════════════════════════════════════════════════════════════ -->
-    <div class="container">
-        <div class="skills-bar">
-            <!-- ✏️ EDIT: Each skill-item = icon + label -->
-            <div class="skill-item">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>Market Analytics</span>
+    <div class="container hero-footer-container">
+        <!--
+        <div class="skills-floating-group reveal-element">
+            <div class="skill-tag">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-brain"></i>
-                <span>Consumer Behavior</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-chart-line"></i> Data Analysis
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <span>Positioning</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-object-group"></i> SEO Optimization
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-compass"></i>
-                <span>Marketing Planning</span>
-            </div>
-            <!-- Add a new skill by copying the block above:
-            <div class="skill-item">
-                <i class="fa-solid fa-ICON_NAME"></i>
-                <span>Skill Label</span>
-            </div>
-            -->
+        </div>
+        -->
+        <!-- Scroll Indicator Down Nudge -->
+        <div class="hero-scroll-indicator reveal-element">
+             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
 </section>
@@ -95,12 +86,10 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             </div>
         </div>
         <div class="portfolio-grid">
-            {% assign en_case_studies = site.case_studies | where: "lang", "en" %}
-            {% assign en_projects = site.projects | where: "lang", "en" %}
-
-            {% assign featured_items = "" | split: "" %}
-            {% if en_case_studies.size > 0 %}{% assign featured_items = featured_items | push: en_case_studies[0] %}{% endif %}
-            {% if en_projects.size > 0 %}{% assign featured_items = featured_items | push: en_projects[0] %}{% endif %}
+            {%- assign market_cs_home = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign market_pr_home = site.projects     | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign all_market_home = market_cs_home | concat: market_pr_home | sort: "date" | reverse -%}
+            {%- assign featured_items = all_market_home | limit: 2 -%}
 
             {% for item in featured_items %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
@@ -122,8 +111,8 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                             {{ site.data.i18n.en.projects }}
                         {% endif %}
                     </span>
-                    {% if item.status %}
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.status }}</span>
+                    {% if item.project_phase %}
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.project_phase }}</span>
                     {% endif %}
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>

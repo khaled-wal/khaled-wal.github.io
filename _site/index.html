@@ -41,14 +41,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
 </head>
 
-<body>
+<body class="">
 
     <header class="site-header">
   
@@ -112,12 +112,12 @@
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: نص الشارة الترحيبية -->
-            <span class="badge">👋 مرحباً بك!</span>
+            <span class="badge reveal-element">👋 مرحباً بك!</span>
             <!-- ✏️ EDIT: العنوان الرئيسي — اسمك + لقبك -->
-            <h1 class="hero-title">أنا خالد<br /><span class="highlight">طالب اتصال تسويقي</span></h1>
+            <h1 class="hero-title reveal-element">أنا خالد<br /><span class="highlight">طالب اتصال تسويقي</span></h1>
             <!-- ✏️ EDIT: الوصف المختصر تحت العنوان -->
-            <p class="hero-desc">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
-            <div class="hero-actions">
+            <p class="hero-desc reveal-element">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
+            <div class="hero-actions reveal-element">
                 <!-- ✏️ EDIT: الزر الأول يقود إلى صفحة الأعمال — لا تغيير في الرابط -->
                 <a href="/portfolio/" class="btn btn-primary">اكتشف أعمالي<i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: الزر الثاني يفتح السيرة الذاتية PDF -->
@@ -126,41 +126,35 @@
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
         <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
-        <div class="hero-image-wrapper">
+        <div class="hero-image-wrapper reveal-element">
             <div class="profile-image-container">
                 <img src="/assets/images/profile.webp" alt="خالد وليد هاشم" class="profile-image" />
             </div>
         </div>
     </div>
     <!-- ══════════════════════════════════════════════════════════════════
-         ░░ شريط المهارات (Skills Bar) ░░
-         ✏️ أضف أو عدّل مهاراتك بتكرار كتلة <div class="skill-item">
+         ░░ شريط المهارات (Skills Floating Tags) ░░
          ══════════════════════════════════════════════════════════════════ -->
-    <div class="container">
-        <div class="skills-bar">
-            <!-- ✏️ EDIT: كل skill-item = أيقونة + نص المهارة -->
-            <div class="skill-item">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>تحليل السوق</span>
+    <div class="container hero-footer-container">
+        <!--
+        <div class="skills-floating-group reveal-element">
+            <div class="skill-tag">
+                <i class="fa-solid fa-magnifying-glass-chart"></i> تحليل السوق
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-brain"></i>
-                <span>سلوك المستهلك</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-brain"></i> سلوك المستهلك
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <span>التموضع</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-map-location-dot"></i> تحسين محركات البحث SEO
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-compass"></i>
-                <span>التخطيط التسويقي</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-compass"></i> التخطيط التسويقي
             </div>
-            <!-- أضف مهارة جديدة هنا:
-            <div class="skill-item">
-                <i class="fa-solid fa-ICON_NAME"></i>
-                <span>اسم المهارة</span>
-            </div>
-            -->
+        </div>
+        -->
+        <!-- Scroll Indicator Down Nudge -->
+        <div class="hero-scroll-indicator reveal-element">
+             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
 </section>
@@ -183,19 +177,11 @@
             
             
             <div class="view-all-group">
-                <span class="portfolio-counter-badge">+3 أعمال متخصصة</span>
+                <span class="portfolio-counter-badge">+5 أعمال متخصصة</span>
                 <a href="/portfolio/" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
         <div class="portfolio-grid">
-            
-            
-
-            
-            
-            
-
-            
             <a href="/portfolio/template-case-study/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -217,11 +203,13 @@
             </article>
             </a>
             
-            <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن">
+            <a href="/portfolio/template-project/" class="card-link" aria-label="عنوان المشروع هنا">
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/projects/Rawnak/Rawnak-card.png" alt="إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن" />
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+                    </div>
                     
                 </div>
                 <div class="card-content">
@@ -231,9 +219,30 @@
                         
                     </span>
                     
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى</span>
+                    <h3>عنوان المشروع هنا</h3>
+                    <p></p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
+            <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن">
+            <article class="portfolio-card">
+                <div class="card-image">
                     
-                    <h3>إعادة هيكلة وتموضع لمتجر إكسسوارات ريزن</h3>
+                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            المشاريع
+                        
+                    </span>
+                    
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى (التدقيق وإعادة التموضع)</span>
+                    
+                    <h3>إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن</h3>
                     <p>تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن.</p>
                     <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
                 </div>
@@ -241,6 +250,7 @@
             </a>
             
         </div>
+
     </div>
 </section>
 

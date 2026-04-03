@@ -1,0 +1,63 @@
+---
+layout: default
+light_bg: false
+---
+{% assign current_lang = page.lang | default: 'ar' %}
+{% assign t = site.data.i18n[current_lang] %}
+
+<article class="mkt-lab-page">
+    <header class="mkt-lab-hero">
+        {% if page.image_path %}
+        <div class="mkt-lab-hero-img-wrapper">
+            <img src="{{ page.image_path | relative_url }}" 
+                 alt="{{ page.title }}" 
+                 class="mkt-lab-hero-img">
+            <div class="mkt-lab-hero-overlay" aria-hidden="true"></div>
+        </div>
+        {% endif %}
+
+        <div class="container mkt-lab-hero-content">
+            <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}" class="mkt-lab-back-link">
+                <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
+                {% if current_lang == 'en' %}Back to Portfolio{% else %}العودة للأعمال{% endif %}
+            </a>
+
+            <span class="mkt-lab-type-badge">
+                <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                {{ page.category | default: "The Lab" }}
+            </span>
+
+            <h1 class="mkt-lab-title">{{ page.title }}</h1>
+            <div class="mkt-lab-meta">
+                <span>{{ page.date | date: "%B %d, %Y" }}</span>
+                {% if page.role_or_skill %}
+                <span class="mkt-lab-role"><i class="fa-solid fa-user-gear"></i> {{ page.role_or_skill }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <div class="container mkt-lab-body">
+        <div class="mkt-lab-content">
+            {% if page.objective %}
+            <div class="mkt-lab-objective">
+                <h2 class="mkt-lab-heading">{% if current_lang == 'en' %}Objective{% else %}الهدف من التجربة{% endif %}</h2>
+                <p>{{ page.objective }}</p>
+            </div>
+            {% endif %}
+
+            <div class="mkt-lab-prose">
+                {{ content }}
+            </div>
+
+            {% if page.learnings %}
+            <div class="mkt-lab-learnings">
+                <h2 class="mkt-lab-heading">{% if current_lang == 'en' %}Key Learnings{% else %}الدروس المستفادة{% endif %}</h2>
+                <p>{{ page.learnings }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% include cta-contact.html %}
+</article>

@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Header scroll effect ─────────────────────────────────────────────
+  // Removed JS Smooth Scroll Polyfill to fix desktop interaction bugs with the expanding Resume container.
+  // We now rely purely on CSS native scroll-behavior: smooth on HTML.
+
+  // ── Header scroll effect — toggles .is-scrolled for CSS-driven glass ──
   const header = document.querySelector('.site-header');
   if (header) {
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
       if (window.scrollY > 50) {
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.5)';
-        header.style.paddingBlock = '0.5rem';
+        header.classList.add('is-scrolled');
       } else {
-        header.style.boxShadow = 'none';
-        header.style.paddingBlock = '1rem';
+        header.classList.remove('is-scrolled');
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once on load in case page is already scrolled
   }
 
   // ── Contact form — AJAX submit + custom redirect ─────────────────────
@@ -160,4 +163,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', buildCarousel, { passive: true });
   }
 
+});
+
+// ── Scroll Reveal (Dawn Light Effect) ──────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const revealElements = document.querySelectorAll('.reveal-element');
+  
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
 });

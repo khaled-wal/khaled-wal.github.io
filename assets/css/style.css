@@ -2,52 +2,50 @@
    Variables & Theme Defaults
    ========================================================================== */
 :root {
-  /* Colors */
-  --clr-navy: #0f192a;
-  /* Dark Navy - Main Background */
-  --clr-navy-light: #1e293b;
-  /* Lighter Navy - Cards/Inputs in Dark */
-  --clr-green: #10b981;
-  /* Emerald Green - Primary Accent */
-  --clr-green-light: #40d7a7;
+  /* New Exact Color Palette */
+  --primary-bg: #001133; /* Midnight Navy */
+  --secondary-action: #0bd1a9; /* MAIN TURQUOISE COLOR: Greener, vibrant hue */
+  --text-contrast: #faffff; /* Ice White */
+  /* Legacy Color mappings for existing elements */
+  --clr-navy: var(--primary-bg);
+  /* Lighter Navy for Cards in Dark */
+  --clr-navy-light: #152849; 
+  --clr-green: var(--secondary-action);
   /* Lighter Green - Hover states */
-  --clr-offwhite: #f8fafc;
-  /* Off-white - Light Section Background */
-  --clr-white: #ffffff;
-  /* Pure White - Texts/Cards in Light */
-  --clr-text-light: #f1f5f9;
-  /* Light Gray Text on Dark bg */
-  --clr-text-dark: #334155;
-  /* Dark Gray Text on Light bg */
+  --clr-green-light: #8eeeec;
+  --clr-offwhite: #f4f9fd;
+  --clr-white: var(--text-contrast);
+  --clr-text-light: var(--text-contrast);
+  --clr-text-dark: #1e293b;
   --clr-muted: #94a3b8;
-  /* Muted gray — used for secondary text in dark sections */
-  --clr-border: #334155;
-  /* Borders in dark sections */
+  --clr-border: #1a2c4e;
 
   /* Typography */
   --font-ar: 'Cairo', sans-serif;
   --font-en: 'Inter', sans-serif;
   --font-main: var(--font-ar);
-  /* Default to Arabic */
 
   /* Spacing & Layout */
   --container-width: 1300px;
-  --spacing-section: 5rem;
+  --spacing-section: 7rem; /* Increased for cognitive breathing room */
   --spacing-element: 2rem;
+  
+  /* Soft Geometry - Global Border Radius */
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
   --radius-pill: 50px;
 
-  /* Header height (used by sections that need to clear the fixed header) */
+  /* Header height */
   --header-height: 50px;
 
   /* Shadows & Transitions */
   --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.3);
-  --transition-fast: 0.2s ease;
-  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-glow: 0 0 20px rgba(0, 127, 127, 0.4);
+  /* Fluidity: 0.4s ease-in-out */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-smooth: 0.4s ease-in-out;
 }
 
 /* English Override Class */
@@ -66,13 +64,15 @@ html[lang="en"] {
 
 html {
   scroll-behavior: smooth;
-  /* overflow-x: clip prevents horizontal scrollbar WITHOUT breaking smooth-scroll.
-     (overflow-x: hidden on body is a known Chrome/Safari bug that disables
-     scroll-behavior: smooth on desktop — using clip here avoids that.) */
-  overflow-x: clip;
+  /* Native smooth scroll padding to account for fixed header */
+  scroll-padding-top: var(--header-height);
 }
 
 body {
+  /* Move overflow-x handling to body to avoid clipping fixed overlays 
+     but ensure it does not break scroll-behavior on html */
+  overflow-x: hidden;
+
   font-family: var(--font-main);
   color: var(--clr-text-light);
   background-color: var(--clr-navy);
@@ -132,24 +132,34 @@ section {
 }
 
 .btn-primary {
-  background-color: var(--clr-green);
-  color: var(--clr-white);
+  background-color: var(--secondary-action);
+  color: var(--primary-bg); /* Maximum contrast against turquoise */
+  padding: 0.95rem 2rem;
+  font-size: 1.0rem;
+  box-shadow: 0 0 0 0 rgba(0, 127, 127, 0);
+  transition: all var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .btn-primary:hover {
   background-color: var(--clr-green-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  color: var(--primary-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px rgba(0, 200, 200, 0.411), var(--shadow-md);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--clr-white);
-  border-color: var(--clr-white);
+  color: rgba(255, 255, 255, 0.800);
+  border-color: rgba(255, 255, 255, 0.256);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.5rem;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.114);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.666);
+  color: var(--clr-white);
   transform: translateY(-2px);
 }
 
@@ -168,7 +178,7 @@ section {
    Section Dividers
    ========================================================================== */
 .section-divider {
-  height: 80px;
+  height: 100px;
   width: 100%;
 }
 
@@ -198,12 +208,28 @@ section {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(15px);
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: none;
   padding-block: 1rem;
-  transition: all var(--transition-smooth);
+  transition: background-color var(--transition-smooth),
+              backdrop-filter var(--transition-smooth),
+              box-shadow var(--transition-smooth),
+              padding-block var(--transition-smooth);
+}
+
+/* EDIT HEADER GLASS STYLES HERE */
+/* Scrolled state OR pages with light background — Apple-style frosted glass */
+.site-header.is-scrolled,
+.page-light-bg .site-header {
+  background-color: rgba(0, 17, 51, 0.85); /* Darker tint to make white text readable on white backgrounds */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-block: 0.55rem;
 }
 
 .header-inner {
@@ -305,15 +331,38 @@ section {
    Hero Section
    ========================================================================== */
 .hero {
-  padding-top: calc(var(--header-height) + var(--spacing-section));
+  padding-top: calc(var(--header-height) + var(--spacing-section) + 1rem);
+  padding-bottom: calc(var(--spacing-section) + 1rem);
   position: relative;
   overflow: hidden;
+  background-color: var(--primary-bg); /* Fallback */
+}
+
+/* 
+ * ==========================================================================
+ * EDIT HERO GRADIENT HERE: إشعاع ضوء الشمس
+ * لتعديل الإشعاع لاحقاً:
+ * - لتغيير السطوع: قم بتعديل نسبة 18% في دالة color-mix
+ * - لتغيير مساحة الانتشار: قم بتعديل نسبة 65% في نهاية التدرج
+ * ==========================================================================
+ */
+
+/* اتجاه اليمين لليسار (العربية): الإشعاع من الزاوية اليمنى العليا */
+html[lang="ar"] .hero, 
+html[dir="rtl"] .hero {
+  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 18%, var(--primary-bg)) 0%, var(--primary-bg) 65%);
+}
+
+/* اتجاه اليسار لليمين (الإنجليزية): الإشعاع من الزاوية اليسرى العليا */
+html[lang="en"] .hero, 
+html[dir="ltr"] .hero {
+  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 18%, var(--primary-bg)) 0%, var(--primary-bg) 65%);
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 6rem;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 10rem;
   align-items: center;
 }
 
@@ -381,29 +430,63 @@ section {
   transform: translateY(2rem);
 }
 
-/* Skills Bar */
-.skills-bar {
+/* Skills Floating Tags */
+.hero-footer-container {
+  position: relative;
+  z-index: 5;
+}
+
+.skills-floating-group {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
-  padding: 1.5rem 2rem;
-  background-color: var(--clr-navy-light);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--clr-border);
+  padding: 1rem 0;
 }
 
-.skill-item {
+.skill-tag {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-weight: 800;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(0, 17, 51, 0.4);
+  border: 1px solid rgba(224, 253, 251, 0.12);
+  color: var(--text-contrast);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
 }
 
-.skill-item i {
-  color: var(--clr-green);
-  font-size: 1.25rem;
+.skill-tag:hover {
+  border-color: rgba(224, 253, 251, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 17, 51, 0.3);
+}
+
+.skill-tag i {
+  color: var(--secondary-action);
+}
+
+/* Scroll Nudge Indicator */
+.hero-scroll-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  animation: bounceNudge 2s infinite ease-in-out;
+}
+
+.hero-scroll-indicator i {
+  color: var(--secondary-action);
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+@keyframes bounceNudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
 }
 
 /* ==========================================================================
@@ -412,8 +495,9 @@ section {
 .section-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 3rem;
+  gap: 1rem;
 }
 
 .section-title {
@@ -450,6 +534,103 @@ section {
   gap: 2rem;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   Portfolio Market Wrapper (Tier 1) - Frosted Glass & Sticky Sidebar
+   ═══════════════════════════════════════════════════════════════════════════ */
+.portfolio-market-wrapper {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 3rem;
+  background-color: rgba(248, 250, 252, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.08), 0 0 10px rgba(21, 216, 187, 0.05) inset;
+  margin-bottom: 4rem;
+}
+
+/* For dark mode / dark backgrounds if section overlaps */
+.bg-navy .portfolio-market-wrapper {
+  background-color: rgba(23, 41, 71, 0.6);
+  border-color: rgba(21, 216, 187, 0.15);
+  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.05), 0 0 10px rgba(21, 216, 187, 0.05) inset;
+}
+
+.market-sticky-sidebar {
+  position: relative; 
+}
+
+.market-sidebar-title {
+  position: sticky;
+  top: calc(var(--header-height) + 2rem);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--clr-primary-bg);
+  text-shadow: 0 2px 10px rgba(21, 216, 187, 0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* Adjust for Arabic explicitly to look best */
+html[lang="ar"] .market-sidebar-title {
+  color: var(--clr-navy);
+}
+
+/* Adjust for English reading flow */
+html[lang="en"] .market-sidebar-title {
+  writing-mode: vertical-lr; 
+  transform: rotate(180deg);
+  color: var(--clr-navy);
+}
+
+.market-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* Spacing between internal sections like Projects and Case Studies */
+}
+
+/* Subheadings inside the wrapper */
+.market-content-col .portfolio-page-subtitle {
+  margin-bottom: 1.5rem;
+  color: var(--clr-navy);
+  font-size: 1.5rem;
+  border-bottom: 2px solid rgba(21, 216, 187, 0.2);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Mobile responsive degradation */
+@media (max-width: 900px) {
+  .portfolio-market-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .market-sidebar-title {
+    position: relative;
+    top: 0;
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 1.75rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  html[lang="en"] .market-sidebar-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}
+
+
 /* ── Full-card clickable link wrapper ──────────────────────────────── */
 .card-link {
   display: block;
@@ -472,20 +653,21 @@ section {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-smooth);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 17, 51, 0.05);
   height: 100%;
+  color: var(--primary-bg);
 }
 
 .card-link:hover .portfolio-card,
 .portfolio-card:hover {
   transform: translateY(-8px) scale(1.015);
-  box-shadow: var(--shadow-md), 0 0 24px rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow: var(--shadow-md), 0 0 24px rgba(21, 216, 187, 0.15);
+  border-color: rgba(21, 216, 187, 0.3);
 }
 
 .card-image {
   height: 240px;
-  background-color: #e2e8f0;
+  background-color: var(--clr-border);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -586,11 +768,11 @@ section {
   inset-inline-start: 0;
   width: 100%;
   height: 200px;
-  /* fixed soft fade height */
+  /* fixed soft fade height perfectly matching --primary-bg */
   background: linear-gradient(to bottom,
-      rgba(15, 23, 42, 0) 0%,
-      rgba(15, 23, 42, 0.9) 60%,
-      rgba(15, 23, 42, 1) 100%);
+      rgba(0, 17, 51, 0) 0%,
+      rgba(0, 17, 51, 0.9) 60%,
+      rgba(0, 17, 51, 1) 100%);
   pointer-events: none;
   z-index: 5;
   transition: opacity 0.3s ease;
@@ -687,10 +869,10 @@ section {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.7rem 1.75rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 2px solid var(--clr-green);
+  background: rgba(0, 235, 200, 0.154);
+  border: 2px solid var(--secondary-action);
   border-radius: var(--radius-pill);
-  color: var(--clr-green);
+  color: var(--secondary-action);
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 800;
@@ -702,7 +884,7 @@ section {
 }
 
 .cv-expand-btn:hover {
-  background: rgba(18, 255, 176, 0.2);
+  background: rgba(0, 235, 200, 0.291);
 }
 
 .cv-expand-btn.is-expanded {
@@ -723,12 +905,12 @@ section {
   0%,
   100% {
     transform: translateY(0);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 0 0 rgba(0, 235, 199, 0.4);
   }
 
   50% {
     transform: translateY(-4px);
-    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 10px rgba(0, 235, 199, 0);
   }
 }
 
@@ -794,8 +976,8 @@ section {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: var(--clr-green);
-  border: 4px solid var(--clr-navy);
+  background-color: var(--secondary-action);
+  border: 4px solid var(--primary-bg);
 }
 
 .timeline-date {
@@ -1516,6 +1698,21 @@ html[dir="ltr"] .arrow-icon {
     grid-template-columns: 1fr;
   }
 
+  .tier-lab-blueprint .portfolio-card {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  .tier-lab-blueprint .card-image {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  html[dir="rtl"] .tier-lab-blueprint .card-image {
+    margin-left: 0;
+  }
+
   .certification-grid {
     grid-template-columns: 1fr;
   }
@@ -1550,4 +1747,264 @@ html[dir="ltr"] .arrow-icon {
   margin-bottom: 0.75rem;
   border: 1px solid rgba(16, 185, 129, 0.3);
   width: fit-content;
+}
+
+/* ==========================================================================
+   Portfolio Tier Styles — Backend Agent's structural classes
+   ========================================================================== */
+
+/* ── Tier Wrapper Shared ─────────────────────────────────────────────────── */
+.portfolio-tier-market,
+.portfolio-tier-lab,
+.portfolio-tier-coming-soon {
+  margin-bottom: 4rem;
+}
+
+/* Tier heading / label */
+.tier-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Tier 1: Market / Real Work ──────────────────────────────────────────── */
+/* Elevate the existing card design with a smoother, unified micro-interaction */
+.portfolio-tier-market .tier-label {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--clr-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+
+
+/* ── Tier 2: Lab / University / Training ─────────────────────────────────── */
+/* "Editorial / Blueprint" look — sleek dark theme list layout */
+.portfolio-tier-lab .tier-label {
+  background-color: rgba(0, 127, 127, 0.1);
+  color: var(--secondary-action);
+  border: 1px solid rgba(0, 127, 127, 0.25);
+}
+
+.tier-lab-blueprint {
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  background-color: transparent;
+  border-top: 1px dashed rgba(224, 253, 251, 0.15);
+  border-bottom: 1px dashed rgba(224, 253, 251, 0.15);
+}
+
+.tier-lab-blueprint .card-link {
+  display: block;
+}
+
+.tier-lab-blueprint .portfolio-card {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  min-height: 120px;
+  background-color: transparent !important;
+  border: none;
+  border-bottom: 1px solid rgba(224, 253, 251, 0.05);
+  border-radius: 0;
+  box-shadow: none !important;
+  padding-bottom: 1.5rem;
+  transition: transform var(--transition-smooth), opacity var(--transition-fast);
+  opacity: 0.85;
+}
+
+.tier-lab-blueprint .portfolio-card:hover {
+  transform: translateX(8px);
+  opacity: 1;
+  border-bottom-color: rgba(224, 253, 251, 0.15);
+}
+html[dir="rtl"] .tier-lab-blueprint .portfolio-card:hover { transform: translateX(-8px); }
+
+.tier-lab-blueprint .card-link:last-child .portfolio-card {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tier-lab-blueprint .card-image {
+  width: 140px;
+  height: 100px;
+  border-radius: var(--radius-sm);
+  margin-right: 1.5rem;
+  background-color: var(--clr-border);
+}
+
+html[dir="rtl"] .tier-lab-blueprint .card-image {
+  margin-right: 0;
+  margin-left: 1.5rem;
+}
+
+.tier-lab-blueprint .card-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.tier-lab-blueprint h3 {
+  color: var(--clr-text-dark);
+  font-family: var(--font-en);
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.tier-lab-blueprint p {
+  color: var(--clr-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.tier-lab-blueprint .read-more { display: none; }
+.tier-lab-blueprint .category { font-size: 0.75rem; opacity: 0.8; margin-bottom: 0.25rem; color: var(--secondary-action); }
+
+/* ── Tier 3: Coming Soon ─────────────────────────────────────────────────── */
+.portfolio-tier-coming-soon .tier-label {
+  background-color: rgba(148, 163, 184, 0.1);
+  color: var(--clr-muted);
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+/* Coming Soon Horizontal Slider */
+.tier-coming-soon-slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.tier-coming-soon-slider::-webkit-scrollbar {
+  display: none;
+}
+.tier-coming-soon-slider .coming-soon-card {
+  flex: 0 0 calc(33.333% - 1.5rem);
+  min-width: 280px;
+  scroll-snap-align: center;
+}
+
+/* The locked card wrapper */
+.coming-soon-card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  cursor: default;
+  pointer-events: auto;
+}
+
+/* The actual card in the locked state */
+.coming-soon-card .portfolio-card {
+  opacity: 0.55;
+  filter: grayscale(50%);
+  border: 2px dashed rgba(148, 163, 184, 0.35) !important;
+  box-shadow: none !important;
+  transition: opacity var(--transition-smooth),
+              filter var(--transition-smooth);
+}
+
+/* Card block stays perfectly static on hover — requested by user */
+.coming-soon-card:hover .portfolio-card {
+  transform: none !important;
+  box-shadow: none !important;
+  cursor: default !important;
+}
+
+/* Ensure the wrapper itself shows a default cursor when hovered */
+.coming-soon-card {
+  cursor: default !important;
+}
+
+/* ::after overlay — appears on hover with overlay text */
+.coming-soon-card::after {
+  content: "قيد التنفيذ\A Under Construction";
+  white-space: pre;
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: rgba(15, 23, 42, 0.78);
+  color: var(--clr-text-light);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Trick: use flex via display, override white-space for the \A newline */
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+  pointer-events: none;
+  border: 1.5px dashed rgba(148, 163, 184, 0.4);
+}
+
+.coming-soon-card:hover::after {
+  opacity: 1;
+}
+
+/* Small "lock" accent badge on the card */
+.coming-soon-card .portfolio-card::before {
+  content: "\f023"; /* fa-lock unicode */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 0.75rem;
+  inset-inline-end: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(2, 78, 255, 0.7);
+  color: var(--clr-muted);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* Coming-soon grid no hover lift on child card */
+.coming-soon-card .card-link,
+.portfolio-tier-coming-soon .card-link {
+  pointer-events: none;    /* disable navigation — it's a locked card */
+}
+
+/* ── Tier responsive overrides ───────────────────────────────────────────── */
+@media (max-width: 791px) {
+  .portfolio-tier-market,
+  .portfolio-tier-lab,
+  .portfolio-tier-coming-soon {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   Global Animations & Reveal Logic
+   ========================================================================== */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-element.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }

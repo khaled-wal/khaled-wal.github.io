@@ -41,14 +41,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
 </head>
 
-<body>
+<body class="page-light-bg">
 
     <header class="site-header">
   
@@ -99,71 +99,169 @@
         <section class="portfolio-page-section bg-light">
   <div class="container">
     <h1 class="portfolio-page-title">My Work</h1>
-    <h2 class="portfolio-page-subtitle">Case Studies</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <a href="/en/portfolio/template-case-study-en/" class="card-link" aria-label="Case Study Title Here">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <img src="/assets/images/case-studies/after.png" alt="Case Study Title Here" />
-              
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 1: Market Work
+         Filter: status=published AND lang=en
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-market reveal-element">
+      <div class="portfolio-market-wrapper">
+        <div class="market-sticky-sidebar">
+          <h2 class="market-sidebar-title">Market Impact</h2>
+        </div>
+        <div class="market-content-col">
+          <!-- Projects -->
+          <h3 class="portfolio-page-subtitle">Projects</h3>
+          <div class="portfolio-grid-custom tier-market-grid">
+            <a href="/en/portfolio/resin-accessories-revamp-en/" class="card-link" aria-label="Resin Accessories Revamp">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="Resin Accessories Revamp" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">Projects</span>
+                    
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Ongoing - Phase 1 Completed (Audit &amp; Repositioning)</span>
+                    
+                    <h3>Resin Accessories Revamp</h3>
+                    <p>A complete marketing audit and brand revamp for a local resin accessories business.</p>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
+            <a href="/en/portfolio/template-project-en/" class="card-link" aria-label="عنوان المشروع هنا">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+                    </div>
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">Projects</span>
+                    
+                    <h3>عنوان المشروع هنا</h3>
+                    <p></p>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
           </div>
-          <div class="card-content">
-              <span class="category">Client: Client Name</span>
-              
-              <h3>Case Study Title Here</h3>
-              <p>Primary goal of the study/campaign</p>
-              <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+
+          <!-- Case Studies -->
+          <h3 class="portfolio-page-subtitle">Case Studies</h3>
+          <div class="portfolio-grid-custom tier-market-grid">
+            <a href="/en/portfolio/template-case-study-en/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">Client: اسم العميل</span>
+                    
+                    <h3>عنوان دراسة الحالة هنا</h3>
+                    <p>الهدف الرئيسي من الدراسة/الحملة</p>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
           </div>
-      </article>
-      </a>
-      
+        </div>
+      </div>
     </div>
-    <h2 class="portfolio-page-subtitle">Projects</h2>
-    <div class="portfolio-grid-custom">
-      
-      
-      <a href="/en/portfolio/resin-accessories-revamp-en/" class="card-link" aria-label="Resin Accessories Revamp">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <img src="/assets/images/projects/Rawnak/Rawnak-card.png" alt="Resin Accessories Revamp" />
-              
-          </div>
-          <div class="card-content">
-              <span class="category">Projects</span>
-              
-              <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Ongoing - Phase 1 Completed (Audit &amp; Repositioning)</span>
-              
-              <h3>Resin Accessories Revamp</h3>
-              <p>A complete marketing audit and brand revamp for a local resin accessories business.</p>
-              <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-          </div>
-      </article>
-      </a>
-      
-      <a href="/en/portfolio/template-project-en/" class="card-link" aria-label="Project Title Here">
-      <article class="portfolio-card">
-          <div class="card-image">
-              
-              <div class="card-placeholder">
-                <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+    <!-- /portfolio-tier-market -->
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 2: The Lab (University / Training)
+         Filter: collection=lab AND lang=en
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-lab reveal-element">
+      <span class="tier-label">
+        <i class="fa-solid fa-flask" aria-hidden="true"></i>
+        The Lab · Academic &amp; Exploratory
+      </span>
+      <div class="portfolio-grid-custom tier-lab-blueprint">
+        
+        <a href="/en/portfolio/lab/template-lab-en/" class="card-link" aria-label="SaaS Product Growth Strategy (Beta)">
+        <article class="portfolio-card">
+            <div class="card-image">
+                
+                <div class="card-placeholder">
+                  <i class="fa-solid fa-flask fa-3x" aria-hidden="true"></i>
+                </div>
+                
+            </div>
+            <div class="card-content">
+                <span class="category">Marketing Experiment</span>
+                <h3>SaaS Product Growth Strategy (Beta)</h3>
+                <p>Exploring the capabilities of AI in analyzing user behavior and building automated personalization funnels for...</p>
+                <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
+        </article>
+        </a>
+        
+      </div>
+    </div>
+    
+    <!-- /portfolio-tier-lab -->
+
+    <!-- ══════════════════════════════════════════════════════════════
+         TIER 3: Coming Soon
+    ══════════════════════════════════════════════════════════════ -->
+    <div class="portfolio-tier-coming-soon reveal-element">
+      <span class="tier-label">
+        <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
+        Coming Soon
+      </span>
+      <div class="tier-coming-soon-slider">
+        
+        <div class="coming-soon-card" aria-label="عنوان دراسة الحالة هنا — Coming Soon" role="article">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <div class="card-placeholder">
+                    <i class="fa-solid fa-hourglass-half fa-3x" aria-hidden="true"></i>
+                  </div>
+                  
               </div>
-              
-          </div>
-          <div class="card-content">
-              <span class="category">Projects</span>
-              
-              <h3>Project Title Here</h3>
-              <p></p>
-              <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-          </div>
-      </article>
-      </a>
-      
+              <div class="card-content">
+                  <span class="category">Coming Soon</span>
+                  <h3>عنوان دراسة الحالة هنا</h3>
+                  <p>الهدف الرئيسي من الدراسة/الحملة</p>
+              </div>
+          </article>
+        </div>
+        
+        <div class="coming-soon-card" aria-label="عنوان المشروع هنا — Coming Soon" role="article">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <div class="card-placeholder">
+                    <i class="fa-solid fa-hourglass-half fa-3x" aria-hidden="true"></i>
+                  </div>
+                  
+              </div>
+              <div class="card-content">
+                  <span class="category">Coming Soon</span>
+                  <h3>عنوان المشروع هنا</h3>
+                  <p>Project title under construction</p>
+              </div>
+          </article>
+        </div>
+        
+      </div>
     </div>
+    
+    <!-- /portfolio-tier-coming-soon -->
+
   </div>
 </section>
 

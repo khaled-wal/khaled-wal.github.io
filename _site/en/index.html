@@ -41,14 +41,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1774369115">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
 </head>
 
-<body>
+<body class="">
 
     <header class="site-header">
   
@@ -111,12 +111,12 @@
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: Welcome badge text -->
-            <span class="badge">👋 Welcome!</span>
+            <span class="badge reveal-element">👋 Welcome!</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title">I'm Khaled,<br /><span class="highlight">MarCom student</span></h1>
+            <h1 class="hero-title reveal-element">I'm Khaled,<br /><span class="highlight">MarCom student</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
-            <p class="hero-desc">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
-            <div class="hero-actions">
+            <p class="hero-desc reveal-element">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
+            <div class="hero-actions reveal-element">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
                 <a href="/en/portfolio/" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: Secondary CTA — opens CV PDF in a new tab -->
@@ -124,41 +124,32 @@
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper">
+        <div class="hero-image-wrapper reveal-element">
             <div class="profile-image-container">
                 <img src="/assets/images/profile.webp" alt="Khaled Waleed Hashem" class="profile-image" />
             </div>
         </div>
     </div>
     <!-- ══════════════════════════════════════════════════════════════════
-         ░░ SKILLS BAR ░░
-         ✏️ Add/edit skills by duplicating a <div class="skill-item"> block
+         ░░ SKILLS FLOATING TAGS ░░
          ══════════════════════════════════════════════════════════════════ -->
-    <div class="container">
-        <div class="skills-bar">
-            <!-- ✏️ EDIT: Each skill-item = icon + label -->
-            <div class="skill-item">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <span>Market Analytics</span>
+    <div class="container hero-footer-container">
+        <!--
+        <div class="skills-floating-group reveal-element">
+            <div class="skill-tag">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-brain"></i>
-                <span>Consumer Behavior</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-chart-line"></i> Data Analysis
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <span>Positioning</span>
+            <div class="skill-tag">
+                <i class="fa-solid fa-object-group"></i> SEO Optimization
             </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-compass"></i>
-                <span>Marketing Planning</span>
-            </div>
-            <!-- Add a new skill by copying the block above:
-            <div class="skill-item">
-                <i class="fa-solid fa-ICON_NAME"></i>
-                <span>Skill Label</span>
-            </div>
-            -->
+        </div>
+        -->
+        <!-- Scroll Indicator Down Nudge -->
+        <div class="hero-scroll-indicator reveal-element">
+             <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
 </section>
@@ -181,35 +172,50 @@
             
             
             <div class="view-all-group">
-                <span class="portfolio-counter-badge">+3 Specialised Works</span>
+                <span class="portfolio-counter-badge">+5 Specialised Works</span>
                 <a href="/en/portfolio/" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
         <div class="portfolio-grid">
-            
-            
-
-            
-            
-            
-
-            
-            <a href="/en/portfolio/template-case-study-en/" class="card-link" aria-label="Case Study Title Here">
+            <a href="/en/portfolio/template-case-study-en/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/case-studies/after.png" alt="Case Study Title Here" />
+                    <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
                     
                 </div>
                 <div class="card-content">
                     <span class="category">
                         
-                            Client: Client Name
+                            Client: اسم العميل
                         
                     </span>
                     
-                    <h3>Case Study Title Here</h3>
-                    <p>Primary goal of the study/campaign</p>
+                    <h3>عنوان دراسة الحالة هنا</h3>
+                    <p>الهدف الرئيسي من الدراسة/الحملة</p>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
+            <a href="/en/portfolio/template-project-en/" class="card-link" aria-label="عنوان المشروع هنا">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <div class="card-placeholder">
+                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
+                    </div>
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            Projects
+                        
+                    </span>
+                    
+                    <h3>عنوان المشروع هنا</h3>
+                    <p></p>
                     <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
                 </div>
             </article>
@@ -219,7 +225,7 @@
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/projects/Rawnak/Rawnak-card.png" alt="Resin Accessories Revamp" />
+                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="Resin Accessories Revamp" />
                     
                 </div>
                 <div class="card-content">

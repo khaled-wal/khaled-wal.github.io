@@ -13,20 +13,18 @@
 
 # ─── إعدادات أساسية ───────────────────────────────────────────────────
 layout: case_study
-lang: ar                          # اللغة: ar أو en
-translation_key: unique_key_here  # مفتاح ربط النسخة العربية بالإنجليزية — يجب أن يكون متطابقاً بين اللغتين
-permalink: /portfolio/template-case-study/
-image: /assets/images/case-studies/after.png
+lang: en                          # اللغة: ar أو en
+translation_key: comeing-soon-temp  # مفتاح ربط النسخة العربية بالإنجليزية — يجب أن يكون متطابقاً بين اللغتين
+permalink: /en/portfolio/comeing-soon-temp-en/
+publish_state: "coming_soon"  # "published" | "coming_soon"
 
-# ─── تصنيف المحتوى (Content Classification) ────────────────────────
-tier: "market"      # "market" = عمل سوقي حقيقي | "lab" = مشروع جامعي/تدريبي
-publish_state: "published"  # "published" | "coming_soon"
+
 # ─── نوع الدراسة ──────────────────────────────────────────────────────
 study_type: "internal"            # غيّر إلى "external" لتحليل حملات خارجية
 
 # ─── معلومات أساسية ───────────────────────────────────────────────────
 title: "عنوان دراسة الحالة هنا"
-#hero_image: ""  # صورة الغلاف — المقاس المثالي 1200×600
+hero_image: "/assets/images/case-studies/cover.jpg"  # صورة الغلاف — المقاس المثالي 1200×600
 objective: "الهدف الرئيسي من الدراسة/الحملة"
 roi: "240%"                       # العائد على الاستثمار — اتركه فارغاً إذا لم ينطبق
 
@@ -56,8 +54,8 @@ kpi_3_value: "153K ر.س"
 
 # ─── صور المقارنة (قبل/بعد) ──────────────────────────────────────────
 # تظهر كعمودين جنباً إلى جنب — اتركها فارغة إذا لم تنطبق
-before_image: "/assets/images/case-studies/before.png"
-after_image: "/assets/images/case-studies/after.png"
+before_image: "/assets/images/case-studies/before.jpg"
+after_image: "/assets/images/case-studies/after.jpg"
 
 # ─── الأدوات المستخدمة — تُعرض كشارات (badges) ──────────────────────
 tools_used:
@@ -82,6 +80,12 @@ toc_items:
     label: "الأدوات"
 ---
 
+<!-- ═══════════════════════════════════════════════════════════════════════
+     المحتوى النصي — اكتب هنا باستخدام Markdown العادي.
+     العناوين (##) ستظهر بتنسيق مميز تلقائياً.
+     الاقتباسات (>) ستظهر بتنسيق "الدروس المستفادة".
+     الجداول تعمل بشكل طبيعي.
+     ═══════════════════════════════════════════════════════════════════════ -->
 
 ## التحدي
 اشرح هنا التحدي أو المشكلة التي واجهتها. ما هو الوضع قبل التدخل؟

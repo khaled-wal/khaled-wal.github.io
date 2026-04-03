@@ -16,6 +16,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  lab:
+    output: true
+    permalink: /lab/:name/
 
 # Defaults
 defaults:
@@ -57,6 +60,18 @@ defaults:
       type: projects
     values:
       layout: project
+      lang: "en"
+  - scope:
+      path: ""
+      type: lab
+    values:
+      layout: case_study
+      lang: "ar"
+  - scope:
+      path: "en"
+      type: lab
+    values:
+      layout: case_study
       lang: "en"
 
 # Build settings
