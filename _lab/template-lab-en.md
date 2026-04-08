@@ -8,7 +8,7 @@ title: "SaaS Product Growth Strategy (Beta)"
 date: 2026-03-30
 category: "Marketing Experiment"
 role_or_skill: "Growth Analyst"
-image_path: "/assets/images/placeholder.jpg"
+#image: "/assets/images/lab/lab-def-academic-cover.png"
 objective: "Exploring the capabilities of AI in analyzing user behavior and building automated personalization funnels for SaaS."
 learnings: "Hyper-personalization based on machine prediction increases retention rates significantly, but demands immense care regarding privacy UX."
 ---

@@ -41,11 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775680786">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775680786">
 </head>
 
 <body class="">
@@ -68,17 +68,17 @@
             href="/portfolio/">أعمالي</a></li>
         <li><a
             href="/#cv-section">السيرة الذاتية</a></li>
-        <!-- Contact CTA — only visible in the mobile hamburger menu -->
-        <li class="mobile-cta-item">
-          <a href="/#contact"
-            class="btn btn-primary">تواصل معي</a>
-        </li>
         <li>
           <!-- Language Switcher --><a href="/en/" class="lang-toggle-btn"
             aria-label="Switch to English">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span>English</span>
           </a>
+        </li>
+        <!-- Contact CTA — only visible in the mobile hamburger menu -->
+        <li class="mobile-cta-item">
+          <a href="/#contact"
+            class="btn btn-primary">تواصل معي</a>
         </li>
       </ul>
     </nav>
@@ -112,12 +112,12 @@
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: نص الشارة الترحيبية -->
-            <span class="badge reveal-element">👋 مرحباً بك!</span>
+            <span class="badge reveal" data-delay="100">👋 مرحباً بك!</span>
             <!-- ✏️ EDIT: العنوان الرئيسي — اسمك + لقبك -->
-            <h1 class="hero-title reveal-element">أنا خالد<br /><span class="highlight">طالب اتصال تسويقي</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">أنا خالد<br /><span class="highlight">طالب اتصال تسويقي</span></h1>
             <!-- ✏️ EDIT: الوصف المختصر تحت العنوان -->
-            <p class="hero-desc reveal-element">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
-            <div class="hero-actions reveal-element">
+            <p class="hero-desc reveal" data-delay="300">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
+            <div class="hero-actions reveal" data-delay="400">
                 <!-- ✏️ EDIT: الزر الأول يقود إلى صفحة الأعمال — لا تغيير في الرابط -->
                 <a href="/portfolio/" class="btn btn-primary">اكتشف أعمالي<i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: الزر الثاني يفتح السيرة الذاتية PDF -->
@@ -126,7 +126,7 @@
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
         <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
-        <div class="hero-image-wrapper reveal-element">
+        <div class="hero-image-wrapper reveal" data-delay="450">
             <div class="profile-image-container">
                 <img src="/assets/images/profile.webp" alt="خالد وليد هاشم" class="profile-image" />
             </div>
@@ -153,7 +153,7 @@
         </div>
         -->
         <!-- Scroll Indicator Down Nudge -->
-        <div class="hero-scroll-indicator reveal-element">
+        <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
@@ -171,61 +171,17 @@
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="portfolio" class="portfolio bg-light">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2 class="section-title dark-text">أبرز أعمالي</h2>
             
             
             
-            <div class="view-all-group">
-                <span class="portfolio-counter-badge">+5 أعمال متخصصة</span>
+            <div class="view-all-group reveal">
+                <span class="portfolio-counter-badge">+1 أعمال متخصصة</span>
                 <a href="/portfolio/" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
-        <div class="portfolio-grid">
-            <a href="/portfolio/template-case-study/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    
-                    <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
-                    
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        
-                            العميل: اسم العميل
-                        
-                    </span>
-                    
-                    <h3>عنوان دراسة الحالة هنا</h3>
-                    <p>الهدف الرئيسي من الدراسة/الحملة</p>
-                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            
-            <a href="/portfolio/template-project/" class="card-link" aria-label="عنوان المشروع هنا">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    
-                    <div class="card-placeholder">
-                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
-                    </div>
-                    
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        
-                            المشاريع
-                        
-                    </span>
-                    
-                    <h3>عنوان المشروع هنا</h3>
-                    <p></p>
-                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            
+        <div class="portfolio-grid reveal">
             <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -236,11 +192,11 @@
                 <div class="card-content">
                     <span class="category">
                         
-                            المشاريع
+                            العميل: رونق للإكسسوارات
                         
                     </span>
                     
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى (التدقيق وإعادة التموضع)</span>
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى</span>
                     
                     <h3>إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن</h3>
                     <p>تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن.</p>
@@ -250,7 +206,6 @@
             </a>
             
         </div>
-
     </div>
 </section>
 
@@ -267,7 +222,7 @@
        - مسار ملف PDF:                  عدّل cv_path في _config.yml
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="cv-section" class="resume bg-navy">
-    <div class="container cv-container">
+    <div class="container cv-container reveal">
         <div class="cv-header-center">
             <!-- ✏️ EDIT: عنوان قسم السيرة الذاتية -->
             <h2 class="section-title">السيرة الذاتية</h2>
@@ -420,7 +375,7 @@
        - رابط LinkedIn:                 رابط direct-link (لينكدإن)
        - معرّف Formspree (action):      سطر <form action="...">
      ══════════════════════════════════════════════════════════════════════════ -->
-<section id="contact" class="contact bg-navy">
+<section id="contact" class="contact bg-navy reveal">
     <div class="container contact-inner">
         <!-- 1. العنوان والوصف -->
         <div class="contact-header">
@@ -449,7 +404,7 @@
             </form>
         </div>
         <!-- 3. بدائل التواصل المباشر (الخيار الثانوي) -->
-        <div class="contact-alternatives">
+        <div class="contact-alternatives reveal">
             <p class="contact-alternatives-label"> أو تواصل مباشرة عبر</p>
             <div class="direct-links">
                 <!-- ✏️ EDIT: البريد الإلكتروني -->

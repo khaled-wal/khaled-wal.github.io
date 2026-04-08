@@ -41,11 +41,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775243739">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1775680786">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775243739">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775680786">
 </head>
 
 <body class="">
@@ -68,17 +68,17 @@
             href="/en/portfolio/">My Work</a></li>
         <li><a
             href="/en/#cv-section">CV</a></li>
-        <!-- Contact CTA — only visible in the mobile hamburger menu -->
-        <li class="mobile-cta-item">
-          <a href="/en/#contact"
-            class="btn btn-primary">Contact</a>
-        </li>
         <li>
           <!-- Language Switcher --><a href="/" class="lang-toggle-btn"
             aria-label="Switch to Arabic">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <span>العربية</span>
           </a>
+        </li>
+        <!-- Contact CTA — only visible in the mobile hamburger menu -->
+        <li class="mobile-cta-item">
+          <a href="/en/#contact"
+            class="btn btn-primary">Contact</a>
         </li>
       </ul>
     </nav>
@@ -111,12 +111,12 @@
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: Welcome badge text -->
-            <span class="badge reveal-element">👋 Welcome!</span>
+            <span class="badge reveal" data-delay="100">👋 Welcome!</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title reveal-element">I'm Khaled,<br /><span class="highlight">MarCom student</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">I'm Khaled,<br /><span class="highlight">MarCom student</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
-            <p class="hero-desc reveal-element">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
-            <div class="hero-actions reveal-element">
+            <p class="hero-desc reveal" data-delay="300">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
+            <div class="hero-actions reveal" data-delay="400">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
                 <a href="/en/portfolio/" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: Secondary CTA — opens CV PDF in a new tab -->
@@ -124,7 +124,7 @@
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper reveal-element">
+        <div class="hero-image-wrapper reveal" data-delay="450">
             <div class="profile-image-container">
                 <img src="/assets/images/profile.webp" alt="Khaled Waleed Hashem" class="profile-image" />
             </div>
@@ -135,7 +135,7 @@
          ══════════════════════════════════════════════════════════════════ -->
     <div class="container hero-footer-container">
         <!--
-        <div class="skills-floating-group reveal-element">
+        <div class="skills-floating-group reveal">
             <div class="skill-tag">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
             </div>
@@ -148,7 +148,7 @@
         </div>
         -->
         <!-- Scroll Indicator Down Nudge -->
-        <div class="hero-scroll-indicator reveal-element">
+        <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
@@ -166,61 +166,17 @@
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="portfolio" class="portfolio bg-light">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2 class="section-title dark-text">Featured Work</h2>
             
             
             
-            <div class="view-all-group">
-                <span class="portfolio-counter-badge">+5 Specialised Works</span>
+            <div class="view-all-group reveal">
+                <span class="portfolio-counter-badge">+1 Specialised Works</span>
                 <a href="/en/portfolio/" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
-        <div class="portfolio-grid">
-            <a href="/en/portfolio/template-case-study-en/" class="card-link" aria-label="عنوان دراسة الحالة هنا">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    
-                    <img src="/assets/images/case-studies/after.png" alt="عنوان دراسة الحالة هنا" />
-                    
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        
-                            Client: اسم العميل
-                        
-                    </span>
-                    
-                    <h3>عنوان دراسة الحالة هنا</h3>
-                    <p>الهدف الرئيسي من الدراسة/الحملة</p>
-                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            
-            <a href="/en/portfolio/template-project-en/" class="card-link" aria-label="عنوان المشروع هنا">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    
-                    <div class="card-placeholder">
-                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
-                    </div>
-                    
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        
-                            Projects
-                        
-                    </span>
-                    
-                    <h3>عنوان المشروع هنا</h3>
-                    <p></p>
-                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            
+        <div class="portfolio-grid reveal">
             <a href="/en/portfolio/resin-accessories-revamp-en/" class="card-link" aria-label="Resin Accessories Revamp">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -231,11 +187,11 @@
                 <div class="card-content">
                     <span class="category">
                         
-                            Projects
+                            Client: Rawnak Accessories
                         
                     </span>
                     
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Ongoing - Phase 1 Completed (Audit &amp; Repositioning)</span>
+                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Ongoing - Phase 1 Completed</span>
                     
                     <h3>Resin Accessories Revamp</h3>
                     <p>A complete marketing audit and brand revamp for a local resin accessories business.</p>
@@ -265,7 +221,7 @@
         If you add many entries, increase max-height in .cv-container in style.css.
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="cv-section" class="resume bg-navy">
-    <div class="container cv-container">
+    <div class="container cv-container reveal">
         <div class="cv-header-center">
             <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Resume</h2>
@@ -419,7 +375,7 @@
        - Formspree ID:   replace the form action URL
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
-    <div class="container contact-inner">
+    <div class="container contact-inner reveal">
         <!-- 1. Heading and description -->
         <div class="contact-header">
             <h2 class="section-title">Contact Me</h2>
@@ -448,7 +404,7 @@
             </form>
         </div>
         <!-- 3. Direct contact alternatives (secondary) -->
-        <div class="contact-alternatives">
+        <div class="contact-alternatives reveal">
             <p class="contact-alternatives-label">Or reach me directly</p>
             <div class="direct-links">
                 <!-- ✏️ EDIT: Your email address -->

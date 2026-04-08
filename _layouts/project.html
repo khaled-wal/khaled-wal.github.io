@@ -160,7 +160,11 @@ layout: default
             <ul class="mkt-cs-toc-list" role="list">
                 {% for item in page.toc_items %}
                 <li>
-                    <a href="{{ item.url }}" class="mkt-cs-toc-link">{{ item.title }}</a>
+                    {% if item.url %}
+                    <a href="{{ item.url }}" class="mkt-cs-toc-link">{{ item.title | default: item.label }}</a>
+                    {% else %}
+                    <a href="#{{ item.id }}" class="mkt-cs-toc-link">{{ item.label | default: item.title }}</a>
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>

@@ -29,7 +29,12 @@
 #results,
 #tools,
 #client-problem,
-#research {
+#research,
+#strategy,
+#execution,
+#summary,
+#content,
+#comparison {
   scroll-margin-top: calc(var(--header-height) + 3rem);
 }
 
@@ -623,6 +628,129 @@
   background-color: rgba(16, 185, 129, 0.15);
   border-color: var(--clr-green);
   color: var(--clr-green);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   دراسة الحالة: العناصر الجديدة — العنوان الفرعي، الشارات، الوسوم
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* العنوان الفرعي — تحت العنوان الرئيسي مباشرة */
+.mkt-cs-subtitle {
+  font-size: 1.05rem;
+  color: var(--clr-muted);
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: -0.75rem;
+  margin-bottom: 1.25rem;
+  max-width: 600px;
+}
+
+/* صف الشارات — للقطاع + الرابط الخارجي */
+.mkt-cs-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* شارة القطاع — مماثلة لشارة نوع الدراسة */
+.mkt-cs-sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--clr-text-light);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+.mkt-cs-sector-badge i {
+  color: var(--clr-green);
+  font-size: 0.8rem;
+}
+
+/* زر الرابط الخارجي */
+.mkt-cs-external-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--clr-green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: all var(--transition-fast);
+}
+
+.mkt-cs-external-btn:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+  border-color: var(--clr-green);
+  color: var(--clr-green);
+}
+
+.mkt-cs-external-btn i {
+  font-size: 0.75rem;
+}
+
+/* قسم الوسوم (Tags) */
+.mkt-cs-tags {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--clr-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* تسمية قسم الوسوم */
+.mkt-cs-tags-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.mkt-cs-tags-label i {
+  font-size: 0.8rem;
+}
+
+/* حاوية الوسوم */
+.mkt-cs-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* شارة وسم واحدة — أصغر من badge الأدوات */
+.mkt-cs-tag-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  color: var(--clr-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.mkt-cs-tag-badge:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--clr-text-light);
 }
 
 
@@ -1299,7 +1427,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .mkt-lab-page {
-  background-color: #0b1121; /* Cohesive darker background for editorial focus */
+  background-color: #001133; /* Cohesive darker background for editorial focus */
   color: var(--clr-text-light);
   font-family: var(--font-main);
   padding-top: var(--header-height);
@@ -1375,9 +1503,9 @@
 
 .mkt-lab-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   color: var(--clr-white);
   font-family: "Georgia", serif; /* Hint of editorial typography */
 }

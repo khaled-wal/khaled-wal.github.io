@@ -30,6 +30,12 @@ ar:
   cs_core_critique: "النقد الأساسي"
   cs_tools_used: "الأدوات المستخدمة"
   cs_status: "حالة المشروع"
+  cs_subtitle: "العنوان الفرعي"
+  cs_sector: "القطاع"
+  cs_study_duration: "مدة الدراسة"
+  cs_date: "التاريخ"
+  cs_tags: "الوسوم"
+  cs_external_link: "رابط المرجع"
 
   # ─── سلاسل المشروع (Project) ───
   pro_back: "العودة إلى الأعمال"
@@ -80,6 +86,12 @@ en:
   cs_core_critique: "Core Critique"
   cs_tools_used: "Tools Used"
   cs_status: "Status"
+  cs_subtitle: "Subtitle"
+  cs_sector: "Sector"
+  cs_study_duration: "Study Duration"
+  cs_date: "Date"
+  cs_tags: "Tags"
+  cs_external_link: "Reference Link"
 
   # ─── Project Strings ───
   pro_back: "Back to Portfolio"

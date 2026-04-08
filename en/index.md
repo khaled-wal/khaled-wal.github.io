@@ -20,12 +20,12 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: Welcome badge text -->
-            <span class="badge reveal-element">👋 Welcome!</span>
+            <span class="badge reveal" data-delay="100">👋 Welcome!</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title reveal-element">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
-            <p class="hero-desc reveal-element">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
-            <div class="hero-actions reveal-element">
+            <p class="hero-desc reveal" data-delay="300">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
+            <div class="hero-actions reveal" data-delay="400">
                 <!-- ✏️ EDIT: Primary CTA — links to portfolio page (do not change href) -->
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-primary">Explore My Work <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: Secondary CTA — opens CV PDF in a new tab -->
@@ -33,7 +33,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper reveal-element">
+        <div class="hero-image-wrapper reveal" data-delay="450">
             <div class="profile-image-container">
                 <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image">
             </div>
@@ -44,7 +44,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
          ══════════════════════════════════════════════════════════════════ -->
     <div class="container hero-footer-container">
         <!--
-        <div class="skills-floating-group reveal-element">
+        <div class="skills-floating-group reveal">
             <div class="skill-tag">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
             </div>
@@ -57,7 +57,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         </div>
         -->
         <!-- Scroll Indicator Down Nudge -->
-        <div class="hero-scroll-indicator reveal-element">
+        <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
@@ -75,17 +75,17 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="portfolio" class="portfolio bg-light">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2 class="section-title dark-text">{{ site.data.i18n.en.featured_work }}</h2>
             {% assign en_all_works = site.case_studies | where: "lang", "en" %}
             {% assign en_all_projects = site.projects | where: "lang", "en" %}
             {% assign en_total = en_all_works.size | plus: en_all_projects.size %}
-            <div class="view-all-group">
+            <div class="view-all-group reveal">
                 <span class="portfolio-counter-badge">+{{ en_total }} {{ site.data.i18n.en.portfolio_count_label }}</span>
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
-        <div class="portfolio-grid">
+        <div class="portfolio-grid reveal">
             {%- assign market_cs_home = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
             {%- assign market_pr_home = site.projects     | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
             {%- assign all_market_home = market_cs_home | concat: market_pr_home | sort: "date" | reverse -%}
@@ -98,15 +98,19 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     {% if item.image %}
                     <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
                     {% else %}
-                    <div class="card-placeholder">
-                      <i class="fa-solid fa-briefcase fa-3x" aria-hidden="true"></i>
-                    </div>
+                        {% if item.collection == 'case_studies' %}
+                        <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        {% else %}
+                        <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        {% endif %}
                     {% endif %}
                 </div>
                 <div class="card-content">
                     <span class="category">
-                        {% if item.collection == 'case_studies' %}
+                        {% if item.client %}
                             {{ site.data.i18n.en.client }} {{ item.client }}
+                        {% elsif item.collection == 'case_studies' %}
+                            {{ site.data.i18n.en.case_studies }}
                         {% else %}
                             {{ site.data.i18n.en.projects }}
                         {% endif %}
@@ -144,7 +148,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         If you add many entries, increase max-height in .cv-container in style.css.
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="cv-section" class="resume bg-navy">
-    <div class="container cv-container">
+    <div class="container cv-container reveal">
         <div class="cv-header-center">
             <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Resume</h2>
@@ -298,7 +302,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
        - Formspree ID:   replace the form action URL
      ══════════════════════════════════════════════════════════════════════════ -->
 <section id="contact" class="contact bg-navy">
-    <div class="container contact-inner">
+    <div class="container contact-inner reveal">
         <!-- 1. Heading and description -->
         <div class="contact-header">
             <h2 class="section-title">Contact Me</h2>
@@ -327,7 +331,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             </form>
         </div>
         <!-- 3. Direct contact alternatives (secondary) -->
-        <div class="contact-alternatives">
+        <div class="contact-alternatives reveal">
             <p class="contact-alternatives-label">Or reach me directly</p>
             <div class="direct-links">
                 <!-- ✏️ EDIT: Your email address -->

@@ -167,12 +167,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── Scroll Reveal (Dawn Light Effect) ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  const revealElements = document.querySelectorAll('.reveal-element');
+  const revealElements = document.querySelectorAll('.reveal');
   
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-revealed');
+        const delay = entry.target.getAttribute('data-delay');
+        if (delay) entry.target.style.transitionDelay = `${delay}ms`;
+        entry.target.classList.add('active');
         observer.unobserve(entry.target);
       }
     });

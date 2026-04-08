@@ -208,28 +208,43 @@ section {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   z-index: 1000;
   border-bottom: none;
   padding-block: 1rem;
+  transition: padding-block var(--transition-smooth);
+}
+
+/* Background & Glass effect moved to ::before to fix nested backdrop-filter bug. 
+   When a parent has backdrop-filter, it breaks backdrop-filters on children. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
   transition: background-color var(--transition-smooth),
               backdrop-filter var(--transition-smooth),
-              box-shadow var(--transition-smooth),
-              padding-block var(--transition-smooth);
+              -webkit-backdrop-filter var(--transition-smooth),
+              box-shadow var(--transition-smooth);
 }
 
 /* EDIT HEADER GLASS STYLES HERE */
 /* Scrolled state OR pages with light background — Apple-style frosted glass */
 .site-header.is-scrolled,
 .page-light-bg .site-header {
+  padding-block: 0.55rem;
+}
+
+.site-header.is-scrolled::before,
+.page-light-bg .site-header::before {
   background-color: rgba(0, 17, 51, 0.85); /* Darker tint to make white text readable on white backgrounds */
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-block: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.026);
 }
 
 .header-inner {
@@ -299,17 +314,48 @@ section {
   cursor: pointer;
 }
 
-/* Mobile nav open state */
+/* Mobile nav open state - Base */
 .nav-open {
   display: block !important;
   position: absolute;
-  top: var(--header-height);
+  top: 100%;
   inset-inline-start: 0;
   width: 100%;
-  background-color: var(--clr-navy);
   padding: 20px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+  transition: background var(--transition-smooth),
+              background-color var(--transition-smooth),
+              backdrop-filter var(--transition-smooth),
+              -webkit-backdrop-filter var(--transition-smooth),
+              box-shadow var(--transition-smooth);
+}
+
+/* 1. Dark Pages - Top of Page State (Gradient) */
+.site-header:not(.is-scrolled) .nav-open {
+  background: linear-gradient(to bottom, rgba(0, 17, 51, 0.053) 10%, rgba(0, 17, 51, 0.9) 70%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: none;
+}
+
+/* 2. Dark Pages - Scrolled State (Standard Glassmorphism) */
+.site-header.is-scrolled .nav-open {
+  background-color: rgba(0, 17, 51, 0.85); /* Lower opacity allows the frosted glass (blur) to show clearly */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Light Background Pages (Portfolio) - OVERRIDE both states to match the dark frosted header */
+.page-light-bg .site-header .nav-open,
+.page-light-bg .site-header:not(.is-scrolled) .nav-open {
+  background: rgba(0, 17, 51, 0.85); /* Opaque enough to hide white background and keep text readable */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.026);
 }
 
 .nav-open ul {
@@ -350,13 +396,13 @@ section {
 /* اتجاه اليمين لليسار (العربية): الإشعاع من الزاوية اليمنى العليا */
 html[lang="ar"] .hero, 
 html[dir="rtl"] .hero {
-  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 18%, var(--primary-bg)) 0%, var(--primary-bg) 65%);
+  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 20%, var(--primary-bg)) 0%, var(--primary-bg) 70%);
 }
 
 /* اتجاه اليسار لليمين (الإنجليزية): الإشعاع من الزاوية اليسرى العليا */
 html[lang="en"] .hero, 
 html[dir="ltr"] .hero {
-  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 18%, var(--primary-bg)) 0%, var(--primary-bg) 65%);
+  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 20%, var(--primary-bg)) 0%, var(--primary-bg) 70%);
 }
 
 .hero-inner {
@@ -1757,7 +1803,7 @@ html[dir="ltr"] .arrow-icon {
 .portfolio-tier-market,
 .portfolio-tier-lab,
 .portfolio-tier-coming-soon {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 }
 
 /* Tier heading / label */
@@ -1765,7 +1811,7 @@ html[dir="ltr"] .arrow-icon {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.2px;
@@ -1777,7 +1823,7 @@ html[dir="ltr"] .arrow-icon {
 /* ── Tier 1: Market / Real Work ──────────────────────────────────────────── */
 /* Elevate the existing card design with a smoother, unified micro-interaction */
 .portfolio-tier-market .tier-label {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgb(16, 185, 129);
   color: var(--clr-green);
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
@@ -1997,14 +2043,14 @@ html[dir="rtl"] .tier-lab-blueprint .card-image {
 /* ==========================================================================
    Global Animations & Reveal Logic
    ========================================================================== */
-.reveal-element {
+.reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform;
 }
 
-.reveal-element.is-revealed {
+.reveal.active {
   opacity: 1;
   transform: translateY(0);
 }

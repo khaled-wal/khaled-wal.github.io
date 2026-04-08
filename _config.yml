@@ -34,11 +34,6 @@ defaults:
       dir: "ltr"
   - scope:
       path: ""
-      type: posts
-    values:
-      layout: post
-  - scope:
-      path: ""
       type: case_studies
     values:
       layout: case_study
@@ -76,7 +71,6 @@ defaults:
 
 # Build settings
 markdown: kramdown
-permalink: /:year/:month/:day/:title/
 
 # Exclude development files from the _site output
 exclude:

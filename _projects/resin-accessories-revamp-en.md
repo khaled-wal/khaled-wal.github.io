@@ -27,14 +27,18 @@ permalink: /en/portfolio/resin-accessories-revamp-en/  # الرابط المخص
 tier: "market"      # "market" = real client work | "lab" = university/training project
 publish_state: "published"  # "published" | "coming_soon"
 objective: "A complete marketing audit and brand revamp for a local resin accessories business."
-image: /assets/images/projects/Rawnak/Rawnak-hero.png
+image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
 
+# ═══════ القسم 2: بيانات الهيدر (Hero Section) ════════════════════════
+
+# صورة الغلاف العريضة — المقاس المثالي 1200×600
+#hero_image: "/assets/images/projects/prog-def-cover.png"
 # ─── معلومات المشروع الأساسية ─────────────────────────────────────────
 title: "Resin Accessories Revamp"
 client: "Rawnak Accessories"
 industry: "Handmade Crafts / E-commerce"  # قطاع العمل
 duration: "1 Month (Phase 1)"          # مدة المشروع
-project_phase: "Ongoing - Phase 1 Completed (Audit & Repositioning)"          # detailed project phase
+project_phase: "Ongoing - Phase 1 Completed"          # detailed project phase
 budget: "Bootstrapped / Minimal"          # ميزانية المشروع
 my_role: "Marketing Strategist"    # دوري في المشروع
 
@@ -93,7 +97,6 @@ kpi_3_value: "Optimized"
 # ─── المعرض البصري — مسارات الصور ────────────────────────────────────
 # تُعرض في شبكة متجاوبة — أضف أي عدد من المسارات
 gallery:
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"

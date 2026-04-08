@@ -63,6 +63,29 @@ light_bg: true
             <!-- عنوان الدراسة الرئيسي -->
             <h1 class="mkt-cs-title">{{ page.title }}</h1>
 
+            <!-- العنوان الفرعي — اختياري، يظهر تحت العنوان الرئيسي -->
+            {% if page.subtitle %}
+            <p class="mkt-cs-subtitle">{{ page.subtitle }}</p>
+            {% endif %}
+
+            <!-- شارات تصنيف إضافية (القطاع + نوع الدراسة) -->
+            <div class="mkt-cs-badges-row">
+                <!-- شارة القطاع — اختيارية -->
+                {% if page.sector %}
+                <span class="mkt-cs-sector-badge">
+                    <i class="fa-solid fa-industry" aria-hidden="true"></i>
+                    {{ page.sector }}
+                </span>
+                {% endif %}
+                <!-- رابط خارجي — يظهر كزر "مشاهدة المصدر" إذا توفر -->
+                {% if page.external_link %}
+                <a href="{{ page.external_link }}" target="_blank" rel="noopener noreferrer" class="mkt-cs-external-btn">
+                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    {{ t.cs_external_link }}
+                </a>
+                {% endif %}
+            </div>
+
             <!-- ─── شريط البيانات الوصفية (Meta Bar) ────────────────────────
                  يتغير حسب نوع الدراسة:
                  خارجي → العلامة التجارية، اسم الحملة، الخلاصة
@@ -159,8 +182,30 @@ light_bg: true
                     </div>
                 </div>
                 {% endif %}
-            </div>
-        </div>
+
+                <!-- التاريخ — يظهر لكلا النوعين -->
+                {% if page.date %}
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_date }}</span>
+                        <span class="mkt-cs-meta-value">{{ page.date | date: "%B %Y" }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- مدة الدراسة — يظهر لكلا النوعين -->
+                {% if page.study_duration %}
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_study_duration }}</span>
+                        <span class="mkt-cs-meta-value">{{ page.study_duration }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div><!-- /.mkt-cs-meta-bar -->
+        </div><!-- /.mkt-cs-hero-content -->
     </header>
 
     <!-- ═══════════════════════════════════════════════════════════════════════
@@ -292,6 +337,21 @@ light_bg: true
                 <div class="mkt-cs-tools-list">
                     {% for tool in page.tools_used %}
                     <span class="mkt-cs-tool-badge">{{ tool }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- الوسوم (Tags) — تُعرض كشارات أسفل المحتوى -->
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="mkt-cs-tags" id="tags">
+                <span class="mkt-cs-tags-label">
+                    <i class="fa-solid fa-tags" aria-hidden="true"></i>
+                    {{ t.cs_tags }}
+                </span>
+                <div class="mkt-cs-tags-list">
+                    {% for tag in page.tags %}
+                    <span class="mkt-cs-tag-badge">{{ tag }}</span>
                     {% endfor %}
                 </div>
             </div>

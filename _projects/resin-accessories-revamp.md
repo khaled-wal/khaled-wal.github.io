@@ -28,13 +28,18 @@ tier: "market"      # "market" = عمل سوقي حقيقي | "lab" = مشروع
 publish_state: "published"  # "published" | "coming_soon"
 objective: "تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن."
 image: /assets/images/projects/Rawnak/Rawnak-hero.png
+image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
 
+# ═══════ القسم 2: بيانات الهيدر (Hero Section) ════════════════════════
+
+# صورة الغلاف العريضة — المقاس المثالي 1200×600
+#hero_image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
 # ─── معلومات المشروع الأساسية ─────────────────────────────────────────
 title: "إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن"
 client: "رونق للإكسسوارات"
 industry: "صناعة يدوية / تجارة إلكترونية"  # قطاع العمل
 duration: "شهر واحد (المرحلة الأولى)"                        # مدة المشروع
-project_phase: "مستمر - إتمام المرحلة الأولى (التدقيق وإعادة التموضع)"      # مرحلة المشروع التفصيلية
+project_phase: "مستمر - إتمام المرحلة الأولى"      # مرحلة المشروع التفصيلية
 budget: "ميزانية محدودة (Bootstrapped)"                      # ميزانية المشروع
 my_role: "استراتيجي تسويق"
 
@@ -94,7 +99,6 @@ kpi_3_value: "مُحسّن"
 # ─── المعرض البصري — مسارات الصور ────────────────────────────────────
 # تُعرض في شبكة متجاوبة — أضف أي عدد من المسارات
 gallery:
-  - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"
   - "/assets/images/projects/Rawnak/Rawnak-hero.png"

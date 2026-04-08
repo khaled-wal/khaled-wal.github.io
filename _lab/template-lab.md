@@ -8,7 +8,7 @@ title: "استراتيجية نمو منتج SaaS (نسخة تجريبية)"
 date: 2026-03-30
 category: "تجربة تسويقية"
 role_or_skill: "محلل نمو"
-image_path: "/assets/images/placeholder.jpg"
+#image: "/assets/images/lab/lab-def-academic-cover.png"
 objective: "استكشاف قدرات الذكاء الاصطناعي في تحليل سلوك المستخدمين وبناء مسارات تحويل مخصصة لمنتجات SaaS."
 learnings: "التخصيص المفرط بناءً على التنبؤ الآلي يزيد من معدلات الاحتفاظ، ولكن يحتاج إلى مراعاة شديدة لتجربة الخصوصية."
 ---
