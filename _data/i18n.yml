@@ -13,6 +13,7 @@ ar:
   latest_articles: "أحدث المقالات"
   latest_case_studies: "أحدث دراسات الحالة"
   client: "العميل:"
+  case_studies: "دراسات الحالة"
   portfolio_count_label: "أعمال متخصصة"
 
   # ─── سلاسل دراسة الحالة (Case Study) ───
@@ -69,6 +70,7 @@ en:
   latest_articles: "Latest Articles"
   latest_case_studies: "Latest Case Studies"
   client: "Client:"
+  case_studies: "Case Studies"
   portfolio_count_label: "Specialised Works"
 
   # ─── Case Study Strings ───

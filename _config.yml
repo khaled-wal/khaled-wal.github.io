@@ -60,13 +60,13 @@ defaults:
       path: ""
       type: lab
     values:
-      layout: case_study
+      layout: lab_item
       lang: "ar"
   - scope:
       path: "en"
       type: lab
     values:
-      layout: case_study
+      layout: lab_item
       lang: "en"
 
 # Build settings

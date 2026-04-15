@@ -24,7 +24,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
           <!-- المشاريع -->
           <h3 class="portfolio-page-subtitle">المشاريع</h3>
           <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign market_pr = site.projects | where: "lang", "ar" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign market_pr = site.projects | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse -%}
             {% for item in market_pr %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
@@ -59,7 +59,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
           <!-- دراسات الحالة -->
           <h3 class="portfolio-page-subtitle">دراسات الحالة</h3>
           <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign market_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign market_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse -%}
             {% for item in market_cs %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
@@ -98,41 +98,51 @@ description: "استعرض دراسات الحالة والمشاريع التي
     </div>
     <!-- /portfolio-tier-market -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: أعمال المختبر (Lab / University / Training)
+         TIER 2: الأعمال التدريبية (Training Works)
          مشاريع استكشافية وتدريبية وأكاديمية.
          الفلتر: من مجموعة (collection) lab
     ══════════════════════════════════════════════════════════════ -->
-    {%- assign all_lab = site.lab | where: "lang", "ar" | sort: "date" | reverse -%}
+    {%- assign all_lab = site.lab | where: "lang", "ar" | sort: "order" | reverse -%}
     {% if all_lab.size > 0 %}
-    <div class="portfolio-tier-lab reveal">
-      <span class="tier-label">
-        <i class="fa-solid fa-flask" aria-hidden="true"></i>
-      المختبر  -  اعمال اكاديمية وتدريبية 
-      </span>
-      <div class="portfolio-grid-custom tier-lab-blueprint">
-        {% for item in all_lab %}
-        <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
-        <article class="portfolio-card">
-            <div class="card-image">
-                {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-                {% else %}
-                <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
-                {% endif %}
-            </div>
-            <div class="card-content">
-                <span class="category">{{ item.category | default: "مشروع أكاديمي" }}</span>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-            </div>
-        </article>
-        </a>
-        {% endfor %}
+    <div class="portfolio-tier-training reveal">
+      <div class="training-wrapper">
+        <span class="tier-label">
+          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+          الأعمال التدريبية
+        </span>
+        <div class="portfolio-grid-custom tier-training-grid">
+          {% for item in all_lab %}
+          <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  {% if item.image %}
+                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                  {% else %}
+                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  {% endif %}
+              </div>
+              <div class="card-content">
+                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
+                  {% if item.training_type %}
+                  <span class="training-badge {{ item.training_type_class | default: 'badge-default' }}">
+                      {{ item.training_type }}
+                  </span>
+                  {% else %}
+                  <span class="category">{{ item.category | default: "مشروع أكاديمي / تدريبي" }}</span>
+                  {% endif %}
+                  
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
+                  <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+              </div>
+          </article>
+          </a>
+          {% endfor %}
+        </div>
       </div>
     </div>
     {% endif %}
-    <!-- /portfolio-tier-lab -->
+    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
          TIER 3: قيد التنفيذ (Coming Soon)
          مشاريع لم تُكتمل بعد — مُقفلة بصرياً مع Hover Overlay.

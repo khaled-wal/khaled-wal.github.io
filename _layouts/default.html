@@ -7,26 +7,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include google-analytics.html %}
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
-    <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}</title>
+    <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <!-- EDIT: Set 'description:' in each page's front-matter               -->
-    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
 
+    <!-- Hreflang Links for Internationalization -->
+    {% if page.translation_key %}
+        {% assign alt_lang = current_lang | replace: 'ar','en_tmp' | replace: 'en','ar' | replace: 'en_tmp','en' %}
+        <link rel="alternate" hreflang="{{ current_lang }}" href="{{ site.url }}{{ page.url }}">
+        {% assign combined_docs = site.pages | concat: site.case_studies | concat: site.projects | concat: site.lab %}
+        {% for doc in combined_docs %}
+            {% if doc.translation_key == page.translation_key and doc.lang == alt_lang %}
+        <link rel="alternate" hreflang="{{ alt_lang }}" href="{{ site.url }}{{ doc.url }}">
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | replace: '/en/', '/' }}">
+    {% endif %}
+
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
-    <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:site_name" content="{{ t.site_name }}">
+    <meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
+    <meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ar_SA{% endif %}">
-    <meta property="og:image" content="{{ '/assets/images/Favicon.png' | absolute_url }}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/Favicon.png' | absolute_url }}{% endif %}">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
+    <meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/Favicon.png' | absolute_url }}{% endif %}">
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="{{ '/assets/images/Favicon.png' | relative_url }}" type="image/png">
@@ -37,8 +56,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- FontAwesome Icons (deferred for FCP optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">

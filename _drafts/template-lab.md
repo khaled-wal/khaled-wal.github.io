@@ -13,6 +13,7 @@ image: "/assets/images/lab/lab-def-academic-cover.png"
 # صورة الغلاف العريضة أعلى الصفحة
 image_path: "/assets/images/lab/lab-def-academic-cover.png"
 date: YYYY-MM-DD # تاريخ تنفيذ هذا المشروع أو البحث
+order: 1
 role_or_skill: "بحث وتحليل / إدارة حملات" # دورك أو المهارة الأساسية التي طُبقت في هذا المشروع
 
 # ═══════════ القسم الثالث: نبذة التجربة ═══════════

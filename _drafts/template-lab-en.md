@@ -13,6 +13,7 @@ image: "/assets/images/lab/lab-def-academic-cover.png"
 # The wide cover image
 image_path: "/assets/images/lab/lab-def-academic-cover.png"
 date: YYYY-MM-DD # Date of the experiment or project
+order: 1
 role_or_skill: "Research & Analysis / Campaign Management" # Your role or primary skill demonstrated
 
 # ═══════════ Phase 3: Experiment Overview ═══════════

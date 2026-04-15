@@ -7,26 +7,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-699YXNTX31');
+</script>
+
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
-    <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
     <title>الصفحة الرئيسية | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <!-- EDIT: Set 'description:' in each page's front-matter               -->
     <meta name="description" content="خالد هاشم — متخصص في الاتصال التسويقي؛ مهتم ببناء العلامات التجارية وتحليل سلوك المستهلك.">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/">
 
+    <!-- Hreflang Links for Internationalization -->
+    
+        
+        <link rel="alternate" hreflang="ar" href="http://localhost:4000/">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <link rel="alternate" hreflang="x-default" href="http://localhost:4000/">
+    
+
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
-    <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="خالد هاشم">
     <meta property="og:title" content="الصفحة الرئيسية | خالد هاشم">
     <meta property="og:description" content="خالد هاشم — متخصص في الاتصال التسويقي؛ مهتم ببناء العلامات التجارية وتحليل سلوك المستهلك.">
     <meta property="og:url" content="http://localhost:4000/">
     <meta property="og:locale" content="ar_SA">
     <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الصفحة الرئيسية | خالد هاشم">
+    <meta name="twitter:description" content="خالد هاشم — متخصص في الاتصال التسويقي؛ مهتم ببناء العلامات التجارية وتحليل سلوك المستهلك.">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -37,15 +84,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- FontAwesome Icons (deferred for FCP optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1776265855">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1776265855">
 </head>
 
 <body class="">
@@ -136,22 +184,6 @@
          ░░ شريط المهارات (Skills Floating Tags) ░░
          ══════════════════════════════════════════════════════════════════ -->
     <div class="container hero-footer-container reveal" data-delay="500">
-        <!--
-        <div class="skills-floating-group reveal-element">
-            <div class="skill-tag">
-                <i class="fa-solid fa-magnifying-glass-chart"></i> تحليل السوق
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-brain"></i> سلوك المستهلك
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-map-location-dot"></i> تحسين محركات البحث SEO
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-compass"></i> التخطيط التسويقي
-            </div>
-        </div>
-        -->    
         <!-- Scroll Indicator Down Nudge -->
         <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
@@ -176,8 +208,9 @@
             
             
             
+            
             <div class="view-all-group reveal">
-                <span class="portfolio-counter-badge">+1 أعمال متخصصة</span>
+                <span class="portfolio-counter-badge">+2 أعمال متخصصة</span>
                 <a href="/portfolio/" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
@@ -205,8 +238,32 @@
             </article>
             </a>
             
+            <a href="/portfolio/lab/template-training/" class="card-link" aria-label="خطة تسويقية لاطلاق منتج تقني في السوق السعودي">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                        
+                        <img src="/assets/images/projects/prog-def-cover.png" alt="خطة تسويقية لاطلاق منتج تقني في السوق السعودي" />
+                        
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            المشاريع
+                        
+                    </span>
+                    
+                    <h3>خطة تسويقية لاطلاق منتج تقني في السوق السعودي</h3>
+                    <p>خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى</p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
         </div>
     </div>
+
 </section>
 
 <!-- Gradient Divider -->
@@ -295,7 +352,7 @@
             <!-- ── عمود التعليم والشهادات ─────────────────────────────── -->
             <div class="cv-column">
                 <!-- عنوان فاصل — يظهر فقط على الجوال -->
-                <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                <div class="cv-mobile-section-title" aria-hidden="true"></div>
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
                 <div class="timeline">
                     <!-- ✏️ EDIT: عنصر تعليمي — كرّر هذه الكتلة لكل درجة علمية -->
@@ -315,7 +372,7 @@
                 <!-- ── الشهادات ────── -->
                 <div class="cv-certifications">
                     <!-- عنوان فاصل — يظهر فقط على الجوال -->
-                    <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                    <div class="cv-mobile-section-title" aria-hidden="true"></div>
                     <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
                     <div class="certification-grid">
                         <!-- ✏️ EDIT: كرّر كتلة cert-card لكل شهادة -->
@@ -426,7 +483,6 @@
         </div>
     </div>
 </section>
-
 
     </main>
 

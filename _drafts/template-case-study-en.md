@@ -72,6 +72,7 @@ sector: "E-Commerce"          # Examples: Food | Real Estate | Education
 
 # Date — [NEW] used for sorting and shown as a chip in Meta Bar
 date: 2026-01-01
+order: 1
 
 # Study duration — [NEW] chip in Meta Bar
 study_duration: "6 Weeks"

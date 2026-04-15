@@ -7,26 +7,52 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-699YXNTX31');
+</script>
+
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
-    <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
     <title>Home | Khaled Hashem</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <!-- EDIT: Set 'description:' in each page's front-matter               -->
     <meta name="description" content="Khaled Hashem — MarCom Student | Interested in branding and consumer behavior analysis">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/en/">
 
+    <!-- Hreflang Links for Internationalization -->
+    
+        
+        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/">
+        
+        
+            
+        <link rel="alternate" hreflang="ar" href="http://localhost:4000/">
+                
+        <link rel="alternate" hreflang="x-default" href="http://localhost:4000/">
+    
+
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
-    <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Khaled Hashem">
     <meta property="og:title" content="Home | Khaled Hashem">
     <meta property="og:description" content="Khaled Hashem — MarCom Student | Interested in branding and consumer behavior analysis">
     <meta property="og:url" content="http://localhost:4000/en/">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home | Khaled Hashem">
+    <meta name="twitter:description" content="Khaled Hashem — MarCom Student | Interested in branding and consumer behavior analysis">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -37,15 +63,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- FontAwesome Icons (deferred for FCP optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1776265855">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1776265855">
 </head>
 
 <body class="">
@@ -134,19 +161,6 @@
          ░░ SKILLS FLOATING TAGS ░░
          ══════════════════════════════════════════════════════════════════ -->
     <div class="container hero-footer-container">
-        <!--
-        <div class="skills-floating-group reveal">
-            <div class="skill-tag">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-chart-line"></i> Data Analysis
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-object-group"></i> SEO Optimization
-            </div>
-        </div>
-        -->
         <!-- Scroll Indicator Down Nudge -->
         <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
@@ -171,8 +185,9 @@
             
             
             
+            
             <div class="view-all-group reveal">
-                <span class="portfolio-counter-badge">+1 Specialised Works</span>
+                <span class="portfolio-counter-badge">+2 Specialised Works</span>
                 <a href="/en/portfolio/" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
@@ -200,8 +215,32 @@
             </article>
             </a>
             
+            <a href="/en/portfolio/lab/template-training-en/" class="card-link" aria-label="Marketing Plan for Launching a Tech Product in the Saudi Market">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                        
+                        <img src="/assets/images/projects/prog-def-cover.png" alt="Marketing Plan for Launching a Tech Product in the Saudi Market" />
+                        
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            Projects
+                        
+                    </span>
+                    
+                    <h3>Marketing Plan for Launching a Tech Product in the Saudi Market</h3>
+                    <p>A comprehensive plan including product analysis, market research, competitor analysis, timeline development, and visual content...</p>
+                    <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
         </div>
     </div>
+
 </section>
 
 <!-- Gradient Divider -->
@@ -293,7 +332,7 @@
             <!-- ── Education + Certifications Column (merged for visual balance) ── -->
             <div class="cv-column">
                 <!-- Section separator heading — visible on mobile only -->
-                <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                <div class="cv-mobile-section-title" aria-hidden="true"></div>
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
                 <div class="timeline">
                     <!-- ✏️ EDIT: Duplicate this block for each degree -->
@@ -313,7 +352,7 @@
                 <!-- ── Certifications (inside Education column for visual balance) ── -->
                 <div class="cv-certifications">
                     <!-- Section separator heading — visible on mobile only -->
-                    <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                    <div class="cv-mobile-section-title" aria-hidden="true"></div>
                     <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
                     <div class="certification-grid">
                         <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
@@ -426,7 +465,6 @@
         </div>
     </div>
 </section>
-
 
     </main>
 

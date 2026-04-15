@@ -23,6 +23,7 @@ layout: project
 lang: ar
 translation_key: unique_key_here     # يجب أن يكون متطابقاً بين اللغتين
 date: 2026-01-01                     # تاريخ المشروع — يُستخدم للترتيب الزمني
+order: 1
 permalink: /portfolio/slug-here/     # غيّر slug-here باسم المشروع
 publish_state: "coming_soon"          # "published" | "coming_soon"
 

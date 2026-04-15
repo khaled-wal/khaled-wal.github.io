@@ -1,0 +1,30 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for page in site.pages %}
+  {% if page.url contains '.xml' or page.url contains 'assets' or page.url contains '/thanks' %}{% else %}
+  <url>
+    <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
+    {% if page.last_modified_at %}
+      <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+    {% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endif %}
+{% endfor %}
+
+{% assign combined_docs = site.case_studies | concat: site.projects | concat: site.lab %}
+{% for doc in combined_docs %}
+  <url>
+    <loc>{{ site.url }}{{ doc.url }}</loc>
+    {% if doc.date %}
+      <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
+    {% endif %}
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+{% endfor %}
+</urlset>

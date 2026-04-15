@@ -7,26 +7,56 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-699YXNTX31');
+</script>
+
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
-    <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
     <title>My Work | Khaled Hashem</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <!-- EDIT: Set 'description:' in each page's front-matter               -->
     <meta name="description" content="Browse case studies and projects by Khaled Waleed in the fields of marketing and communications.">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/en/portfolio/">
 
+    <!-- Hreflang Links for Internationalization -->
+    
+        
+        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/">
+        
+        
+            
+        
+            
+        
+            
+        <link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/">
+                
+        <link rel="alternate" hreflang="x-default" href="http://localhost:4000/portfolio/">
+    
+
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
-    <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Khaled Hashem">
     <meta property="og:title" content="My Work | Khaled Hashem">
     <meta property="og:description" content="Browse case studies and projects by Khaled Waleed in the fields of marketing and communications.">
     <meta property="og:url" content="http://localhost:4000/en/portfolio/">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My Work | Khaled Hashem">
+    <meta name="twitter:description" content="Browse case studies and projects by Khaled Waleed in the fields of marketing and communications.">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -37,15 +67,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- FontAwesome Icons (deferred for FCP optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1776265855">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1776265855">
 </head>
 
 <body class="page-light-bg">
@@ -147,36 +178,44 @@
     </div>
     <!-- /portfolio-tier-market -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: The Lab (University / Training)
+         TIER 2: Training Works (from _lab)
          Filter: collection=lab AND lang=en
     ══════════════════════════════════════════════════════════════ -->
-    <div class="portfolio-tier-lab reveal">
-      <span class="tier-label">
-        <i class="fa-solid fa-flask" aria-hidden="true"></i>
-        The Lab · Academic &amp; Training Work
-      </span>
-      <div class="portfolio-grid-custom tier-lab-blueprint">
-        
-        <a href="/en/portfolio/lab/template-lab-en/" class="card-link" aria-label="SaaS Product Growth Strategy (Beta)">
-        <article class="portfolio-card">
-            <div class="card-image">
-                
-                <img src="/assets/images/lab/lab-def-academic-cover.png" alt="SaaS Product Growth Strategy (Beta)" />
-                
-            </div>
-            <div class="card-content">
-                <span class="category">Marketing Experiment</span>
-                <h3>SaaS Product Growth Strategy (Beta)</h3>
-                <p>Exploring the capabilities of AI in analyzing user behavior and building automated personalization funnels for...</p>
-                <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-            </div>
-        </article>
-        </a>
-        
+    <div class="portfolio-tier-training reveal">
+      <div class="training-wrapper">
+        <span class="tier-label">
+          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+          Training Works
+        </span>
+        <div class="portfolio-grid-custom tier-training-grid">
+          
+          <a href="/en/portfolio/lab/template-training-en/" class="card-link" aria-label="Marketing Plan for Launching a Tech Product in the Saudi Market">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <img src="/assets/images/lab/lab-def-academic-cover.png" alt="Marketing Plan for Launching a Tech Product in the Saudi Market" />
+                  
+              </div>
+              <div class="card-content">
+                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
+                  
+                  <span class="training-badge badge-academic">
+                      Academic Work
+                  </span>
+                  
+                  
+                  <h3>Marketing Plan for Launching a Tech Product in the Saudi Market</h3>
+                  <p>A comprehensive plan including product analysis, market research, competitor analysis, timeline development, and visual content...</p>
+                  <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+              </div>
+          </article>
+          </a>
+          
+        </div>
       </div>
     </div>
     
-    <!-- /portfolio-tier-lab -->
+    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
          TIER 3: Coming Soon
     ══════════════════════════════════════════════════════════════ -->

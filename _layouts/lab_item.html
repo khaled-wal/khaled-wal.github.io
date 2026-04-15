@@ -3,7 +3,6 @@ layout: default
 light_bg: false
 ---
 {% assign current_lang = page.lang | default: 'ar' %}
-{% assign t = site.data.i18n[current_lang] %}
 
 <article class="mkt-lab-page">
     <header class="mkt-lab-hero">
@@ -17,32 +16,45 @@ light_bg: false
         {% endif %}
 
         <div class="container mkt-lab-hero-content">
-            <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}" class="mkt-lab-back-link">
+            <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}" class="mkt-lab-back-link btn-back">
                 <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
                 {% if current_lang == 'en' %}Back to Portfolio{% else %}العودة للأعمال{% endif %}
             </a>
 
-            <span class="mkt-lab-type-badge">
-                <i class="fa-solid fa-flask" aria-hidden="true"></i>
-                {{ page.category | default: "The Lab" }}
+            <span class="mkt-lab-type-badge training-badge {{ page.training_type_class | default: 'badge-default' }}">
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                {{ page.training_type | default: page.category | default: "Training Work" }}
             </span>
 
             <h1 class="mkt-lab-title">{{ page.title }}</h1>
             <div class="mkt-lab-meta">
-                <span>{{ page.date | date: "%B %d, %Y" }}</span>
-                {% if page.role_or_skill %}
+                <span><i class="fa-regular fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+                {% if page.role %}
+                <span class="mkt-lab-role"><i class="fa-solid fa-user-gear"></i> {{ page.role }}</span>
+                {% elsif page.role_or_skill %}
                 <span class="mkt-lab-role"><i class="fa-solid fa-user-gear"></i> {{ page.role_or_skill }}</span>
+                {% endif %}
+                
+                {% if page.tools %}
+                <span class="mkt-lab-tools">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> 
+                    {{ page.tools | join: ", " }}
+                </span>
                 {% endif %}
             </div>
         </div>
     </header>
 
     <div class="container mkt-lab-body">
-        <div class="mkt-lab-content">
-            {% if page.objective %}
-            <div class="mkt-lab-objective">
-                <h2 class="mkt-lab-heading">{% if current_lang == 'en' %}Objective{% else %}الهدف من التجربة{% endif %}</h2>
-                <p>{{ page.objective }}</p>
+        <div class="markdown-content mkt-lab-content">
+            
+            {% if page.challenge or page.objective %}
+            <div class="mkt-lab-section mkt-lab-challenge callout-box-dark">
+                <h2 class="mkt-lab-heading">
+                    <i class="fa-solid fa-bullseye"></i> 
+                    {% if current_lang == 'en' %}The Challenge / Objective{% else %}التحدي / الهدف من التجربة{% endif %}
+                </h2>
+                <p>{{ page.challenge | default: page.objective }}</p>
             </div>
             {% endif %}
 
@@ -50,10 +62,13 @@ light_bg: false
                 {{ content }}
             </div>
 
-            {% if page.learnings %}
-            <div class="mkt-lab-learnings">
-                <h2 class="mkt-lab-heading">{% if current_lang == 'en' %}Key Learnings{% else %}الدروس المستفادة{% endif %}</h2>
-                <p>{{ page.learnings }}</p>
+            {% if page.results_summary or page.learnings %}
+            <div class="mkt-lab-section mkt-lab-results callout-box-accent">
+                <h2 class="mkt-lab-heading">
+                    <i class="fa-solid fa-lightbulb"></i> 
+                    {% if current_lang == 'en' %}Strategic Solutions & Learnings{% else %}الحلول الاستراتيجية والدروس المستفادة{% endif %}
+                </h2>
+                <p>{{ page.results_summary | default: page.learnings }}</p>
             </div>
             {% endif %}
         </div>

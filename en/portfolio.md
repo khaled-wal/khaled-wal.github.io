@@ -23,7 +23,7 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
           <!-- Projects -->
           <h3 class="portfolio-page-subtitle">Projects</h3>
           <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign en_market_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign en_market_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse -%}
             {% for item in en_market_pr %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
@@ -60,7 +60,7 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
           <!-- Case Studies -->
           <h3 class="portfolio-page-subtitle">Case Studies</h3>
           <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign en_market_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
+            {%- assign en_market_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse -%}
             {% for item in en_market_cs %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
@@ -101,40 +101,50 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
     </div>
     <!-- /portfolio-tier-market -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: The Lab (University / Training)
+         TIER 2: Training Works (from _lab)
          Filter: collection=lab AND lang=en
     ══════════════════════════════════════════════════════════════ -->
-    {%- assign en_all_lab = site.lab | where: "lang", "en" | sort: "date" | reverse -%}
+    {%- assign en_all_lab = site.lab | where: "lang", "en" | sort: "order" | reverse -%}
     {% if en_all_lab.size > 0 %}
-    <div class="portfolio-tier-lab reveal">
-      <span class="tier-label">
-        <i class="fa-solid fa-flask" aria-hidden="true"></i>
-        The Lab · Academic & Training Work
-      </span>
-      <div class="portfolio-grid-custom tier-lab-blueprint">
-        {% for item in en_all_lab %}
-        <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
-        <article class="portfolio-card">
-            <div class="card-image">
-                {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-                {% else %}
-                <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
-                {% endif %}
-            </div>
-            <div class="card-content">
-                <span class="category">{{ item.category | default: "Academic Project" }}</span>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-            </div>
-        </article>
-        </a>
-        {% endfor %}
+    <div class="portfolio-tier-training reveal">
+      <div class="training-wrapper">
+        <span class="tier-label">
+          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+          Training Works
+        </span>
+        <div class="portfolio-grid-custom tier-training-grid">
+          {% for item in en_all_lab %}
+          <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  {% if item.image %}
+                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                  {% else %}
+                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  {% endif %}
+              </div>
+              <div class="card-content">
+                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
+                  {% if item.training_type %}
+                  <span class="training-badge {{ item.training_type_class | default: 'badge-default' }}">
+                      {{ item.training_type }}
+                  </span>
+                  {% else %}
+                  <span class="category">{{ item.category | default: "Academic/Training Project" }}</span>
+                  {% endif %}
+                  
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
+                  <span class="read-more" aria-hidden="true">Read More <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+              </div>
+          </article>
+          </a>
+          {% endfor %}
+        </div>
       </div>
     </div>
     {% endif %}
-    <!-- /portfolio-tier-lab -->
+    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
          TIER 3: Coming Soon
     ══════════════════════════════════════════════════════════════ -->

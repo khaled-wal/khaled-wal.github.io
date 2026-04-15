@@ -23,6 +23,7 @@ layout: project
 lang: en
 translation_key: unique_key_here      # Must match the Arabic version
 date: 2026-01-01                      # Project date — used for sorting
+order: 1
 permalink: /en/portfolio/slug-here/   # Replace slug-here with project slug
 publish_state: "coming_soon"           # "published" | "coming_soon"
 

@@ -43,19 +43,6 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
          ░░ SKILLS FLOATING TAGS ░░
          ══════════════════════════════════════════════════════════════════ -->
     <div class="container hero-footer-container">
-        <!--
-        <div class="skills-floating-group reveal">
-            <div class="skill-tag">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Content Creation
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-chart-line"></i> Data Analysis
-            </div>
-            <div class="skill-tag">
-                <i class="fa-solid fa-object-group"></i> SEO Optimization
-            </div>
-        </div>
-        -->
         <!-- Scroll Indicator Down Nudge -->
         <div class="hero-scroll-indicator reveal" data-delay="700">
              <i class="fa-solid fa-chevron-down"></i>
@@ -77,19 +64,20 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
     <div class="container">
         <div class="section-header reveal">
             <h2 class="section-title dark-text">{{ site.data.i18n.en.featured_work }}</h2>
-            {% assign en_all_works = site.case_studies | where: "lang", "en" %}
-            {% assign en_all_projects = site.projects | where: "lang", "en" %}
-            {% assign en_total = en_all_works.size | plus: en_all_projects.size %}
+            {% assign en_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" %}
+            {% assign en_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" %}
+            {% assign en_lab = site.lab | where: "lang", "en" | where: "publish_state", "published" %}
+            {% assign en_total = en_cs.size | plus: en_pr.size | plus: en_lab.size %}
             <div class="view-all-group reveal">
                 <span class="portfolio-counter-badge">+{{ en_total }} {{ site.data.i18n.en.portfolio_count_label }}</span>
                 <a href="{{ '/en/portfolio/' | relative_url }}" class="btn btn-outline-dark view-all-btn">View All <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
         <div class="portfolio-grid reveal">
-            {%- assign market_cs_home = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
-            {%- assign market_pr_home = site.projects     | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse -%}
-            {%- assign all_market_home = market_cs_home | concat: market_pr_home | sort: "date" | reverse -%}
-            {%- assign featured_items = all_market_home | limit: 2 -%}
+            {%- assign latest_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
+            {%- assign latest_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
+            {%- assign latest_lab = site.lab | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
+            {%- assign featured_items = latest_pr | concat: latest_cs | concat: latest_lab -%}
 
             {% for item in featured_items %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
@@ -129,6 +117,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             {% endfor %}
         </div>
     </div>
+
 </section>
 
 <!-- Gradient Divider -->
@@ -220,7 +209,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             <!-- ── Education + Certifications Column (merged for visual balance) ── -->
             <div class="cv-column">
                 <!-- Section separator heading — visible on mobile only -->
-                <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                <div class="cv-mobile-section-title" aria-hidden="true"></div>
                 <h3 class="cv-column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
                 <div class="timeline">
                     <!-- ✏️ EDIT: Duplicate this block for each degree -->
@@ -240,7 +229,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                 <!-- ── Certifications (inside Education column for visual balance) ── -->
                 <div class="cv-certifications">
                     <!-- Section separator heading — visible on mobile only -->
-                    <h3 class="cv-mobile-section-title"><i class=""></i> </h3>
+                    <div class="cv-mobile-section-title" aria-hidden="true"></div>
                     <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
                     <div class="certification-grid">
                         <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
@@ -353,4 +342,3 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         </div>
     </div>
 </section>
-

@@ -21,6 +21,7 @@ layout: project
 lang: en                        # اللغة: ar أو en
 translation_key: resin-accessories-revamp  # مفتاح ربط النسخة العربية بالإنجليزية
 date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
+order: 1
 permalink: /en/portfolio/resin-accessories-revamp-en/  # الرابط المخصص — غيّره حسب اسم المشروع
 
 # ─── Content Classification ───────────────────────────────────────────
@@ -62,7 +63,7 @@ toc_items:
     url: "#tools"
 
 # ─── صورة الغلاف والنتائج ─────────────────────────────────────────────
-hero_image: ""  # المقاس المثالي 1200×600
+#hero_image: "/assets/images/projects/Rawnak/Rawnak-hero.png"  # المقاس المثالي 1200×600
 project_result: "Complete Brand Repositioning & Pricing Strategy Delivered"      # النتيجة الرئيسية — تظهر في الهيدر بشكل بارز
 roi: "N/A (Pre-launch Phase)"                                       # العائد على الاستثمار
 

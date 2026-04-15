@@ -594,7 +594,7 @@ html[dir="ltr"] .hero {
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-lg);
   padding: 3rem;
-  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.08), 0 0 10px rgba(21, 216, 187, 0.05) inset;
+  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.123), 0 0 10px rgba(21, 216, 187, 0.05) inset;
   margin-bottom: 4rem;
 }
 
@@ -1508,6 +1508,116 @@ html[dir="ltr"] .arrow-icon {
 }
 
 /* ==========================================================================
+   Training Works Single Case Study
+   ========================================================================== */
+.mkt-lab-page {
+  background-color: var(--clr-navy);
+  color: var(--clr-text-light);
+}
+
+.mkt-lab-hero {
+  position: relative;
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #0d1b2a 0%, var(--clr-navy) 100%);
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
+  text-align: center;
+}
+
+.mkt-lab-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.mkt-lab-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  transition: color var(--transition-fast);
+}
+
+.mkt-lab-back-link:hover {
+  color: var(--clr-white);
+}
+
+.mkt-lab-type-badge {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mkt-lab-title {
+  color: var(--clr-white);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.mkt-lab-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+}
+
+.mkt-lab-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mkt-lab-body {
+  padding-block: 4rem;
+  max-width: 800px;
+}
+
+.mkt-lab-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--clr-white);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.mkt-lab-heading i {
+  color: var(--clr-green);
+  opacity: 0.8;
+}
+
+/* Callout Boxes */
+.callout-box-dark {
+  background-color: rgba(15, 23, 42, 0.4);
+  border-inline-start: 4px solid var(--clr-muted);
+  padding: 2rem;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  margin-bottom: 3rem;
+}
+html[dir="ltr"] .callout-box-dark {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.callout-box-accent {
+  background-color: rgba(16, 185, 129, 0.05); /* Green tint */
+  border-inline-start: 4px solid var(--clr-green);
+  padding: 2rem;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  margin-bottom: 3rem;
+}
+html[dir="ltr"] .callout-box-accent {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+/* ==========================================================================
    Utility helpers
    ========================================================================== */
 .w-100 {
@@ -1802,7 +1912,7 @@ html[dir="ltr"] .arrow-icon {
 
 /* ── Tier Wrapper Shared ─────────────────────────────────────────────────── */
 .portfolio-tier-market,
-.portfolio-tier-lab,
+.portfolio-tier-training,
 .portfolio-tier-coming-soon {
   margin-bottom: 5rem;
 }
@@ -1831,91 +1941,66 @@ html[dir="ltr"] .arrow-icon {
 
 
 
-/* ── Tier 2: Lab / University / Training ─────────────────────────────────── */
-/* "Editorial / Blueprint" look — sleek dark theme list layout */
-.portfolio-tier-lab .tier-label {
-  background-color: rgba(0, 127, 127, 0.1);
-  color: var(--secondary-action);
-  border: 1px solid rgba(0, 127, 127, 0.25);
+/* ── Tier 2: Training Works ─────────────────────────────────── */
+.portfolio-tier-training .tier-label {
+  background-color: rgba(47, 104, 125, 0.712); /* Dark Blue */
+  color: var(--clr-white);
+  border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
-.tier-lab-blueprint {
-  display: flex !important;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
-  background-color: transparent;
-  border-top: 1px dashed rgba(224, 253, 251, 0.15);
-  border-bottom: 1px dashed rgba(224, 253, 251, 0.15);
+.training-wrapper {
+  background-color: rgba(248, 250, 252, 0.45);
+  padding: 3rem 2rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.829);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(3, 130, 193, 0.282), 0 0 10px rgba(21, 216, 187, 0.05) inset;
 }
 
-.tier-lab-blueprint .card-link {
-  display: block;
+/* On mobile, reduce padding for the wrapper */
+@media (max-width: 791px) {
+  .training-wrapper {
+    padding: 2rem 1rem;
+  }
 }
 
-.tier-lab-blueprint .portfolio-card {
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  min-height: 120px;
-  background-color: transparent !important;
-  border: none;
-  border-bottom: 1px solid rgba(224, 253, 251, 0.05);
-  border-radius: 0;
-  box-shadow: none !important;
-  padding-bottom: 1.5rem;
-  transition: transform var(--transition-smooth), opacity var(--transition-fast);
-  opacity: 0.85;
+/* Training badges system (References Front-Matter class) */
+.training-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+  width: fit-content;
 }
 
-.tier-lab-blueprint .portfolio-card:hover {
-  transform: translateX(8px);
-  opacity: 1;
-  border-bottom-color: rgba(224, 253, 251, 0.15);
-}
-html[dir="rtl"] .tier-lab-blueprint .portfolio-card:hover { transform: translateX(-8px); }
-
-.tier-lab-blueprint .card-link:last-child .portfolio-card {
-  border-bottom: none;
-  padding-bottom: 0;
+.badge-academic {
+  background-color: rgba(113, 246, 92, 0.15); /* Purple tint */
+  color: #313e2b;
+  border: 1px solid rgba(113, 246, 92, 0.3);
 }
 
-.tier-lab-blueprint .card-image {
-  width: 140px;
-  height: 100px;
-  border-radius: var(--radius-sm);
-  margin-right: 1.5rem;
-  background-color: var(--clr-border);
+.badge-strategic {
+  background-color: rgba(56, 210, 248, 0.106); /* Light blue tint */
+  color: #17434d;
+  border: 1px solid rgba(56, 184, 248, 0.3);
 }
 
-html[dir="rtl"] .tier-lab-blueprint .card-image {
-  margin-right: 0;
-  margin-left: 1.5rem;
+.badge-default {
+  background-color: rgba(65, 73, 75, 0.099); /* Gray/Slate */
+  color: #2f3338;
+  border: 1px solid rgb(65, 73, 75);
 }
 
-.tier-lab-blueprint .card-content {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
+/* Ensure the training grid matches the market grid columns */
+.tier-training-grid {
+  /* It already uses .portfolio-grid-custom which behaves properly */
+  margin-bottom: 0; /* Remove bottom margin inside wrapper */
 }
-
-.tier-lab-blueprint h3 {
-  color: var(--clr-text-dark);
-  font-family: var(--font-en);
-  font-size: 1.15rem;
-  margin-bottom: 0.35rem;
-}
-
-.tier-lab-blueprint p {
-  color: var(--clr-muted);
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-.tier-lab-blueprint .read-more { display: none; }
-.tier-lab-blueprint .category { font-size: 0.75rem; opacity: 0.8; margin-bottom: 0.25rem; color: var(--secondary-action); }
 
 /* ── Tier 3: Coming Soon ─────────────────────────────────────────────────── */
 .portfolio-tier-coming-soon .tier-label {
@@ -2035,7 +2120,7 @@ html[dir="rtl"] .tier-lab-blueprint .card-image {
 /* ── Tier responsive overrides ───────────────────────────────────────────── */
 @media (max-width: 791px) {
   .portfolio-tier-market,
-  .portfolio-tier-lab,
+  .portfolio-tier-training,
   .portfolio-tier-coming-soon {
     margin-bottom: 2.5rem;
   }

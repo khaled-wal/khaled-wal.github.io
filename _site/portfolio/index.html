@@ -7,26 +7,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-699YXNTX31');
+</script>
+
 
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
-    <!-- EDIT: Change site.title in _config.yml to update the suffix        -->
     <title>أعمالي | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <!-- EDIT: Set 'description:' in each page's front-matter               -->
     <meta name="description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/portfolio/">
 
+    <!-- Hreflang Links for Internationalization -->
+    
+        
+        <link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/">
+        
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <link rel="alternate" hreflang="x-default" href="http://localhost:4000/portfolio/">
+    
+
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
-    <!-- EDIT: Replace the og:image URL with a real preview image path      -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="خالد هاشم">
     <meta property="og:title" content="أعمالي | خالد هاشم">
     <meta property="og:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
     <meta property="og:url" content="http://localhost:4000/portfolio/">
     <meta property="og:locale" content="ar_SA">
     <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أعمالي | خالد هاشم">
+    <meta name="twitter:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -37,15 +84,16 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- FontAwesome Icons (deferred for FCP optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1776265855">
 
     <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
     <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1775853831">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1776265855">
 </head>
 
 <body class="page-light-bg">
@@ -148,37 +196,45 @@
     </div>
     <!-- /portfolio-tier-market -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: أعمال المختبر (Lab / University / Training)
+         TIER 2: الأعمال التدريبية (Training Works)
          مشاريع استكشافية وتدريبية وأكاديمية.
          الفلتر: من مجموعة (collection) lab
     ══════════════════════════════════════════════════════════════ -->
-    <div class="portfolio-tier-lab reveal">
-      <span class="tier-label">
-        <i class="fa-solid fa-flask" aria-hidden="true"></i>
-      المختبر  -  اعمال اكاديمية وتدريبية 
-      </span>
-      <div class="portfolio-grid-custom tier-lab-blueprint">
-        
-        <a href="/portfolio/lab/template-lab/" class="card-link" aria-label="استراتيجية نمو منتج SaaS (نسخة تجريبية)">
-        <article class="portfolio-card">
-            <div class="card-image">
-                
-                <img src="/assets/images/lab/lab-def-academic-cover.png" alt="استراتيجية نمو منتج SaaS (نسخة تجريبية)" />
-                
-            </div>
-            <div class="card-content">
-                <span class="category">تجربة تسويقية</span>
-                <h3>استراتيجية نمو منتج SaaS (نسخة تجريبية)</h3>
-                <p>استكشاف قدرات الذكاء الاصطناعي في تحليل سلوك المستخدمين وبناء مسارات تحويل مخصصة لمنتجات SaaS.</p>
-                <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-            </div>
-        </article>
-        </a>
-        
+    <div class="portfolio-tier-training reveal">
+      <div class="training-wrapper">
+        <span class="tier-label">
+          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+          الأعمال التدريبية
+        </span>
+        <div class="portfolio-grid-custom tier-training-grid">
+          
+          <a href="/portfolio/lab/template-training/" class="card-link" aria-label="خطة تسويقية لاطلاق منتج تقني في السوق السعودي">
+          <article class="portfolio-card">
+              <div class="card-image">
+                  
+                  <img src="/assets/images/lab/lab-def-academic-cover.png" alt="خطة تسويقية لاطلاق منتج تقني في السوق السعودي" />
+                  
+              </div>
+              <div class="card-content">
+                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
+                  
+                  <span class="training-badge badge-academic">
+                      عمل أكاديمي
+                  </span>
+                  
+                  
+                  <h3>خطة تسويقية لاطلاق منتج تقني في السوق السعودي</h3>
+                  <p>خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى</p>
+                  <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+              </div>
+          </article>
+          </a>
+          
+        </div>
       </div>
     </div>
     
-    <!-- /portfolio-tier-lab -->
+    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
          TIER 3: قيد التنفيذ (Coming Soon)
          مشاريع لم تُكتمل بعد — مُقفلة بصرياً مع Hover Overlay.

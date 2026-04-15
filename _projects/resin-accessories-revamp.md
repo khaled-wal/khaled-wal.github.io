@@ -21,13 +21,13 @@ layout: project
 lang: ar                        # اللغة: ar أو en
 translation_key: resin-accessories-revamp  # مفتاح ربط النسخة العربية بالإنجليزية
 date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
+order: 1
 permalink: /portfolio/resin-accessories-revamp/  # الرابط المخصص — غيّره حسب اسم المشروع
 
 # ─── تصنيف المحتوى (Content Classification) ──────────────────────────
 tier: "market"      # "market" = عمل سوقي حقيقي | "lab" = مشروع جامعي/تدريبي
 publish_state: "published"  # "published" | "coming_soon"
 objective: "تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن."
-image: /assets/images/projects/Rawnak/Rawnak-hero.png
 image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
 
 # ═══════ القسم 2: بيانات الهيدر (Hero Section) ════════════════════════
@@ -63,7 +63,7 @@ toc_items:
     url: "#tools"
 
 # ─── صورة الغلاف والنتائج ─────────────────────────────────────────────
- # المقاس المثالي 1200×600
+#hero_image: "/assets/images/projects/Rawnak/Rawnak-hero.png"  # المقاس المثالي 1200×600
 project_result: "بناء استراتيجية تموضع كاملة وتصحيح هيكل التسعير"      # النتيجة الرئيسية — تظهر في الهيدر بشكل بارز
 roi: "غير متاح (مرحلة ما قبل الإطلاق)"                                       # العائد على الاستثمار
 
