@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include google-analytics.html %}
-
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}</title>
 
@@ -50,11 +49,16 @@
 
     <link rel="icon" href="{{ '/assets/images/Favicon.png' | relative_url }}" type="image/png">
 
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
+    {% if page.translation_key == 'home' %}
+    <link rel="preload" as="image" href="{{ '/assets/images/profile.webp' | relative_url }}" type="image/webp">
+    {% endif %}
+
     <!-- Google Fonts: preconnect for faster load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
@@ -63,9 +67,10 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
-    <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
-    <!-- Portfolio detail-page styles (case studies + projects) -->
+    <!-- Portfolio detail-page styles — loaded only on pages that need them -->
+    {% if page.layout == 'case_study' or page.layout == 'project' or page.layout == 'lab_item' or page.translation_key == 'case_studies' %}
     <link rel="stylesheet" href="{{ '/assets/css/portfolio-layouts.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% endif %}
 </head>
 
 <body class="{% if page.light_bg %}page-light-bg{% endif %}">

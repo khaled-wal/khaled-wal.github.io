@@ -33,9 +33,9 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper reveal" data-delay="450">
+        <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image">
+                <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="500" height="500">
             </div>
         </div>
     </div>

@@ -17,7 +17,6 @@
   gtag('config', 'G-699YXNTX31');
 </script>
 
-
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>Home | Khaled Hashem</title>
 
@@ -57,22 +56,26 @@
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
 
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
+    
+    <link rel="preload" as="image" href="/assets/images/profile.webp" type="image/webp">
+    
+
     <!-- Google Fonts: preconnect for faster load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1776270543">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1776283879">
 
-    <!-- أنماط صفحات دراسات الحالة والمشاريع — معزولة بالكامل عن الأنماط العامة -->
-    <!-- Portfolio detail-page styles (case studies + projects) -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1776270543">
+    <!-- Portfolio detail-page styles — loaded only on pages that need them -->
+    
 </head>
 
 <body class="">
@@ -151,9 +154,9 @@
             </div>
         </div>
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
-        <div class="hero-image-wrapper reveal" data-delay="450">
+        <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="/assets/images/profile.webp" alt="Khaled Waleed Hashem" class="profile-image" />
+                <img src="/assets/images/profile.webp" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="500" height="500" />
             </div>
         </div>
     </div>
