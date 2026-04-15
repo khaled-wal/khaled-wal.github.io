@@ -1427,7 +1427,7 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .mkt-lab-page {
-  background-color: #001133; /* Cohesive darker background for editorial focus */
+  background-color: var(--primary-bg); /* Cohesive darker background for editorial focus */
   color: var(--clr-text-light);
   font-family: var(--font-main);
   padding-top: var(--header-height);
@@ -1435,6 +1435,7 @@
 
 .mkt-lab-hero {
   position: relative;
+  margin-top: 2rem;
   min-height: 50vh;
   display: flex;
   align-items: flex-end;
