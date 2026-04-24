@@ -172,6 +172,28 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">April 2026 - Present</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">Creative Campaigns Lead </div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>Led a rapid operational turnaround and developed comprehensive onboarding systems, while overseeing creative campaign strategies to optimize team performance and achieve marketing objectives.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">April 2026 - Present</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">Club Representative</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>I represent the club on the university's unified digital platform, managing student engagement and promoting events to boost brand awareness and recruitment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: Date range -->
                         <div class="timeline-date">January 2026 - Present</div>
                         <!-- ✏️ EDIT: Job title -->
@@ -234,10 +256,14 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     <div class="certification-grid">
                         <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
                         <div class="cert-card">
+                            <h4>Supercharge Your Data Analytics with Generative AI</h4>
+                            <p>Issued by "IBM","Neon", 2026</p>
+                        </div>
+                        <div class="cert-card">
                             <!-- ✏️ EDIT: Certificate name -->
-                            <h4>Art of Selling</h4>
+                            <h4>Supercharge Your Data Analytics with Generative AI</h4>
                             <!-- ✏️ EDIT: Issuer and year -->
-                            <p>Issued by "Edraak Platform", 2025</p>
+                            <p>Issued by "IBM", 2025</p>
                         </div>
                         <div class="cert-card">
                             <h4>IBM: Intro to Artificial Intelligence</h4>
