@@ -21,6 +21,8 @@ light_bg: true
 {% assign current_lang = page.lang | default: 'ar' %}
 {% assign t = site.data.i18n[current_lang] %}
 {% assign study_type = page.study_type | default: "internal" %}
+{% assign cs_word_count = content | strip_html | number_of_words %}
+{% assign cs_reading_minutes = cs_word_count | divided_by: 200 | plus: 1 %}
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
      القسم 1: الهيدر الرئيسي (Hero)
@@ -30,17 +32,6 @@ light_bg: true
 <article class="mkt-cs-page">
 
     <header class="mkt-cs-hero">
-        <!-- صورة الغلاف — تُعرض إذا وُجد حقل hero_image في الـ Front Matter -->
-        {% if page.hero_image %}
-        <div class="mkt-cs-hero-img-wrapper">
-            <img src="{{ page.hero_image | relative_url }}" 
-                 alt="{{ page.title }}" 
-                 class="mkt-cs-hero-img">
-            <!-- تدرج شفاف فوق الصورة لضمان وضوح النص -->
-            <div class="mkt-cs-hero-overlay" aria-hidden="true"></div>
-        </div>
-        {% endif %}
-
         <div class="container mkt-cs-hero-content">
             <!-- رابط العودة إلى صفحة الأعمال -->
             <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}"
@@ -49,9 +40,15 @@ light_bg: true
                 {{ t.cs_back }}
             </a>
 
-            <!-- شارة نوع الدراسة — تميّز بين الدراسة الداخلية والخارجية بصرياً -->
+            <!-- شارة نوع الدراسة — تميّز بين الدراسة الداخلية والخارجية والتحليلية بصرياً -->
             <span class="mkt-cs-type-badge">
-                {% if study_type == "external" %}
+                {% if page.type_label %}
+                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                    {{ page.type_label }}
+                {% elsif study_type == "analysis" %}
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                    {% if current_lang == 'en' %}Brand Positioning Analysis{% else %}تحليل تموضع استراتيجي{% endif %}
+                {% elsif study_type == "external" %}
                     <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
                     {% if current_lang == 'en' %}External Analysis{% else %}تحليل خارجي{% endif %}
                 {% else %}
@@ -88,18 +85,27 @@ light_bg: true
 
             <!-- ─── شريط البيانات الوصفية (Meta Bar) ────────────────────────
                  يتغير حسب نوع الدراسة:
-                 خارجي → العلامة التجارية، اسم الحملة، الخلاصة
+                 خارجي أو تحليل → العلامة التجارية، اسم الحملة، الخلاصة، تاريخ التأسيس، التموضع
                  داخلي → العميل، دوري، الميزانية
                  ──────────────────────────────────────────────────────────── -->
             <div class="mkt-cs-meta-bar">
-                {% if study_type == "external" %}
-                    <!-- ═══ بيانات الدراسة الخارجية ═══ -->
+                {% if study_type == "external" or study_type == "analysis" %}
+                    <!-- ═══ بيانات الدراسة الخارجية / التحليلية ═══ -->
                     {% if page.brand_analyzed %}
                     <div class="mkt-cs-meta-chip">
                         <i class="fa-solid fa-building" aria-hidden="true"></i>
                         <div>
                             <span class="mkt-cs-meta-label">{{ t.cs_brand_analyzed }}</span>
                             <span class="mkt-cs-meta-value">{{ page.brand_analyzed }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.founded %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-flag" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_founded }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.founded }}</span>
                         </div>
                     </div>
                     {% endif %}
@@ -118,6 +124,15 @@ light_bg: true
                         <div>
                             <span class="mkt-cs-meta-label">{{ t.cs_key_takeaway }}</span>
                             <span class="mkt-cs-meta-value">{{ page.key_takeaway }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if page.market_position %}
+                    <div class="mkt-cs-meta-chip">
+                        <i class="fa-solid fa-ranking-star" aria-hidden="true"></i>
+                        <div>
+                            <span class="mkt-cs-meta-label">{{ t.cs_market_position }}</span>
+                            <span class="mkt-cs-meta-value">{{ page.market_position }}</span>
                         </div>
                     </div>
                     {% endif %}
@@ -183,13 +198,40 @@ light_bg: true
                 </div>
                 {% endif %}
 
+                <!-- وقت القراءة — يظهر لكلا النوعين -->
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_reading_time }}</span>
+                        <span class="mkt-cs-meta-value">
+                            {% if page.reading_time_override %}{{ page.reading_time_override }}
+                            {% else %}{{ cs_reading_minutes }} {{ t.cs_minutes_read }}{% endif %}
+                        </span>
+                    </div>
+                </div>
+
                 <!-- التاريخ — يظهر لكلا النوعين -->
                 {% if page.date %}
                 <div class="mkt-cs-meta-chip">
                     <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
                     <div>
                         <span class="mkt-cs-meta-label">{{ t.cs_date }}</span>
-                        <span class="mkt-cs-meta-value">{{ page.date | date: "%B %Y" }}</span>
+                        <span class="mkt-cs-meta-value">
+                            {% if current_lang == 'ar' %}{{ page.date | date: "%Y/%m" }}{% else %}{{ page.date | date: "%B %Y" }}{% endif %}
+                        </span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- آخر تحديث — يظهر إذا وُجد -->
+                {% if page.last_updated %}
+                <div class="mkt-cs-meta-chip">
+                    <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                    <div>
+                        <span class="mkt-cs-meta-label">{{ t.cs_last_updated }}</span>
+                        <span class="mkt-cs-meta-value">
+                            {% if current_lang == 'ar' %}{{ page.last_updated | date: "%Y/%m" }}{% else %}{{ page.last_updated | date: "%B %Y" }}{% endif %}
+                        </span>
                     </div>
                 </div>
                 {% endif %}
@@ -207,6 +249,20 @@ light_bg: true
             </div><!-- /.mkt-cs-meta-bar -->
         </div><!-- /.mkt-cs-hero-content -->
     </header>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         الاقتباس الافتتاحي (Hook Quote) — يظهر إذا وُجد حقل hook_quote
+         ═══════════════════════════════════════════════════════════════════════ -->
+    {% if page.hook_quote %}
+    <section class="mkt-cs-hook-quote-section">
+        <div class="container">
+            <blockquote class="mkt-cs-hook-quote">
+                <i class="fa-solid fa-quote-right mkt-cs-hook-quote-icon" aria-hidden="true"></i>
+                <p>{{ page.hook_quote }}</p>
+            </blockquote>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          بطاقات مؤشرات الأداء (KPI Cards)
@@ -251,7 +307,7 @@ light_bg: true
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 2: جسم الدراسة — الفهرس الجانبي + المحتوى
          الفهرس (TOC) يستخدم position: sticky ويختفي على الموبايل
-         المحتوى يأتي من ملف الـ Markdown ({{ content }})
+         المحتوى يأتي من ملف الـ Markdown
          ═══════════════════════════════════════════════════════════════════════ -->
     <div class="container mkt-cs-body">
 
@@ -275,7 +331,11 @@ light_bg: true
                 <ul class="mkt-cs-toc-list">
                     {% for item in page.toc_items %}
                     <li>
-                        <a href="#{{ item.id }}" class="mkt-cs-toc-link">{{ item.label }}</a>
+                        {% if item.url %}
+                        <a href="{{ item.url }}" class="mkt-cs-toc-link">{{ item.label | default: item.title }}</a>
+                        {% else %}
+                        <a href="#{{ item.id }}" class="mkt-cs-toc-link">{{ item.label | default: item.title }}</a>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
@@ -285,22 +345,80 @@ light_bg: true
 
         <!-- ─── منطقة المحتوى الرئيسية ────────────────────────────────── -->
         <div class="mkt-cs-content {% unless page.toc_items and page.toc_items.size > 0 %}mkt-cs-content--full{% endunless %}">
+            
+            {% include mobile-notice.html %}
 
-            <!-- النقد الأساسي — يظهر فقط في الدراسات الخارجية (أعلى المحتوى) -->
-            {% if study_type == "external" and page.core_critique %}
-            <blockquote class="mkt-cs-critique-box">
-                <div class="mkt-cs-critique-header">
-                    <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
-                    <strong>{{ t.cs_core_critique }}</strong>
+            <!-- إخلاء مسؤولية تحليلي — يظهر إذا وُجد حقل editorial_disclaimer (أول عنصر في المحتوى) -->
+            {% if page.editorial_disclaimer %}
+            <div class="mkt-cs-disclaimer">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                <p>{{ page.editorial_disclaimer }}</p>
+            </div>
+            {% endif %}
+
+            <!-- النقد الأساسي — يظهر في الدراسات الخارجية والتحليلية -->
+            {% if study_type == "external" or study_type == "analysis" %}
+                {% if page.core_critique %}
+                <blockquote class="mkt-cs-critique-box">
+                    <div class="mkt-cs-critique-header">
+                        <i class="fa-solid fa-quote-right" aria-hidden="true"></i>
+                        <strong>{{ t.cs_core_critique }}</strong>
+                    </div>
+                    <p>{{ page.core_critique }}</p>
+                </blockquote>
+                {% endif %}
+            {% endif %}
+
+            <!-- أطر العمل والتحليل — تُعرض كشارات قبل المحتوى الرئيسي -->
+            {% if page.frameworks_used and page.frameworks_used.size > 0 %}
+            <div class="mkt-cs-frameworks">
+                <span class="mkt-cs-frameworks-label">
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                    {{ t.cs_frameworks_used }}
+                </span>
+                <div class="mkt-cs-frameworks-list">
+                    {% for fw in page.frameworks_used %}
+                    <span class="mkt-cs-framework-badge">{{ fw }}</span>
+                    {% endfor %}
                 </div>
-                <p>{{ page.core_critique }}</p>
-            </blockquote>
+            </div>
             {% endif %}
 
             <!-- محتوى الـ Markdown — يُكتب في ملف .md بعد الـ Front Matter -->
             <div class="mkt-cs-prose">
                 {{ content }}
             </div>
+            <script>
+            (function() {
+                const prose = document.querySelector(".mkt-cs-prose");
+                if (!prose) return;
+                const children = Array.from(prose.children);
+                let currentCard = null;
+                children.forEach(child => {
+                    if (child.tagName === "H2") {
+                        currentCard = document.createElement("div");
+                        currentCard.className = "mkt-cs-section-card";
+                        if (child.id) {
+                            currentCard.id = child.id;
+                            child.removeAttribute("id");
+                        }
+                        prose.appendChild(currentCard);
+                        currentCard.appendChild(child);
+                    } else if (child.tagName === "HR") {
+                        child.remove();
+                    } else {
+                        if (currentCard) {
+                            currentCard.appendChild(child);
+                        } else {
+                            currentCard = document.createElement("div");
+                            currentCard.className = "mkt-cs-section-card mkt-cs-section-card--intro";
+                            prose.appendChild(currentCard);
+                            currentCard.appendChild(child);
+                        }
+                    }
+                });
+            })();
+            </script>
 
             <!-- ═══ مقارنة قبل/بعد — تظهر إذا وُجدت صور before/after ═══
                  أضف في الـ Front Matter:
@@ -323,6 +441,20 @@ light_bg: true
                              alt="{{ t.cs_after }}">
                         <figcaption>{{ t.cs_after }}</figcaption>
                     </figure>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- معرض صور إضافي (Gallery) -->
+            {% if page.gallery and page.gallery.size > 0 %}
+            <div class="mkt-cs-gallery" id="gallery">
+                <div class="mkt-cs-gallery-grid">
+                    {% for item in page.gallery %}
+                    <figure class="mkt-cs-gallery-item">
+                        <img src="{{ item.image | relative_url }}" alt="{{ item.caption | default: page.title }}">
+                        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+                    </figure>
+                    {% endfor %}
                 </div>
             </div>
             {% endif %}
@@ -357,8 +489,37 @@ light_bg: true
             </div>
             {% endif %}
 
+            <!-- المصادر والمراجع (Sources) -->
+            {% if page.sources and page.sources.size > 0 %}
+            <div class="mkt-cs-sources" id="sources">
+                <h3 class="mkt-cs-sources-heading">
+                    <i class="fa-solid fa-book" aria-hidden="true"></i>
+                    {{ t.cs_sources }}
+                </h3>
+                <ol class="mkt-cs-sources-list">
+                    {% for src in page.sources %}
+                    <li><a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">{{ src.label }}</a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+            {% endif %}
+
         </div><!-- /.mkt-cs-content -->
     </div><!-- /.mkt-cs-body -->
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         السؤال الختامي المفتوح (Closing Question) — قسم بعرض كامل
+         ═══════════════════════════════════════════════════════════════════ -->
+    {% if page.closing_question %}
+    <section class="mkt-cs-closing-question-section">
+        <div class="container">
+            <div class="mkt-cs-closing-question">
+                <i class="fa-solid fa-comment-dots mkt-cs-closing-question-icon" aria-hidden="true"></i>
+                <p>{{ page.closing_question }}</p>
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- ═══════════════════════════════════════════════════════════════════
          القسم 3: دعوة للتواصل (CTA) — مكوّن مُعاد الاستخدام
@@ -366,3 +527,24 @@ light_bg: true
     {% include cta-contact.html %}
 
 </article>
+
+<!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
+  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/profile.png' | absolute_url | jsonify }}{% endif %}],
+  "author": {
+    "@type": "Person",
+    "name": "Khaled Hashem",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Khaled Hashem"
+  },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>

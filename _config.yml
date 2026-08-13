@@ -1,24 +1,24 @@
-title: "Khaled Hashem | Marketing Communications student"
+title: "Khaled Hashem | Marketing Specialist"
 description: "Portfolio & Blog"
-url: "https://khaled-wal.github.io"
+url: "https://khaled-hashem.com"
 baseurl: ""
 
 # ─── EDIT HERE: Your CV PDF path ──────────────────────────────────────────
 # Upload your CV file to /assets/files/ and update the filename below
-cv_path: "/assets/files/KhaledWaleedCV.pdf"
+cv_path: "/assets/files/Khaled-Hashem-Resume.pdf"
 # ──────────────────────────────────────────────────────────────────────────
 
 # Collections
 collections:
   case_studies:
     output: true
-    permalink: /portfolio/:name/
+    permalink: /portfolio/case-studies/:name/
   projects:
     output: true
-    permalink: /projects/:name/
+    permalink: /portfolio/projects/:name/
   lab:
     output: true
-    permalink: /lab/:name/
+    permalink: /portfolio/lab/:name/
 
 # Defaults
 defaults:

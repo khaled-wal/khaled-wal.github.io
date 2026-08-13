@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -29,33 +33,44 @@
     <!-- Hreflang Links for Internationalization -->
     
         
+        
         <link rel="alternate" hreflang="ar" href="http://localhost:4000/thanks.html">
         
         
+        
+            
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
+            
+            
         
+            
+            
+            
+        
+        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/thanks.html">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/thanks.html">
     
 
@@ -66,13 +81,38 @@
     <meta property="og:description" content="أرسلت رسالتك بنجاح.">
     <meta property="og:url" content="http://localhost:4000/thanks.html">
     <meta property="og:locale" content="ar_SA">
-    <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/profile.png">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="شكراً لتواصلك | خالد هاشم">
     <meta name="twitter:description" content="أرسلت رسالتك بنجاح.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/profile.png">
+    
+    <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khaled Hashem",
+      "jobTitle": "Marketing Communications Specialist",
+      "url": "http://localhost:4000",
+      "image": "http://localhost:4000/assets/images/profile.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/khaledwhashem/",
+        "https://x.com/KhaledwHashem"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "خالد هاشم",
+      "url": "http://localhost:4000",
+      "inLanguage": "ar"
+    }
+    </script>
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -87,11 +127,11 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1777071014">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
     
@@ -178,7 +218,7 @@
 
     .thanks-icon {
         font-size: 5rem;
-        color: var(--clr-green, #2dd4bf);
+        color: var(--clr-gold);
         margin-bottom: 1.5rem;
         animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
     }
@@ -197,7 +237,7 @@
 
     .thanks-title {
         font-size: clamp(1.8rem, 4vw, 2.6rem);
-        color: #ffffff;
+        color: var(--clr-text-light);
         font-weight: 800;
         margin-bottom: 1rem;
         line-height: 1.3;
@@ -205,7 +245,7 @@
 
     .thanks-message {
         font-size: 1.1rem;
-        color: #cbd5e1;
+        color: var(--clr-slate);
         line-height: 1.8;
         margin-bottom: 2.5rem;
     }
@@ -222,7 +262,7 @@
 
     .thanks-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(45, 212, 191, 0.4);
+        box-shadow: 0 8px 24px rgba(217, 164, 74, 0.35);
     }
 </style>
     </main>
@@ -265,14 +305,14 @@
             <div class="footer-col social-col">
                 <h3>تواصل اجتماعي</h3>
                 <div class="social-links">
-                    <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <a href="https://x.com/KhaledwHashem" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                         <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.linkedin.com/in/khaledwhashem/" target="_blank" rel="noopener noreferrer"
                         aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:Khaledwal20@hotmail.com"
+                    <a href="mailto:contact@khaled-hashem.com"
                         aria-label="إرسال بريد إلكتروني">
                         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                     </a>

@@ -1,6 +1,10 @@
 {% assign current_lang = page.lang | default: 'ar' %}
 {% if page.url contains '/en/' %}{% assign current_lang = 'en' %}{% endif %}
 {% assign t = site.data.i18n[current_lang] %}
+{% assign social_x = site.data.social.x %}
+{% assign social_x_handle = site.data.social.x_handle %}
+{% assign social_linkedin = site.data.social.linkedin %}
+{% assign social_email = site.data.social.email %}
 <!DOCTYPE html>
 <html lang="{{ current_lang }}" dir="{% if current_lang == 'en' %}ltr{% else %}rtl{% endif %}">
 
@@ -19,16 +23,31 @@
 
     <!-- Hreflang Links for Internationalization -->
     {% if page.translation_key %}
-        {% assign alt_lang = current_lang | replace: 'ar','en_tmp' | replace: 'en','ar' | replace: 'en_tmp','en' %}
+        {% assign alt_lang = 'en' %}
+        {% if current_lang == 'en' %}{% assign alt_lang = 'ar' %}{% endif %}
         <link rel="alternate" hreflang="{{ current_lang }}" href="{{ site.url }}{{ page.url }}">
-        {% assign combined_docs = site.pages | concat: site.case_studies | concat: site.projects | concat: site.lab %}
+        {% if current_lang == 'ar' %}
+            {% assign alt_url = '/en' | append: page.url %}
+            {% assign x_default_url = page.url %}
+        {% else %}
+            {% assign alt_url = page.url | remove_first: '/en' %}
+            {% if alt_url == '' %}{% assign alt_url = '/' %}{% endif %}
+            {% assign x_default_url = alt_url %}
+        {% endif %}
+        {% assign combined_docs = site.case_studies | concat: site.projects | concat: site.lab %}
         {% for doc in combined_docs %}
-            {% if doc.translation_key == page.translation_key and doc.lang == alt_lang %}
-        <link rel="alternate" hreflang="{{ alt_lang }}" href="{{ site.url }}{{ doc.url }}">
+            {% assign doc_lang = 'ar' %}
+            {% if doc.url contains '/en/' %}{% assign doc_lang = 'en' %}{% endif %}
+            {% if doc.translation_key == page.translation_key and doc_lang == alt_lang %}
+                {% assign alt_url = doc.url %}
+                {% if alt_lang == 'ar' %}
+                    {% assign x_default_url = doc.url %}
+                {% endif %}
                 {% break %}
             {% endif %}
         {% endfor %}
-        <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | replace: '/en/', '/' }}">
+        <link rel="alternate" hreflang="{{ alt_lang }}" href="{{ site.url }}{{ alt_url }}">
+        <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ x_default_url }}">
     {% endif %}
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
@@ -38,20 +57,45 @@
     <meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ar_SA{% endif %}">
-    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/Favicon.png' | absolute_url }}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/profile.png' | absolute_url }}{% endif %}">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
     <meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
-    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/Favicon.png' | absolute_url }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/profile.png' | absolute_url }}{% endif %}">
+    
+    <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khaled Hashem",
+      "jobTitle": "Marketing Communications Specialist",
+      "url": "{{ site.url }}",
+      "image": "{{ '/assets/images/profile.png' | absolute_url }}",
+      "sameAs": [
+        "{{ site.data.social.linkedin }}",
+        "{{ site.data.social.x }}"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ t.site_name }}",
+      "url": "{{ site.url }}",
+      "inLanguage": "{{ current_lang }}"
+    }
+    </script>
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="{{ '/assets/images/Favicon.png' | relative_url }}" type="image/png">
 
     <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
     {% if page.translation_key == 'home' %}
-    <link rel="preload" as="image" href="{{ '/assets/images/profile.webp' | relative_url }}" type="image/webp">
+    <link rel="preload" as="image" href="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}">
     {% endif %}
 
     <!-- Google Fonts: preconnect for faster load -->
@@ -61,8 +105,8 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
@@ -124,14 +168,14 @@
             <div class="footer-col social-col">
                 <h3>{% if current_lang == 'en' %}Connect{% else %}تواصل اجتماعي{% endif %}</h3>
                 <div class="social-links">
-                    <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <a href="{{ social_x }}" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                         <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ social_linkedin }}" target="_blank" rel="noopener noreferrer"
                         aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:Khaledwal20@hotmail.com"
+                    <a href="mailto:{{ social_email }}"
                         aria-label="{% if current_lang == 'en' %}Send Email{% else %}إرسال بريد إلكتروني{% endif %}">
                         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                     </a>

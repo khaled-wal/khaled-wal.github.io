@@ -2,23 +2,41 @@
    Variables & Theme Defaults
    ========================================================================== */
 :root {
-  /* New Exact Color Palette */
-  --primary-bg: #001133; /* Midnight Navy */
-  --secondary-action: #0bd1a9; /* MAIN TURQUOISE COLOR: Greener, vibrant hue */
-  --text-contrast: #faffff; /* Ice White */
-  /* Legacy Color mappings for existing elements */
-  --clr-navy: var(--primary-bg);
-  /* Lighter Navy for Cards in Dark */
-  --clr-navy-light: #152849; 
-  --clr-green: var(--secondary-action);
-  /* Lighter Green - Hover states */
-  --clr-green-light: #8eeeec;
-  --clr-offwhite: #f4f9fd;
-  --clr-white: var(--text-contrast);
-  --clr-text-light: var(--text-contrast);
-  --clr-text-dark: #1e293b;
-  --clr-muted: #94a3b8;
-  --clr-border: #1a2c4e;
+  /* Refined Strategic Color Palette */
+  --primary-bg: #000c22;
+  /* Primary Navy */
+  --secondary-action: #D9A44A;
+  /* Accent Gold */
+  --text-contrast: #F7F5F1;
+  /* Warm Off-White */
+  
+  /* Color System Tokens */
+  --clr-navy: #000c22;
+  /* Primary Navy */
+  --clr-navy-light: #061533;
+  /* Dark elevated surfaces */
+  --clr-gold: #D9A44A;
+  /* Accent Gold */
+  --clr-gold-rgb: 217, 164, 74;
+  /* Accent Gold RGB */
+  --clr-gold-hover: #c4913b;
+  /* Hover Gold */
+  --clr-gold-light: rgba(217, 164, 74, 0.12);
+  /* Accent highlight background */
+  
+  --clr-slate: #55677A;
+  /* Supporting Slate Gray */
+  --clr-slate-light: rgba(85, 103, 122, 0.15);
+  
+  /* Legacy Color mappings mapped strictly to strategic palette */
+  --clr-green: var(--clr-gold);
+  --clr-green-light: var(--clr-gold-hover);
+  --clr-offwhite: #F7F5F1;
+  --clr-white: #F7F5F1;
+  --clr-text-light: #F7F5F1;
+  --clr-text-dark: #000c22;
+  --clr-muted: #8A9DAF;
+  --clr-border: rgba(85, 103, 122, 0.25);
 
   /* Typography */
   --font-ar: 'Cairo', sans-serif;
@@ -27,9 +45,10 @@
 
   /* Spacing & Layout */
   --container-width: 1300px;
-  --spacing-section: 7rem; /* Increased for cognitive breathing room */
+  --spacing-section: 7rem;
+  /* Increased for cognitive breathing room */
   --spacing-element: 2rem;
-  
+
   /* Soft Geometry - Global Border Radius */
   --radius-sm: 8px;
   --radius-md: 10px;
@@ -42,7 +61,7 @@
   /* Shadows & Transitions */
   --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-glow: 0 0 20px rgba(0, 127, 127, 0.4);
+  --shadow-glow: 0 0 20px rgba(217, 164, 74, 0.3);
   /* Fluidity: 0.4s ease-in-out */
   --transition-fast: 0.2s ease-in-out;
   --transition-smooth: 0.4s ease-in-out;
@@ -79,6 +98,10 @@ body {
   line-height: 1.6;
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -95,9 +118,10 @@ img {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: var(--container-width);
   margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 2rem);
 }
 
 section {
@@ -107,7 +131,7 @@ section {
 /* Typography Utilities */
 .highlight {
   color: var(--clr-green);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .dark-text {
@@ -124,7 +148,7 @@ section {
   gap: 0.5rem;
   padding: 0.875rem 1.75rem;
   border-radius: var(--radius-pill);
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-smooth);
   text-align: center;
@@ -132,19 +156,20 @@ section {
 }
 
 .btn-primary {
-  background-color: var(--secondary-action);
-  color: var(--primary-bg); /* Maximum contrast against turquoise */
+  background-color: var(--clr-gold);
+  color: var(--primary-bg);
+  /* Maximum contrast against gold */
   padding: 0.95rem 2rem;
   font-size: 1.0rem;
-  box-shadow: 0 0 0 0 rgba(0, 127, 127, 0);
+  box-shadow: 0 0 0 0 rgba(217, 164, 74, 0);
   transition: all var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .btn-primary:hover {
-  background-color: var(--clr-green-light);
+  background-color: var(--clr-gold-hover);
   color: var(--primary-bg);
   transform: translateY(-3px);
-  box-shadow: 0 0 28px rgba(0, 200, 200, 0.411), var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(217, 164, 74, 0.35), var(--shadow-md);
 }
 
 .btn-secondary {
@@ -226,9 +251,9 @@ section {
   -webkit-backdrop-filter: none;
   border-bottom: none;
   transition: background-color var(--transition-smooth),
-              backdrop-filter var(--transition-smooth),
-              -webkit-backdrop-filter var(--transition-smooth),
-              box-shadow var(--transition-smooth);
+    backdrop-filter var(--transition-smooth),
+    -webkit-backdrop-filter var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 /* EDIT HEADER GLASS STYLES HERE */
@@ -240,7 +265,8 @@ section {
 
 .site-header.is-scrolled::before,
 .page-light-bg .site-header::before {
-  background-color: rgba(0, 17, 51, 0.85); /* Darker tint to make white text readable on white backgrounds */
+  background-color: rgba(0, 12, 34, 0.85);
+  /* Darker tint to make white text readable on white backgrounds */
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
@@ -257,7 +283,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.5rem;
   color: var(--clr-white);
 }
@@ -279,7 +305,7 @@ section {
 
 .main-nav a {
   color: var(--clr-white);
-  font-weight: 800;
+  font-weight: 700;
   position: relative;
 }
 
@@ -325,15 +351,15 @@ section {
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.035);
   transition: background var(--transition-smooth),
-              background-color var(--transition-smooth),
-              backdrop-filter var(--transition-smooth),
-              -webkit-backdrop-filter var(--transition-smooth),
-              box-shadow var(--transition-smooth);
+    background-color var(--transition-smooth),
+    backdrop-filter var(--transition-smooth),
+    -webkit-backdrop-filter var(--transition-smooth),
+    box-shadow var(--transition-smooth);
 }
 
 /* 1. Dark Pages - Top of Page State (Gradient) */
 .site-header:not(.is-scrolled) .nav-open {
-  background: linear-gradient(to bottom, rgba(0, 17, 51, 0.053) 10%, rgba(0, 17, 51, 0.9) 70%);
+  background: linear-gradient(to bottom, rgba(0, 12, 34, 0.053) 10%, rgba(0, 12, 34, 0.9) 70%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: none;
@@ -341,7 +367,8 @@ section {
 
 /* 2. Dark Pages - Scrolled State (Standard Glassmorphism) */
 .site-header.is-scrolled .nav-open {
-  background-color: rgba(0, 17, 51, 0.85); /* Lower opacity allows the frosted glass (blur) to show clearly */
+  background-color: rgba(0, 12, 34, 0.85);
+  /* Lower opacity allows the frosted glass (blur) to show clearly */
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
@@ -351,7 +378,8 @@ section {
 /* 3. Light Background Pages (Portfolio) - OVERRIDE both states to match the dark frosted header */
 .page-light-bg .site-header .nav-open,
 .page-light-bg .site-header:not(.is-scrolled) .nav-open {
-  background: rgba(0, 17, 51, 0.85); /* Opaque enough to hide white background and keep text readable */
+  background: rgba(0, 12, 34, 0.85);
+  /* Opaque enough to hide white background and keep text readable */
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
@@ -377,11 +405,12 @@ section {
    Hero Section
    ========================================================================== */
 .hero {
-  padding-top: calc(var(--header-height) + var(--spacing-section) + 1rem);
+  padding-top: calc(var(--header-height) + var(--spacing-section) + 0rem);
   padding-bottom: calc(var(--spacing-section) + 1rem);
   position: relative;
   overflow: hidden;
-  background-color: var(--primary-bg); /* Fallback */
+  background-color: var(--primary-bg);
+  /* Fallback */
 }
 
 /* 
@@ -394,29 +423,31 @@ section {
  */
 
 /* اتجاه اليمين لليسار (العربية): الإشعاع من الزاوية اليمنى العليا */
-html[lang="ar"] .hero, 
+html[lang="ar"] .hero,
 html[dir="rtl"] .hero {
-  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 20%, var(--primary-bg)) 0%, var(--primary-bg) 70%);
+  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 30%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
 }
 
 /* اتجاه اليسار لليمين (الإنجليزية): الإشعاع من الزاوية اليسرى العليا */
-html[lang="en"] .hero, 
+html[lang="en"] .hero,
 html[dir="ltr"] .hero {
-  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 20%, var(--primary-bg)) 0%, var(--primary-bg) 70%);
+  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 30%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 10rem;
+  /* ✏️ EDIT: تم تعديل الأعمدة لمنح مساحة أكبر للصورة (كانت 1.5fr 1fr) */
+  grid-template-columns: 1.3fr 1fr;
+  /* ✏️ EDIT: تم تقليل الفراغ لمنح الصورة مساحة إضافية (كانت 10rem) */
+  gap: 7rem;
   align-items: center;
 }
 
 .badge {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: rgba(16, 185, 129, 0.169);
-  color: var(--clr-green);
+  background-color: var(--clr-slate);
+  color: var(--clr-offwhite);
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 0.9rem;
@@ -425,7 +456,7 @@ html[dir="ltr"] .hero {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.5rem);
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: var(--clr-white);
@@ -434,7 +465,7 @@ html[dir="ltr"] .hero {
 .hero-desc {
   font-size: 1.0rem;
   margin-bottom: 2.5rem;
-  max-width: 90%;
+  max-width: 100%;
   color: var(--clr-muted);
 }
 
@@ -453,7 +484,8 @@ html[dir="ltr"] .hero {
 
 .profile-image-container {
   width: 100%;
-  max-width: 500px;
+  /* ✏️ EDIT: لتعديل حجم صورة البطل، قم بتغيير القيمة هنا (زادت بنسبة 15% لتصبح 575px بدلاً من 500px) */
+  max-width: 650px;
   height: auto;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -470,10 +502,12 @@ html[dir="ltr"] .hero {
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
   object-fit: cover;
-  border-radius: 50% 50% 0 0;
+  border-radius: 20% 20% 0 0;
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-  transform: translateY(2rem);
+  /* ✏️ EDIT: لتحريك الصورة للأعلى أو الأسفل قم بتغيير هذه القيمة. 
+     (كانت 2rem مما يدفعها للأسفل، الآن 0 لترتفع للأعلى وتترك مسافة تحتها) */
+  transform: translateY(0rem);
 }
 
 /* Skills Floating Tags */
@@ -499,7 +533,7 @@ html[dir="ltr"] .hero {
   font-size: 0.95rem;
   padding: 0.6rem 1.25rem;
   border-radius: var(--radius-pill);
-  background-color: rgba(0, 17, 51, 0.4);
+  background-color: rgba(0, 12, 34, 0.4);
   border: 1px solid rgba(224, 253, 251, 0.12);
   color: var(--text-contrast);
   backdrop-filter: blur(8px);
@@ -508,9 +542,9 @@ html[dir="ltr"] .hero {
 }
 
 .skill-tag:hover {
-  border-color: rgba(224, 253, 251, 0.35);
+  border-color: var(--clr-gold-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 17, 51, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 12, 34, 0.3);
 }
 
 .skill-tag i {
@@ -532,8 +566,15 @@ html[dir="ltr"] .hero {
 }
 
 @keyframes bounceNudge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 /* ==========================================================================
@@ -549,7 +590,7 @@ html[dir="ltr"] .hero {
 
 .section-title {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 /* Counter badge next to 'View All' button */
@@ -565,9 +606,9 @@ html[dir="ltr"] .hero {
   align-items: center;
   gap: 0.35rem;
   padding: 0.3rem 0.85rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1.2px solid rgba(0, 255, 170, 0.443);
-  color: var(--clr-green);
+  background: var(--clr-gold-light);
+  border: 1.2px solid var(--clr-gold);
+  color: var(--clr-text-dark);
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
   font-weight: 700;
@@ -606,7 +647,7 @@ html[dir="ltr"] .hero {
 }
 
 .market-sticky-sidebar {
-  position: relative; 
+  position: relative;
 }
 
 .market-sidebar-title {
@@ -615,8 +656,8 @@ html[dir="ltr"] .hero {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-size: 2.25rem;
-  font-weight: 800;
-  color: var(--clr-primary-bg);
+  font-weight: 700;
+  color: var(--clr-navy);
   text-shadow: 0 2px 10px rgba(21, 216, 187, 0.3);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -632,7 +673,7 @@ html[lang="ar"] .market-sidebar-title {
 
 /* Adjust for English reading flow */
 html[lang="en"] .market-sidebar-title {
-  writing-mode: vertical-lr; 
+  writing-mode: vertical-lr;
   transform: rotate(180deg);
   color: var(--clr-navy);
 }
@@ -640,7 +681,8 @@ html[lang="en"] .market-sidebar-title {
 .market-content-col {
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* Spacing between internal sections like Projects and Case Studies */
+  gap: 4rem;
+  /* Spacing between internal sections like Projects and Case Studies */
 }
 
 /* Subheadings inside the wrapper */
@@ -660,7 +702,7 @@ html[lang="en"] .market-sidebar-title {
     padding: 1.5rem;
     gap: 2rem;
   }
-  
+
   .market-sidebar-title {
     position: relative;
     top: 0;
@@ -670,7 +712,7 @@ html[lang="en"] .market-sidebar-title {
     margin-bottom: 0;
     text-align: center;
   }
-  
+
   html[lang="en"] .market-sidebar-title {
     writing-mode: horizontal-tb;
     transform: none;
@@ -700,7 +742,7 @@ html[lang="en"] .market-sidebar-title {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-smooth);
-  border: 1px solid rgba(0, 17, 51, 0.05);
+  border: 1px solid rgba(0, 12, 34, 0.05);
   height: 100%;
   color: var(--primary-bg);
 }
@@ -708,8 +750,8 @@ html[lang="en"] .market-sidebar-title {
 .card-link:hover .portfolio-card,
 .portfolio-card:hover {
   transform: translateY(-8px) scale(1.015);
-  box-shadow: var(--shadow-md), 0 0 24px rgba(21, 216, 187, 0.15);
-  border-color: rgba(21, 216, 187, 0.3);
+  box-shadow: var(--shadow-md), 0 0 24px var(--clr-gold-light);
+  border-color: var(--clr-gold-light);
 }
 
 .card-image {
@@ -754,6 +796,85 @@ html[lang="en"] .market-sidebar-title {
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
   display: block;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(23, 41, 71, 0.06);
+  border: 1px solid rgba(23, 41, 71, 0.12);
+  color: var(--clr-navy);
+  transition: all var(--transition-fast);
+}
+
+.card-link:hover .card-tag {
+  background-color: var(--clr-gold-light);
+  border-color: var(--clr-gold-light);
+  color: var(--clr-light-bg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Portfolio Filter Tabs UI
+   ═══════════════════════════════════════════════════════════════════════════ */
+.portfolio-filter-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.portfolio-filter-tabs {
+  display: inline-flex;
+  gap: 0.5rem;
+  background-color: rgba(23, 41, 71, 0.05);
+  padding: 0.35rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(23, 41, 71, 0.1);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.55rem 1.35rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--clr-navy);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-smooth);
+}
+
+.filter-tab:hover {
+  color: var(--clr-green);
+}
+
+.filter-tab.active {
+  background-color: var(--clr-navy);
+  color: var(--clr-white);
+  box-shadow: 0 4px 12px rgba(23, 41, 71, 0.15);
+}
+
+.filter-tab.active i {
+  color: var(--clr-green);
+}
+
+.portfolio-item-wrapper {
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .card-content h3 {
@@ -803,7 +924,7 @@ html[lang="en"] .market-sidebar-title {
 
 /* Expanded state */
 .cv-container.is-expanded {
-  max-height: 9999px;
+  max-height: 2500px;
   padding-bottom: 50px;
 }
 
@@ -817,9 +938,9 @@ html[lang="en"] .market-sidebar-title {
   height: 200px;
   /* fixed soft fade height perfectly matching --primary-bg */
   background: linear-gradient(to bottom,
-      rgba(0, 17, 51, 0) 0%,
-      rgba(0, 17, 51, 0.9) 60%,
-      rgba(0, 17, 51, 1) 100%);
+      rgba(0, 12, 34, 0) 0%,
+      rgba(0, 12, 34, 0.9) 60%,
+      rgba(0, 12, 34, 1) 100%);
   pointer-events: none;
   z-index: 5;
   transition: opacity 0.3s ease;
@@ -887,6 +1008,18 @@ html[lang="en"] .market-sidebar-title {
   gap: 1rem;
 }
 
+.cert-cluster-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.35rem;
+}
+
 /* Dot indicators: hidden everywhere — replaced by expand button on mobile */
 .cv-dots {
   display: none;
@@ -916,13 +1049,13 @@ html[lang="en"] .market-sidebar-title {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.7rem 1.75rem;
-  background: rgba(0, 235, 200, 0.154);
+  background: var(--clr-navy-light);
   border: 2px solid var(--secondary-action);
   border-radius: var(--radius-pill);
   color: var(--secondary-action);
   font-family: inherit;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: 700;
   cursor: pointer;
   transition: background var(--transition-fast), transform var(--transition-fast);
   animation: cv-btn-pulse 2s ease-in-out infinite;
@@ -931,7 +1064,7 @@ html[lang="en"] .market-sidebar-title {
 }
 
 .cv-expand-btn:hover {
-  background: rgba(0, 235, 200, 0.291);
+  background: var(--clr-slate-light);
 }
 
 .cv-expand-btn.is-expanded {
@@ -952,12 +1085,12 @@ html[lang="en"] .market-sidebar-title {
   0%,
   100% {
     transform: translateY(0);
-    box-shadow: 0 0 0 0 rgba(0, 235, 199, 0.4);
+    box-shadow: 0 0 0 0 var(--clr-gold-light);
   }
 
   50% {
     transform: translateY(-4px);
-    box-shadow: 0 0 0 10px rgba(0, 235, 199, 0);
+    box-shadow: 0 0 0 10px rgba(235, 184, 0, 0.014);
   }
 }
 
@@ -1020,11 +1153,11 @@ html[lang="en"] .market-sidebar-title {
   position: absolute;
   inset-inline-start: -2.35rem;
   top: 3px;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: var(--secondary-action);
-  border: 4px solid var(--primary-bg);
+  border: 2px solid var(--primary-bg);
 }
 
 .timeline-date {
@@ -1206,6 +1339,143 @@ html[dir="ltr"] .direct-link:hover {
   transform: translateX(4px);
 }
 
+/* ── LinkedIn Native Custom Badge ───────────────────────────────────── */
+.linkedin-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.linkedin-badge-card {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  text-align: start;
+}
+
+/* Subtle Hover Effect */
+.linkedin-badge-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--clr-green);
+  box-shadow: var(--shadow-glow);
+}
+
+.linkedin-badge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--clr-border);
+  padding-bottom: 0.75rem;
+}
+
+.linkedin-logo-icon {
+  color: #0077b5;
+  /* Official LinkedIn Blue branding */
+  font-size: 1.5rem;
+}
+
+.linkedin-badge-top-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--clr-muted);
+  font-weight: 700;
+}
+
+.linkedin-badge-body {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.linkedin-badge-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--clr-border);
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast);
+}
+
+.linkedin-badge-card:hover .linkedin-badge-avatar {
+  border-color: var(--clr-green);
+}
+
+.linkedin-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkedin-badge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.linkedin-badge-name {
+  color: var(--clr-white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.linkedin-badge-title {
+  color: var(--clr-green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.linkedin-badge-univ {
+  color: var(--clr-muted);
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.linkedin-badge-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--clr-gold-light);
+  border: 1px solid var(--clr-green);
+  border-radius: var(--radius-pill);
+  color: var(--clr-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.linkedin-badge-cta:hover {
+  background-color: var(--clr-green);
+  color: var(--clr-navy);
+}
+
+/* LTR/RTL support for CTA icon rotation */
+html[dir="rtl"] .linkedin-badge-cta i {
+  transform: rotate(0deg);
+}
+
+html[dir="ltr"] .linkedin-badge-cta i {
+  transform: rotate(180deg);
+}
+
 
 /* ==========================================================================
    Footer
@@ -1305,7 +1575,7 @@ html[dir="ltr"] .arrow-icon {
 .portfolio-page-title {
   text-align: center;
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 3rem;
   color: var(--clr-navy);
 }
@@ -1318,6 +1588,16 @@ html[dir="ltr"] .arrow-icon {
   border-bottom: 2px solid var(--clr-green);
   display: inline-block;
   padding-bottom: 0.5rem;
+}
+
+.portfolio-page-subdesc {
+  font-size: 0.95rem;
+  color: var(--clr-text-dark);
+  opacity: 0.85;
+  margin-top: -0.75rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+  max-width: 800px;
 }
 
 .portfolio-grid-custom {
@@ -1357,7 +1637,7 @@ html[dir="ltr"] .arrow-icon {
   color: var(--clr-white);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.3;
 }
 
@@ -1366,7 +1646,7 @@ html[dir="ltr"] .arrow-icon {
   font-size: 1.8rem;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .markdown-content p,
@@ -1472,7 +1752,7 @@ html[dir="ltr"] .arrow-icon {
 
 .post-header h1 {
   font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--clr-white);
   line-height: 1.3;
 }
@@ -1518,8 +1798,8 @@ html[dir="ltr"] .arrow-icon {
 .mkt-lab-hero {
   position: relative;
   padding: 8rem 2rem 4rem;
-  background: linear-gradient(135deg, #0d1b2a 0%, var(--clr-navy) 100%);
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.2);
+  background: linear-gradient(135deg, var(--clr-navy-light) 0%, var(--clr-navy) 100%);
+  border-bottom: 1px dashed rgba(85, 103, 122, 0.25);
   text-align: center;
 }
 
@@ -1554,7 +1834,7 @@ html[dir="ltr"] .arrow-icon {
 .mkt-lab-title {
   color: var(--clr-white);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
 }
@@ -1602,17 +1882,20 @@ html[dir="ltr"] .arrow-icon {
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   margin-bottom: 3rem;
 }
+
 html[dir="ltr"] .callout-box-dark {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
 .callout-box-accent {
-  background-color: rgba(16, 185, 129, 0.05); /* Green tint */
+  background-color: rgba(16, 185, 129, 0.05);
+  /* Green tint */
   border-inline-start: 4px solid var(--clr-green);
   padding: 2rem;
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   margin-bottom: 3rem;
 }
+
 html[dir="ltr"] .callout-box-accent {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
@@ -1658,6 +1941,12 @@ html[dir="ltr"] .callout-box-accent {
   .cv-grid {
     gap: 2rem;
   }
+
+  /* ✏️ EDIT: شاشات التابلت (بين 992px و 792px) - تصغير الصورة للنصف تقريباً */
+  .profile-image-container {
+    max-width: 440px;
+    margin-inline: auto;
+  }
 }
 
 /* ── Mobile ─────────────────────────────────────────── */
@@ -1688,7 +1977,8 @@ html[dir="ltr"] .callout-box-accent {
 
   .profile-image-container {
     width: 100%;
-    max-width: 280px;
+    /* ✏️ EDIT: حجم الصورة في الشاشات بين 791px و 501px (أكبر قليلاً) */
+    max-width: 440px;
     margin-inline: auto;
   }
 
@@ -1744,7 +2034,7 @@ html[dir="ltr"] .callout-box-accent {
   /* Vertical dotted green timeline line (replaces solid desktop line) */
   .cv-column .timeline::before,
   .cv-certifications .timeline::before {
-    border-inline-start: 2px dashed rgba(16, 185, 129, 0.45);
+    border-inline-start: 2px dashed var(--clr-slate);
     background: none;
     width: 0;
   }
@@ -1755,12 +2045,12 @@ html[dir="ltr"] .callout-box-accent {
     align-items: center;
     gap: 0.75rem;
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--clr-green);
     margin-top: 2rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px dashed rgba(16, 185, 129, 0.3);
+    margin-bottom: 2.25rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px dashed var(--clr-slate);
   }
 
   .cv-mobile-section-title:first-child {
@@ -1923,7 +2213,7 @@ html[dir="ltr"] .callout-box-accent {
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 0.35rem 0.9rem;
@@ -1943,7 +2233,8 @@ html[dir="ltr"] .callout-box-accent {
 
 /* ── Tier 2: Training Works ─────────────────────────────────── */
 .portfolio-tier-training .tier-label {
-  background-color: rgba(47, 104, 125, 0.712); /* Dark Blue */
+  background-color: rgba(47, 104, 125, 0.712);
+  /* Dark Blue */
   color: var(--clr-white);
   border: 1px solid rgba(148, 163, 184, 0.2);
 }
@@ -1979,27 +2270,28 @@ html[dir="ltr"] .callout-box-accent {
 }
 
 .badge-academic {
-  background-color: rgba(113, 246, 92, 0.15); /* Purple tint */
-  color: #313e2b;
-  border: 1px solid rgba(113, 246, 92, 0.3);
+  background-color: var(--clr-gold-light);
+  color: var(--clr-navy);
+  border: 1px solid rgba(217, 164, 74, 0.3);
 }
 
 .badge-strategic {
-  background-color: rgba(56, 210, 248, 0.106); /* Light blue tint */
-  color: #17434d;
-  border: 1px solid rgba(56, 184, 248, 0.3);
+  background-color: var(--clr-slate-light);
+  color: var(--clr-navy);
+  border: 1px solid rgba(85, 103, 122, 0.3);
 }
 
 .badge-default {
-  background-color: rgba(65, 73, 75, 0.099); /* Gray/Slate */
-  color: #2f3338;
-  border: 1px solid rgb(65, 73, 75);
+  background-color: rgba(85, 103, 122, 0.1);
+  color: var(--clr-navy);
+  border: 1px solid rgba(85, 103, 122, 0.2);
 }
 
 /* Ensure the training grid matches the market grid columns */
 .tier-training-grid {
   /* It already uses .portfolio-grid-custom which behaves properly */
-  margin-bottom: 0; /* Remove bottom margin inside wrapper */
+  margin-bottom: 0;
+  /* Remove bottom margin inside wrapper */
 }
 
 /* ── Tier 3: Coming Soon ─────────────────────────────────────────────────── */
@@ -2019,12 +2311,16 @@ html[dir="ltr"] .callout-box-accent {
   padding-top: 1rem;
   -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .tier-coming-soon-slider::-webkit-scrollbar {
   display: none;
 }
+
 .tier-coming-soon-slider .coming-soon-card {
   flex: 0 0 calc(33.333% - 1.5rem);
   min-width: 280px;
@@ -2048,7 +2344,7 @@ html[dir="ltr"] .callout-box-accent {
   border: 2px dashed rgba(148, 163, 184, 0.35) !important;
   box-shadow: none !important;
   transition: opacity var(--transition-smooth),
-              filter var(--transition-smooth);
+    filter var(--transition-smooth);
 }
 
 /* Card block stays perfectly static on hover — requested by user */
@@ -2092,9 +2388,10 @@ html[dir="ltr"] .callout-box-accent {
 
 /* Small "lock" accent badge on the card */
 .coming-soon-card .portfolio-card::before {
-  content: "\f023"; /* fa-lock unicode */
+  content: "\f023";
+  /* fa-lock unicode */
   font-family: "Font Awesome 6 Free";
-  font-weight: 900;
+  font-weight: 800;
   position: absolute;
   top: 0.75rem;
   inset-inline-end: 0.75rem;
@@ -2114,11 +2411,13 @@ html[dir="ltr"] .callout-box-accent {
 /* Coming-soon grid no hover lift on child card */
 .coming-soon-card .card-link,
 .portfolio-tier-coming-soon .card-link {
-  pointer-events: none;    /* disable navigation — it's a locked card */
+  pointer-events: none;
+  /* disable navigation — it's a locked card */
 }
 
 /* ── Tier responsive overrides ───────────────────────────────────────────── */
-@media (max-width: 791px) {
+@media (max-width: 768px) {
+
   .portfolio-tier-market,
   .portfolio-tier-training,
   .portfolio-tier-coming-soon {
@@ -2135,6 +2434,7 @@ html[dir="ltr"] .callout-box-accent {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2158,4 +2458,26 @@ html[dir="ltr"] .callout-box-accent {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Small Mobile ─────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .profile-image-container {
+    /* ✏️ EDIT: حجم الصورة في الجوالات الصغيرة (500px فما دون) */
+    max-width: 300px;
+  }
+}
+
+/* ── LTR Arrow Icon Hover & Direction Rules ── */
+[dir="ltr"] .arrow-icon {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+[dir="ltr"] .btn-primary:hover .arrow-icon,
+[dir="ltr"] .mkt-cs-back-link:hover .arrow-icon,
+[dir="ltr"] .mkt-pro-back-link:hover .arrow-icon,
+[dir="ltr"] .mkt-lab-back-link:hover .arrow-icon,
+[dir="ltr"] .read-more:hover .arrow-icon {
+  transform: rotate(180deg) translateX(4px);
 }

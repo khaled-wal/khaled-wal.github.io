@@ -1,9 +1,15 @@
 ---
 layout: default
+lang: ar
 translation_key: home
-title: "الصفحة الرئيسية"
-description: "خالد هاشم — متخصص في الاتصال التسويقي؛ مهتم ببناء العلامات التجارية وتحليل سلوك المستهلك."
+title: "الرئيسية"
+description: "خالد هاشم — متخصص تسويق؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج."
 ---
+
+{% assign social_x = site.data.social.x %}
+{% assign social_x_handle = site.data.social.x_handle %}
+{% assign social_linkedin = site.data.social.linkedin %}
+{% assign social_email = site.data.social.email %}
 
 <!-- ══════════════════════════════════════════════════════════════════════════
      ░░ قسم الهيرو (Hero Section) — أعلى الصفحة ░░
@@ -21,9 +27,9 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: نص الشارة الترحيبية -->
-            <span class="badge reveal" data-delay="100">👋 مرحباً بك!</span>
+            <span class="badge reveal" data-delay="100">🎓 على أعتاب التخرج</span>
             <!-- ✏️ EDIT: العنوان الرئيسي — اسمك + لقبك -->
-            <h1 class="hero-title reveal" data-delay="200">أنا خالد<br><span class="highlight">طالب اتصال تسويقي</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">أنا خالد<br><span class="highlight">متخصص تسويق<br>بين التخطيط والتنفيذ</span></h1>
             <!-- ✏️ EDIT: الوصف المختصر تحت العنوان -->
             <p class="hero-desc reveal" data-delay="300">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
             <div class="hero-actions reveal" data-delay="400">
@@ -37,16 +43,16 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
         <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="500" height="500">
+                <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="700" height="700">
             </div>
         </div>
     </div>
     <!-- ══════════════════════════════════════════════════════════════════
          ░░ شريط المهارات (Skills Floating Tags) ░░
          ══════════════════════════════════════════════════════════════════ -->
-    <div class="container hero-footer-container reveal" data-delay = "500">
+    <div class="container hero-footer-container reveal">
         <!-- Scroll Indicator Down Nudge -->
-        <div class="hero-scroll-indicator reveal" data-delay="700">
+        <div class="hero-scroll-indicator">
              <i class="fa-solid fa-chevron-down"></i>
         </div>
     </div>
@@ -104,14 +110,20 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
                     <span class="category">
                         {% if item.client %}
                             {{ site.data.i18n.ar.client }} {{ item.client }}
+                        {% elsif item.brand_analyzed %}
+                            {{ site.data.i18n.ar.cs_brand_analyzed }}: {{ item.brand_analyzed }}
                         {% elsif item.collection == 'case_studies' %}
                             {{ site.data.i18n.ar.case_studies }}
                         {% else %}
                             {{ site.data.i18n.ar.projects }}
                         {% endif %}
                     </span>
-                    {% if item.project_phase %}
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.project_phase }}</span>
+                    {% if item.tags %}
+                    <div class="card-tags">
+                        {% for tag in item.tags %}
+                        <span class="card-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
                     {% endif %}
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
@@ -145,7 +157,7 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
             <!-- ✏️ EDIT: عنوان قسم السيرة الذاتية -->
             <h2 class="section-title">السيرة الذاتية</h2>
             <!-- ✏️ EDIT: الوصف المختصر للقسم -->
-            <p class="section-desc">مسيرتي الأكاديمية والمهنية ترتكز على الشغف بالتعلم المستمر وتطوير الذات في مجال التسويق والتخطيط الاستراتيجي.</p>
+            <p class="section-desc">ترتكز مسيرتي على الربط بين التحليل الاستراتيجي والتنفيذ الإبداعي، مع حرص دائم على التطوير المستمر وابتكار حلول تسويقية تُحدث أثراً ملموساً.</p>
         </div>
         <!-- زر تحميل السيرة الذاتية — تحت العنوان مباشرة، مستقل عن منطقة التوسع -->
         <!-- ✏️ EDIT: مسار الملف يُعدَّل في _config.yml (cv_path) -->
@@ -166,6 +178,17 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">يوليو 2026 - الآن</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">قائد فريق ادارة المشاريع</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">مبادرة رِكاز | Rikaz Initiative</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>دوري هو التخطيط للمبادرات الطلابية والورش التدريبية، وتوزيع المهام لتنفيذ الأنشطة وفق الأهداف الموضوعة.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
                         <div class="timeline-date"> فبراير 2026 - الآن</div>
                         <!-- ✏️ EDIT: المسمى الوظيفي -->
                         <div class="timeline-role">مسؤول التخطيط الاستراتيجي</div>
@@ -178,6 +201,17 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: الفترة الزمنية -->
                         <div class="timeline-date">ابريل 2026 - الان</div>
+                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <div class="timeline-role">نائب رئيس التحليل الرقمي</div>
+                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <p>الإشراف على فريق التحليل وإعداد تقارير قياس أداء الحملات الإعلامية لدعم وتطوير الأنشطة القادمة.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <div class="timeline-date">ابريل 2026 - اغسطس 2026</div>
                         <!-- ✏️ EDIT: المسمى الوظيفي -->
                         <div class="timeline-role">قائد الحملات الابداعية </div>
                         <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
@@ -257,29 +291,35 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
                     <!-- عنوان فاصل — يظهر فقط على الجوال -->
                     <div class="cv-mobile-section-title" aria-hidden="true"></div>
                     <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
-                    <div class="certification-grid">
-                        <!-- ✏️ EDIT: كرّر كتلة cert-card لكل شهادة -->
+                    
+                    <!-- Cluster 1: الشهادات التحليلية والتقنية -->
+                    <h4 class="cert-cluster-title"><i class="fa-solid fa-brain"></i> الشهادات التحليلية والتقنية</h4>
+                    <div class="certification-grid" style="margin-bottom: 1.5rem;">
                         <div class="cert-card">
                             <h4>عزّز تحليلات بياناتك باستخدام الذكاء الاصطناعي التوليدي</h4>
                             <p>مقدمة من "IBM" و"Neon" عام 2026</p>
-                        </div>
-                        <div class="cert-card">
-                            <h4> فن البيع</h4>
-                            <p>مقدمة من "منصة ادراك" عام 2025</p>
                         </div>
                         <div class="cert-card">
                             <h4>IBM: مقدمة في الذكاء الاصطناعي</h4>
                             <p>مقدمة من "IBM" عام 2025</p>
                         </div>
                         <div class="cert-card">
+                            <h4>CS50: مقدمة في علوم الحاسب</h4>
+                            <p>مقدمة من "جامعة هارفارد" عام 2023</p>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 2: شهادات التخطيط والأعمال -->
+                    <h4 class="cert-cluster-title"><i class="fa-solid fa-chart-pie"></i> شهادات التخطيط والأعمال</h4>
+                    <div class="certification-grid">
+                        <div class="cert-card">
                             <h4>ورشة عمل: من الفكرة الى السوق</h4>
                             <p>مقدمة من "منشآت" عام 2025</p>
                         </div>
                         <div class="cert-card">
-                            <h4>CS50: مقدمة في علوم الحاسب</h4>
-                            <p>مقدمة من "جامعة هارفارد" عام 2023</p>
+                            <h4> فن البيع</h4>
+                            <p>مقدمة من "منصة ادراك" عام 2025</p>
                         </div>
-                        <!-- أضف شهادة جديدة هنا بنسخ cert-card أعلاه -->
                     </div>
                 </div>
             </div>
@@ -331,7 +371,7 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
             <!-- ✏️ EDIT: استبدل YOUR_FORM_ID برابط Formspree الخاص بك -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
-                <input type="hidden" name="_next" value="https://khaled-wal.github.io/thanks/">
+                <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
                 <div class="form-group">
                     <label for="name">الاسم الكامل</label>
                     <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" required>
@@ -350,21 +390,39 @@ description: "خالد هاشم — متخصص في الاتصال التسوي�
         <!-- 3. بدائل التواصل المباشر (الخيار الثانوي) -->
         <div class="contact-alternatives reveal">
             <p class="contact-alternatives-label"> أو تواصل مباشرة عبر</p>
+            <!-- Custom Native LinkedIn Profile Badge -->
+            <div class="linkedin-badge-wrapper">
+                <div class="linkedin-badge-card">
+                    <div class="linkedin-badge-header">
+                        <i class="fa-brands fa-linkedin linkedin-logo-icon"></i>
+                        <span class="linkedin-badge-top-tag">لينكد إن</span>
+                    </div>
+                    <div class="linkedin-badge-body">
+                        <div class="linkedin-badge-avatar">
+                            <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="خالد وليد هاشم" class="linkedin-avatar-img">
+                        </div>
+                        <div class="linkedin-badge-info">
+                            <h4 class="linkedin-badge-name">خالد وليد هاشم</h4>
+                            <p class="linkedin-badge-title">متخصص إتصال تسويقي</p>
+                            <p class="linkedin-badge-univ">جامعة الإمام محمد بن سعود الإسلامية</p>
+                        </div>
+                    </div>
+                    <a href="{{ social_linkedin }}" target="_blank" rel="noopener noreferrer" class="linkedin-badge-cta">
+                        <span>عرض الملف الشخصي</span>
+                        <i class="fa-solid fa-arrow-left arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
             <div class="direct-links">
                 <!-- ✏️ EDIT: البريد الإلكتروني -->
-                <a href="mailto:Khaledwal20@hotmail.com" class="direct-link">
+                <a href="mailto:{{ social_email }}" class="direct-link">
                     <i class="fa-solid fa-envelope"></i>
-                    Khaledwal20@hotmail.com
-                </a>
-                <!-- ✏️ EDIT: رابط LinkedIn -->
-                <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer" class="direct-link">
-                    <i class="fa-brands fa-linkedin"></i>
-                    in/khaledw-hashem
+                    {{ social_email }}
                 </a>
                 <!-- ✏️ EDIT: رابط X (تويتر) -->
-                <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" class="direct-link">
+                <a href="{{ social_x }}" target="_blank" rel="noopener noreferrer" class="direct-link">
                     <i class="fa-brands fa-x-twitter"></i>
-                    @K72A76ED
+                    @{{ social_x_handle }}
                 </a>
             </div>
         </div>

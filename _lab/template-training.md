@@ -1,19 +1,17 @@
 ---
 layout: lab_item
 lang: ar
-publish_state: published
+publish_state: draft
 title: "خطة تسويقية لاطلاق منتج تقني في السوق السعودي"
-objective: "خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى"
+description: "خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى"
 
 date: 2026-04-10
 order: 1
 category: "التسويق الرقمي"
 translation_key: template_training_1
-permalink: /portfolio/lab/template-training/
-# Training Badge Configuration
-# Options for training_type (Label shown on card)
-# - "عمل أكاديمي | Academic Work"
-# - "نموذج استراتيجي | Strategic Prototype"
+project_type: "training"
+work_type: "creative"
+tags: ["تخطيط تسويقي", "تحليل منافسين", "بناء نموذج بصري"]
 training_type: "عمل أكاديمي"
 # Options for training_type_class (Controls color in style.css)
 # - "badge-academic" (Purple)

@@ -15,6 +15,10 @@ ar:
   client: "العميل:"
   case_studies: "دراسات الحالة"
   portfolio_count_label: "أعمال متخصصة"
+  filter_all: "الكل"
+  filter_strategy: "المشاريع ودراسات الحالة"
+  filter_creative: "التنفيذ والمحتوى الإبداعي"
+  mobile_notice: "أهتم لراحتك... لقراءة أفضل؛ يرجى تصفح هذا العمل على شاشة كبيرة"
 
   # ─── سلاسل دراسة الحالة (Case Study) ───
   cs_back: "العودة إلى الأعمال"
@@ -37,6 +41,14 @@ ar:
   cs_date: "التاريخ"
   cs_tags: "الوسوم"
   cs_external_link: "رابط المرجع"
+  cs_founded: "تأسست عام"
+  cs_market_position: "الموقع التنافسي"
+  cs_frameworks_used: "الأطر التحليلية المستخدمة"
+  cs_editorial_disclaimer: "إخلاء مسؤولية تحليلي"
+  cs_reading_time: "وقت القراءة"
+  cs_minutes_read: "دقيقة قراءة"
+  cs_last_updated: "آخر تحديث"
+  cs_sources: "المصادر والمراجع"
 
   # ─── سلاسل المشروع (Project) ───
   pro_back: "العودة إلى الأعمال"
@@ -72,6 +84,10 @@ en:
   client: "Client:"
   case_studies: "Case Studies"
   portfolio_count_label: "Specialised Works"
+  filter_all: "All Works"
+  filter_strategy: "Projects & Case Studies"
+  filter_creative: "Creative & Execution"
+  mobile_notice: "I care about your comfort... For a better reading experience, please view this on a larger screen."
 
   # ─── Case Study Strings ───
   cs_back: "Back to Portfolio"
@@ -94,6 +110,14 @@ en:
   cs_date: "Date"
   cs_tags: "Tags"
   cs_external_link: "Reference Link"
+  cs_founded: "Founded"
+  cs_market_position: "Market Position"
+  cs_frameworks_used: "Analytical Frameworks Used"
+  cs_editorial_disclaimer: "Editorial Disclaimer"
+  cs_reading_time: "Reading Time"
+  cs_minutes_read: "min read"
+  cs_last_updated: "Last Updated"
+  cs_sources: "Sources & References"
 
   # ─── Project Strings ───
   pro_back: "Back to Portfolio"

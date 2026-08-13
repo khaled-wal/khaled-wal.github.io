@@ -18,6 +18,7 @@ layout: null
 
 {% assign combined_docs = site.case_studies | concat: site.projects | concat: site.lab %}
 {% for doc in combined_docs %}
+  {% unless doc.publish_state == 'draft' or doc.published == false %}
   <url>
     <loc>{{ site.url }}{{ doc.url }}</loc>
     {% if doc.date %}
@@ -26,5 +27,6 @@ layout: null
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% endunless %}
 {% endfor %}
 </urlset>

@@ -1,6 +1,10 @@
 
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -21,7 +25,7 @@
     <title>أعمالي | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
-    <meta name="description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
+    <meta name="description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق.">
 
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/portfolio/">
@@ -29,33 +33,44 @@
     <!-- Hreflang Links for Internationalization -->
     
         
+        
         <link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/">
         
         
+        
+            
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
-        
+            
             
         
             
+            
+            
         
+            
+            
+            
+        
+        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/portfolio/">
     
 
@@ -63,16 +78,41 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="خالد هاشم">
     <meta property="og:title" content="أعمالي | خالد هاشم">
-    <meta property="og:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
+    <meta property="og:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق.">
     <meta property="og:url" content="http://localhost:4000/portfolio/">
     <meta property="og:locale" content="ar_SA">
-    <meta property="og:image" content="http://localhost:4000/assets/images/Favicon.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/profile.png">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="أعمالي | خالد هاشم">
-    <meta name="twitter:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/Favicon.png">
+    <meta name="twitter:description" content="استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق.">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/profile.png">
+    
+    <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Khaled Hashem",
+      "jobTitle": "Marketing Communications Specialist",
+      "url": "http://localhost:4000",
+      "image": "http://localhost:4000/assets/images/profile.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/khaledwhashem/",
+        "https://x.com/KhaledwHashem"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "خالد هاشم",
+      "url": "http://localhost:4000",
+      "inLanguage": "ar"
+    }
+    </script>
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
@@ -87,15 +127,15 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1777071014">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
     
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1777071014">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1786659597">
     
 </head>
 
@@ -149,103 +189,182 @@
     <main id="main-content">
         <section class="portfolio-page-section bg-light">
   <div class="container">
-    <h1 class="portfolio-page-title reveal">أعمالي</h1>
+    <div class="portfolio-page-header reveal" style="margin-bottom: 2rem;">
+      <h1 class="portfolio-page-title">أعمالي</h1>
+      <p class="portfolio-page-subdesc" style="color: var(--clr-text-dark); font-size: 1.1rem; max-width: 680px; margin-top: 0.5rem;">مشاريع وحملات استراتيجية ودراسات تحليليّة تُركز على إحداث أثر تسويقي ملموس واستخلاص الرؤى المبنية على البيانات.</p>
+    </div>
+
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 1: أعمال السوق الحقيقية (Market Work)
-         کل بطاقة تمثّل مشروعاً حقيقياً مع عميل أو علامة تجارية.
-         الفلتر: status=published AND lang=ar
+         أزرار الفرز والتصفية (Filter Tabs)
     ══════════════════════════════════════════════════════════════ -->
-    <div class="portfolio-tier-market reveal">
-      <div class="portfolio-market-wrapper">
-        <div class="market-sticky-sidebar">
-          <h2 class="market-sidebar-title">أعمال السوق</h2>
-        </div>
-        <div class="market-content-col">
-          <!-- المشاريع -->
-          <h3 class="portfolio-page-subtitle">المشاريع</h3>
-          <div class="portfolio-grid-custom tier-market-grid">
-            <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    
-                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن" />
-                    
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        
-                            العميل: رونق للإكسسوارات
-                        
-                    </span>
-                    
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> مستمر - إتمام المرحلة الأولى</span>
-                    
-                    <h3>إعادة هيكلة وتموضع علامة تجارية لمتجر إكسسوارات ريزن</h3>
-                    <p>تدقيق تسويقي وإعادة بناء نموذج العمل والهوية لمتجر محلي متخصص في صناعة الريزن.</p>
-                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            
-          </div>
-          <!-- دراسات الحالة -->
-          <h3 class="portfolio-page-subtitle">دراسات الحالة</h3>
-          <div class="portfolio-grid-custom tier-market-grid">
-            <p>لا توجد دراسات حالة حالياً.</p>
-            
-          </div>
-        </div>
+    <div class="portfolio-filter-wrapper reveal" style="margin-bottom: 2.5rem;">
+      <div class="portfolio-filter-tabs" role="tablist" aria-label="تصنيفات الأعمال">
+        <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+          الكل
+        </button>
+        <button type="button" class="filter-tab" data-filter="strategy" role="tab" aria-selected="false">
+          <i class="fa-solid fa-chart-line" aria-hidden="true"></i> المشاريع ودراسات الحالة
+        </button>
+        <button type="button" class="filter-tab" data-filter="creative" role="tab" aria-selected="false">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> التنفيذ والمحتوى الإبداعي
+        </button>
       </div>
     </div>
-    <!-- /portfolio-tier-market -->
+
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: الأعمال التدريبية (Training Works)
-         مشاريع استكشافية وتدريبية وأكاديمية.
-         الفلتر: من مجموعة (collection) lab
+         شبكة الأعمال الموحدة (Unified Works Grid)
+         عرض متناسق ومتكافئ لجميع المشاريع ودراسات الحالة
     ══════════════════════════════════════════════════════════════ -->
-    <div class="portfolio-tier-training reveal">
-      <div class="training-wrapper">
-        <span class="tier-label">
-          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-          الأعمال التدريبية
-        </span>
-        <div class="portfolio-grid-custom tier-training-grid">
-          
-          <a href="/portfolio/lab/template-training/" class="card-link" aria-label="خطة تسويقية لاطلاق منتج تقني في السوق السعودي">
+    <div class="portfolio-grid reveal" id="portfolio-grid" style="margin-bottom: 4rem;">
+      <div class="portfolio-item-wrapper" data-work-type="strategy">
+        <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق">
           <article class="portfolio-card">
-              <div class="card-image">
-                  
-                  <img src="/assets/images/lab/lab-def-academic-cover.png" alt="خطة تسويقية لاطلاق منتج تقني في السوق السعودي" />
-                  
+            <div class="card-image">
+              
+                <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق" />
+              
+            </div>
+            <div class="card-content">
+              <span class="category">
+                
+                  العميل: رونق للإكسسوارات (Rawnak)
+                
+              </span>
+
+              
+              <div class="card-tags">
+                
+                  <span class="card-tag">استراتيجية تموضع</span>
+                
+                  <span class="card-tag">تحليل سلوك مستهلك</span>
+                
+                  <span class="card-tag">صناعة محتوى</span>
+                
               </div>
-              <div class="card-content">
-                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
-                  
-                  <span class="training-badge badge-academic">
-                      عمل أكاديمي
-                  </span>
-                  
-                  
-                  <h3>خطة تسويقية لاطلاق منتج تقني في السوق السعودي</h3>
-                  <p>خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى</p>
-                  <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-              </div>
+              
+
+              <h3>إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق</h3>
+              <p>إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية...</p>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
           </article>
-          </a>
-          
-        </div>
+        </a>
       </div>
+      
+      <div class="portfolio-item-wrapper" data-work-type="strategy">
+        <a href="/portfolio/zoi-ice-tea-campaign/" class="card-link" aria-label="أفضل مشروب بعد الموية: تشريح حملة زوي آيس تي">
+          <article class="portfolio-card">
+            <div class="card-image">
+              
+                <img src="/assets/images/case-studies/Zoi%20Campain/zoi-hero.png" alt="أفضل مشروب بعد الموية: تشريح حملة زوي آيس تي" />
+              
+            </div>
+            <div class="card-content">
+              <span class="category">
+                
+                  العلامة التجارية: Zoi Ice Tea
+                
+              </span>
+
+              
+              <div class="card-tags">
+                
+                  <span class="card-tag">تحليل حملات</span>
+                
+                  <span class="card-tag">التموضع</span>
+                
+                  <span class="card-tag">Puffery</span>
+                
+                  <span class="card-tag">قطاع المشروبات</span>
+                
+              </div>
+              
+
+              <h3>أفضل مشروب بعد الموية: تشريح حملة زوي آيس تي</h3>
+              <p>تقييم صمود تموضع زوي آيس تي بعد ثلاثة أشهر من الإطلاق، ودخول منافس مباشر إلى...</p>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
+          </article>
+        </a>
+      </div>
+      
+      <div class="portfolio-item-wrapper" data-work-type="strategy">
+        <a href="/portfolio/case-studies/shawarma-house-case/" class="card-link" aria-label="بيت الشاورما: حين يبتلع النمو الاسم الذي بُني عليه">
+          <article class="portfolio-card">
+            <div class="card-image">
+              
+                <img src="/assets/images/case-studies/shawarma-house/shawarma-hero.png" alt="بيت الشاورما: حين يبتلع النمو الاسم الذي بُني عليه" />
+              
+            </div>
+            <div class="card-content">
+              <span class="category">
+                
+                  العلامة التجارية: بيت الشاورما
+                
+              </span>
+
+              
+              <div class="card-tags">
+                
+                  <span class="card-tag">تموضع العلامة التجارية</span>
+                
+                  <span class="card-tag">قطاع المطاعم</span>
+                
+                  <span class="card-tag">استراتيجية العلامة</span>
+                
+                  <span class="card-tag">F&amp;B</span>
+                
+              </div>
+              
+
+              <h3>بيت الشاورما: حين يبتلع النمو الاسم الذي بُني عليه</h3>
+              <p>فهم الفجوة بين وعد الاسم التجاري القائم على التخصص المطلق، وتجربة المنتج الفعلي بعد التحول...</p>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
+          </article>
+        </a>
+      </div>
+      
     </div>
-    
-    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 3: قيد التنفيذ (Coming Soon)
-         مشاريع لم تُكتمل بعد — مُقفلة بصرياً مع Hover Overlay.
+         قيد التنفيذ (Coming Soon)
     ══════════════════════════════════════════════════════════════ -->
-    <!-- /portfolio-tier-coming-soon -->
 
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var tabs = document.querySelectorAll('.filter-tab');
+  var items = document.querySelectorAll('.portfolio-item-wrapper');
+  if (!tabs.length || !items.length) return;
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var filter = this.getAttribute('data-filter');
+      tabs.forEach(function (t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      items.forEach(function (item) {
+        var type = item.getAttribute('data-work-type');
+        if (filter === 'all' || type === filter) {
+          item.style.display = 'block';
+          setTimeout(function() { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(function() { item.style.display = 'none'; }, 200);
+        }
+      });
+    });
+  });
+});
+</script>
+
 
     </main>
 
@@ -287,14 +406,14 @@
             <div class="footer-col social-col">
                 <h3>تواصل اجتماعي</h3>
                 <div class="social-links">
-                    <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <a href="https://x.com/KhaledwHashem" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
                         <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.linkedin.com/in/khaledwhashem/" target="_blank" rel="noopener noreferrer"
                         aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:Khaledwal20@hotmail.com"
+                    <a href="mailto:contact@khaled-hashem.com"
                         aria-label="إرسال بريد إلكتروني">
                         <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                     </a>

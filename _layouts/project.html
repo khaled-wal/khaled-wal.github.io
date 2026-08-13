@@ -38,14 +38,6 @@ layout: default
          قبل أن يقرأ التفاصيل. يشمل: صورة الغلاف + شارة النتيجة + العنوان.
          ═══════════════════════════════════════════════════════════════════════ -->
     <header class="mkt-pro-hero">
-        {% if page.hero_image %}
-        <div class="mkt-pro-hero-img-wrapper">
-            <img src="{{ page.hero_image | relative_url }}" 
-                 class="mkt-pro-hero-img">
-            <div class="mkt-pro-hero-overlay" aria-hidden="true"></div>
-        </div>
-        {% endif %}
-
         <div class="container mkt-pro-hero-content">
             <!-- رابط العودة -->
             <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}"
@@ -173,6 +165,8 @@ layout: default
 
         <div class="mkt-cs-content {% if page.toc_items == null or page.toc_items.size == 0 %}mkt-cs-content--full{% endif %}">
             
+            {% include mobile-notice.html %}
+
             <!-- ═══════════════════════════════════════════════════════════════════════
                  القسم 3: العميل والتحدي الأساسي
                  ═══════════════════════════════════════════════════════════════════════ -->
@@ -228,13 +222,9 @@ layout: default
             <!-- ═══════════════════════════════════════════════════════════════════════
                  القسم 5 و 6: المحتوى النصي (الاستراتيجية + التنفيذ)
                  ═══════════════════════════════════════════════════════════════════════ -->
-            <section class="mkt-pro-section mkt-pro-section--alt" id="content">
-                <div class="mkt-pro-section-inner">
-                    <div class="mkt-pro-prose">
+            <div class="mkt-pro-prose" id="content">
                 {{ content }}
             </div>
-        </div>
-    </section>
 
             <!-- ═══════════════════════════════════════════════════════════════════════
                  القسم 7: المعرض البصري (Visual Gallery)
@@ -305,7 +295,7 @@ layout: default
                  الأدوات المستخدمة
                  ═══════════════════════════════════════════════════════════════════════ -->
             {% if page.tools_used %}
-            <div class="mkt-cs-tools" id="tools" style="margin-left: 3rem; margin-right: 3rem; margin-bottom: 3rem;">
+            <div class="mkt-cs-tools" id="tools">
                 <div class="mkt-cs-tools-heading">
                     <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
                     {{ t.pro_tools_used }}
@@ -327,3 +317,24 @@ layout: default
     {% include cta-contact.html %}
 
 </article>
+
+<!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
+  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/profile.png' | absolute_url | jsonify }}{% endif %}],
+  "author": {
+    "@type": "Person",
+    "name": "Khaled Hashem",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Khaled Hashem"
+  },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>

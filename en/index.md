@@ -1,9 +1,15 @@
 ---
 layout: default
+lang: en
 translation_key: home
 title: "Home"
-description: "Khaled Hashem — MarCom Student | Interested in branding and consumer behavior analysis"
+description: "Khaled Hashem — Marketing Specialist; Transforming data into marketing strategies that achieve results."
 ---
+
+{% assign social_x = site.data.social.x %}
+{% assign social_x_handle = site.data.social.x_handle %}
+{% assign social_linkedin = site.data.social.linkedin %}
+{% assign social_email = site.data.social.email %}
 
 <!-- ══════════════════════════════════════════════════════════════════════════
      ░░ HERO SECTION ░░
@@ -20,9 +26,9 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
     <div class="container hero-inner">
         <div class="hero-content">
             <!-- ✏️ EDIT: Welcome badge text -->
-            <span class="badge reveal" data-delay="100">👋 Welcome!</span>
+            <span class="badge reveal" data-delay="100">🎓 Near Graduation</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title reveal" data-delay="200">I'm Khaled,<br><span class="highlight">MarCom student</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">i'm Khaled<br><span class="highlight">Marketing Specialist. Strategy & Execution</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
             <p class="hero-desc reveal" data-delay="300">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
             <div class="hero-actions reveal" data-delay="400">
@@ -35,7 +41,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/profile.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="500" height="500">
+                <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="700" height="700">
             </div>
         </div>
     </div>
@@ -97,14 +103,20 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     <span class="category">
                         {% if item.client %}
                             {{ site.data.i18n.en.client }} {{ item.client }}
+                        {% elsif item.brand_analyzed %}
+                            {{ site.data.i18n.en.cs_brand_analyzed }}: {{ item.brand_analyzed }}
                         {% elsif item.collection == 'case_studies' %}
                             {{ site.data.i18n.en.case_studies }}
                         {% else %}
                             {{ site.data.i18n.en.projects }}
                         {% endif %}
                     </span>
-                    {% if item.project_phase %}
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.project_phase }}</span>
+                    {% if item.tags %}
+                    <div class="card-tags">
+                        {% for tag in item.tags %}
+                        <span class="card-tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
                     {% endif %}
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
@@ -141,7 +153,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         <div class="cv-header-center">
             <!-- ✏️ EDIT: Section heading and description -->
             <h2 class="section-title">Resume</h2>
-            <p class="section-desc">My academic and professional journey is based on a passion for continuous learning and self-development in the field of marketing and strategic planning.</p>
+            <p class="section-desc">My career is built on bridging strategic analysis and creative execution, with a constant commitment to continuous development and innovating impactful marketing solutions.</p>
         </div>
         <!-- Download CV button — directly below the heading, independent of the expandable area -->
         <!-- ✏️ EDIT: Update cv_path in _config.yml to point to your PDF file -->
@@ -162,6 +174,17 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">July 2026 - Present</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Project Management Team Lead</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">مبادرة رِكاز | Rikaz Initiative</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>My role is to plan student initiatives and training workshops, and distribute tasks to execute activities in accordance with the set goals.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
                         <div class="timeline-date">February 2026 - Present</div>
                         <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Strategic Planning Officer</div>
@@ -172,30 +195,41 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <!-- ✏️ EDIT: Date range -->
                         <div class="timeline-date">April 2026 - Present</div>
-                        <!-- ✏️ EDIT: المسمى الوظيفي -->
-                        <div class="timeline-role">Creative Campaigns Lead </div>
-                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Deputy Digital Analytics Lead</div>
+                        <!-- ✏️ EDIT: Company / client name -->
                         <div class="timeline-company">نادي الإعلام - Media Club</div>
-                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
+                        <p>Supervising the analysis team and preparing performance measurement reports for media campaigns to support and develop upcoming activities.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <!-- ✏️ EDIT: Date range -->
+                        <div class="timeline-date">April 2026 - August 2026</div>
+                        <!-- ✏️ EDIT: Job title -->
+                        <div class="timeline-role">Creative Campaigns Lead</div>
+                        <!-- ✏️ EDIT: Company / client name -->
+                        <div class="timeline-company">نادي الإعلام - Media Club</div>
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
                         <p>Led a rapid operational turnaround and developed comprehensive onboarding systems, while overseeing creative campaign strategies to optimize team performance and achieve marketing objectives.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <!-- ✏️ EDIT: الفترة الزمنية -->
+                        <!-- ✏️ EDIT: Date range -->
                         <div class="timeline-date">April 2026 - Present</div>
-                        <!-- ✏️ EDIT: المسمى الوظيفي -->
+                        <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Club Representative</div>
-                        <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
+                        <!-- ✏️ EDIT: Company / client name -->
                         <div class="timeline-company">نادي الإعلام - Media Club</div>
-                        <!-- ✏️ EDIT: الوصف المختصر -->
+                        <!-- ✏️ EDIT: Brief description of responsibilities -->
                         <p>I represent the club on the university's unified digital platform, managing student engagement and promoting events to boost brand awareness and recruitment.</p>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">January 2026 - Present</div>
+                        <div class="timeline-date">January 2026 - April 2026</div>
                         <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Deputy Creative Campaigns Lead</div>
                         <!-- ✏️ EDIT: Company / client name -->
@@ -225,7 +259,6 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                         <!-- ✏️ EDIT: Brief description of responsibilities -->
                         <p>Developed visual identity using AI & Photoshop, designed interactive content templates, and assisted in the technical organization of major events.</p>
                     </div>
-                    <!-- Add new experience here by copying the block above -->
                 </div>
             </div>
             <!-- ── Education + Certifications Column (merged for visual balance) ── -->
@@ -253,31 +286,35 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
                     <!-- Section separator heading — visible on mobile only -->
                     <div class="cv-mobile-section-title" aria-hidden="true"></div>
                     <h3 class="cv-column-title"><i class="fa-solid fa-certificate"></i> Certifications</h3>
-                    <div class="certification-grid">
-                        <!-- ✏️ EDIT: Duplicate cert-card for each certification -->
+                    
+                    <!-- Cluster 1: Analytical & Technical Certifications -->
+                    <h4 class="cert-cluster-title"><i class="fa-solid fa-brain"></i> Analytical & Technical Certifications</h4>
+                    <div class="certification-grid" style="margin-bottom: 1.5rem;">
                         <div class="cert-card">
                             <h4>Supercharge Your Data Analytics with Generative AI</h4>
-                            <p>Issued by "IBM","Neon", 2026</p>
-                        </div>
-                        <div class="cert-card">
-                            <!-- ✏️ EDIT: Certificate name -->
-                            <h4>Supercharge Your Data Analytics with Generative AI</h4>
-                            <!-- ✏️ EDIT: Issuer and year -->
-                            <p>Issued by "IBM", 2025</p>
+                            <p>Issued by "IBM" & "Neon", 2026</p>
                         </div>
                         <div class="cert-card">
                             <h4>IBM: Intro to Artificial Intelligence</h4>
                             <p>Issued by "IBM", 2025</p>
                         </div>
                         <div class="cert-card">
+                            <h4>CS50: Intro to Computer Science</h4>
+                            <p>Issued by "Harvard University", 2023</p>
+                        </div>
+                    </div>
+
+                    <!-- Cluster 2: Strategic & Business Certifications -->
+                    <h4 class="cert-cluster-title"><i class="fa-solid fa-chart-pie"></i> Strategic & Business Certifications</h4>
+                    <div class="certification-grid">
+                        <div class="cert-card">
                             <h4>Workshop: From Idea to Market</h4>
                             <p>Issued by "Monsha'at", 2025</p>
                         </div>
                         <div class="cert-card">
-                            <h4>CS50: Intro to Computer Science</h4>
-                            <p>Issued by "Harvard University", 2023</p>
+                            <h4>The Art of Selling</h4>
+                            <p>Issued by "Edraak", 2025</p>
                         </div>
-                        <!-- Add new cert here by copying a cert-card block above -->
                     </div>
                 </div>
             </div>
@@ -329,7 +366,7 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
             <!-- Example: action="https://formspree.io/f/xabc1234" -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
-                <input type="hidden" name="_next" value="https://khaled-wal.github.io/en/thanks/">
+                <input type="hidden" name="_next" value="{{ '/en/thanks/' | absolute_url }}">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name" required>
@@ -348,21 +385,39 @@ description: "Khaled Hashem — MarCom Student | Interested in branding and cons
         <!-- 3. Direct contact alternatives (secondary) -->
         <div class="contact-alternatives reveal">
             <p class="contact-alternatives-label">Or reach me directly</p>
+            <!-- Custom Native LinkedIn Profile Badge -->
+            <div class="linkedin-badge-wrapper">
+                <div class="linkedin-badge-card">
+                    <div class="linkedin-badge-header">
+                        <i class="fa-brands fa-linkedin linkedin-logo-icon"></i>
+                        <span class="linkedin-badge-top-tag">LinkedIn</span>
+                    </div>
+                    <div class="linkedin-badge-body">
+                        <div class="linkedin-badge-avatar">
+                            <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="Khaled Waleed Hashem" class="linkedin-avatar-img">
+                        </div>
+                        <div class="linkedin-badge-info">
+                            <h4 class="linkedin-badge-name">Khaled Waleed Hashem</h4>
+                            <p class="linkedin-badge-title">Marketing Communication Specialist</p>
+                            <p class="linkedin-badge-univ">Imam Mohammad Ibn Saud Islamic University</p>
+                        </div>
+                    </div>
+                    <a href="{{ social_linkedin }}" target="_blank" rel="noopener noreferrer" class="linkedin-badge-cta">
+                        <span>View Profile</span>
+                        <i class="fa-solid fa-arrow-left arrow-icon"></i>
+                    </a>
+                </div>
+            </div>
             <div class="direct-links">
                 <!-- ✏️ EDIT: Your email address -->
-                <a href="mailto:Khaledwal20@hotmail.com" class="direct-link">
+                <a href="mailto:{{ social_email }}" class="direct-link">
                     <i class="fa-solid fa-envelope"></i>
-                    Khaledwal20@hotmail.com
-                </a>
-                <!-- ✏️ EDIT: Your LinkedIn profile URL -->
-                <a href="https://www.linkedin.com/in/khaledw-hashem/" target="_blank" rel="noopener noreferrer" class="direct-link">
-                    <i class="fa-brands fa-linkedin"></i>
-                    in/khaledw-hashem
+                    {{ social_email }}
                 </a>
                 <!-- ✏️ EDIT: X (Twitter) profile URL -->
-                <a href="https://x.com/K72A76ED" target="_blank" rel="noopener noreferrer" class="direct-link">
+                <a href="{{ social_x }}" target="_blank" rel="noopener noreferrer" class="direct-link">
                     <i class="fa-brands fa-x-twitter"></i>
-                    @K72A76ED
+                    @{{ social_x_handle }}
                 </a>
             </div>
         </div>

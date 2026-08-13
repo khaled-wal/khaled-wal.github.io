@@ -39,9 +39,12 @@
           {%- assign alt_url = fallback_url -%}
 
           {%- if page.translation_key -%}
-          {%- assign all_docs = site.documents | concat: site.pages -%}
+          {%- assign all_docs = site.case_studies | concat: site.projects | concat: site.lab | concat: site.pages -%}
           {%- for doc in all_docs -%}
-          {%- if doc.translation_key == page.translation_key and doc.lang == alt_lang -%}
+          {%- assign doc_lang = doc.lang | default: doc['lang'] -%}
+          {%- if doc.url contains '/en/' -%}{%- assign doc_lang = 'en' -%}{%- else -%}{%- assign doc_lang = 'ar' -%}{%- endif -%}
+          {%- assign doc_tk = doc.translation_key | default: doc['translation_key'] -%}
+          {%- if doc_tk and doc_tk == page.translation_key and doc_lang == alt_lang -%}
           {%- assign alt_url = doc.url | relative_url -%}
           {%- break -%}
           {%- endif -%}

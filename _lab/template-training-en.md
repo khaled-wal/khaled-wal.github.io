@@ -1,14 +1,16 @@
 ---
 layout: lab_item
 lang: en
-publish_state: published
+publish_state: draft
 title: "Marketing Plan for Launching a Tech Product in the Saudi Market"
-objective: "A comprehensive plan including product analysis, market research, competitor analysis, timeline development, and visual content modeling."
+description: "A comprehensive plan including product analysis, market research, competitor analysis, timeline development, and visual content modeling."
 date: 2026-04-10
 order: 1
 category: "Strategic Planning"
 translation_key: template_training_1
 permalink: /en/portfolio/lab/template-training-en/
+work_type: "creative"
+tags: ["Marketing Planning", "Competitor Analysis", "Visual Prototype"]
 # Training Badge Configuration
 # Options for training_type (Label shown on card)
 # - "عمل أكاديمي | Academic Work"

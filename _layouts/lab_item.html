@@ -6,15 +6,6 @@ light_bg: false
 
 <article class="mkt-lab-page">
     <header class="mkt-lab-hero">
-        {% if page.image_path %}
-        <div class="mkt-lab-hero-img-wrapper">
-            <img src="{{ page.image_path | relative_url }}" 
-                 alt="{{ page.title }}" 
-                 class="mkt-lab-hero-img">
-            <div class="mkt-lab-hero-overlay" aria-hidden="true"></div>
-        </div>
-        {% endif %}
-
         <div class="container mkt-lab-hero-content">
             <a href="{% if current_lang == 'en' %}{{ '/en/portfolio/' | relative_url }}{% else %}{{ '/portfolio/' | relative_url }}{% endif %}" class="mkt-lab-back-link btn-back">
                 <i class="fa-solid fa-arrow-right arrow-icon" aria-hidden="true"></i>
@@ -28,7 +19,7 @@ light_bg: false
 
             <h1 class="mkt-lab-title">{{ page.title }}</h1>
             <div class="mkt-lab-meta">
-                <span><i class="fa-regular fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</span>
+                <span><i class="fa-regular fa-calendar"></i> {% if current_lang == 'ar' %}{{ page.date | date: "%Y/%m/%d" }}{% else %}{{ page.date | date: "%B %d, %Y" }}{% endif %}</span>
                 {% if page.role %}
                 <span class="mkt-lab-role"><i class="fa-solid fa-user-gear"></i> {{ page.role }}</span>
                 {% elsif page.role_or_skill %}
@@ -48,6 +39,8 @@ light_bg: false
     <div class="container mkt-lab-body">
         <div class="markdown-content mkt-lab-content">
             
+            {% include mobile-notice.html %}
+
             {% if page.challenge or page.objective %}
             <div class="mkt-lab-section mkt-lab-challenge callout-box-dark">
                 <h2 class="mkt-lab-heading">

@@ -21,6 +21,7 @@
 .mkt-pro-section,
 .mkt-shared-kpi-section,
 .mkt-cs-tools,
+.mkt-cs-section-card,
 .mkt-pro-prose h2,
 .mkt-cs-prose h2,
 .mkt-pro-prose h3,
@@ -75,7 +76,7 @@
   /* عند التحويم: حدود خضراء + ظل خفيف */
   border-color: var(--clr-green);
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 8px 24px rgba(var(--clr-gold-rgb), 0.12);
 }
 
 /* القيمة الرقمية — كبيرة وبارزة باللون الأخضر */
@@ -138,9 +139,9 @@
   /* تدرج من شفاف في الأعلى إلى كحلي غامق في الأسفل */
   background: linear-gradient(
     to bottom,
-    rgba(15, 25, 42, 0.3) 0%,
-    rgba(15, 25, 42, 0.85) 70%,
-    rgba(15, 25, 42, 1) 100%
+    rgba(0, 12, 34, 0.3) 0%,
+    rgba(0, 12, 34, 0.85) 70%,
+    rgba(0, 12, 34, 1) 100%
   );
 }
 
@@ -173,7 +174,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1rem;
-  background-color: rgba(16, 185, 129, 0.15);
+  background-color: rgba(var(--clr-gold-rgb), 0.15);
   color: var(--clr-green);
   border-radius: var(--radius-pill);
   font-weight: 700;
@@ -212,7 +213,7 @@
 }
 
 .mkt-cs-meta-chip:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(var(--clr-gold-rgb), 0.3);
 }
 
 /* أيقونة الرقاقة */
@@ -242,8 +243,8 @@
 
 /* رقاقة مُميّزة (مثل ROI) — حدود خضراء */
 .mkt-cs-meta-chip--highlight {
-  border-color: rgba(16, 185, 129, 0.4);
-  background-color: rgba(16, 185, 129, 0.08);
+  border-color: rgba(var(--clr-gold-rgb), 0.4);
+  background-color: rgba(var(--clr-gold-rgb), 0.08);
 }
 
 
@@ -255,7 +256,7 @@
 .mkt-cs-body {
   display: grid;
   /* الفهرس 240px ثابت + المحتوى يأخذ الباقي */
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 230px 1fr;
   gap: 3rem;
   padding-block: 3rem;
   align-items: start;
@@ -270,10 +271,10 @@
   background-color: var(--clr-navy-light);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-  /* الحد الأقصى للارتفاع مع شريط تمرير إن لزم */
-  max-height: calc(100vh - var(--header-height) - 4rem);
-  overflow-y: auto;
+  padding: 1.2rem;
+  /* الفهرس يتكيف مع طول المحتوى دون قيود أو شريط تمرير */
+  max-height: 700px;
+  overflow-y: visible;
 }
 
 /* عنوان الفهرس */
@@ -316,7 +317,7 @@
 
 .mkt-cs-toc-link:hover {
   color: var(--clr-green);
-  background-color: rgba(16, 185, 129, 0.05);
+  background-color: rgba(var(--clr-gold-rgb), 0.05);
   border-inline-start-color: var(--clr-green);
 }
 
@@ -343,8 +344,8 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .mkt-cs-critique-box {
-  background-color: rgba(16, 185, 129, 0.06);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background-color: rgba(var(--clr-gold-rgb), 0.06);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.2);
   border-inline-start: 4px solid var(--clr-green);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 1.5rem;
@@ -373,22 +374,132 @@
   font-style: italic;
 }
 
+/* ─── الاقتباس الافتتاحي (Hook Quote) ─── */
+.mkt-cs-hook-quote-section {
+  padding-block: 2.5rem 1.5rem;
+  background-color: transparent;
+}
+
+.mkt-cs-hook-quote {
+  max-width: 800px;
+  margin-inline: auto;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  border: none;
+  border-top: 2px solid rgba(var(--clr-gold-rgb), 0.4);
+  border-bottom: 2px solid rgba(var(--clr-gold-rgb), 0.4);
+  background-color: rgba(var(--clr-gold-rgb), 0.03);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.mkt-cs-hook-quote-icon {
+  font-size: 1.75rem;
+  color: var(--clr-green);
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+
+.mkt-cs-hook-quote p {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--clr-white);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ─── صندوق إخلاء المسؤولية التحريري (Disclaimer Box) ─── */
+.mkt-cs-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.mkt-cs-disclaimer i {
+  color: var(--clr-muted);
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.mkt-cs-disclaimer p {
+  color: var(--clr-muted);
+  font-size: 0.825rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
    دراسة الحالة: أنماط النصوص (Prose) داخل المحتوى
    نطبّق الأنماط فقط داخل .mkt-cs-prose لمنع التعارض مع بقية الموقع
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* عناوين المحتوى */
-.mkt-cs-prose h2 {
-  font-size: 1.5rem;
+/* ─── حاوية الأقسام كبطاقات (Section Cards) ─── */
+.mkt-cs-prose {
+  counter-reset: cs-section-counter;
+}
+
+.mkt-cs-section-card {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.5rem;
+  margin-bottom: 2.5rem;
+  transition: all var(--transition-smooth);
+}
+
+.mkt-cs-section-card:hover {
+  border-color: rgba(var(--clr-gold-rgb), 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mkt-cs-section-card:not(.mkt-cs-section-card--intro) {
+  counter-increment: cs-section-counter;
+}
+
+/* عناوين الأقسام داخل البطاقات */
+.mkt-cs-section-card h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--clr-white);
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(16, 185, 129, 0.2);
-  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.mkt-cs-section-card:not(.mkt-cs-section-card--intro) h2::before {
+  content: "0" counter(cs-section-counter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--clr-green);
+  color: var(--clr-green);
+  font-size: 0.9rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* فاصل الأقسام العادي */
+.mkt-cs-prose hr {
+  border: none;
+  height: 1px;
+  background-color: var(--clr-border);
+  margin-block: 2.5rem;
+  opacity: 0.5;
 }
 
 /* عناوين المشروع (prose) مزودة بترقيم تلقائي */
@@ -413,7 +524,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(217, 164, 74, 0.1);
   border: 2px solid var(--clr-green);
   color: var(--clr-green);
   font-weight: 800;
@@ -430,36 +541,246 @@
   margin-bottom: 0.75rem;
 }
 
-/* فقرات النص */
+/* ─── Typography & Spacious Whitespace (Breathing Room) ─── */
 .mkt-cs-prose p,
 .mkt-pro-prose p {
   color: var(--clr-text-light);
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
+  line-height: 2.0; /* Premium line height for breathing room */
+  margin-bottom: 2.25rem; /* Generous paragraph bottom margin */
+  font-size: 1.1rem;
+  letter-spacing: 0.2px;
 }
 
-/* القوائم */
-.mkt-cs-prose ul,
-.mkt-cs-prose ol,
-.mkt-pro-prose ul,
-.mkt-pro-prose ol {
-  margin-bottom: 1.5rem;
-  padding-inline-start: 2rem;
+/* Bold typography contrast */
+.mkt-cs-prose strong,
+.mkt-pro-prose strong {
+  color: var(--clr-white);
+  font-weight: 700;
+}
+
+/* ─── Premium Callout System ─── */
+/* Standard blockquote upgraded into custom clean callouts */
+.mkt-cs-prose blockquote,
+.mkt-pro-prose blockquote,
+.callout-strategic,
+.callout-insight {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.75rem;
+  margin-inline: 0;
+  margin-bottom: 2.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.15);
+  border-inline-start: 4px solid var(--clr-green);
+  background-color: rgba(var(--clr-gold-rgb), 0.04);
   color: var(--clr-text-light);
-  line-height: 1.9;
+  font-style: normal;
 }
 
-.mkt-cs-prose li,
-.mkt-pro-prose li {
-  margin-bottom: 0.5rem;
+.mkt-cs-prose blockquote p,
+.mkt-pro-prose blockquote p,
+.callout-strategic p,
+.callout-insight p {
+  margin-bottom: 0;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--clr-text-light);
 }
 
-/* الروابط */
+.callout-strategic {
+  background-color: rgba(var(--clr-gold-rgb), 0.04);
+  border-color: rgba(var(--clr-gold-rgb), 0.15);
+  border-inline-start-color: var(--clr-green);
+}
+
+.callout-insight {
+  background-color: rgba(var(--clr-gold-rgb), 0.04);
+  border-color: rgba(var(--clr-gold-rgb), 0.15);
+  border-inline-start-color: var(--clr-gold);
+}
+
+.callout-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.callout-strategic .callout-icon {
+  color: var(--clr-green);
+}
+
+.callout-insight .callout-icon {
+  color: var(--clr-gold);
+}
+
+/* ─── Premium Status Badges ─── */
+.badge-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  margin-inline-end: 0.5rem;
+  line-height: 1;
+}
+
+.badge-critical {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+.badge-high {
+  background-color: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: #f59e0b;
+}
+
+.badge-medium {
+  background-color: rgba(var(--clr-gold-rgb), 0.12);
+  border-color: rgba(var(--clr-gold-rgb), 0.25);
+  color: var(--clr-gold);
+}
+
+/* ─── Clean Spacious Lists ─── */
+/* Elegant, minimal list styling — no card chrome, no forced arrows */
+.mkt-cs-prose ul,
+.mkt-pro-prose ul {
+  list-style: disc;
+  padding-inline-start: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mkt-cs-prose ol,
+.mkt-pro-prose ol {
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mkt-cs-prose ul li,
+.mkt-cs-prose ol li,
+.mkt-pro-prose ul li,
+.mkt-pro-prose ol li {
+  color: var(--clr-text-light);
+  line-height: 1.85;
+  margin-bottom: 0.85rem;
+  padding-inline-start: 0.35rem;
+}
+
+.mkt-cs-prose ul li::marker,
+.mkt-pro-prose ul li::marker {
+  color: var(--clr-green);
+}
+
+.mkt-cs-prose ol li::marker,
+.mkt-pro-prose ol li::marker {
+  color: var(--clr-green);
+  font-weight: 700;
+}
+
+/* ─── Visually Striking Zebra-Striped Tables ─── */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.table-responsive-wrapper table {
+  width: 100%;
+  margin-bottom: 0;
+  display: table;
+  border-collapse: collapse;
+}
+
+.mkt-cs-prose th,
+.mkt-pro-prose th {
+  background-color: var(--clr-navy-light);
+  color: var(--clr-white);
+  padding: 1.15rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--clr-border);
+  text-align: start;
+  letter-spacing: 0.5px;
+}
+
+.mkt-cs-prose td,
+.mkt-pro-prose td {
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: var(--clr-text-light);
+  font-size: 0.96rem;
+  vertical-align: middle;
+}
+
+.mkt-cs-prose tr:last-child td,
+.mkt-pro-prose tr:last-child td {
+  border-bottom: none;
+}
+
+.mkt-cs-prose tr:nth-child(even) td,
+.mkt-pro-prose tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.mkt-cs-prose tr:hover td,
+.mkt-pro-prose tr:hover td {
+  background-color: rgba(var(--clr-gold-rgb), 0.03);
+}
+
+/* ─── Large High-Contrast KPI / Stat Blocks ─── */
+.metric-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--clr-navy-light) 0%, var(--clr-navy) 100%);
+  border: 1px solid rgba(217, 164, 74, 0.25);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  margin-block: 2.5rem;
+  text-align: center;
+  transition: border-color var(--transition-fast);
+}
+
+.metric-highlight:hover {
+  border-color: var(--clr-green);
+}
+
+.metric-highlight-value {
+  font-size: 2.85rem;
+  font-weight: 800;
+  color: var(--clr-green);
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.metric-highlight-label {
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Standard markdown links inside prose */
 .mkt-cs-prose a,
 .mkt-pro-prose a {
   color: var(--clr-green);
   text-decoration: underline;
+  font-weight: 600;
 }
 
 .mkt-cs-prose a:hover,
@@ -467,67 +788,16 @@
   color: var(--clr-green-dark);
 }
 
-/* الاقتباسات — مُحسّنة لعرض "الدروس المستفادة" أو "النقد" */
-.mkt-cs-prose blockquote,
-.mkt-pro-prose blockquote {
-  border-inline-start: 4px solid var(--clr-green);
-  padding: 1rem 1.25rem;
-  margin-inline: 0;
-  margin-bottom: 1.5rem;
-  background-color: rgba(16, 185, 129, 0.05);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-style: italic;
-  color: var(--clr-muted);
-}
-
-/* الجداول */
-.mkt-cs-prose table,
-.mkt-pro-prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
-  overflow-x: auto;
-  display: block;
-}
-
-.mkt-cs-prose th,
-.mkt-pro-prose th {
-  background-color: var(--clr-green);
-  color: var(--clr-white);
-  padding: 0.75rem 1rem;
-  text-align: start;
-  font-weight: 700;
-}
-
-.mkt-cs-prose td,
-.mkt-pro-prose td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--clr-border);
-  color: var(--clr-text-light);
-}
-
-.mkt-cs-prose tr:nth-child(even) td,
-.mkt-pro-prose tr:nth-child(even) td {
-  background-color: rgba(255, 255, 255, 0.03);
-}
-
-/* الصور داخل المحتوى */
+/* Images inside prose */
 .mkt-cs-prose img,
 .mkt-pro-prose img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   display: block;
-  box-shadow: var(--shadow-md);
-}
-
-/* النص القوي (bold) */
-.mkt-cs-prose strong,
-.mkt-pro-prose strong {
-  color: var(--clr-white);
-  font-weight: 700;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--clr-border);
 }
 
 
@@ -542,7 +812,7 @@
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(16, 185, 129, 0.2);
+  border-bottom: 2px solid rgba(217, 164, 74, 0.2);
 }
 
 /* شبكة المقارنة — عمودين */
@@ -615,8 +885,8 @@
 .mkt-cs-tool-badge {
   display: inline-block;
   padding: 0.4rem 1rem;
-  background-color: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  background-color: rgba(var(--clr-gold-rgb), 0.08);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.25);
   border-radius: var(--radius-pill);
   color: var(--clr-text-light);
   font-size: 0.8rem;
@@ -625,9 +895,155 @@
 }
 
 .mkt-cs-tool-badge:hover {
-  background-color: rgba(16, 185, 129, 0.15);
+  background-color: rgba(var(--clr-gold-rgb), 0.15);
   border-color: var(--clr-green);
   color: var(--clr-green);
+}
+
+/* ─── شارات الأطر التحليلية (Frameworks Badges) ─── */
+.mkt-cs-frameworks {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.mkt-cs-frameworks-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.85rem;
+}
+
+.mkt-cs-frameworks-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mkt-cs-framework-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background-color: transparent;
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.35);
+  border-radius: var(--radius-pill);
+  color: var(--clr-white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.mkt-cs-framework-badge:hover {
+  background-color: rgba(var(--clr-gold-rgb), 0.15);
+  border-color: var(--clr-green);
+}
+
+/* ─── معرض الصور الإضافي (Gallery) ─── */
+.mkt-cs-gallery {
+  margin-block: 2.5rem;
+}
+
+.mkt-cs-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.mkt-cs-gallery-item {
+  margin: 0;
+}
+
+.mkt-cs-gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  transition: transform var(--transition-smooth);
+}
+
+.mkt-cs-gallery-item img:hover {
+  transform: scale(1.02);
+}
+
+.mkt-cs-gallery-item figcaption {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+}
+
+/* ─── المصادر والمراجع (Sources) ─── */
+.mkt-cs-sources {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.mkt-cs-sources-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.mkt-cs-sources-list {
+  padding-inline-start: 1.25rem;
+  margin: 0;
+}
+
+.mkt-cs-sources-list li {
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+  margin-bottom: 0.5rem;
+}
+
+.mkt-cs-sources-list a {
+  color: var(--clr-green);
+  text-decoration: underline;
+}
+
+.mkt-cs-sources-list a:hover {
+  color: var(--clr-white);
+}
+
+/* ─── السؤال الختامي المفتوح (Full-Width Section) ─── */
+.mkt-cs-closing-question-section {
+  padding-block: 4rem;
+  background-color: var(--clr-navy-light);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.mkt-cs-closing-question {
+  max-width: 800px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mkt-cs-closing-question-icon {
+  font-size: 2.25rem;
+  color: var(--clr-green);
+  margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.mkt-cs-closing-question p {
+  color: var(--clr-white);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  line-height: 1.65;
+  margin: 0;
 }
 
 
@@ -681,9 +1097,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1rem;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(217, 164, 74, 0.1);
   color: var(--clr-green);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(217, 164, 74, 0.3);
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 0.8rem;
@@ -691,7 +1107,7 @@
 }
 
 .mkt-cs-external-btn:hover {
-  background-color: rgba(16, 185, 129, 0.2);
+  background-color: rgba(217, 164, 74, 0.2);
   border-color: var(--clr-green);
   color: var(--clr-green);
 }
@@ -749,7 +1165,7 @@
 }
 
 .mkt-cs-tag-badge:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(217, 164, 74, 0.3);
   color: var(--clr-text-light);
 }
 
@@ -793,9 +1209,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(15, 25, 42, 0.2) 0%,
-    rgba(15, 25, 42, 0.8) 60%,
-    rgba(15, 25, 42, 1) 100%
+    rgba(0, 12, 34, 0.2) 0%,
+    rgba(0, 12, 34, 0.8) 60%,
+    rgba(0, 12, 34, 1) 100%
   );
 }
 
@@ -828,7 +1244,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1rem;
-  background-color: rgba(16, 185, 129, 0.15);
+  background-color: rgba(217, 164, 74, 0.15);
   color: var(--clr-green);
   border-radius: var(--radius-pill);
   font-weight: 700;
@@ -860,8 +1276,8 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.5rem;
-  background-color: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background-color: rgba(217, 164, 74, 0.1);
+  border: 1px solid rgba(217, 164, 74, 0.3);
   border-radius: var(--radius-md);
   transition: transform var(--transition-fast);
 }
@@ -893,7 +1309,7 @@
 
 /* بطاقة ROI — تمييز إضافي */
 .mkt-pro-result-card--roi {
-  background-color: rgba(16, 185, 129, 0.15);
+  background-color: rgba(217, 164, 74, 0.15);
   border-color: var(--clr-green);
 }
 
@@ -934,7 +1350,7 @@
 }
 
 .mkt-pro-stat-chip:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(217, 164, 74, 0.3);
 }
 
 .mkt-pro-stat-chip > i {
@@ -968,16 +1384,13 @@
 .mkt-pro-section {
   padding: 3rem;
   margin-bottom: 2rem;
-  border-radius: var(--radius-md);
-  /* The normal background was implicitly navy, let's keep it that way and just use border if needed */
   background-color: var(--clr-navy);
-  border: 1px solid var(--clr-border);
 }
 
 /* خلفية بديلة للأقسام المتناوبة — تمييز بصري */
 .mkt-pro-section--alt {
   background-color: var(--clr-navy-light);
-  border-color: rgba(16, 185, 129, 0.15);
+  border-top: 1px solid rgba(217, 164, 74, 0.08);
 }
 
 .mkt-pro-section-inner {
@@ -1001,7 +1414,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(217, 164, 74, 0.1);
   border: 2px solid var(--clr-green);
   color: var(--clr-green);
   font-weight: 800;
@@ -1039,8 +1452,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: rgba(21, 216, 187, 0.06);
-  border: 1px solid rgba(21, 216, 187, 0.2);
+  background-color: rgba(217, 164, 74, 0.06);
+  border: 1px solid rgba(217, 164, 74, 0.2);
   border-inline-start: 4px solid var(--clr-green);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   margin-top: 1.5rem;
@@ -1083,8 +1496,6 @@
 
 .mkt-pro-insight-card:hover {
   border-color: var(--clr-green);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.1);
 }
 
 /* أيقونة الرؤية */
@@ -1092,7 +1503,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(217, 164, 74, 0.1);
   color: var(--clr-green);
   display: flex;
   align-items: center;
@@ -1139,7 +1550,7 @@
 
 .mkt-pro-gallery-item:hover {
   border-color: var(--clr-green);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+  box-shadow: 0 8px 24px rgba(217, 164, 74, 0.12);
 }
 
 .mkt-pro-gallery-item img {
@@ -1181,8 +1592,8 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
-  border: 2px solid rgba(16, 185, 129, 0.3);
+  background-color: rgba(217, 164, 74, 0.1);
+  border: 2px solid rgba(217, 164, 74, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1348,7 +1759,6 @@
   /* أقسام المشروع — مسافات أقل وتخفيف الحشوة الجانبية لمنع الانضغاط */
   .mkt-pro-section {
     padding: 2rem 1rem;
-    border-radius: var(--radius-sm);
   }
 
   .mkt-pro-section-header {
@@ -1422,6 +1832,467 @@
   }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Document Utility System — Premium Flat Components
+   ─────────────────────────────────────────────────────────────────────────
+   Clean, minimal utility classes for structured project/case-study content.
+   Design: 0.5px borders · no box-shadows · logical CSS for RTL/LTR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Stat Grid — Baseline Metrics ─── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.25rem;
+  margin-block: 2rem;
+}
+
+.stat-grid > div {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.stat-val {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+  color: var(--clr-white);
+}
+
+.stat-val.red { color: #ef4444; }
+.stat-val.up  { color: var(--clr-green); }
+
+.stat-lbl {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ─── Problem List — Severity-Badged Diagnosis ─── */
+.mkt-pro-prose .problem-list,
+.mkt-cs-prose .problem-list {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mkt-pro-prose .problem-list li,
+.mkt-cs-prose .problem-list li {
+  padding: 1rem 1.25rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.pb-critical,
+.pb-high,
+.pb-mid {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-inline-end: 0.5rem;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.pb-critical {
+  background-color: rgba(239, 68, 68, 0.12);
+  border: 0.5px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.pb-high {
+  background-color: rgba(245, 158, 11, 0.12);
+  border: 0.5px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+.pb-mid {
+  background-color: rgba(217, 164, 74, 0.12);
+  border: 0.5px solid rgba(217, 164, 74, 0.3);
+  color: #D9A44A;
+}
+
+/* ─── Two-Column Comparison ─── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-block: 2rem;
+}
+
+.col-card {
+  padding: 1.5rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+}
+
+.col-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.col-card p {
+  color: var(--clr-text-light);
+  line-height: 1.75;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ─── Badge Row — Inline Keyword Pills ─── */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 1.25rem;
+}
+
+.bdg {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border: 0.5px solid rgba(217, 164, 74, 0.3);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--clr-green);
+  background-color: rgba(217, 164, 74, 0.06);
+  letter-spacing: 0.3px;
+}
+
+/* ─── Segment Row — Audience Partitioning ─── */
+.seg-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-block: 2rem;
+}
+
+.seg-card {
+  padding: 1.75rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+}
+
+.seg-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.5px solid var(--clr-border);
+}
+
+.seg-title.primary  { color: var(--clr-green); }
+.seg-title.secondary { color: #f59e0b; }
+
+.seg-card p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.seg-card p:last-child { margin-bottom: 0; }
+
+/* ─── Journey Flow — Vertical Timeline ─── */
+.journey-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-block: 2rem;
+  padding-inline-start: 0;
+  border-inline-start: 2px solid rgba(217, 164, 74, 0.2);
+}
+
+.j-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  padding-inline-start: 1.5rem;
+}
+
+.j-step + .j-step {
+  border-top: 0.5px solid var(--clr-border);
+}
+
+.j-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(217, 164, 74, 0.1);
+  border: 1.5px solid var(--clr-green);
+  color: var(--clr-green);
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.j-body strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--clr-white);
+  margin-bottom: 0.35rem;
+}
+
+.j-body p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  margin: 0;
+}
+
+/* ─── Comparison Table — Clean Flat ─── */
+.mkt-pro-prose .comp-table,
+.mkt-cs-prose .comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 2rem;
+  font-size: 0.9rem;
+}
+
+.comp-table th,
+.comp-table td {
+  padding: 1rem 1.25rem;
+  border: 0.5px solid var(--clr-border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.comp-table th {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--clr-white);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comp-table td {
+  color: var(--clr-text-light);
+  line-height: 1.65;
+}
+
+/* ─── Phase Track — Expansion Roadmap ─── */
+.phase-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-block: 2rem;
+  border-inline-start: 2px solid rgba(217, 164, 74, 0.2);
+}
+
+.ph-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  padding-inline-start: 1.5rem;
+}
+
+.ph-step + .ph-step {
+  border-top: 0.5px solid var(--clr-border);
+}
+
+.ph-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(217, 164, 74, 0.1);
+  border: 1.5px solid var(--clr-green);
+  color: var(--clr-green);
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.ph-body strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--clr-white);
+  margin-bottom: 0.35rem;
+}
+
+.ph-body p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--clr-text-light);
+  margin: 0;
+}
+
+/* ─── Evaluation Grid — Strengths vs. Improvements ─── */
+.eval-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-block: 2rem;
+}
+
+.eval-card {
+  padding: 1.75rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+}
+
+.eval-card h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.5px solid var(--clr-border);
+}
+
+.eval-plus h4  { color: var(--clr-green); }
+.eval-minus h4 { color: #f59e0b; }
+
+.mkt-pro-prose .eval-card ul,
+.mkt-cs-prose .eval-card ul {
+  list-style: disc;
+  padding-inline-start: 1.25rem;
+  margin-bottom: 0;
+}
+
+.mkt-pro-prose .eval-card ul li,
+.mkt-cs-prose .eval-card ul li {
+  margin-bottom: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  padding-inline-start: 0;
+}
+
+/* ─── Note — Minimal Callout ─── */
+.note {
+  padding: 1.25rem 1.5rem;
+  border-inline-start: 3px solid var(--clr-green);
+  background-color: rgba(217, 164, 74, 0.03);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-block: 2rem;
+}
+
+.note p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--clr-text-light);
+  margin: 0;
+}
+
+.note strong {
+  color: var(--clr-white);
+}
+
+/* ─── Persona Card ─── */
+.persona-card {
+  padding: 1.75rem;
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  border-inline-start: 3px solid var(--clr-green);
+  margin-block: 2rem;
+}
+
+.persona-card strong:first-child {
+  display: block;
+  font-size: 1rem;
+  color: var(--clr-green);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 0.5px solid var(--clr-border);
+}
+
+.persona-card p {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--clr-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.persona-card p:last-child { margin-bottom: 0; }
+
+/* ─── Document Utility Responsive ─── */
+@media (max-width: 767px) {
+  .stat-grid  { grid-template-columns: repeat(2, 1fr); }
+  .two-col    { grid-template-columns: 1fr; }
+  .seg-row    { grid-template-columns: 1fr; }
+  .eval-grid  { grid-template-columns: 1fr; }
+  .comp-table { font-size: 0.82rem; }
+  .comp-table th,
+  .comp-table td { padding: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Logo Evolution Gallery ─── */
+.logo-evo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-block: 2rem;
+}
+
+.logo-evo-card {
+  border: 0.5px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.logo-evo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.logo-evo-lbl {
+  display: block;
+  text-align: center;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--clr-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top: 0.5px solid var(--clr-border);
+}
+
+@media (max-width: 767px) {
+  .logo-evo-grid { grid-template-columns: 1fr; max-width: 360px; }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    المختبر (The Lab): الهيدر والتصميم التحريري (Editorial Magazine Style)
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -1440,7 +2311,7 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  border-bottom: 2px solid rgba(21, 216, 187, 0.1);
+  border-bottom: 2px solid rgba(217, 164, 74, 0.1);
 }
 
 .mkt-lab-hero-img-wrapper {
@@ -1568,7 +2439,7 @@ html[lang="ar"] .mkt-lab-title {
 .mkt-lab-prose {
   font-size: 1.15rem;
   line-height: 2;
-  color: #d8e2f0;
+  color: #F7F5F1;
   margin-bottom: 4rem;
 }
 
@@ -1589,4 +2460,76 @@ html[lang="ar"] .mkt-lab-title {
   border-radius: var(--radius-md);
   margin: 3rem 0;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── ملاءمة الهواتف الذكية والتجاوب (Responsive Spacing Overrides) ─── */
+@media (max-width: 768px) {
+  .mkt-cs-section-card {
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+  }
+  .mkt-cs-section-card h2 {
+    font-size: 1.25rem;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .mkt-cs-section-card:not(.mkt-cs-section-card--intro) h2::before {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+    border-width: 1.5px;
+  }
+  .mkt-cs-prose p,
+  .mkt-pro-prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1rem;
+  }
+}
+
+/* ─── رسالة الهواتف (Mobile Notice) ─── */
+.mkt-mobile-notice {
+  display: none;
+  background-color: var(--clr-bg-alt);
+  border: 1px solid var(--clr-border);
+  border-right: 4px solid var(--clr-brand-primary);
+  padding: 1.25rem;
+  margin: 2rem 0;
+  border-radius: var(--radius-md);
+  color: var(--clr-text);
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(255, 200, 0, 0.15);
+}
+
+html[dir="ltr"] .mkt-mobile-notice,
+[dir="ltr"] .mkt-mobile-notice {
+  border-right: 1px solid var(--clr-border);
+  border-left: 4px solid var(--clr-brand-primary);
+}
+
+html[dir="rtl"] .mkt-mobile-notice,
+[dir="rtl"] .mkt-mobile-notice {
+  border-right: 4px solid var(--clr-brand-primary);
+  border-left: 1px solid var(--clr-border);
+}
+
+.mkt-mobile-notice i {
+  font-size: 1.5rem;
+  color: var(--clr-brand-primary);
+  margin-top: 0.2rem;
+}
+
+.mkt-mobile-notice p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .mkt-mobile-notice {
+    display: flex;
+  }
 }

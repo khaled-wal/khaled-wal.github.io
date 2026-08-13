@@ -1,151 +1,100 @@
 ---
 layout: default
+lang: ar
 title: "أعمالي"
 translation_key: case_studies
 permalink: /portfolio/
 light_bg: true
-description: "استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق والاتصال."
+description: "استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق."
 ---
 
 <section class="portfolio-page-section bg-light">
   <div class="container">
-    <h1 class="portfolio-page-title reveal">أعمالي</h1>
+    <div class="portfolio-page-header reveal" style="margin-bottom: 2rem;">
+      <h1 class="portfolio-page-title">أعمالي</h1>
+      <p class="portfolio-page-subdesc" style="color: var(--clr-text-dark); font-size: 1.1rem; max-width: 680px; margin-top: 0.5rem;">مشاريع وحملات استراتيجية ودراسات تحليليّة تُركز على إحداث أثر تسويقي ملموس واستخلاص الرؤى المبنية على البيانات.</p>
+    </div>
+
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 1: أعمال السوق الحقيقية (Market Work)
-         کل بطاقة تمثّل مشروعاً حقيقياً مع عميل أو علامة تجارية.
-         الفلتر: status=published AND lang=ar
+         أزرار الفرز والتصفية (Filter Tabs)
     ══════════════════════════════════════════════════════════════ -->
-    <div class="portfolio-tier-market reveal">
-      <div class="portfolio-market-wrapper">
-        <div class="market-sticky-sidebar">
-          <h2 class="market-sidebar-title">أعمال السوق</h2>
-        </div>
-        <div class="market-content-col">
-          <!-- المشاريع -->
-          <h3 class="portfolio-page-subtitle">المشاريع</h3>
-          <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign market_pr = site.projects | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse -%}
-            {% for item in market_pr %}
-            <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    {% if item.image %}
-                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-                    {% else %}
-                    <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
-                    {% endif %}
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        {% if item.client %}
-                            {{ site.data.i18n.ar.client }} {{ item.client }}
-                        {% else %}
-                            {{ site.data.i18n.ar.projects }}
-                        {% endif %}
-                    </span>
-                    {% if item.project_phase %}
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.project_phase }}</span>
-                    {% endif %}
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            {% else %}
-            <p>لا توجد مشاريع حالياً.</p>
-            {% endfor %}
-          </div>
-          <!-- دراسات الحالة -->
-          <h3 class="portfolio-page-subtitle">دراسات الحالة</h3>
-          <div class="portfolio-grid-custom tier-market-grid">
-            {%- assign market_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse -%}
-            {% for item in market_cs %}
-            <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
-            <article class="portfolio-card">
-                <div class="card-image">
-                    {% if item.image %}
-                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-                    {% else %}
-                    <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
-                    {% endif %}
-                </div>
-                <div class="card-content">
-                    <span class="category">
-                        {% if item.client %}
-                            {{ site.data.i18n.ar.client }} {{ item.client }}
-                        {% elsif item.brand_analyzed %}
-                            {{ site.data.i18n.ar.cs_brand_analyzed }}: {{ item.brand_analyzed }}
-                        {% else %}
-                            {{ site.data.i18n.ar.latest_case_studies }}
-                        {% endif %}
-                    </span>
-                    {% if item.project_phase %}
-                    <span class="project-status-tag"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> {{ item.project_phase }}</span>
-                    {% endif %}
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-                </div>
-            </article>
-            </a>
-            {% else %}
-            <p>لا توجد دراسات حالة حالياً.</p>
-            {% endfor %}
-          </div>
-        </div>
+    <div class="portfolio-filter-wrapper reveal" style="margin-bottom: 2.5rem;">
+      <div class="portfolio-filter-tabs" role="tablist" aria-label="تصنيفات الأعمال">
+        <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+          {{ site.data.i18n.ar.filter_all }}
+        </button>
+        <button type="button" class="filter-tab" data-filter="strategy" role="tab" aria-selected="false">
+          <i class="fa-solid fa-chart-line" aria-hidden="true"></i> {{ site.data.i18n.ar.filter_strategy }}
+        </button>
+        <button type="button" class="filter-tab" data-filter="creative" role="tab" aria-selected="false">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> {{ site.data.i18n.ar.filter_creative }}
+        </button>
       </div>
     </div>
-    <!-- /portfolio-tier-market -->
+
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 2: الأعمال التدريبية (Training Works)
-         مشاريع استكشافية وتدريبية وأكاديمية.
-         الفلتر: من مجموعة (collection) lab
+         شبكة الأعمال الموحدة (Unified Works Grid)
+         عرض متناسق ومتكافئ لجميع المشاريع ودراسات الحالة
     ══════════════════════════════════════════════════════════════ -->
-    {%- assign all_lab = site.lab | where: "lang", "ar" | sort: "order" | reverse -%}
-    {% if all_lab.size > 0 %}
-    <div class="portfolio-tier-training reveal">
-      <div class="training-wrapper">
-        <span class="tier-label">
-          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-          الأعمال التدريبية
-        </span>
-        <div class="portfolio-grid-custom tier-training-grid">
-          {% for item in all_lab %}
-          <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
+    <div class="portfolio-grid reveal" id="portfolio-grid" style="margin-bottom: 4rem;">
+      {%- assign all_projects = site.projects | where: "lang", "ar" | where: "publish_state", "published" -%}
+      {%- assign all_case_studies = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" -%}
+      {%- assign all_lab_items = site.lab | where: "lang", "ar" | where: "publish_state", "published" -%}
+      {%- assign all_published_works = all_projects | concat: all_case_studies | concat: all_lab_items | sort: "order" | reverse -%}
+
+      {% for item in all_published_works %}
+      <div class="portfolio-item-wrapper" data-work-type="{{ item.work_type | default: 'strategy' }}">
+        <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
           <article class="portfolio-card">
-              <div class="card-image">
-                  {% if item.image %}
-                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-                  {% else %}
+            <div class="card-image">
+              {% if item.image %}
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+              {% else %}
+                {% if item.collection == 'case_studies' %}
+                  <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                {% elsif item.collection == 'lab' %}
                   <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
-                  {% endif %}
+                {% else %}
+                  <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                {% endif %}
+              {% endif %}
+            </div>
+            <div class="card-content">
+              <span class="category">
+                {% if item.client %}
+                  {{ site.data.i18n.ar.client }} {{ item.client }}
+                {% elsif item.brand_analyzed %}
+                  {{ site.data.i18n.ar.cs_brand_analyzed }}: {{ item.brand_analyzed }}
+                {% elsif item.collection == 'case_studies' %}
+                  {{ site.data.i18n.ar.case_studies }}
+                {% elsif item.category %}
+                  {{ item.category }}
+                {% else %}
+                  {{ site.data.i18n.ar.projects }}
+                {% endif %}
+              </span>
+
+              {% if item.tags %}
+              <div class="card-tags">
+                {% for tag in item.tags %}
+                  <span class="card-tag">{{ tag }}</span>
+                {% endfor %}
               </div>
-              <div class="card-content">
-                  <!-- Dynamic Badging Logic: Connects to 'training-badge' classes in style.css -->
-                  {% if item.training_type %}
-                  <span class="training-badge {{ item.training_type_class | default: 'badge-default' }}">
-                      {{ item.training_type }}
-                  </span>
-                  {% else %}
-                  <span class="category">{{ item.category | default: "مشروع أكاديمي / تدريبي" }}</span>
-                  {% endif %}
-                  
-                  <h3>{{ item.title }}</h3>
-                  <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
-                  <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
-              </div>
+              {% endif %}
+
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.objective | default: item.description | truncatewords: 15 }}</p>
+              <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+            </div>
           </article>
-          </a>
-          {% endfor %}
-        </div>
+        </a>
       </div>
+      {% else %}
+        <p>لا توجد أعمال حالياً.</p>
+      {% endfor %}
     </div>
-    {% endif %}
-    <!-- /portfolio-tier-training -->
     <!-- ══════════════════════════════════════════════════════════════
-         TIER 3: قيد التنفيذ (Coming Soon)
-         مشاريع لم تُكتمل بعد — مُقفلة بصرياً مع Hover Overlay.
+         قيد التنفيذ (Coming Soon)
     ══════════════════════════════════════════════════════════════ -->
     {%- assign coming_soon_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "coming_soon" -%}
     {%- assign coming_soon_pr = site.projects | where: "lang", "ar" | where: "publish_state", "coming_soon" -%}
@@ -179,7 +128,38 @@ description: "استعرض دراسات الحالة والمشاريع التي
       </div>
     </div>
     {% endif %}
-    <!-- /portfolio-tier-coming-soon -->
 
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var tabs = document.querySelectorAll('.filter-tab');
+  var items = document.querySelectorAll('.portfolio-item-wrapper');
+  if (!tabs.length || !items.length) return;
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var filter = this.getAttribute('data-filter');
+      tabs.forEach(function (t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      items.forEach(function (item) {
+        var type = item.getAttribute('data-work-type');
+        if (filter === 'all' || type === filter) {
+          item.style.display = 'block';
+          setTimeout(function() { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.95)';
+          setTimeout(function() { item.style.display = 'none'; }, 200);
+        }
+      });
+    });
+  });
+});
+</script>

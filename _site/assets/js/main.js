@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Contact form — AJAX submit + custom redirect ─────────────────────
-  // Submits via fetch() so we control the redirect ourselves,
-  // bypassing Formspree's default thank-you page entirely.
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
@@ -28,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
-      // Visual feedback while sending
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
 
@@ -40,19 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
-          // Redirect to the correct thanks page based on language
           const isEnglish = window.location.pathname.startsWith('/en');
-          window.location.href = isEnglish
-            ? 'https://khaled-wal.github.io/en/thanks/'
-            : 'https://khaled-wal.github.io/thanks/';
+          window.location.href = isEnglish ? '/en/thanks/' : '/thanks/';
         } else {
-          // Server returned an error — restore button and alert user
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           alert('Something went wrong. Please try again or email me directly.');
         }
       } catch (err) {
-        // Network error
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
         alert('Could not send your message. Please check your connection.');
@@ -66,12 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openMenu() {
     mainNav.classList.add('nav-open');
+    document.body.classList.add('menu-open');
     menuToggle.setAttribute('aria-expanded', 'true');
     menuToggle.querySelector('i').classList.replace('fa-bars', 'fa-xmark');
   }
 
   function closeMenu() {
     mainNav.classList.remove('nav-open');
+    document.body.classList.remove('menu-open');
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
   }
@@ -82,12 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
       isOpen ? closeMenu() : openMenu();
     });
 
-    // Close menu when a nav link is clicked (important for same-page anchors)
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
 
-    // Close menu on outside click
     document.addEventListener('click', (e) => {
       if (!header.contains(e.target) && mainNav.classList.contains('nav-open')) {
         closeMenu();
@@ -95,10 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── CV Carousel (mobile only): 3 slides — Experience, Education, Certifications ──
-  // On mobile (≤768px), pulls .cv-certifications out of its parent cv-column
-  // and appends it to .cv-grid as a 3rd independent scroll slide.
-  // On desktop resize, it is moved back inside the Education column.
+  // ── CV Carousel (mobile only): 3 slides ──
   const cvGrid = document.querySelector('.cv-grid');
   const cvContainer = document.querySelector('.cv-container');
   const educationColumn = cvGrid ? cvGrid.querySelectorAll('.cv-column')[1] : null;
@@ -111,13 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile && !isMobileCarousel && certSection && cvGrid) {
-      // Move certifications out of Education column → becomes 3rd slide
       certSection.classList.add('cv-carousel-slide');
       cvGrid.appendChild(certSection);
       isMobileCarousel = true;
       renderDots();
     } else if (!isMobile && isMobileCarousel && certSection && educationColumn) {
-      // Restore certifications back inside Education column
       certSection.classList.remove('cv-carousel-slide');
       educationColumn.appendChild(certSection);
       isMobileCarousel = false;
@@ -145,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cvContainer.appendChild(dotsWrapper);
 
-    // Update active dot on scroll
     cvGrid.addEventListener('scroll', () => {
       const dots = dotsWrapper.querySelectorAll('.cv-dot');
       const allSlides = cvGrid.querySelectorAll('.cv-column, .cv-certifications.cv-carousel-slide');
@@ -161,6 +147,68 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cvGrid && cvContainer && certSection) {
     buildCarousel();
     window.addEventListener('resize', buildCarousel, { passive: true });
+  }
+
+  // ── UI/UX Overhaul for Long-Form Content & Case Studies ────────────────
+  const proseContainers = document.querySelectorAll('.mkt-pro-prose, .mkt-cs-prose');
+  if (proseContainers.length > 0) {
+    
+    // 1. Wrap all tables in a responsive overflow container
+    document.querySelectorAll('.mkt-pro-prose table, .mkt-cs-prose table').forEach(table => {
+      if (!table.parentNode.classList.contains('table-responsive-wrapper')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
+
+    // 2. Parse text patterns like [حرج], [عالي], [متوسط] and convert to CSS status badges
+    const badgeMap = [
+      { text: '[حرج]', replacement: '<span class="badge-status badge-critical">حرج</span>' },
+      { text: '[Critical]', replacement: '<span class="badge-status badge-critical">Critical</span>' },
+      { text: '[عالي]', replacement: '<span class="badge-status badge-high">عالي</span>' },
+      { text: '[High]', replacement: '<span class="badge-status badge-high">High</span>' },
+      { text: '[متوسط]', replacement: '<span class="badge-status badge-medium">متوسط</span>' },
+      { text: '[Medium]', replacement: '<span class="badge-status badge-medium">Medium</span>' }
+    ];
+
+    proseContainers.forEach(container => {
+      const elementsToSearch = container.querySelectorAll('p, li, strong, h2, h3, td');
+      elementsToSearch.forEach(el => {
+        let html = el.innerHTML;
+        let modified = false;
+        
+        badgeMap.forEach(badge => {
+          if (html.includes(badge.text)) {
+            html = html.replaceAll(badge.text, badge.replacement);
+            modified = true;
+          }
+        });
+        
+        if (modified) {
+          el.innerHTML = html;
+        }
+      });
+
+      // 3. Upgrade standard blockquotes into gorgeous callout boxes
+      container.querySelectorAll('blockquote').forEach(bq => {
+        let html = bq.innerHTML;
+        const text = bq.textContent;
+        
+        if (text.includes('💡') || text.includes('[رؤية]') || text.includes('Insight')) {
+          bq.className = 'callout-insight';
+          bq.innerHTML = `<i class="fa-solid fa-lightbulb callout-icon"></i><div class="callout-content">${html}</div>`;
+        } else if (text.includes('⚠️') || text.includes('Strategic') || text.includes('[استراتيجية]')) {
+          bq.className = 'callout-strategic';
+          bq.innerHTML = `<i class="fa-solid fa-triangle-exclamation callout-icon"></i><div class="callout-content">${html}</div>`;
+        } else {
+          // Standard callout gets standard green strategic look with info-circle
+          bq.className = 'callout-strategic';
+          bq.innerHTML = `<i class="fa-solid fa-circle-info callout-icon"></i><div class="callout-content">${html}</div>`;
+        }
+      });
+    });
   }
 
 });
