@@ -1,27 +1,30 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-699YXNTX31');
-</script>
 
-    <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
+  (function() {
+    function loadGTM() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGTM);
+    } else {
+      window.addEventListener('load', loadGTM, { once: true });
+    }
+  })();
+</script>
+<!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>الرئيسية | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
@@ -30,49 +33,8 @@
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/">
 
-    <!-- Hreflang Links for Internationalization -->
-    
-        
-        
-        <link rel="alternate" hreflang="ar" href="http://localhost:4000/">
-        
-        
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/">
+    <!-- Hreflang Links for Internationalization --><link rel="alternate" hreflang="ar" href="http://localhost:4000/"><link rel="alternate" hreflang="en" href="http://localhost:4000/en/">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/">
-    
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <meta property="og:type" content="website">
@@ -81,13 +43,13 @@
     <meta property="og:description" content="خالد هاشم — متخصص تسويق؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج.">
     <meta property="og:url" content="http://localhost:4000/">
     <meta property="og:locale" content="ar_SA">
-    <meta property="og:image" content="http://localhost:4000/assets/images/profile.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/hero-pic.webp">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="الرئيسية | خالد هاشم">
     <meta name="twitter:description" content="خالد هاشم — متخصص تسويق؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/profile.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/hero-pic.webp">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -97,7 +59,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "http://localhost:4000",
-      "image": "http://localhost:4000/assets/images/profile.png",
+      "image": "http://localhost:4000/assets/images/hero-pic.webp",
       "sameAs": [
         "https://www.linkedin.com/in/khaledwhashem/",
         "https://x.com/KhaledwHashem"
@@ -117,38 +79,29 @@
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
 
-    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
-    
-    <link rel="preload" as="image" href="/assets/images/linkedin-pic.jpeg">
-    
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
+    <link rel="preload" as="image" href="/assets/images/hero-pic.webp" type="image/webp" fetchpriority="high">
 
-    <!-- Google Fonts: preconnect for faster load -->
+    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786732035">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    
 </head>
 
-<body class="">
-
-    <header class="site-header">
-  
-
-  
-
-  <div class="container header-inner">
+<body class=""><header class="site-header"><div class="container header-inner">
     <a href="/" class="logo">
-      <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo">
+      <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
       خالد هاشم<span>.</span>
     </a>
 
@@ -184,9 +137,7 @@
     </button>
   </div>
 
-</header>
-
-    <main id="main-content">
+</header><main id="main-content">
         
 <!-- ══════════════════════════════════════════════════════════════════════════
      ░░ قسم الهيرو (Hero Section) — أعلى الصفحة ░░
@@ -217,10 +168,10 @@
             </div>
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
-        <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
+        <!-- اسم الملف الحالي: hero-pic.webp — ضعه في مجلد assets/images/ -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="/assets/images/linkedin-pic.jpeg" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="700" height="700" />
+                <img src="/assets/images/hero-pic.webp" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="700" height="700" />
             </div>
         </div>
     </div>
@@ -263,7 +214,7 @@
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.png" alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق" />
+                    <img src="/assets/images/projects/Rawnak/Rawnak-hero.jpg" alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق" width="505" height="300" loading="lazy" decoding="async" />
                     
                 </div>
                 <div class="card-content">
@@ -294,7 +245,7 @@
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/case-studies/shawarma-house/shawarma-hero.png" alt="بيت الشاورما: حين يبتلع النمو الاسم الذي بُني عليه" />
+                    <img src="/assets/images/case-studies/shawarma-house/shawarma-hero.jpg" alt="بيت الشاورما: حين يبتلع النمو الاسم الذي بُني عليه" width="505" height="300" loading="lazy" decoding="async" />
                     
                 </div>
                 <div class="card-content">
@@ -327,7 +278,7 @@
             <article class="portfolio-card">
                 <div class="card-image">
                     
-                    <img src="/assets/images/case-studies/Zoi%20Campain/zoi-hero.png" alt="أفضل مشروب بعد الموية: تشريح حملة زوي آيس تي" />
+                    <img src="/assets/images/case-studies/Zoi%20Campain/zoi-hero.jpg" alt="أفضل مشروب بعد الموية: تشريح حملة زوي آيس تي" width="505" height="300" loading="lazy" decoding="async" />
                     
                 </div>
                 <div class="card-content">
@@ -596,15 +547,15 @@
                 <input type="hidden" name="_next" value="http://localhost:4000/thanks/" />
                 <div class="form-group">
                     <label for="name">الاسم الكامل</label>
-                    <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" required="" />
+                    <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" autocomplete="name" required="" />
                 </div>
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني</label>
-                    <input type="email" name="email" id="email" placeholder="البريد الإلكتروني الخاص بك" required="" />
+                    <input type="email" name="email" id="email" placeholder="البريد الإلكتروني الخاص بك" autocomplete="email" required="" />
                 </div>
                 <div class="form-group">
                     <label for="message">الرسالة</label>
-                    <textarea name="message" id="message" rows="5" placeholder="حدثني أكثر عن ما تود إنجازه..." required=""></textarea>
+                    <textarea name="message" id="message" rows="5" placeholder="حدثني أكثر عن ما تود إنجازه..." autocomplete="off" required=""></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary submit-btn">إرسال الرسالة <i class="fa-solid fa-paper-plane"></i></button>
             </form>
@@ -621,10 +572,10 @@
                     </div>
                     <div class="linkedin-badge-body">
                         <div class="linkedin-badge-avatar">
-                            <img src="/assets/images/linkedin-pic.jpeg" alt="خالد وليد هاشم" class="linkedin-avatar-img" />
+                            <img src="/assets/images/linkedin-pic.webp" alt="خالد وليد هاشم" class="linkedin-avatar-img" width="56" height="56" loading="lazy" decoding="async" />
                         </div>
                         <div class="linkedin-badge-info">
-                            <h4 class="linkedin-badge-name">خالد وليد هاشم</h4>
+                            <h3 class="linkedin-badge-name">خالد وليد هاشم</h3>
                             <p class="linkedin-badge-title">متخصص إتصال تسويقي</p>
                             <p class="linkedin-badge-univ">جامعة الإمام محمد بن سعود الإسلامية</p>
                         </div>
@@ -658,13 +609,13 @@
        EDIT: Update social links, footer tagline, and quick links below
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer bg-navy">
+        <h2 class="sr-only">روابط التذييل</h2>
         <div class="container footer-inner">
 
             <!-- Brand Column -->
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo"
-                        style="height:30px; width:auto;">
+                    <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
                     خالد هاشم<span>.</span>
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->

@@ -1,17 +1,17 @@
-{% assign current_lang = page.lang | default: 'ar' %}
-{% if page.url contains '/en/' %}{% assign current_lang = 'en' %}{% endif %}
-{% assign t = site.data.i18n[current_lang] %}
-{% assign social_x = site.data.social.x %}
-{% assign social_x_handle = site.data.social.x_handle %}
-{% assign social_linkedin = site.data.social.linkedin %}
-{% assign social_email = site.data.social.email %}
+{%- assign current_lang = page.lang | default: 'ar' -%}
+{%- if page.url contains '/en/' %}{%- assign current_lang = 'en' %}{%- endif -%}
+{%- assign t = site.data.i18n[current_lang] -%}
+{%- assign social_x = site.data.social.x -%}
+{%- assign social_x_handle = site.data.social.x_handle -%}
+{%- assign social_linkedin = site.data.social.linkedin -%}
+{%- assign social_email = site.data.social.email -%}
 <!DOCTYPE html>
 <html lang="{{ current_lang }}" dir="{% if current_lang == 'en' %}ltr{% else %}rtl{% endif %}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% include google-analytics.html %}
+    {%- include google-analytics.html -%}
     <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}</title>
 
@@ -22,33 +22,33 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
 
     <!-- Hreflang Links for Internationalization -->
-    {% if page.translation_key %}
-        {% assign alt_lang = 'en' %}
-        {% if current_lang == 'en' %}{% assign alt_lang = 'ar' %}{% endif %}
+    {%- if page.translation_key -%}
+        {%- assign alt_lang = 'en' -%}
+        {%- if current_lang == 'en' %}{%- assign alt_lang = 'ar' %}{%- endif -%}
         <link rel="alternate" hreflang="{{ current_lang }}" href="{{ site.url }}{{ page.url }}">
-        {% if current_lang == 'ar' %}
-            {% assign alt_url = '/en' | append: page.url %}
-            {% assign x_default_url = page.url %}
-        {% else %}
-            {% assign alt_url = page.url | remove_first: '/en' %}
-            {% if alt_url == '' %}{% assign alt_url = '/' %}{% endif %}
-            {% assign x_default_url = alt_url %}
-        {% endif %}
-        {% assign combined_docs = site.case_studies | concat: site.projects | concat: site.lab %}
-        {% for doc in combined_docs %}
-            {% assign doc_lang = 'ar' %}
-            {% if doc.url contains '/en/' %}{% assign doc_lang = 'en' %}{% endif %}
-            {% if doc.translation_key == page.translation_key and doc_lang == alt_lang %}
-                {% assign alt_url = doc.url %}
-                {% if alt_lang == 'ar' %}
-                    {% assign x_default_url = doc.url %}
-                {% endif %}
-                {% break %}
-            {% endif %}
-        {% endfor %}
+        {%- if current_lang == 'ar' -%}
+            {%- assign alt_url = '/en' | append: page.url -%}
+            {%- assign x_default_url = page.url -%}
+        {%- else -%}
+            {%- assign alt_url = page.url | remove_first: '/en' -%}
+            {%- if alt_url == '' %}{%- assign alt_url = '/' %}{%- endif -%}
+            {%- assign x_default_url = alt_url -%}
+        {%- endif -%}
+        {%- assign combined_docs = site.case_studies | concat: site.projects | concat: site.lab -%}
+        {%- for doc in combined_docs -%}
+            {%- assign doc_lang = 'ar' -%}
+            {%- if doc.url contains '/en/' %}{%- assign doc_lang = 'en' %}{%- endif -%}
+            {%- if doc.translation_key == page.translation_key and doc_lang == alt_lang -%}
+                {%- assign alt_url = doc.url -%}
+                {%- if alt_lang == 'ar' -%}
+                    {%- assign x_default_url = doc.url -%}
+                {%- endif -%}
+                {%- break -%}
+            {%- endif -%}
+        {%- endfor -%}
         <link rel="alternate" hreflang="{{ alt_lang }}" href="{{ site.url }}{{ alt_url }}">
         <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ x_default_url }}">
-    {% endif %}
+    {%- endif %}
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <meta property="og:type" content="website">
@@ -57,13 +57,13 @@
     <meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ar_SA{% endif %}">
-    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/profile.png' | absolute_url }}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url }}{% endif %}">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
     <meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
-    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/profile.png' | absolute_url }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url }}{% endif %}">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -73,7 +73,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "{{ site.url }}",
-      "image": "{{ '/assets/images/profile.png' | absolute_url }}",
+      "image": "{{ '/assets/images/hero-pic.webp' | absolute_url }}",
       "sameAs": [
         "{{ site.data.social.linkedin }}",
         "{{ site.data.social.x }}"
@@ -93,33 +93,34 @@
 
     <link rel="icon" href="{{ '/assets/images/Favicon.png' | relative_url }}" type="image/png">
 
-    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
-    {% if page.translation_key == 'home' %}
-    <link rel="preload" as="image" href="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}">
-    {% endif %}
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
+    {%- if page.translation_key == 'home' %}
+    <link rel="preload" as="image" href="{{ '/assets/images/hero-pic.webp' | relative_url }}" type="image/webp" fetchpriority="high">
+    {%- endif %}
 
-    <!-- Google Fonts: preconnect for faster load -->
+    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    {% if page.layout == 'case_study' or page.layout == 'project' or page.layout == 'lab_item' or page.translation_key == 'case_studies' %}
+    {%- if page.layout == 'case_study' or page.layout == 'project' or page.layout == 'lab_item' or page.translation_key == 'case_studies' %}
     <link rel="stylesheet" href="{{ '/assets/css/portfolio-layouts.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-    {% endif %}
+    {%- endif %}
 </head>
 
 <body class="{% if page.light_bg %}page-light-bg{% endif %}">
 
-    {% include header.html %}
+    {%- include header.html -%}
 
     <main id="main-content">
         {{ content }}
@@ -130,13 +131,13 @@
        EDIT: Update social links, footer tagline, and quick links below
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer bg-navy">
+        <h2 class="sr-only">{% if current_lang == 'en' %}Footer Navigation{% else %}روابط التذييل{% endif %}</h2>
         <div class="container footer-inner">
 
             <!-- Brand Column -->
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo"
-                        style="height:30px; width:auto;">
+                    <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo" width="30" height="30" decoding="async">
                     {{ t.site_name }}<span>.</span>
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->

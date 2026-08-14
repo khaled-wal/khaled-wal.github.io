@@ -323,10 +323,10 @@ light_bg: true
              ──────────────────────────────────────────────────────────────── -->
         {% if page.toc_items and page.toc_items.size > 0 %}
         <aside class="mkt-cs-toc" aria-label="{{ t.cs_toc_title }}">
-            <h3 class="mkt-cs-toc-heading">
+            <h2 class="mkt-cs-toc-heading">
                 <i class="fa-solid fa-list" aria-hidden="true"></i>
                 {{ t.cs_toc_title }}
-            </h3>
+            </h2>
             <nav>
                 <ul class="mkt-cs-toc-list">
                     {% for item in page.toc_items %}
@@ -433,12 +433,20 @@ light_bg: true
                 <div class="mkt-cs-comparison-grid">
                     <figure class="mkt-cs-comparison-item">
                         <img src="{{ page.before_image | relative_url }}" 
-                             alt="{{ t.cs_before }}">
+                             alt="{{ t.cs_before }}"
+                             width="800"
+                             height="500"
+                             loading="lazy"
+                             decoding="async">
                         <figcaption>{{ t.cs_before }}</figcaption>
                     </figure>
                     <figure class="mkt-cs-comparison-item">
                         <img src="{{ page.after_image | relative_url }}" 
-                             alt="{{ t.cs_after }}">
+                             alt="{{ t.cs_after }}"
+                             width="800"
+                             height="500"
+                             loading="lazy"
+                             decoding="async">
                         <figcaption>{{ t.cs_after }}</figcaption>
                     </figure>
                 </div>
@@ -451,7 +459,7 @@ light_bg: true
                 <div class="mkt-cs-gallery-grid">
                     {% for item in page.gallery %}
                     <figure class="mkt-cs-gallery-item">
-                        <img src="{{ item.image | relative_url }}" alt="{{ item.caption | default: page.title }}">
+                        <img src="{{ item.image | relative_url }}" alt="{{ item.caption | default: page.title }}" width="800" height="500" loading="lazy" decoding="async">
                         {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
                     </figure>
                     {% endfor %}
@@ -535,7 +543,7 @@ light_bg: true
   "@type": "Article",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
-  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/profile.png' | absolute_url | jsonify }}{% endif %}],
+  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url | jsonify }}{% endif %}],
   "author": {
     "@type": "Person",
     "name": "Khaled Hashem",

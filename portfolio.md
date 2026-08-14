@@ -36,6 +36,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
          شبكة الأعمال الموحدة (Unified Works Grid)
          عرض متناسق ومتكافئ لجميع المشاريع ودراسات الحالة
     ══════════════════════════════════════════════════════════════ -->
+    <h2 class="sr-only">قائمة الأعمال والمشاريع</h2>
     <div class="portfolio-grid reveal" id="portfolio-grid" style="margin-bottom: 4rem;">
       {%- assign all_projects = site.projects | where: "lang", "ar" | where: "publish_state", "published" -%}
       {%- assign all_case_studies = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" -%}
@@ -48,14 +49,14 @@ description: "استعرض دراسات الحالة والمشاريع التي
           <article class="portfolio-card">
             <div class="card-image">
               {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
               {% else %}
                 {% if item.collection == 'case_studies' %}
-                  <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/case-studies/case-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% elsif item.collection == 'lab' %}
-                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% else %}
-                  <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/projects/prog-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% endif %}
               {% endif %}
             </div>
@@ -112,9 +113,9 @@ description: "استعرض دراسات الحالة والمشاريع التي
           <article class="portfolio-card">
               <div class="card-image">
                   {% if item.image %}
-                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" aria-hidden="true">
+                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async" aria-hidden="true">
                   {% else %}
-                  <img src="{{ '/assets/images/coming-soon-def.png' | relative_url }}" alt="{{ item.title }}" aria-hidden="true">
+                  <img src="{{ '/assets/images/coming-soon-def.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async" aria-hidden="true">
                   {% endif %}
               </div>
               <div class="card-content">

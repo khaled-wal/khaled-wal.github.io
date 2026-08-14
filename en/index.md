@@ -38,10 +38,10 @@ description: "Khaled Hashem — Marketing Specialist; Transforming data into mar
                 <a href="{{ site.cv_path | default: '#' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
             </div>
         </div>
-        <!-- ✏️ EDIT: Profile photo — file: assets/images/profile.png -->
+        <!-- ✏️ EDIT: Profile photo — file: assets/images/hero-pic.webp -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="700" height="700">
+                <img src="{{ '/assets/images/hero-pic.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="profile-image" fetchpriority="high" width="700" height="700">
             </div>
         </div>
     </div>
@@ -90,12 +90,12 @@ description: "Khaled Hashem — Marketing Specialist; Transforming data into mar
             <article class="portfolio-card">
                 <div class="card-image">
                     {% if item.image %}
-                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                     {% else %}
                         {% if item.collection == 'case_studies' %}
-                        <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        <img src="{{ '/assets/images/case-studies/case-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                         {% else %}
-                        <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        <img src="{{ '/assets/images/projects/prog-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                         {% endif %}
                     {% endif %}
                 </div>
@@ -369,15 +369,15 @@ description: "Khaled Hashem — Marketing Specialist; Transforming data into mar
                 <input type="hidden" name="_next" value="{{ '/en/thanks/' | absolute_url }}">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" id="name" placeholder="Enter your name" autocomplete="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" autocomplete="email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="5" placeholder="Tell me more about your project..." required></textarea>
+                    <textarea name="message" id="message" rows="5" placeholder="Tell me more about your project..." autocomplete="off" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             </form>
@@ -394,10 +394,10 @@ description: "Khaled Hashem — Marketing Specialist; Transforming data into mar
                     </div>
                     <div class="linkedin-badge-body">
                         <div class="linkedin-badge-avatar">
-                            <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="Khaled Waleed Hashem" class="linkedin-avatar-img">
+                            <img src="{{ '/assets/images/linkedin-pic.webp' | relative_url }}" alt="Khaled Waleed Hashem" class="linkedin-avatar-img" width="56" height="56" loading="lazy" decoding="async">
                         </div>
                         <div class="linkedin-badge-info">
-                            <h4 class="linkedin-badge-name">Khaled Waleed Hashem</h4>
+                            <h3 class="linkedin-badge-name">Khaled Waleed Hashem</h3>
                             <p class="linkedin-badge-title">Marketing Communication Specialist</p>
                             <p class="linkedin-badge-univ">Imam Mohammad Ibn Saud Islamic University</p>
                         </div>

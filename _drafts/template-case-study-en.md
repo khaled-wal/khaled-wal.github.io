@@ -58,7 +58,7 @@ subtitle: "A brief description clarifying context or specialization"
 description: "One-sentence summary of this case study for search engines."
 
 # Card thumbnail image — shown in the portfolio grid
-#image: "/assets/images/case-studies/case-def-cover.png"
+#image: "/assets/images/case-studies/case-def-cover.jpg"
 
 # Wide hero image — top of the case study page (ideal: 1200×600)
 # Leave fully deleted if no image is available — the hero adapts without it

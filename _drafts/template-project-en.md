@@ -41,12 +41,12 @@ subtitle: "A brief supplementary description or business context"
 description: "One-sentence summary of this project for search engines."
 
 # Card thumbnail image
-image: "/assets/images/projects/prog-def-cover.png"
+image: "/assets/images/projects/prog-def-cover.jpg"
 
 # ═══════ Phase 2: Hero Section Data ═══════════════════════════════════
 
 # Wide hero image — ideal size 1200×600
-hero_image: "/assets/images/projects/prog-def-cover.png"
+hero_image: "/assets/images/projects/prog-def-cover.jpg"
 
 # Industry/Sector — optional badge in the hero
 industry: "E-Commerce"         # Examples: Fashion | Food & Beverage | EdTech

@@ -12,7 +12,7 @@ title: "بيت الشاورما: حين يبتلع النمو الاسم الذ�
 subtitle: "دراسة تموضع علامة تجارية — من التخصص المطلق إلى المنصة الغذائية الشاملة"
 description: "تحليل استراتيجي لتموضع بيت الشاورما، وكيف يخلق التوسع السريع للقائمة فجوة بين وعد الاسم التأسيسي وتجربة المنتج الفعلي."
 
-image: "assets/images/case-studies/shawarma-house/shawarma-hero.png"
+image: "assets/images/case-studies/shawarma-house/shawarma-hero.jpg"
 
 # لا توجد صورة غلاف مرفقة — احذف هذا التعليق وأضف الحقل عند توفر صورة
 #hero_image: "/assets/images/case-studies/bayt-alshawarma-hero.jpg"

@@ -17,7 +17,7 @@ work_type: "strategy"
 tags: ["Positioning Strategy", "Consumer Behavior", "Content Creation"]
 publish_state: "published"  # "published" | "coming_soon"
 description: "A comprehensive brand audit, visual identity overhaul, and market repositioning strategy for a bespoke handmade resin accessories D2C brand."
-image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
+image: "/assets/images/projects/Rawnak/Rawnak-hero.jpg"
 
 # ═══════ Section 2: Hero Section ═════════════════════════════════════
 title: "Restructuring and repositioning of a handmade accessories store - Rawnak"
@@ -96,9 +96,9 @@ kpi_4_value: "Affordable Luxury"
 
 # ─── Visual Gallery — Image Paths ────────────────────────────────────
 gallery:
-  - "/assets/images/projects/Rawnak/rawnak-insta-before.png"
-  - "/assets/images/projects/Rawnak/rawnak-insta-after.png"
-  - "/assets/images/projects/Rawnak/samble.png"
+  - "/assets/images/projects/Rawnak/rawnak-insta-before.jpg"
+  - "/assets/images/projects/Rawnak/rawnak-insta-after.jpg"
+  - "/assets/images/projects/Rawnak/sample.jpg"
 
 # ─── Tools Used — Displayed as Badges ────────────────────────────────
 tools_used:
@@ -144,11 +144,11 @@ tools_used:
 
 <div class="two-col">
   <div class="col-card">
-    <h4>The Old Name</h4>
+    <h3>The Old Name</h3>
     <p><strong>Pink Bara</strong> — A confusing mix of English and Japanese meaning "pink rose." It alienated the local demographic, carried zero premium associations, and failed to communicate the handmade craft value.</p>
   </div>
   <div class="col-card">
-    <h4>The New Name</h4>
+    <h3>The New Name</h3>
     <p><strong>Rawnak (رونق)</strong> — An elegant Arabic word meaning radiance, grace, and exquisite splendor. "When you buy from Rawnak, you obtain your own unique radiance." Elegant, warm, and structurally memorable.</p>
   </div>
 </div>
@@ -188,15 +188,15 @@ tools_used:
 
 <div class="logo-evo-grid">
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Original Logo — Pink Bara" loading="lazy">
+    <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Original Logo — Pink Bara" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">Before</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="First Evolution Pass" loading="lazy">
+    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="First Evolution Pass" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">Evolution 1</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo — Rawnak" loading="lazy">
+    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo — Rawnak" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">Final Logo</span>
   </div>
 </div>
@@ -209,12 +209,12 @@ tools_used:
 
 <div class="seg-row">
   <div class="seg-card">
-    <h4 class="seg-title primary">Primary Segment — Aesthetic Self-Indulgence (B2C)</h4>
+    <h3 class="seg-title primary">Primary Segment — Aesthetic Self-Indulgence (B2C)</h3>
     <p><strong>Demographics:</strong> Females aged 18–35 in Saudi Arabia, middle-to-high income brackets (students, professionals, creative freelancers).</p>
     <p><strong>Drivers:</strong> Passionate about niche fashion and alternative art. They seek unique, personalized statement accessories that reflect their inner identity, strongly preferring handmade crafts over mass-produced jewelry.</p>
   </div>
   <div class="seg-card">
-    <h4 class="seg-title secondary">Secondary Segment — Premium Commemorative Gifting</h4>
+    <h3 class="seg-title secondary">Secondary Segment — Premium Commemorative Gifting</h3>
     <p><strong>Demographics:</strong> Males and females aged 20–40, seeking high-value customized gifts for milestones and special occasions.</p>
     <p><strong>Drivers:</strong> Flexible budget (100–350 SAR). They place massive value on personalization, premium unboxing, and the emotional weight of a bespoke gift. A highly profitable segment frequently overlooked by handmade craft businesses.</p>
   </div>
@@ -413,7 +413,7 @@ tools_used:
 
 <div class="eval-grid">
   <div class="eval-card eval-plus">
-    <h4>Strategic Strengths</h4>
+    <h3>Strategic Strengths</h3>
     <ul>
       <li><strong>Diagnosis-First Execution:</strong> Analytical audits and consultative deep-dives corrected structural business issues from day one.</li>
       <li><strong>Low-Cost Physical Validation:</strong> Local bazaars as live testing grounds saved thousands in ad spend and yielded unbiased consumer data.</li>
@@ -422,7 +422,7 @@ tools_used:
     </ul>
   </div>
   <div class="eval-card eval-minus">
-    <h4>Areas for Improvement</h4>
+    <h3>Areas for Improvement</h3>
     <ul>
       <li>Pricing engine must be consistently updated to include micro-costs (tool wear, packaging prints, marketing hours).</li>
       <li>Competitor tracking must transition from general observation to quantitative Excel monitoring.</li>

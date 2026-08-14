@@ -1,27 +1,30 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-699YXNTX31');
-</script>
 
-    <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
+  (function() {
+    function loadGTM() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGTM);
+    } else {
+      window.addEventListener('load', loadGTM, { once: true });
+    }
+  })();
+</script>
+<!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>Restructuring and repositioning of a handmade accessories store - Rawnak | Khaled Hashem</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
@@ -30,43 +33,8 @@
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/">
 
-    <!-- Hreflang Links for Internationalization -->
-    
-        
-        
-        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/">
-        
-        
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-                
-                
-                
-        <link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
+    <!-- Hreflang Links for Internationalization --><link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/"><link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
-    
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <meta property="og:type" content="website">
@@ -75,13 +43,13 @@
     <meta property="og:description" content="A comprehensive brand audit, visual identity overhaul, and market repositioning strategy for a bespoke handmade resin accessories D2C brand.">
     <meta property="og:url" content="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Restructuring and repositioning of a handmade accessories store - Rawnak | Khaled Hashem">
     <meta name="twitter:description" content="A comprehensive brand audit, visual identity overhaul, and market repositioning strategy for a bespoke handmade resin accessories D2C brand.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -91,7 +59,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "http://localhost:4000",
-      "image": "http://localhost:4000/assets/images/profile.png",
+      "image": "http://localhost:4000/assets/images/hero-pic.webp",
       "sameAs": [
         "https://www.linkedin.com/in/khaledwhashem/",
         "https://x.com/KhaledwHashem"
@@ -111,38 +79,29 @@
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
 
-    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
-    
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
 
-    <!-- Google Fonts: preconnect for faster load -->
+    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786732035">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1786659597">
-    
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1786732035">
 </head>
 
-<body class="">
-
-    <header class="site-header">
-  
-
-  
-
-  <div class="container header-inner">
+<body class=""><header class="site-header"><div class="container header-inner">
     <a href="/en/" class="logo">
-      <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo">
+      <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo" width="30" height="30" decoding="async">
       Khaled Hashem<span>.</span>
     </a>
 
@@ -178,9 +137,7 @@
     </button>
   </div>
 
-</header>
-
-    <main id="main-content">
+</header><main id="main-content">
         <!-- ═══════════════════════════════════════════════════════════════════════════
      تخطيط المشروع — رحلة العميل الاحترافية (Client Journey Layout)
      ─────────────────────────────────────────────────────────────────────────
@@ -317,10 +274,10 @@
              ═══════════════════════════════════════════════════════════════════════ -->
         
         <aside class="mkt-cs-toc" aria-label="Table of Contents">
-            <h3 class="mkt-cs-toc-heading">
+            <h2 class="mkt-cs-toc-heading">
                 <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
                 Table of Contents
-            </h3>
+            </h2>
             <ul class="mkt-cs-toc-list" role="list">
                 
                 <li>
@@ -468,7 +425,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-signature" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">Identity Gap</h4>
+                    <h3 class="mkt-pro-insight-label">Identity Gap</h3>
                     <p class="mkt-pro-insight-value">The old name (Pink Bara) created communication confusion; rebranded to 'Rawnak' to evoke elegance and organic premium quality.</p>
                 </div>
                 
@@ -476,7 +433,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">Visual Overhaul</h4>
+                    <h3 class="mkt-pro-insight-label">Visual Overhaul</h3>
                     <p class="mkt-pro-insight-value">Amateur photography hid the product's premium finish; established studio-level visual guidelines to highlight gloss and clarity.</p>
                 </div>
                 
@@ -484,7 +441,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-tags" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">Pricing Framework</h4>
+                    <h3 class="mkt-pro-insight-label">Pricing Framework</h3>
                     <p class="mkt-pro-insight-value">Arbitrary pricing led to hidden losses; structured a value-based model that accounts for materials, shipping, and craft hours.</p>
                 </div>
                 
@@ -492,7 +449,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">Target Segmentation</h4>
+                    <h3 class="mkt-pro-insight-label">Target Segmentation</h3>
                     <p class="mkt-pro-insight-value">Segmented the market into self-purchasing fashion enthusiasts and the highly profitable personalized gifting niche.</p>
                 </div>
                 
@@ -541,11 +498,11 @@
 
 <div class="two-col">
   <div class="col-card">
-    <h4>The Old Name</h4>
+    <h3>The Old Name</h3>
     <p><strong>Pink Bara</strong> — A confusing mix of English and Japanese meaning "pink rose." It alienated the local demographic, carried zero premium associations, and failed to communicate the handmade craft value.</p>
   </div>
   <div class="col-card">
-    <h4>The New Name</h4>
+    <h3>The New Name</h3>
     <p><strong>Rawnak (رونق)</strong> — An elegant Arabic word meaning radiance, grace, and exquisite splendor. "When you buy from Rawnak, you obtain your own unique radiance." Elegant, warm, and structurally memorable.</p>
   </div>
 </div>
@@ -585,15 +542,15 @@
 
 <div class="logo-evo-grid">
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Original Logo — Pink Bara" loading="lazy" />
+    <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Original Logo — Pink Bara" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">Before</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="First Evolution Pass" loading="lazy" />
+    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="First Evolution Pass" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">Evolution 1</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo — Rawnak" loading="lazy" />
+    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo — Rawnak" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">Final Logo</span>
   </div>
 </div>
@@ -606,12 +563,12 @@
 
 <div class="seg-row">
   <div class="seg-card">
-    <h4 class="seg-title primary">Primary Segment — Aesthetic Self-Indulgence (B2C)</h4>
+    <h3 class="seg-title primary">Primary Segment — Aesthetic Self-Indulgence (B2C)</h3>
     <p><strong>Demographics:</strong> Females aged 18–35 in Saudi Arabia, middle-to-high income brackets (students, professionals, creative freelancers).</p>
     <p><strong>Drivers:</strong> Passionate about niche fashion and alternative art. They seek unique, personalized statement accessories that reflect their inner identity, strongly preferring handmade crafts over mass-produced jewelry.</p>
   </div>
   <div class="seg-card">
-    <h4 class="seg-title secondary">Secondary Segment — Premium Commemorative Gifting</h4>
+    <h3 class="seg-title secondary">Secondary Segment — Premium Commemorative Gifting</h3>
     <p><strong>Demographics:</strong> Males and females aged 20–40, seeking high-value customized gifts for milestones and special occasions.</p>
     <p><strong>Drivers:</strong> Flexible budget (100–350 SAR). They place massive value on personalization, premium unboxing, and the emotional weight of a bespoke gift. A highly profitable segment frequently overlooked by handmade craft businesses.</p>
   </div>
@@ -810,7 +767,7 @@
 
 <div class="eval-grid">
   <div class="eval-card eval-plus">
-    <h4>Strategic Strengths</h4>
+    <h3>Strategic Strengths</h3>
     <ul>
       <li><strong>Diagnosis-First Execution:</strong> Analytical audits and consultative deep-dives corrected structural business issues from day one.</li>
       <li><strong>Low-Cost Physical Validation:</strong> Local bazaars as live testing grounds saved thousands in ad spend and yielded unbiased consumer data.</li>
@@ -819,7 +776,7 @@
     </ul>
   </div>
   <div class="eval-card eval-minus">
-    <h4>Areas for Improvement</h4>
+    <h3>Areas for Improvement</h3>
     <ul>
       <li>Pricing engine must be consistently updated to include micro-costs (tool wear, packaging prints, marketing hours).</li>
       <li>Competitor tracking must transition from general observation to quantitative Excel monitoring.</li>
@@ -849,21 +806,30 @@
             <div class="mkt-pro-gallery-grid">
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/rawnak-insta-before.png" 
+                    <img src="/assets/images/projects/Rawnak/rawnak-insta-before.jpg" 
                          alt="Restructuring and repositioning of a handmade accessories store - Rawnak — 1" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/rawnak-insta-after.png" 
+                    <img src="/assets/images/projects/Rawnak/rawnak-insta-after.jpg" 
                          alt="Restructuring and repositioning of a handmade accessories store - Rawnak — 2" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/samble.png" 
+                    <img src="/assets/images/projects/Rawnak/sample.jpg" 
                          alt="Restructuring and repositioning of a handmade accessories store - Rawnak — 3" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
             </div>
@@ -947,11 +913,7 @@
              على التواصل. يدعم العربية والإنجليزية تلقائياً.
      الاستخدام: هذا المكون يستخدم كقسم للتواصل أسفل الصفحات
      التعديل: غيّر النص أدناه أو رابط الزر حسب الحاجة.
-     ═══════════════════════════════════════════════════════════════════════════ -->
-
-
-
-<!-- حاوية CTA الرئيسية — خلفية متدرجة مع حدود خضراء خفيفة -->
+     ═══════════════════════════════════════════════════════════════════════════ --><!-- حاوية CTA الرئيسية — خلفية متدرجة مع حدود خضراء خفيفة -->
 <section class="mkt-cta-section">
     <div class="mkt-cta-inner">
 
@@ -994,7 +956,7 @@
   "@type": "CreativeWork",
   "headline": "Restructuring and repositioning of a handmade accessories store - Rawnak",
   "description": "A comprehensive brand audit, visual identity overhaul, and market repositioning strategy for a bespoke handmade resin accessories D2C brand.",
-  "image": ["http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png"],
+  "image": ["http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg"],
   "author": {
     "@type": "Person",
     "name": "Khaled Hashem",
@@ -1015,13 +977,13 @@
        EDIT: Update social links, footer tagline, and quick links below
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer bg-navy">
+        <h2 class="sr-only">Footer Navigation</h2>
         <div class="container footer-inner">
 
             <!-- Brand Column -->
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo"
-                        style="height:30px; width:auto;">
+                    <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo" width="30" height="30" decoding="async">
                     Khaled Hashem<span>.</span>
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->

@@ -145,10 +145,10 @@ layout: default
              ═══════════════════════════════════════════════════════════════════════ -->
         {% if page.toc_items and page.toc_items.size > 0 %}
         <aside class="mkt-cs-toc" aria-label="{{ t.cs_toc_title | default: 'الفهرس' }}">
-            <h3 class="mkt-cs-toc-heading">
+            <h2 class="mkt-cs-toc-heading">
                 <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
                 {{ t.cs_toc_title | default: 'الفهرس' }}
-            </h3>
+            </h2>
             <ul class="mkt-cs-toc-list" role="list">
                 {% for item in page.toc_items %}
                 <li>
@@ -210,7 +210,7 @@ layout: default
                     <div class="mkt-pro-insight-icon">
                         <i class="{{ insight.icon | default: 'fa-solid fa-chart-simple' }}" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">{{ insight.label }}</h4>
+                    <h3 class="mkt-pro-insight-label">{{ insight.label }}</h3>
                     <p class="mkt-pro-insight-value">{{ insight.value }}</p>
                 </div>
                 {% endfor %}
@@ -243,7 +243,10 @@ layout: default
                 <figure class="mkt-pro-gallery-item">
                     <img src="{{ img | relative_url }}" 
                          alt="{{ page.title }} — {{ forloop.index }}" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 {% endfor %}
             </div>
@@ -325,7 +328,7 @@ layout: default
   "@type": "CreativeWork",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
-  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/profile.png' | absolute_url | jsonify }}{% endif %}],
+  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url | jsonify }}{% endif %}],
   "author": {
     "@type": "Person",
     "name": "Khaled Hashem",

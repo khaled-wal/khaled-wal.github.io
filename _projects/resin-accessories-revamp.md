@@ -18,7 +18,7 @@ work_type: "strategy"
 tags: ["استراتيجية تموضع", "تحليل سلوك مستهلك", "صناعة محتوى"]
 publish_state: "published"  # "published" | "coming_soon"
 description: "إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية البصرية والاسم التموضعي، إلى تصميم رحلة العميل وإطلاق قنوات البيع الميدانية والرقمية."
-image: "/assets/images/projects/Rawnak/Rawnak-hero.png"
+image: "/assets/images/projects/Rawnak/Rawnak-hero.jpg"
 
 # ═══════ القسم 2: بيانات الهيدر (Hero Section) ════════════════════════
 title: "إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق"
@@ -97,9 +97,9 @@ kpi_4_value: "فخامة ميسورة"
 
 # ─── المعرض البصري — مسارات الصور ────────────────────────────────────
 gallery:
-  - "/assets/images/projects/Rawnak/rawnak-insta-before.png"
-  - "/assets/images/projects/Rawnak/rawnak-insta-after.png"
-  - "/assets/images/projects/Rawnak/samble.png"
+  - "/assets/images/projects/Rawnak/rawnak-insta-before.jpg"
+  - "/assets/images/projects/Rawnak/rawnak-insta-after.jpg"
+  - "/assets/images/projects/Rawnak/sample.jpg"
 
 # ─── الأدوات المستخدمة — تُعرض كشارات ────────────────────────────────
 tools_used:
@@ -145,11 +145,11 @@ tools_used:
 
 <div class="two-col">
   <div class="col-card">
-    <h4>الاسم القديم</h4>
+    <h3>الاسم القديم</h3>
     <p><strong>الوردة الوردية / Pink Bara</strong> — مزيج غير مفهوم من الإنجليزية واليابانية، يسبب لبساً ذهنياً ولا يعكس طبيعة المنتج الفاخر أو قيمته الحرفية.</p>
   </div>
   <div class="col-card">
-    <h4>الاسم الجديد</h4>
+    <h3>الاسم الجديد</h3>
     <p><strong>رونق (Rawnak)</strong> — اسم عربي أصيل يوحي بالتميز والإشراق الجمالي. "عندما تقتني قطعة من رونق، فإنك تضيف رونقاً خاصاً لمظهرك وتفاصيلك اليومية."</p>
   </div>
 </div>
@@ -172,15 +172,15 @@ tools_used:
 
 <div class="logo-evo-grid">
   <div class="logo-evo-card">
-   <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Old Logo - Pink Bara" loading="lazy">
+   <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Old Logo - Pink Bara" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">قبل</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="first Logo - Rawnak" loading="lazy">
+    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="first Logo - Rawnak" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">تطوير 1</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo - Rawnak" loading="lazy">
+    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo - Rawnak" width="600" height="400" loading="lazy" decoding="async">
     <span class="logo-evo-lbl">الشعار النهائي</span>
   </div>
 </div>
@@ -209,12 +209,12 @@ tools_used:
 
 <div class="seg-row">
   <div class="seg-card">
-    <h4 class="seg-title primary">الشريحة الأساسية — الاقتناء الذاتي (B2C)</h4>
+    <h3 class="seg-title primary">الشريحة الأساسية — الاقتناء الذاتي (B2C)</h3>
     <p><strong>الديموغرافيا:</strong> إناث 18–35 سنة، مستوى دخل متوسط إلى مرتفع (طالبات، موظفات، رائدات أعمال).</p>
     <p><strong>الدوافع:</strong> الشغف بالفنون البديلة، والرغبة في التميز واقتناء قطع شخصية مخصصة تعبر عن تفردهن، بعيداً عن المنتجات المكررة.</p>
   </div>
   <div class="seg-card">
-    <h4 class="seg-title secondary">الشريحة الثانوية — الهدايا الفاخرة</h4>
+    <h3 class="seg-title secondary">الشريحة الثانوية — الهدايا الفاخرة</h3>
     <p><strong>الديموغرافيا:</strong> ذكور وإناث 20–40 سنة، يبحثون عن هدايا فريدة للمناسبات الخاصة.</p>
     <p><strong>الدوافع:</strong> ميزانية مرنة (100–350 ريال)، يثمنون التخصيص الفاخر والتغليف الأنيق والقيمة العاطفية المضافة. شريحة عالية الربحية غالباً ما يتم إهمالها.</p>
   </div>
@@ -413,7 +413,7 @@ tools_used:
 
 <div class="eval-grid">
   <div class="eval-card eval-plus">
-    <h4>ما نجح ولماذا</h4>
+    <h3>ما نجح ولماذا</h3>
     <ul>
       <li><strong>التشخيص أولاً:</strong> البدء بتحليل البيانات والجلسات الاستشارية العميقة قادنا لحلول جذرية غيرت نموذج العمل.</li>
       <li><strong>التحقق الميداني:</strong> استغلال البازارات لاختبار الهوية والأسعار وفر مبالغ تسويقية طائلة وقدم بيانات دقيقة مجاناً.</li>
@@ -422,7 +422,7 @@ tools_used:
     </ul>
   </div>
   <div class="eval-card eval-minus">
-    <h4>ما يحتاج تطوير</h4>
+    <h3>ما يحتاج تطوير</h3>
     <ul>
       <li>هيكل التسعير يحتاج مراجعة دورية للتكاليف غير المباشرة (استهلاك الأدوات، الكهرباء، ساعات التسويق).</li>
       <li>تعميق دراسة المنافسين وتوثيق البيانات بشكل منظم داخل ملفات Excel متخصصة.</li>

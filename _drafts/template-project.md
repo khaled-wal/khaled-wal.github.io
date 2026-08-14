@@ -41,12 +41,12 @@ subtitle: "وصف تكميلي للمشروع أو السياق التجاري"
 description: "جملة وصفية واحدة تلخّص المشروع لمحركات البحث."
 
 # صورة البطاقة المصغرة
-image: "/assets/images/projects/prog-def-cover.png"
+image: "/assets/images/projects/prog-def-cover.jpg"
 
 # ═══════ القسم 2: بيانات الهيدر (Hero Section) ════════════════════════
 
 # صورة الغلاف العريضة — المقاس المثالي 1200×600
-hero_image: "/assets/images/projects/prog-def-cover.png"
+hero_image: "/assets/images/projects/prog-def-cover.jpg"
 
 # القطاع — شارة في الهيدر، اختيارية
 industry: "التجارة الإلكترونية"  # مثال: الأزياء | المطاعم | التعليم

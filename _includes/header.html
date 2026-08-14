@@ -1,17 +1,17 @@
 <header class="site-header">
-  {% if page.url contains '/en/' %}
-  {% assign current_lang = 'en' %}
-  {% assign is_en = true %}
-  {% else %}
-  {% assign current_lang = 'ar' %}
-  {% assign is_en = false %}
-  {% endif %}
+  {%- if page.url contains '/en/' -%}
+  {%- assign current_lang = 'en' -%}
+  {%- assign is_en = true -%}
+  {%- else -%}
+  {%- assign current_lang = 'ar' -%}
+  {%- assign is_en = false -%}
+  {%- endif -%}
 
-  {% assign t = site.data.i18n[current_lang] %}
+  {%- assign t = site.data.i18n[current_lang] -%}
 
   <div class="container header-inner">
     <a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="logo">
-      <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo">
+      <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo" width="30" height="30" decoding="async">
       {{ t.site_name }}<span>.</span>
     </a>
 

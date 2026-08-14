@@ -11,7 +11,7 @@ title: "أفضل مشروب بعد الموية: تشريح حملة زوي آي
 subtitle: "تحليل في التموضع، والمبالغة التسويقية المقبولة، والمواءمة التشغيلية"
 description: "تحليل استراتيجي لحملة زوي آيس تي التشويقية، من آلية الإعلان الغامض إلى المنافسة مع TT Ice Tea وظاهرة تسرّب التموضع عبر قنوات التوزيع."
 
-image: "/assets/images/case-studies/Zoi Campain/zoi-hero.png"
+image: "/assets/images/case-studies/Zoi Campain/zoi-hero.jpg"
 
 objective: "تقييم صمود تموضع زوي آيس تي بعد ثلاثة أشهر من الإطلاق، ودخول منافس مباشر إلى السوق"
 

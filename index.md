@@ -40,10 +40,10 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
             </div>
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
-        <!-- اسم الملف الحالي: profile.png — ضعه في مجلد assets/images/ -->
+        <!-- اسم الملف الحالي: hero-pic.webp — ضعه في مجلد assets/images/ -->
         <div class="hero-image-wrapper">
             <div class="profile-image-container">
-                <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="700" height="700">
+                <img src="{{ '/assets/images/hero-pic.webp' | relative_url }}" alt="خالد وليد هاشم" class="profile-image" fetchpriority="high" width="700" height="700">
             </div>
         </div>
     </div>
@@ -97,12 +97,12 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
             <article class="portfolio-card">
                 <div class="card-image">
                     {% if item.image %}
-                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                    <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                     {% else %}
                         {% if item.collection == 'case_studies' %}
-                        <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        <img src="{{ '/assets/images/case-studies/case-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                         {% else %}
-                        <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                        <img src="{{ '/assets/images/projects/prog-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                         {% endif %}
                     {% endif %}
                 </div>
@@ -374,15 +374,15 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
                 <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
                 <div class="form-group">
                     <label for="name">الاسم الكامل</label>
-                    <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" required>
+                    <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" autocomplete="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">البريد الإلكتروني</label>
-                    <input type="email" name="email" id="email" placeholder="البريد الإلكتروني الخاص بك" required>
+                    <input type="email" name="email" id="email" placeholder="البريد الإلكتروني الخاص بك" autocomplete="email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">الرسالة</label>
-                    <textarea name="message" id="message" rows="5" placeholder="حدثني أكثر عن ما تود إنجازه..." required></textarea>
+                    <textarea name="message" id="message" rows="5" placeholder="حدثني أكثر عن ما تود إنجازه..." autocomplete="off" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary submit-btn">إرسال الرسالة <i class="fa-solid fa-paper-plane"></i></button>
             </form>
@@ -399,10 +399,10 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
                     </div>
                     <div class="linkedin-badge-body">
                         <div class="linkedin-badge-avatar">
-                            <img src="{{ '/assets/images/linkedin-pic.jpeg' | relative_url }}" alt="خالد وليد هاشم" class="linkedin-avatar-img">
+                            <img src="{{ '/assets/images/linkedin-pic.webp' | relative_url }}" alt="خالد وليد هاشم" class="linkedin-avatar-img" width="56" height="56" loading="lazy" decoding="async">
                         </div>
                         <div class="linkedin-badge-info">
-                            <h4 class="linkedin-badge-name">خالد وليد هاشم</h4>
+                            <h3 class="linkedin-badge-name">خالد وليد هاشم</h3>
                             <p class="linkedin-badge-title">متخصص إتصال تسويقي</p>
                             <p class="linkedin-badge-univ">جامعة الإمام محمد بن سعود الإسلامية</p>
                         </div>

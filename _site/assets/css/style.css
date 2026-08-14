@@ -67,6 +67,19 @@
   --transition-smooth: 0.4s ease-in-out;
 }
 
+/* Accessible screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* English Override Class */
 html[lang="en"] {
   --font-main: var(--font-en);
@@ -517,39 +530,7 @@ html[dir="ltr"] .hero {
   z-index: 5;
 }
 
-.skills-floating-group {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  padding: 1rem 0;
-}
 
-.skill-tag {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-pill);
-  background-color: rgba(0, 12, 34, 0.4);
-  border: 1px solid rgba(224, 253, 251, 0.12);
-  color: var(--text-contrast);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all var(--transition-fast);
-}
-
-.skill-tag:hover {
-  border-color: var(--clr-gold-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 12, 34, 0.3);
-}
-
-.skill-tag i {
-  color: var(--secondary-action);
-}
 
 /* Scroll Nudge Indicator */
 .hero-scroll-indicator {
@@ -622,102 +603,7 @@ html[dir="ltr"] .hero {
   gap: 2rem;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   Portfolio Market Wrapper (Tier 1) - Frosted Glass & Sticky Sidebar
-   ═══════════════════════════════════════════════════════════════════════════ */
-.portfolio-market-wrapper {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 3rem;
-  background-color: rgba(248, 250, 252, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.123), 0 0 10px rgba(21, 216, 187, 0.05) inset;
-  margin-bottom: 4rem;
-}
 
-/* For dark mode / dark backgrounds if section overlaps */
-.bg-navy .portfolio-market-wrapper {
-  background-color: rgba(23, 41, 71, 0.6);
-  border-color: rgba(21, 216, 187, 0.15);
-  box-shadow: 0 10px 40px rgba(21, 216, 187, 0.05), 0 0 10px rgba(21, 216, 187, 0.05) inset;
-}
-
-.market-sticky-sidebar {
-  position: relative;
-}
-
-.market-sidebar-title {
-  position: sticky;
-  top: calc(var(--header-height) + 2rem);
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--clr-navy);
-  text-shadow: 0 2px 10px rgba(21, 216, 187, 0.3);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0 auto;
-  opacity: 0.9;
-  white-space: nowrap;
-}
-
-/* Adjust for Arabic explicitly to look best */
-html[lang="ar"] .market-sidebar-title {
-  color: var(--clr-navy);
-}
-
-/* Adjust for English reading flow */
-html[lang="en"] .market-sidebar-title {
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  color: var(--clr-navy);
-}
-
-.market-content-col {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  /* Spacing between internal sections like Projects and Case Studies */
-}
-
-/* Subheadings inside the wrapper */
-.market-content-col .portfolio-page-subtitle {
-  margin-bottom: 1.5rem;
-  color: var(--clr-navy);
-  font-size: 1.5rem;
-  border-bottom: 2px solid rgba(21, 216, 187, 0.2);
-  padding-bottom: 0.5rem;
-  display: inline-block;
-}
-
-/* Mobile responsive degradation */
-@media (max-width: 900px) {
-  .portfolio-market-wrapper {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-    gap: 2rem;
-  }
-
-  .market-sidebar-title {
-    position: relative;
-    top: 0;
-    writing-mode: horizontal-tb;
-    transform: none;
-    font-size: 1.75rem;
-    margin-bottom: 0;
-    text-align: center;
-  }
-
-  html[lang="en"] .market-sidebar-title {
-    writing-mode: horizontal-tb;
-    transform: none;
-  }
-}
 
 
 /* ── Full-card clickable link wrapper ──────────────────────────────── */
@@ -840,7 +726,6 @@ html[lang="en"] .market-sidebar-title {
   padding: 0.35rem;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(23, 41, 71, 0.1);
-  flex-wrap: wrap;
 }
 
 .filter-tab {
@@ -1061,6 +946,19 @@ html[lang="en"] .market-sidebar-title {
   animation: cv-btn-pulse 2s ease-in-out infinite;
   position: relative;
   z-index: 10;
+  will-change: transform;
+}
+
+.cv-expand-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--secondary-action);
+  pointer-events: none;
+  opacity: 0;
+  animation: cv-btn-ring 2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .cv-expand-btn:hover {
@@ -1069,6 +967,11 @@ html[lang="en"] .market-sidebar-title {
 
 .cv-expand-btn.is-expanded {
   animation: none;
+}
+
+.cv-expand-btn.is-expanded::before {
+  animation: none;
+  display: none;
 }
 
 .cv-expand-btn i {
@@ -1081,16 +984,30 @@ html[lang="en"] .market-sidebar-title {
 }
 
 @keyframes cv-btn-pulse {
-
   0%,
   100% {
     transform: translateY(0);
-    box-shadow: 0 0 0 0 var(--clr-gold-light);
   }
 
   50% {
     transform: translateY(-4px);
-    box-shadow: 0 0 0 10px rgba(235, 184, 0, 0.014);
+  }
+}
+
+@keyframes cv-btn-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.08, 1.18);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
 
@@ -1194,42 +1111,7 @@ html[lang="en"] .market-sidebar-title {
 }
 
 
-.contact-info {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
 
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.icon-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.1);
-  color: var(--clr-green);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
-
-.info-item span {
-  display: block;
-  font-size: 0.85rem;
-  color: var(--clr-muted);
-}
-
-.info-item strong {
-  color: var(--clr-white);
-  font-size: 1.1rem;
-}
 
 .contact-form-wrapper {
   background-color: var(--clr-navy-light);
@@ -1611,21 +1493,13 @@ html[dir="ltr"] .arrow-icon {
    Markdown / Prose Content Styling
    (Used in Case Study and Project detail pages)
    ========================================================================== */
-.markdown-content,
-.page-content {
+.markdown-content {
   max-width: 800px;
   margin-inline: auto;
   padding-inline: 1.5rem;
-}
-
-.markdown-content {
   /* Clear the fixed header using the CSS variable */
   padding-top: calc(var(--header-height) + 2rem);
   padding-bottom: 4rem;
-}
-
-.page-content {
-  padding-bottom: var(--spacing-section);
 }
 
 .markdown-content h1,
@@ -1641,16 +1515,7 @@ html[dir="ltr"] .arrow-icon {
   line-height: 1.3;
 }
 
-.page-content h2 {
-  color: var(--clr-green);
-  font-size: 1.8rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.markdown-content p,
-.page-content p {
+.markdown-content p {
   /* Use clr-text-light instead of clr-muted for improved readability */
   color: var(--clr-text-light);
   line-height: 1.9;
@@ -1666,17 +1531,14 @@ html[dir="ltr"] .arrow-icon {
 }
 
 .markdown-content ul,
-.markdown-content ol,
-.page-content ul,
-.page-content ol {
+.markdown-content ol {
   margin-bottom: 1.5rem;
   padding-inline-start: 2rem;
   color: var(--clr-text-light);
   line-height: 1.9;
 }
 
-.markdown-content li,
-.page-content li {
+.markdown-content li {
   margin-bottom: 0.5rem;
 }
 
@@ -1736,56 +1598,6 @@ html[dir="ltr"] .arrow-icon {
 /* ==========================================================================
    Single Post / Case Study Layout
    ========================================================================== */
-.case-study.cs-header {
-  padding-top: var(--header-height);
-  background-color: var(--clr-navy);
-  min-height: 100vh;
-}
-
-/* Post header (title banner at top of case study) */
-.post-header {
-  background: linear-gradient(135deg, var(--clr-navy-light) 0%, var(--clr-navy) 100%);
-  border-bottom: 1px solid var(--clr-border);
-  padding-block: 3rem;
-  position: relative;
-}
-
-.post-header h1 {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 700;
-  color: var(--clr-white);
-  line-height: 1.3;
-}
-
-.cs-meta-bar {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1.5rem 2rem;
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  border-bottom: 1px solid var(--clr-border);
-}
-
-.cs-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.cs-meta-label {
-  color: var(--clr-green);
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.cs-meta-value {
-  color: var(--clr-white);
-  font-weight: 600;
-  font-size: 1.05rem;
-}
 
 /* ==========================================================================
    Training Works Single Case Study
@@ -1900,16 +1712,7 @@ html[dir="ltr"] .callout-box-accent {
   border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
-/* ==========================================================================
-   Utility helpers
-   ========================================================================== */
-.w-100 {
-  width: 100%;
-}
 
-.d-block {
-  display: block;
-}
 
 /* ==========================================================================
    Media Queries
@@ -1982,17 +1785,7 @@ html[dir="ltr"] .callout-box-accent {
     margin-inline: auto;
   }
 
-  .badge-top,
-  .badge-bottom {
-    position: relative;
-    animation: none;
-    top: auto;
-    inset-inline-end: auto;
-    bottom: auto;
-    inset-inline-start: auto;
-    transform: none !important;
-    margin-top: 1rem;
-  }
+
 
   .hero-image-wrapper {
     flex-direction: column;
@@ -2115,6 +1908,40 @@ html[dir="ltr"] .callout-box-accent {
   }
 }
 
+/* ── Filter bar: horizontal scroll on small phones (< 620px) ── */
+/* At this breakpoint the pill tabs would wrap to a new line inside the
+   rounded container, breaking the aesthetic. We convert the container
+   to a full-width horizontal scroll strip with hidden scrollbars.
+   Works identically in RTL and LTR. */
+@media (max-width: 619px) {
+  .portfolio-filter-wrapper {
+    display: block;           /* stretch full-width */
+    overflow: hidden;         /* clip the scroll bar visually */
+  }
+
+  .portfolio-filter-tabs {
+    display: flex;            /* row, never wraps */
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    /* Hide scrollbar across all browsers */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE / Edge */
+  }
+
+  .portfolio-filter-tabs::-webkit-scrollbar {
+    display: none;            /* Chrome / Safari / Opera */
+  }
+
+  .filter-tab {
+    flex: 0 0 auto;           /* never shrink or grow */
+    white-space: nowrap;      /* text stays on one line */
+    scroll-snap-align: start;
+  }
+}
+
 /* ── Very small phones ──────────────────────────────── */
 @media (max-width: 500px) {
 
@@ -2145,20 +1972,7 @@ html[dir="ltr"] .callout-box-accent {
     grid-template-columns: 1fr;
   }
 
-  .tier-lab-blueprint .portfolio-card {
-    flex-direction: column;
-    padding-bottom: 2rem;
-  }
 
-  .tier-lab-blueprint .card-image {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 1.25rem;
-  }
-
-  html[dir="rtl"] .tier-lab-blueprint .card-image {
-    margin-left: 0;
-  }
 
   .certification-grid {
     grid-template-columns: 1fr;
@@ -2351,11 +2165,6 @@ html[dir="ltr"] .callout-box-accent {
 .coming-soon-card:hover .portfolio-card {
   transform: none !important;
   box-shadow: none !important;
-  cursor: default !important;
-}
-
-/* Ensure the wrapper itself shows a default cursor when hovered */
-.coming-soon-card {
   cursor: default !important;
 }
 

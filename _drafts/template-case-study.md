@@ -54,7 +54,7 @@ subtitle: "وصف مختصر يوضح السياق أو التخصص"
 description: "جملة وصفية واحدة تلخّص الدراسة لمحركات البحث."
 
 # صورة البطاقة المصغرة (Card Thumbnail) — تظهر في شبكة الأعمال
-#image: "/assets/images/case-studies/case-def-cover.png"
+#image: "/assets/images/case-studies/case-def-cover.jpg"
 
 # صورة الغلاف العريضة (Hero) — أعلى صفحة الدراسة، المقاس المثالي 1200×600
 # اتركها محذوفة تمامًا إن لم تتوفر صورة — الهيدر يتكيف بدونها

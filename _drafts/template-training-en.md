@@ -26,7 +26,7 @@ challenge: "The fictional SaaS product 'Alpha' faced a high churn rate of 15% af
 results_summary: "The onboarding funnel was redesigned to be highly personalized based on the user's industry, alongside the integration of a smart notification system. These enhancements are projected to reduce churn by 7% and boost first-week engagement."
 
 # Visuals
-# image_path: "/assets/images/lab/lab-def-academic-cover.png"
+# image_path: "/assets/images/lab/lab-def-academic-cover.jpg"
 ---
 
 This page serves as a template for **Training Works**, reflecting strategic capabilities, analytical depth, and creative proposals within realistic simulations or academic contexts.

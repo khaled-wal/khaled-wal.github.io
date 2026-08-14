@@ -7,11 +7,11 @@ publish_state: "coming_soon" # "published" to show in the Lab tier, "coming_soon
 title: "Experiment / Academic Project Title"
 category: "Academic Project / Training Workshop / Independent Research"
 # Thumbnail image for grid presentation
-image: "/assets/images/lab/lab-def-academic-cover.png" 
+image: "/assets/images/lab/lab-def-academic-cover.jpg" 
 
 # ═══════════ Phase 2: Internal Hero Data ═══════════
 # The wide cover image
-image_path: "/assets/images/lab/lab-def-academic-cover.png"
+image_path: "/assets/images/lab/lab-def-academic-cover.jpg"
 date: YYYY-MM-DD # Date of the experiment or project
 order: 1
 role_or_skill: "Research & Analysis / Campaign Management" # Your role or primary skill demonstrated

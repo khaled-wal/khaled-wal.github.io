@@ -11,7 +11,7 @@ title: "The best drink after water: Dissecting the Zoi Ice Tea Campaign"
 subtitle: "An analysis of positioning, acceptable puffery, and operational alignment"
 description: "A strategic breakdown of Zoi Ice Tea's teaser campaign, from the ambiguous launch ad to its competition with TT Ice Tea and the drift of positioning across distribution channels."
 
-image: "/assets/images/case-studies/Zoi Campain/zoi-hero.png"
+image: "/assets/images/case-studies/Zoi Campain/zoi-hero.jpg"
 
 objective: "Assess whether Zoi Ice Tea's positioning holds three months after launch, following the entry of a direct competitor"
 

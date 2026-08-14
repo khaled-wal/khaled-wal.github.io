@@ -1,27 +1,30 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-699YXNTX31');
-</script>
 
-    <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
+  (function() {
+    function loadGTM() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGTM);
+    } else {
+      window.addEventListener('load', loadGTM, { once: true });
+    }
+  })();
+</script>
+<!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق | خالد هاشم</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
@@ -30,39 +33,8 @@
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
 
-    <!-- Hreflang Links for Internationalization -->
-    
-        
-        
-        <link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
-        
-        
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-                
-                
-                
-        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/">
+    <!-- Hreflang Links for Internationalization --><link rel="alternate" hreflang="ar" href="http://localhost:4000/portfolio/resin-accessories-revamp/"><link rel="alternate" hreflang="en" href="http://localhost:4000/en/portfolio/resin-accessories-revamp-en/">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/portfolio/resin-accessories-revamp/">
-    
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <meta property="og:type" content="website">
@@ -71,13 +43,13 @@
     <meta property="og:description" content="إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية البصرية والاسم التموضعي، إلى تصميم رحلة العميل وإطلاق قنوات البيع الميدانية والرقمية.">
     <meta property="og:url" content="http://localhost:4000/portfolio/resin-accessories-revamp/">
     <meta property="og:locale" content="ar_SA">
-    <meta property="og:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق | خالد هاشم">
     <meta name="twitter:description" content="إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية البصرية والاسم التموضعي، إلى تصميم رحلة العميل وإطلاق قنوات البيع الميدانية والرقمية.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -87,7 +59,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "http://localhost:4000",
-      "image": "http://localhost:4000/assets/images/profile.png",
+      "image": "http://localhost:4000/assets/images/hero-pic.webp",
       "sameAs": [
         "https://www.linkedin.com/in/khaledwhashem/",
         "https://x.com/KhaledwHashem"
@@ -107,38 +79,29 @@
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
 
-    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
-    
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
 
-    <!-- Google Fonts: preconnect for faster load -->
+    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786732035">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1786659597">
-    
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1786732035">
 </head>
 
-<body class="">
-
-    <header class="site-header">
-  
-
-  
-
-  <div class="container header-inner">
+<body class=""><header class="site-header"><div class="container header-inner">
     <a href="/" class="logo">
-      <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo">
+      <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
       خالد هاشم<span>.</span>
     </a>
 
@@ -174,9 +137,7 @@
     </button>
   </div>
 
-</header>
-
-    <main id="main-content">
+</header><main id="main-content">
         <!-- ═══════════════════════════════════════════════════════════════════════════
      تخطيط المشروع — رحلة العميل الاحترافية (Client Journey Layout)
      ─────────────────────────────────────────────────────────────────────────
@@ -313,10 +274,10 @@
              ═══════════════════════════════════════════════════════════════════════ -->
         
         <aside class="mkt-cs-toc" aria-label="محتويات الصفحة">
-            <h3 class="mkt-cs-toc-heading">
+            <h2 class="mkt-cs-toc-heading">
                 <i class="fa-solid fa-list-ul" aria-hidden="true"></i>
                 محتويات الصفحة
-            </h3>
+            </h2>
             <ul class="mkt-cs-toc-list" role="list">
                 
                 <li>
@@ -464,7 +425,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-signature" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">فجوة الاسم والتموضع</h4>
+                    <h3 class="mkt-pro-insight-label">فجوة الاسم والتموضع</h3>
                     <p class="mkt-pro-insight-value">الاسم القديم (Pink Bara) كان غريباً ويسبب لبساً؛ استبدلناه بـ (رونق) ليعكس الفخامة والأصالة الفنية.</p>
                 </div>
                 
@@ -472,7 +433,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-camera-retro" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">الهوية والتصوير</h4>
+                    <h3 class="mkt-pro-insight-label">الهوية والتصوير</h3>
                     <p class="mkt-pro-insight-value">التصوير الهاوي كان يخفي بريق ونقاء قطع الريزن; وضعنا دليلاً بصرياً متكاملاً يُبرز أدق التفاصيل.</p>
                 </div>
                 
@@ -480,7 +441,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-tags" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">استراتيجية التسعير</h4>
+                    <h3 class="mkt-pro-insight-label">استراتيجية التسعير</h3>
                     <p class="mkt-pro-insight-value">التسعير القديم سبب خسائر مخفية؛ صممنا نموذج تسعير مبني على القيمة يُغطي تكلفة المواد والجهد التشغيلي.</p>
                 </div>
                 
@@ -488,7 +449,7 @@
                     <div class="mkt-pro-insight-icon">
                         <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
                     </div>
-                    <h4 class="mkt-pro-insight-label">تجزئة السوق المستهدف</h4>
+                    <h3 class="mkt-pro-insight-label">تجزئة السوق المستهدف</h3>
                     <p class="mkt-pro-insight-value">قسمنا الجمهور لشريحتين: المقتنيات الباحثات عن التفرد والتميز، وسوق الهدايا الفاخرة عالية الربحية.</p>
                 </div>
                 
@@ -537,11 +498,11 @@
 
 <div class="two-col">
   <div class="col-card">
-    <h4>الاسم القديم</h4>
+    <h3>الاسم القديم</h3>
     <p><strong>الوردة الوردية / Pink Bara</strong> — مزيج غير مفهوم من الإنجليزية واليابانية، يسبب لبساً ذهنياً ولا يعكس طبيعة المنتج الفاخر أو قيمته الحرفية.</p>
   </div>
   <div class="col-card">
-    <h4>الاسم الجديد</h4>
+    <h3>الاسم الجديد</h3>
     <p><strong>رونق (Rawnak)</strong> — اسم عربي أصيل يوحي بالتميز والإشراق الجمالي. "عندما تقتني قطعة من رونق، فإنك تضيف رونقاً خاصاً لمظهرك وتفاصيلك اليومية."</p>
   </div>
 </div>
@@ -564,15 +525,15 @@
 
 <div class="logo-evo-grid">
   <div class="logo-evo-card">
-   <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Old Logo - Pink Bara" loading="lazy" />
+   <img src="/assets/images/projects/Rawnak/pink bara -old logo.jpg" alt="Old Logo - Pink Bara" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">قبل</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="first Logo - Rawnak" loading="lazy" />
+    <img src="/assets/images/projects/Rawnak/rawnak - logo1.png" alt="first Logo - Rawnak" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">تطوير 1</span>
   </div>
   <div class="logo-evo-card">
-    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo - Rawnak" loading="lazy" />
+    <img src="/assets/images/projects/Rawnak/rawnak - logo2.png" alt="Final Logo - Rawnak" width="600" height="400" loading="lazy" decoding="async" />
     <span class="logo-evo-lbl">الشعار النهائي</span>
   </div>
 </div>
@@ -600,12 +561,12 @@
 
 <div class="seg-row">
   <div class="seg-card">
-    <h4 class="seg-title primary">الشريحة الأساسية — الاقتناء الذاتي (B2C)</h4>
+    <h3 class="seg-title primary">الشريحة الأساسية — الاقتناء الذاتي (B2C)</h3>
     <p><strong>الديموغرافيا:</strong> إناث 18–35 سنة، مستوى دخل متوسط إلى مرتفع (طالبات، موظفات، رائدات أعمال).</p>
     <p><strong>الدوافع:</strong> الشغف بالفنون البديلة، والرغبة في التميز واقتناء قطع شخصية مخصصة تعبر عن تفردهن، بعيداً عن المنتجات المكررة.</p>
   </div>
   <div class="seg-card">
-    <h4 class="seg-title secondary">الشريحة الثانوية — الهدايا الفاخرة</h4>
+    <h3 class="seg-title secondary">الشريحة الثانوية — الهدايا الفاخرة</h3>
     <p><strong>الديموغرافيا:</strong> ذكور وإناث 20–40 سنة، يبحثون عن هدايا فريدة للمناسبات الخاصة.</p>
     <p><strong>الدوافع:</strong> ميزانية مرنة (100–350 ريال)، يثمنون التخصيص الفاخر والتغليف الأنيق والقيمة العاطفية المضافة. شريحة عالية الربحية غالباً ما يتم إهمالها.</p>
   </div>
@@ -804,7 +765,7 @@
 
 <div class="eval-grid">
   <div class="eval-card eval-plus">
-    <h4>ما نجح ولماذا</h4>
+    <h3>ما نجح ولماذا</h3>
     <ul>
       <li><strong>التشخيص أولاً:</strong> البدء بتحليل البيانات والجلسات الاستشارية العميقة قادنا لحلول جذرية غيرت نموذج العمل.</li>
       <li><strong>التحقق الميداني:</strong> استغلال البازارات لاختبار الهوية والأسعار وفر مبالغ تسويقية طائلة وقدم بيانات دقيقة مجاناً.</li>
@@ -813,7 +774,7 @@
     </ul>
   </div>
   <div class="eval-card eval-minus">
-    <h4>ما يحتاج تطوير</h4>
+    <h3>ما يحتاج تطوير</h3>
     <ul>
       <li>هيكل التسعير يحتاج مراجعة دورية للتكاليف غير المباشرة (استهلاك الأدوات، الكهرباء، ساعات التسويق).</li>
       <li>تعميق دراسة المنافسين وتوثيق البيانات بشكل منظم داخل ملفات Excel متخصصة.</li>
@@ -843,21 +804,30 @@
             <div class="mkt-pro-gallery-grid">
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/rawnak-insta-before.png" 
+                    <img src="/assets/images/projects/Rawnak/rawnak-insta-before.jpg" 
                          alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق — 1" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/rawnak-insta-after.png" 
+                    <img src="/assets/images/projects/Rawnak/rawnak-insta-after.jpg" 
                          alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق — 2" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
                 <figure class="mkt-pro-gallery-item">
-                    <img src="/assets/images/projects/Rawnak/samble.png" 
+                    <img src="/assets/images/projects/Rawnak/sample.jpg" 
                          alt="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق — 3" 
-                         loading="lazy">
+                         width="1200"
+                         height="800"
+                         loading="lazy"
+                         decoding="async">
                 </figure>
                 
             </div>
@@ -941,11 +911,7 @@
              على التواصل. يدعم العربية والإنجليزية تلقائياً.
      الاستخدام: هذا المكون يستخدم كقسم للتواصل أسفل الصفحات
      التعديل: غيّر النص أدناه أو رابط الزر حسب الحاجة.
-     ═══════════════════════════════════════════════════════════════════════════ -->
-
-
-
-<!-- حاوية CTA الرئيسية — خلفية متدرجة مع حدود خضراء خفيفة -->
+     ═══════════════════════════════════════════════════════════════════════════ --><!-- حاوية CTA الرئيسية — خلفية متدرجة مع حدود خضراء خفيفة -->
 <section class="mkt-cta-section">
     <div class="mkt-cta-inner">
 
@@ -988,7 +954,7 @@
   "@type": "CreativeWork",
   "headline": "إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق",
   "description": "إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية البصرية والاسم التموضعي، إلى تصميم رحلة العميل وإطلاق قنوات البيع الميدانية والرقمية.",
-  "image": ["http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.png"],
+  "image": ["http://localhost:4000/assets/images/projects/Rawnak/Rawnak-hero.jpg"],
   "author": {
     "@type": "Person",
     "name": "Khaled Hashem",
@@ -1009,13 +975,13 @@
        EDIT: Update social links, footer tagline, and quick links below
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer bg-navy">
+        <h2 class="sr-only">روابط التذييل</h2>
         <div class="container footer-inner">
 
             <!-- Brand Column -->
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo"
-                        style="height:30px; width:auto;">
+                    <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
                     خالد هاشم<span>.</span>
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->

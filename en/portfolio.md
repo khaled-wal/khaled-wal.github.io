@@ -33,8 +33,9 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════
-         Unified Works Grid (English)
+         Unified Works Grid
     ══════════════════════════════════════════════════════════════ -->
+    <h2 class="sr-only">Works and Case Studies</h2>
     <div class="portfolio-grid reveal" id="portfolio-grid-en" style="margin-bottom: 4rem;">
       {%- assign en_projects = site.projects | where: "lang", "en" | where: "publish_state", "published" -%}
       {%- assign en_case_studies = site.case_studies | where: "lang", "en" | where: "publish_state", "published" -%}
@@ -47,14 +48,14 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
           <article class="portfolio-card">
             <div class="card-image">
               {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
               {% else %}
                 {% if item.collection == 'case_studies' %}
-                  <img src="{{ '/assets/images/case-studies/case-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/case-studies/case-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% elsif item.collection == 'lab' %}
-                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/lab/lab-def-academic-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% else %}
-                  <img src="{{ '/assets/images/projects/prog-def-cover.png' | relative_url }}" alt="{{ item.title }}">
+                  <img src="{{ '/assets/images/projects/prog-def-cover.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async">
                 {% endif %}
               {% endif %}
             </div>
@@ -112,9 +113,9 @@ description: "Browse case studies and projects by Khaled Waleed in the fields of
           <article class="portfolio-card">
               <div class="card-image">
                   {% if item.image %}
-                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" aria-hidden="true">
+                  <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async" aria-hidden="true">
                   {% else %}
-                  <img src="{{ '/assets/images/coming-soon-def.png' | relative_url }}" alt="{{ item.title }}" aria-hidden="true">
+                  <img src="{{ '/assets/images/coming-soon-def.jpg' | relative_url }}" alt="{{ item.title }}" width="505" height="300" loading="lazy" decoding="async" aria-hidden="true">
                   {% endif %}
               </div>
               <div class="card-content">

@@ -7,11 +7,11 @@ publish_state: "coming_soon" # "published" للظهور الفعلي في قسم
 title: "عنوان التجربة / المشروع الأكاديمي"
 category: "مشروع أكاديمي / ورشة تدريبية / بحث مستقل"
 # الصورة المصغرة في الشبكة 
-image: "/assets/images/lab/lab-def-academic-cover.png" 
+image: "/assets/images/lab/lab-def-academic-cover.jpg" 
 
 # ═══════════ القسم الثاني: بيانات الهيدر المتقدمة ═══════════
 # صورة الغلاف العريضة أعلى الصفحة
-image_path: "/assets/images/lab/lab-def-academic-cover.png"
+image_path: "/assets/images/lab/lab-def-academic-cover.jpg"
 date: YYYY-MM-DD # تاريخ تنفيذ هذا المشروع أو البحث
 order: 1
 role_or_skill: "بحث وتحليل / إدارة حملات" # دورك أو المهارة الأساسية التي طُبقت في هذا المشروع

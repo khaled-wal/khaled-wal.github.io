@@ -13,7 +13,7 @@ subtitle: "Brand Positioning Case Study — From Absolute Specialization to an A
 description: "A strategic analysis of Bayt Al Shawarma's positioning, exploring how rapid menu expansion creates a rift between the foundational brand promise and the actual product experience."
 
 # No hero image attached — remove this comment and add field when image becomes available
-image: "assets/images/case-studies/shawarma-house/shawarma-hero.png"
+image: "assets/images/case-studies/shawarma-house/shawarma-hero.jpg"
 objective: "Understand the gap between the brand promise grounded in absolute specialization and the actual product experience after transitioning into an all-inclusive food platform."
 
 # ═══ Analysis Case Fields ═══

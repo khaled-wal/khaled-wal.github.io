@@ -1,27 +1,30 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-699YXNTX31');
-</script>
 
-    <!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
+  (function() {
+    function loadGTM() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-699YXNTX31';
+      document.head.appendChild(s);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGTM);
+    } else {
+      window.addEventListener('load', loadGTM, { once: true });
+    }
+  })();
+</script>
+<!-- ═══ SEO: Page Title ═══════════════════════════════════════════════ -->
     <title>Thank You | Khaled Hashem</title>
 
     <!-- ═══ SEO: Meta Description ════════════════════════════════════════ -->
@@ -30,49 +33,8 @@
     <!-- Canonical URL — prevents duplicate-content SEO issues -->
     <link rel="canonical" href="http://localhost:4000/en/thanks.html">
 
-    <!-- Hreflang Links for Internationalization -->
-    
-        
-        
-        <link rel="alternate" hreflang="en" href="http://localhost:4000/en/thanks.html">
-        
-        
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-            
-            
-            
-        
-        <link rel="alternate" hreflang="ar" href="http://localhost:4000/thanks.html">
+    <!-- Hreflang Links for Internationalization --><link rel="alternate" hreflang="en" href="http://localhost:4000/en/thanks.html"><link rel="alternate" hreflang="ar" href="http://localhost:4000/thanks.html">
         <link rel="alternate" hreflang="x-default" href="http://localhost:4000/thanks.html">
-    
 
     <!-- ═══ Open Graph / Social Sharing ══════════════════════════════════ -->
     <meta property="og:type" content="website">
@@ -81,13 +43,13 @@
     <meta property="og:description" content="Your message has been sent successfully.">
     <meta property="og:url" content="http://localhost:4000/en/thanks.html">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="http://localhost:4000/assets/images/profile.png">
+    <meta property="og:image" content="http://localhost:4000/assets/images/hero-pic.webp">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Thank You | Khaled Hashem">
     <meta name="twitter:description" content="Your message has been sent successfully.">
-    <meta name="twitter:image" content="http://localhost:4000/assets/images/profile.png">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/hero-pic.webp">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -97,7 +59,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "http://localhost:4000",
-      "image": "http://localhost:4000/assets/images/profile.png",
+      "image": "http://localhost:4000/assets/images/hero-pic.webp",
       "sameAs": [
         "https://www.linkedin.com/in/khaledwhashem/",
         "https://x.com/KhaledwHashem"
@@ -117,36 +79,28 @@
 
     <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
 
-    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately -->
-    
+    <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
 
-    <!-- Google Fonts: preconnect for faster load -->
+    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1786659597">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1786732035">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    
 </head>
 
-<body class="">
-
-    <header class="site-header">
-  
-
-  
-
-  <div class="container header-inner">
+<body class=""><header class="site-header"><div class="container header-inner">
     <a href="/en/" class="logo">
-      <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo">
+      <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo" width="30" height="30" decoding="async">
       Khaled Hashem<span>.</span>
     </a>
 
@@ -182,9 +136,7 @@
     </button>
   </div>
 
-</header>
-
-    <main id="main-content">
+</header><main id="main-content">
         <section class="thanks-section bg-navy">
     <div class="container thanks-inner">
         <div class="thanks-icon">
@@ -272,13 +224,13 @@
        EDIT: Update social links, footer tagline, and quick links below
        ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer bg-navy">
+        <h2 class="sr-only">Footer Navigation</h2>
         <div class="container footer-inner">
 
             <!-- Brand Column -->
             <div class="footer-col brand-col">
                 <div class="logo">
-                    <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo"
-                        style="height:30px; width:auto;">
+                    <img src="/assets/images/LOGO.png" alt="Khaled Hashem Logo" width="30" height="30" decoding="async">
                     Khaled Hashem<span>.</span>
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->
