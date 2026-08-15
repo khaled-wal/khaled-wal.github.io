@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           const isEnglish = window.location.pathname.startsWith('/en');
-          window.location.href = isEnglish ? '/en/thanks/' : '/thanks/';
+          window.location.href = isEnglish ? '/en/thanks' : '/thanks';
         } else {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;

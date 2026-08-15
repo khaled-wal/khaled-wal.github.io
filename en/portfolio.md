@@ -5,7 +5,7 @@ title: "My Work"
 translation_key: case_studies
 permalink: /en/portfolio/
 light_bg: true
-description: "Browse case studies and projects by Khaled Waleed in the fields of marketing."
+description: "Browse case studies and projects by Khaled in the fields of marketing."
 ---
 
 <section class="portfolio-page-section bg-light">

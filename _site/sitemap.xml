@@ -3,7 +3,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/</loc>
+    <loc>https://khaled-hashem.com/</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -12,7 +12,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/en/</loc>
+    <loc>https://khaled-hashem.com/en/</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -21,7 +21,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/portfolio/</loc>
+    <loc>https://khaled-hashem.com/portfolio/</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/en/portfolio/</loc>
+    <loc>https://khaled-hashem.com/en/portfolio/</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -39,7 +39,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/robots.txt</loc>
+    <loc>https://khaled-hashem.com/robots.txt</loc>
     
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -57,7 +57,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/en/portfolio/case-studies/shawarma-house-case/</loc>
+    <loc>https://khaled-hashem.com/en/portfolio/case-studies/shawarma-house-case/</loc>
     
       <lastmod>2026-07-18T00:00:00+03:00</lastmod>
     
@@ -68,7 +68,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/portfolio/case-studies/shawarma-house-case/</loc>
+    <loc>https://khaled-hashem.com/portfolio/case-studies/shawarma-house-case/</loc>
     
       <lastmod>2026-07-18T00:00:00+03:00</lastmod>
     
@@ -79,7 +79,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/en/portfolio/zoi-ice-tea-campaign/</loc>
+    <loc>https://khaled-hashem.com/en/portfolio/zoi-ice-tea-campaign/</loc>
     
       <lastmod>2026-08-12T00:00:00+03:00</lastmod>
     
@@ -90,7 +90,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/portfolio/zoi-ice-tea-campaign/</loc>
+    <loc>https://khaled-hashem.com/portfolio/zoi-ice-tea-campaign/</loc>
     
       <lastmod>2026-08-12T00:00:00+03:00</lastmod>
     
@@ -101,7 +101,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/en/portfolio/resin-accessories-revamp-en/</loc>
+    <loc>https://khaled-hashem.com/en/portfolio/resin-accessories-revamp-en/</loc>
     
       <lastmod>2026-01-01T00:00:00+03:00</lastmod>
     
@@ -112,7 +112,7 @@
 
   
   <url>
-    <loc>http://localhost:4000/portfolio/resin-accessories-revamp/</loc>
+    <loc>https://khaled-hashem.com/portfolio/resin-accessories-revamp/</loc>
     
       <lastmod>2026-01-01T00:00:00+03:00</lastmod>
     

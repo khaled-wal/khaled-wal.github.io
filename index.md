@@ -371,7 +371,7 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
             <!-- ✏️ EDIT: استبدل YOUR_FORM_ID برابط Formspree الخاص بك -->
             <form class="contact-form" action="https://formspree.io/f/mgoljdnp" method="POST">
                 <!-- Formspree custom redirect — do not remove this hidden field -->
-                <input type="hidden" name="_next" value="{{ '/thanks/' | absolute_url }}">
+                <input type="hidden" name="_next" value="{{ '/thanks' | absolute_url }}">
                 <div class="form-group">
                     <label for="name">الاسم الكامل</label>
                     <input type="text" name="name" id="name" placeholder="أدخل اسمك الكريم" autocomplete="name" required>

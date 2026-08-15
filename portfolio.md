@@ -5,7 +5,7 @@ title: "أعمالي"
 translation_key: case_studies
 permalink: /portfolio/
 light_bg: true
-description: "استعرض دراسات الحالة والمشاريع التي أبدعها خالد وليد في مجال التسويق."
+description: "استعرض دراسات الحالة والمشاريع التي أبدعها خالد في مجال التسويق."
 ---
 
 <section class="portfolio-page-section bg-light">
