@@ -45,8 +45,8 @@ sources:
     url: "https://tticetea.com/"
   - label: "TT Ice Tea listing on Snaf"
     url: "https://snaf.co/ar/VDYXOjm"
-  - label: "TT Ice Tea listing on ProNutrition"
-    url: "https://pronutritionsa.com/en/tt-ice-tea-zero-sugar/p1603705675"
+  - label: "TT Ice Tea listing on Green Food"
+    url: "https://greenfood9.com/yKBndmp"
 
 hook_quote: "\"The best drink after water\" — one sentence carried an entire campaign. Can it still carry Zoi's position now that a competitor has entered?"
 

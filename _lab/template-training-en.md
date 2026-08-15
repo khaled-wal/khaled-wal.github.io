@@ -1,6 +1,7 @@
 ---
 layout: lab_item
 lang: en
+published: false
 publish_state: draft
 title: "Marketing Plan for Launching a Tech Product in the Saudi Market"
 description: "A comprehensive plan including product analysis, market research, competitor analysis, timeline development, and visual content modeling."

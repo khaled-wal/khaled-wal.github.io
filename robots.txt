@@ -1,14 +1,10 @@
 ---
 layout: null
 ---
-# السماح لمحركات البحث العامة بأرشفة الموقع بالكامل
-User-agent: Googlebot
+User-agent: *
 Allow: /
 
-User-agent: Bingbot
-Allow: /
-
-# حظر روبوتات الذكاء الاصطناعي وسرقة المحتوى المكثفة
+# Disallow AI scrapers and aggressive content bots
 User-agent: GPTBot
 Disallow: /
 
@@ -17,10 +13,5 @@ Disallow: /
 
 User-agent: Bytespider
 Disallow: /
-
-User-agent: *
-Allow: /
-Disallow: /thanks
-Disallow: /en/thanks
 
 Sitemap: {{ site.url }}/sitemap.xml

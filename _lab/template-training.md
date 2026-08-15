@@ -1,6 +1,7 @@
 ---
 layout: lab_item
 lang: ar
+published: false
 publish_state: draft
 title: "خطة تسويقية لاطلاق منتج تقني في السوق السعودي"
 description: "خطة متكاملة تشمل تحليل المنتج والسوق والمنافسين ووضع مخطط زمني للتنفيذ ونموذج بصري للمحتوى"

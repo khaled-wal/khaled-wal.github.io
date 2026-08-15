@@ -45,8 +45,8 @@ sources:
     url: "https://tticetea.com/"
   - label: "منتج TT Ice Tea على متجر سناف"
     url: "https://snaf.co/ar/VDYXOjm"
-  - label: "منتج TT Ice Tea على متجر ProNutrition"
-    url: "https://pronutritionsa.com/en/tt-ice-tea-zero-sugar/p1603705675"
+  - label: "منتج TT Ice Tea على متجر جرين فود"
+    url: "https://greenfood9.com/yKBndmp"
 
 hook_quote: "\"أفضل مشروب بعد الموية\" — جملة واحدة حملت حملة كاملة. هل ما زالت قادرة على حمل موقع زوي بعد دخول منافس جديد؟"
 

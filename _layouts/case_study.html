@@ -543,6 +543,9 @@ light_bg: true
   "@type": "Article",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
+  "inLanguage": "{{ current_lang }}",
+  {% if page.date %}"datePublished": "{{ page.date | date_to_xmlschema }}",{% endif %}
+  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% elsif page.date %}"dateModified": "{{ page.date | date_to_xmlschema }}",{% endif %}
   "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url | jsonify }}{% endif %}],
   "author": {
     "@type": "Person",
@@ -553,6 +556,35 @@ light_bg: true
     "@type": "Person",
     "name": "Khaled Hashem"
   },
-  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "{% if current_lang == 'en' %}Home{% else %}الرئيسية{% endif %}",
+      "item": "{{ site.url }}{% if current_lang == 'en' %}/en/{% else %}/{% endif %}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{% if current_lang == 'en' %}My Work{% else %}أعمالي{% endif %}",
+      "item": "{{ site.url }}{% if current_lang == 'en' %}/en/portfolio/{% else %}/portfolio/{% endif %}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": "{{ site.url }}{{ page.url }}"
+    }
+  ]
 }
 </script>
