@@ -104,7 +104,7 @@ By this logic, Bayt Al Shawarma is no longer evaluated against another specialty
 
 The most fascinating aspect of this case is that the brand successfully delivers quality that rivals or even surpasses true specialists in categories entirely outside its foundational identity. The burger offerings follow Gourmet Burger standards (pretzel buns, burrata cheese, truffle sauce) at competitive price points ranging between SAR 27 and 29. Similarly, fried chicken, falafel, and hummus receive near-flawless ratings.
 
-> 💡 **Analytical Insight**: This is not accidental, but rather a strategy that can be termed **"High-Average Quality"**: instead of sharp, singular excellence in a single item as a specialist does, Bayt Al Shawarma offers a quality level approaching 80–90% of specialists, across hundreds of items under one roof. This represents an exceedingly complex operational equation—one rarely acknowledged in critiques of the brand, despite being its most impressive operational achievement.
+>**Analytical Insight**: This is not accidental, but rather a strategy that can be termed **"High-Average Quality"**: instead of sharp, singular excellence in a single item as a specialist does, Bayt Al Shawarma offers a quality level approaching 80–90% of specialists, across hundreds of items under one roof. This represents an exceedingly complex operational equation—one rarely acknowledged in critiques of the brand, despite being its most impressive operational achievement.
 
 ---
 
@@ -138,7 +138,7 @@ A superficial reading of customer complaints (excessive grease, dry meat, delaye
 
 **Early stockouts of meat rotisseries on delivery apps** reveal a deeper vulnerability: the brand's reliance on a single centralized production facility to standardize quality across all branches. While this Centralized Commissary model is highly efficient under normal conditions, it creates what is known in marketing and operations as a **Single Point of Failure (SPOF)**: any defect on the production line or cold chain fluctuation instantly cascades across every branch simultaneously.
 
-> ⚠️ **Strategic Challenge**: The strategic response to this dilemma was to double down on centralization rather than decentralize: signing an agreement with "MODON" to allocate a 124,000 square meter industrial land parcel in Sudair Industrial City to standardize quality and eliminate supply shortages. While logically sound from a scalability standpoint, this move doubles the magnitude of risk at the exact same failure point rather than distributing it.
+>**Strategic Challenge**: The strategic response to this dilemma was to double down on centralization rather than decentralize: signing an agreement with "MODON" to allocate a 124,000 square meter industrial land parcel in Sudair Industrial City to standardize quality and eliminate supply shortages. While logically sound from a scalability standpoint, this move doubles the magnitude of risk at the exact same failure point rather than distributing it.
 
 ---
 
@@ -177,4 +177,4 @@ Four strategic pillars summarize the most viable pathway to safeguard brand equi
 
 Bayt Al Shawarma has not failed. It has executed precisely what any shrewd market player does: it altered the job for which it is hired and constructed an integrated operational and marketing ecosystem that has achieved clear commercial success. This is not a strategic deviation; it *is* the strategy.
 
-> ✅ **Core Takeaway**: However, every horizontal expansion is funded by the vertical specialization equity upon which the brand was originally built—and that equity is not bottomless. This question deserves to remain open for any brand undergoing a similar trajectory, whether within the food service industry or beyond.
+>However, every horizontal expansion is funded by the vertical specialization equity upon which the brand was originally built—and that equity is not bottomless. This question deserves to remain open for any brand undergoing a similar trajectory, whether within the food service industry or beyond.
