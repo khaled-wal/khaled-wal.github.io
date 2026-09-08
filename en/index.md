@@ -3,7 +3,7 @@ layout: default
 lang: en
 translation_key: home
 title: "Home"
-description: "Khaled Hashem — Marketing Specialist; Transforming data into marketing strategies that achieve results."
+description: "Khaled Hashem — MarCom Specialist; Transforming data into marketing strategies that achieve results."
 ---
 
 {% assign social_x = site.data.social.x %}
@@ -28,7 +28,7 @@ description: "Khaled Hashem — Marketing Specialist; Transforming data into mar
             <!-- ✏️ EDIT: Welcome badge text -->
             <span class="badge reveal" data-delay="100">🎓 Near Graduation</span>
             <!-- ✏️ EDIT: H1 — your name + professional title -->
-            <h1 class="hero-title reveal" data-delay="200">i'm Khaled<br><span class="highlight">Marketing Specialist. Strategy & Execution</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">i'm Khaled<br><span class="highlight">MarCom Specialist. Strategy to Execution</span></h1>
             <!-- ✏️ EDIT: Short description / elevator pitch -->
             <p class="hero-desc reveal" data-delay="300">Turning data into results-driven marketing strategies. Believing that every smarter act begins with deeper thinking. Focused on strategic planning and brand building.</p>
             <div class="hero-actions reveal" data-delay="400">
