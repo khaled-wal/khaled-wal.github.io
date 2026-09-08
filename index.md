@@ -3,7 +3,7 @@ layout: default
 lang: ar
 translation_key: home
 title: "الرئيسية"
-description: "خالد هاشم — متخصص تسويق؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج."
+description: "خالد هاشم — متخصص اتصال تسويقي؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج."
 ---
 
 {% assign social_x = site.data.social.x %}
@@ -29,7 +29,7 @@ description: "خالد هاشم — متخصص تسويق؛ أحوّل البي�
             <!-- ✏️ EDIT: نص الشارة الترحيبية -->
             <span class="badge reveal" data-delay="100">🎓 على أعتاب التخرج</span>
             <!-- ✏️ EDIT: العنوان الرئيسي — اسمك + لقبك -->
-            <h1 class="hero-title reveal" data-delay="200">أنا خالد<br><span class="highlight">متخصص تسويق<br>بين التخطيط والتنفيذ</span></h1>
+            <h1 class="hero-title reveal" data-delay="200">أنا خالد<br><span class="highlight">متخصص اتصال تسويقي<br>بين التخطيط والتنفيذ</span></h1>
             <!-- ✏️ EDIT: الوصف المختصر تحت العنوان -->
             <p class="hero-desc reveal" data-delay="300">أحوّل البيانات إلى استراتيجيات تسويقية تُحقق نتائج. أؤمن بأن كل تـصـرف أذكـى يبدأ بـتفكيـر أعمق. مهتم بالتخطيط الاستراتيجي وبناء العلامات التجارية.</p>
             <div class="hero-actions reveal" data-delay="400">
