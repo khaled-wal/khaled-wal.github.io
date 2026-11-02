@@ -64,13 +64,13 @@
     <meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:locale" content="{% if current_lang == 'en' %}en_US{% else %}ar_SA{% endif %}">
-    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url }}{% endif %}">
+    <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/LOGO.png' | absolute_url }}{% endif %}">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | {% endif %}{{ t.site_name }}">
     <meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 | default: site.description }}{% endif %}">
-    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% elsif page.hero_image %}{{ page.hero_image | absolute_url }}{% else %}{{ '/assets/images/LOGO.png' | absolute_url }}{% endif %}">
     
     <!-- ═══ Structured Data (Schema.org JSON-LD) ═════════════════════════ -->
     <script type="application/ld+json">
@@ -80,7 +80,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "{{ site.url }}",
-      "image": "{{ '/assets/images/hero-pic.webp' | absolute_url }}",
+      "image": "{{ '/assets/images/LOGO.png' | absolute_url }}",
       "sameAs": [
         "{{ site.data.social.linkedin }}",
         "{{ site.data.social.x }}"
@@ -100,7 +100,7 @@
 
     <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
     {%- if page.translation_key == 'home' %}
-    <link rel="preload" as="image" href="{{ '/assets/images/hero-pic.webp' | relative_url }}" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ '/assets/images/LOGO.png' | relative_url }}" type="image/webp" fetchpriority="high">
     {%- endif %}
 
     <!-- Google Fonts: preconnect + display=swap for optimal performance -->

@@ -438,13 +438,13 @@ section {
 /* اتجاه اليمين لليسار (العربية): الإشعاع من الزاوية اليمنى العليا */
 html[lang="ar"] .hero,
 html[dir="rtl"] .hero {
-  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 30%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
+  background-image: radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-action) 40%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
 }
 
 /* اتجاه اليسار لليمين (الإنجليزية): الإشعاع من الزاوية اليسرى العليا */
 html[lang="en"] .hero,
 html[dir="ltr"] .hero {
-  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 30%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
+  background-image: radial-gradient(circle at top left, color-mix(in srgb, var(--secondary-action) 40%, var(--primary-bg)) 0%, var(--primary-bg) 60%);
 }
 
 .hero-inner {

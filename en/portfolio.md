@@ -40,7 +40,7 @@ description: "Browse case studies and projects by Khaled in the fields of market
       {%- assign en_projects = site.projects | where: "lang", "en" | where: "publish_state", "published" -%}
       {%- assign en_case_studies = site.case_studies | where: "lang", "en" | where: "publish_state", "published" -%}
       {%- assign en_lab_items = site.lab | where: "lang", "en" | where: "publish_state", "published" -%}
-      {%- assign en_published_works = en_projects | concat: en_case_studies | concat: en_lab_items | sort: "order" | reverse -%}
+      {%- assign en_published_works = en_projects | concat: en_case_studies | concat: en_lab_items | sort: "date" | reverse -%}
 
       {% for item in en_published_works %}
       <div class="portfolio-item-wrapper" data-work-type="{{ item.work_type | default: 'strategy' }}">

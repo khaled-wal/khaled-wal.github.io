@@ -15,6 +15,7 @@
 #   Section 3 → Content (Markdown)
 #   Section 4 → Visual Gallery
 #   Section 5 → KPI Cards
+#   Section 6 → Downloadable Project Document (Visual Preview)
 #   CTA → Contact call to action
 # ═══════════════════════════════════════════════════════════════════════════
 
@@ -104,7 +105,7 @@ kpi_3_value: "+2.5K"
 #kpi_4_value: ""
 
 # ═══════ Phase 7: Visual Gallery ══════════════════════════════════════
-# Leave empty if no visuals are available yet
+# Add image paths — leave commented if not available
 
 gallery:
 #  - "/assets/images/projects/screenshot-1.jpg"
@@ -118,9 +119,20 @@ tools_used:
   - "Canva"
   - "Notion"
 
-# ═══════ Phase 9: Side Navigation TOC ════════════════════════════════
-# Uses id and label (NOT url and title)
-# Each id must match a section's HTML id attribute
+# ═══════ Phase 9: Downloadable Document (File Preview Card) ═══════════
+# Interactive preview card with thumbnail, format badge, and direct download action
+download_file: "/assets/files/sample-report.pdf"
+download_title: "Full Strategic Project Report (PDF)"
+download_description: "Includes complete project blueprints, full statistical tables, KPI breakdowns, and operational appendices."
+download_preview_image: "/assets/images/projects/prog-def-cover.jpg"
+download_button_text: "Download Full Document (PDF)"
+download_badge: "Verified Strategic Document"
+download_file_size: "PDF • 3.5 MB"
+download_format: "PDF"
+download_section_title: "Download Project Document"
+
+# ═══════ Phase 10: Side Navigation TOC ════════════════════════════════
+# Table of Contents using id and label (matches page sections & headings)
 toc_items:
   - id: "client-problem"
     label: "Client & Challenge"
@@ -131,38 +143,51 @@ toc_items:
   - id: "gallery"
     label: "Visual Gallery"
   - id: "results"
-    label: "Results & Evaluation"
+    label: "Evaluation & Results"
+  - id: "download"
+    label: "Download Project Document"
 ---
 
 <!-- ══════════════════════════════════════════════════════════════════════════
      Prose Content — Strategy & Execution
      ──────────────────────────────────────────────────────────────────────────
-     This section appears in Section #3, between "Research" and "Gallery".
+     UI/UX & Mobile Responsiveness Guidelines for Information-Heavy Content:
+     1. Always wrap tables in <div class="table-responsive" markdown="1"> to prevent mobile overflow.
+     2. Avoid raw unparsed LaTeX like $..$; use clean semantic typography (*n* = 45, α = 0.955).
+     3. Use structured callout blockquotes for strategic takeaways and observations.
      ══════════════════════════════════════════════════════════════════════════ -->
 
 ## Strategic Plan
 
-Explain the methodology and strategic framework you designed to solve the client's challenge.
+Explain here the overarching strategic framework and methodology applied to solve the client's core challenge.
 
-### Pillar One — [Name]
-Describe what this pillar involves and what impact it is designed to produce.
+### Pillar 1 — [Name]
+Detailed description of actions taken within this pillar and the expected business impact.
 
-### Pillar Two — [Name]
-Describe the campaigns or initiatives under this pillar.
+### Pillar 2 — [Name]
+Description of campaign activations or marketing initiatives.
 
-### Pillar Three — [Name]
-Describe the content types or activities tied to this pillar.
+<!-- Responsive Mobile-Friendly Table Example -->
+<div class="table-responsive" markdown="1">
 
-> 💡 **Strategic Insight**: Use blockquotes for prominent analytical observations — they render with a distinctive green accent.
+| Phase | Operational Objectives | Target Deliverables | Lead Role |
+| :--- | :--- | :--- | :--- |
+| **Phase 1** | Current audit & audience research | Analytical report & KPI dashboard | Marketing Lead |
+| **Phase 2** | Campaign framing & creative production | 12 core assets + ad copy scripts | Creative Team |
+| **Phase 3** | Campaign launch & paid media management | 25,000 impressions + 1,200 conversions | Ads Specialist |
+
+</div>
+
+> 💡 **Strategic Insight**: Use callout blockquotes to emphasize critical findings, improving scannability and reading rhythm.
 
 ## Execution & Implementation
 
-Explain the execution phases — the timeline, challenges that emerged, and how you navigated them.
+Explain the implementation phases — timeline, milestones, unexpected friction, and how issues were addressed.
 
-> ⚠️ **Challenge Encountered**: Note any obstacle that came up during execution and how it was resolved.
+> ⚠️ **Friction Encountered**: Highlight challenges faced during rollout and how strategic flexibility resolved them.
 
-## Key Results Summary
+## Results Summary
 
-- **Result One**: Description of the outcome and its business impact
-- **Result Two**: Description of the outcome and its business impact
-- **Result Three**: Description of the outcome and its business impact
+- **Primary Impact**: Concrete description of business and revenue growth.
+- **Cost Efficiency**: Acquisition cost reduction and improved funnel performance.
+- **Brand Equity**: Enhanced market positioning and long-term brand recall.

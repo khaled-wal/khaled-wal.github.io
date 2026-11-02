@@ -2533,3 +2533,876 @@ html[dir="rtl"] .mkt-mobile-notice,
     display: flex;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE TABLES & DATA PRESENTATION
+   Prevents mobile overflow and provides local horizontal scrolling
+   ═══════════════════════════════════════════════════════════════════════════ */
+.table-responsive,
+.table-responsive-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.75rem 0 2.25rem 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--clr-border);
+  background-color: var(--clr-navy-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.table-responsive table,
+.table-responsive-wrapper table {
+  width: 100%;
+  min-width: 560px; /* Guarantees readability without cramming text on mobile */
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.mkt-pro-prose .table-responsive table th,
+.mkt-pro-prose .table-responsive table td,
+.mkt-cs-prose .table-responsive table th,
+.mkt-cs-prose .table-responsive table td {
+  padding: 1rem 1.25rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.mkt-pro-prose .table-responsive table th,
+.mkt-cs-prose .table-responsive table th {
+  background-color: rgba(6, 21, 51, 0.95);
+  color: var(--clr-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  border-bottom: 2px solid rgba(var(--clr-gold-rgb), 0.3);
+}
+
+.table-responsive table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-responsive table tbody tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.table-responsive table tbody tr:hover td {
+  background-color: rgba(var(--clr-gold-rgb), 0.05);
+}
+
+/* Scrollbar styling for responsive tables */
+.table-responsive::-webkit-scrollbar,
+.table-responsive-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track,
+.table-responsive-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 12, 34, 0.6);
+  border-radius: var(--radius-pill);
+}
+
+.table-responsive::-webkit-scrollbar-thumb,
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+  background: var(--clr-slate);
+  border-radius: var(--radius-pill);
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover,
+.table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DOWNLOADABLE FILE PREVIEW CARD COMPONENT
+   Interactive card with document preview thumbnail and download actions
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mkt-pro-download-section {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.mkt-download-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(6, 21, 51, 0.95) 0%, rgba(0, 12, 34, 0.98) 100%);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.25);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mkt-download-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--clr-gold);
+}
+
+.mkt-download-card:hover {
+  border-color: rgba(var(--clr-gold-rgb), 0.5);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* Thumbnail Preview Frame */
+.mkt-download-preview {
+  flex: 0 0 240px;
+  max-width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mkt-download-preview-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #000c22;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.mkt-download-preview-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.mkt-download-card:hover .mkt-download-preview-frame img {
+  transform: scale(1.05);
+}
+
+.mkt-download-format-badge {
+  position: absolute;
+  top: 0.65rem;
+  inset-inline-end: 0.65rem;
+  background-color: rgba(0, 12, 34, 0.85);
+  color: var(--clr-gold);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.4);
+  backdrop-filter: blur(4px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 2;
+}
+
+/* Download Details Info */
+.mkt-download-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.mkt-download-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mkt-download-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(var(--clr-gold-rgb), 0.12);
+  color: var(--clr-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.25);
+}
+
+.mkt-download-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--clr-muted);
+  font-weight: 600;
+}
+
+.mkt-download-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  line-height: 1.35;
+}
+
+.mkt-download-desc {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #c5d1de;
+  max-width: 680px;
+}
+
+.mkt-download-action {
+  margin-top: 0.5rem;
+}
+
+.mkt-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(var(--clr-gold-rgb), 0.25);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.mkt-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--clr-gold-rgb), 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VISUAL DATA REPRESENTATION (CHARTS, CARDS, MATRICES)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Responsive Visual Bar Chart */
+.mkt-bar-chart {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 1.75rem 0 2.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mkt-bar-chart-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mkt-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mkt-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-text-light);
+}
+
+.mkt-bar-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mkt-bar-val {
+  color: var(--clr-gold);
+  font-weight: 700;
+}
+
+.mkt-bar-track {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.mkt-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--clr-gold) 0%, #e8bc6c 100%);
+  border-radius: var(--radius-pill);
+  transition: width 0.6s ease;
+}
+
+/* Stat & Metric Highlight Grid */
+.mkt-stat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.mkt-stat-card {
+  background: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease;
+}
+
+.mkt-stat-card:hover {
+  border-color: rgba(var(--clr-gold-rgb), 0.4);
+}
+
+.mkt-stat-card-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--clr-gold);
+  line-height: 1.2;
+}
+
+.mkt-stat-card-lbl {
+  font-size: 0.9rem;
+  color: var(--clr-text-light);
+  font-weight: 600;
+}
+
+.mkt-stat-card-desc {
+  font-size: 0.82rem;
+  color: var(--clr-muted);
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+/* Responsive 4-Quadrant SWOT Grid */
+.mkt-swot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 1.75rem 0 2.25rem 0;
+}
+
+.mkt-swot-card {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mkt-swot-card--s { border-inline-start: 4px solid #27ae60; }
+.mkt-swot-card--w { border-inline-start: 4px solid #e74c3c; }
+.mkt-swot-card--o { border-inline-start: 4px solid var(--clr-gold); }
+.mkt-swot-card--t { border-inline-start: 4px solid #e67e22; }
+
+.mkt-swot-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mkt-swot-card--s .mkt-swot-header i { color: #27ae60; }
+.mkt-swot-card--w .mkt-swot-header i { color: #e74c3c; }
+.mkt-swot-card--o .mkt-swot-header i { color: var(--clr-gold); }
+.mkt-swot-card--t .mkt-swot-header i { color: #e67e22; }
+
+.mkt-swot-list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  color: #c5d1de;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.mkt-swot-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Strategic Pillars Grid */
+.mkt-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.75rem 0 2.25rem 0;
+}
+
+.mkt-pillar-card {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.mkt-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--clr-gold-rgb), 0.4);
+}
+
+.mkt-pillar-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(var(--clr-gold-rgb), 0.12);
+  color: var(--clr-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.mkt-pillar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin: 0;
+}
+
+.mkt-pillar-tagline {
+  font-size: 0.92rem;
+  color: var(--clr-gold);
+  font-weight: 600;
+  margin: 0;
+}
+
+.mkt-pillar-desc {
+  font-size: 0.88rem;
+  color: var(--clr-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Buyer Persona Cards */
+.mkt-persona-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 1.75rem 0 2.25rem 0;
+}
+
+.mkt-persona-card {
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: border-color 0.25s ease;
+}
+
+.mkt-persona-card:hover {
+  border-color: rgba(var(--clr-gold-rgb), 0.4);
+}
+
+.mkt-persona-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mkt-persona-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(var(--clr-gold-rgb), 0.15);
+  color: var(--clr-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.mkt-persona-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin: 0;
+}
+
+.mkt-persona-tag {
+  font-size: 0.8rem;
+  color: var(--clr-gold);
+  font-weight: 600;
+}
+
+.mkt-persona-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #c5d1de;
+  line-height: 1.55;
+}
+
+.mkt-persona-item strong {
+  color: var(--clr-white);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 991px) {
+  .mkt-download-card {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .mkt-download-preview {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+  .mkt-pillars-grid,
+  .mkt-persona-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Download preview card stacks on mobile */
+  .mkt-download-card {
+    flex-direction: column;
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  .mkt-download-preview {
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  .mkt-download-preview-frame {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+  .mkt-download-title {
+    font-size: 1.15rem;
+  }
+  .mkt-download-desc {
+    font-size: 0.9rem;
+  }
+  .mkt-download-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Table typography on mobile */
+  .mkt-pro-prose .table-responsive table th,
+  .mkt-pro-prose .table-responsive table td,
+  .mkt-cs-prose .table-responsive table th,
+  .mkt-cs-prose .table-responsive table td {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  /* Grids collapse to single column on mobile */
+  .mkt-swot-grid,
+  .mkt-pillars-grid,
+  .mkt-persona-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODULAR CONTENT CONTAINERIZATION SYSTEM (CARDS, SUB-BLOCKS & INSIGHTS)
+   Modern Card UI patterns for long-form case studies & projects
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Content Card Container ─────────────────────────────────────────── */
+.content-card {
+  position: relative;
+  background-color: var(--clr-navy-light);
+  border: 1px solid var(--clr-border);
+  border-radius: 18px;
+  padding: 2.75rem 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(217, 164, 74, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  scroll-margin-top: calc(var(--header-height) + 3rem);
+}
+
+.content-card:hover {
+  border-color: rgba(var(--clr-gold-rgb), 0.25);
+  box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(217, 164, 74, 0.06);
+}
+
+/* Featured / Accent Card Variant */
+.content-card--accent,
+.content-card--featured {
+  background: linear-gradient(180deg, rgba(217, 164, 74, 0.04) 0%, rgba(6, 21, 51, 0.95) 100%), var(--clr-navy-light);
+  border-color: rgba(var(--clr-gold-rgb), 0.28);
+  border-top: 3px solid var(--clr-gold);
+}
+
+/* Card Kicker / Small Category Tag */
+.card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--clr-gold);
+  background: rgba(var(--clr-gold-rgb), 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.22);
+  line-height: 1;
+}
+
+/* Headings inside .content-card */
+.content-card > h2:first-child,
+.content-card > a:first-child + h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.content-card h2 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--clr-white);
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.content-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.content-card h3:first-of-type {
+  margin-top: 1rem;
+}
+
+/* ─── 2. Open Typographic Section (Visual Breathing Room) ────────────────── */
+.content-open-section {
+  position: relative;
+  padding: 0.5rem 0 2rem 0;
+  margin-bottom: 2rem;
+  scroll-margin-top: calc(var(--header-height) + 3rem);
+}
+
+.content-open-section h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.content-open-section p.lead-text,
+.content-open-section > p:first-of-type {
+  font-size: 1.15rem;
+  line-height: 2.1;
+  color: #dce6f1;
+}
+
+/* ─── 3. Nested & Highlighted Sub-Blocks (.insight-box) ──────────────────── */
+.insight-box {
+  position: relative;
+  background: rgba(var(--clr-gold-rgb), 0.05);
+  border: 1px solid rgba(var(--clr-gold-rgb), 0.2);
+  border-inline-start: 4px solid var(--clr-gold);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.insight-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--clr-gold);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.insight-box-header i {
+  font-size: 1.15rem;
+  color: var(--clr-gold);
+  filter: drop-shadow(0 0 8px rgba(var(--clr-gold-rgb), 0.4));
+}
+
+.insight-box-content,
+.insight-box p {
+  color: var(--clr-text-light);
+  line-height: 1.85;
+  font-size: 1.02rem;
+  margin-bottom: 0;
+}
+
+.insight-box p + p {
+  margin-top: 0.75rem;
+}
+
+/* Warning & Methodological Note Variant */
+.insight-box--warning {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.25);
+  border-inline-start-color: #f59e0b;
+}
+
+.insight-box--warning .insight-box-header,
+.insight-box--warning .insight-box-header i {
+  color: #f59e0b;
+  filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+}
+
+/* Strategic / Info Variant */
+.insight-box--info {
+  background: rgba(59, 130, 246, 0.06);
+  border-color: rgba(59, 130, 246, 0.25);
+  border-inline-start-color: #3b82f6;
+}
+
+.insight-box--info .insight-box-header,
+.insight-box--info .insight-box-header i {
+  color: #60a5fa;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+}
+
+/* ─── 4. Section Badge Component ─────────────────────────────────────────── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(var(--clr-gold-rgb), 0.12);
+  border: 2px solid var(--clr-gold);
+  color: var(--clr-gold);
+  font-weight: 800;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Suppress CSS pseudo-element numbering when custom section badge is used */
+.mkt-pro-prose h2:has(.section-badge)::before,
+.content-card h2:has(.section-badge)::before,
+.mkt-pro-prose h2.has-custom-badge::before {
+  display: none !important;
+}
+
+/* ─── 5. Elements & Tables inside .content-card ──────────────────────────── */
+.content-card .table-responsive {
+  margin: 1.75rem 0;
+  border: 1px solid rgba(85, 103, 122, 0.25);
+  border-radius: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(0, 12, 34, 0.35);
+}
+
+.content-card .table-responsive table {
+  margin-bottom: 0;
+}
+
+.content-card ul,
+.content-card ol {
+  padding-inline-start: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.content-card ul li,
+.content-card ol li {
+  color: var(--clr-text-light);
+  line-height: 1.85;
+  margin-bottom: 0.65rem;
+}
+
+.content-card ul li strong,
+.content-card ol li strong {
+  color: var(--clr-white);
+}
+
+/* ─── 6. Mobile & Responsive Refinements ──────────────────────────────────── */
+@media (max-width: 991px) {
+  .content-card {
+    padding: 2.25rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-card {
+    padding: 1.6rem 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 14px;
+  }
+  
+  .content-card h2 {
+    font-size: 1.3rem;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .content-card h3 {
+    font-size: 1.15rem;
+    margin-top: 1.75rem;
+  }
+
+  .insight-box {
+    padding: 1.25rem 1.15rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+  }
+
+  .insight-box-header {
+    font-size: 0.98rem;
+  }
+
+  .insight-box-content,
+  .insight-box p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .section-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+}

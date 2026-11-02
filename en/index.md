@@ -2,7 +2,7 @@
 layout: default
 lang: en
 translation_key: home
-title: "Home"
+title: "My Profile"
 description: "Khaled Hashem — MarCom Specialist; Transforming data into marketing strategies that achieve results."
 ---
 
@@ -80,12 +80,16 @@ description: "Khaled Hashem — MarCom Specialist; Transforming data into market
             </div>
         </div>
         <div class="portfolio-grid reveal">
-            {%- assign latest_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign latest_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign latest_lab = site.lab | where: "lang", "en" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign featured_items = latest_pr | concat: latest_cs | concat: latest_lab -%}
+            {%- comment -%}
+              ── Featured Works: Latest 3 published works by date (2 latest projects + 1 latest case study) ──
+              Filter: publish_state=published AND lang=en
+              Sort by: date descending
+            {%- endcomment -%}
+            {%- assign latest_pr = site.projects | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse | limit: 2 -%}
+            {%- assign latest_cs = site.case_studies | where: "lang", "en" | where: "publish_state", "published" | sort: "date" | reverse | limit: 1 -%}
+            {%- assign featured_items = latest_pr | concat: latest_cs | sort: "date" | reverse | limit: 3 -%}
 
-            {% for item in featured_items %}
+            {% for item in featured_items limit: 3 %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -196,7 +200,7 @@ description: "Khaled Hashem — MarCom Specialist; Transforming data into market
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">April 2026 - Present</div>
+                        <div class="timeline-date">April 2026 - October 2026</div>
                         <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Deputy Digital Analytics Lead</div>
                         <!-- ✏️ EDIT: Company / client name -->
@@ -218,7 +222,7 @@ description: "Khaled Hashem — MarCom Specialist; Transforming data into market
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: Date range -->
-                        <div class="timeline-date">April 2026 - Present</div>
+                        <div class="timeline-date">April 2026 - October 2026</div>
                         <!-- ✏️ EDIT: Job title -->
                         <div class="timeline-role">Club Representative</div>
                         <!-- ✏️ EDIT: Company / client name -->

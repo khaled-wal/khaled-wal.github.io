@@ -63,7 +63,7 @@
       "name": "Khaled Hashem",
       "jobTitle": "Marketing Communications Specialist",
       "url": "https://khaled-hashem.com",
-      "image": "https://khaled-hashem.com/assets/images/hero-pic.webp",
+      "image": "https://khaled-hashem.com/assets/images/LOGO.png",
       "sameAs": [
         "https://www.linkedin.com/in/khaledwhashem/",
         "https://x.com/KhaledwHashem"
@@ -93,10 +93,10 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1793591806">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1793650821">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
-    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1793591806">
+    <link rel="stylesheet" href="/assets/css/portfolio-layouts.css?v=1793650821">
 </head>
 
 <body class=""><header class="site-header"><div class="container header-inner">
@@ -900,8 +900,41 @@
             </div>
             
 
+            <!-- ═══════════════════════════════════════════════════════════════════
+                 القسم: تحميل وثيقة المشروع (Downloadable File Preview Card)
+                 ═══════════════════════════════════════════════════════════════════ -->
+            
+
         </div> <!-- End of mkt-cs-content -->
     </div> <!-- End of mkt-cs-body -->
+
+    <!-- Responsive Table Auto-Wrapper & Modular Content Enhancement Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Auto-wrap tables in responsive containers
+        var tables = document.querySelectorAll(".mkt-pro-prose table");
+        tables.forEach(function(table) {
+            if (!table.parentElement.classList.contains("table-responsive") && 
+                !table.parentElement.classList.contains("table-responsive-wrapper")) {
+                var wrapper = document.createElement("div");
+                wrapper.className = "table-responsive";
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            }
+        });
+
+        // 2. Progressive enhancement for legacy/standard blockquotes containing insight icons
+        var blockquotes = document.querySelectorAll(".mkt-pro-prose blockquote:not(.insight-box)");
+        blockquotes.forEach(function(bq) {
+            var text = bq.textContent || "";
+            if (text.includes("💡") || text.includes("رؤية تحليلية") || text.includes("Analytical Insight")) {
+                bq.classList.add("insight-box");
+            } else if (text.includes("⚠️") || text.includes("ملاحظة منهجية") || text.includes("Methodological Note")) {
+                bq.classList.add("insight-box", "insight-box--warning");
+            }
+        });
+    });
+    </script>
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 9: دعوة للتواصل (CTA)

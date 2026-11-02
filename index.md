@@ -2,7 +2,7 @@
 layout: default
 lang: ar
 translation_key: home
-title: "الرئيسية"
+title: "ملف الاعمال"
 description: "خالد هاشم — متخصص اتصال تسويقي؛ أحوّل البيانات إلى استراتيجيات تسويقية تحقق نتائج."
 ---
 
@@ -83,16 +83,15 @@ description: "خالد هاشم — متخصص اتصال تسويقي؛ أحو�
         </div>
         <div class="portfolio-grid reveal">
             {%- comment -%}
-              ── أبرز أعمالي: آخر عمل منشور من كل قسم ──
-              Filter: status=published AND lang=ar
-              Sort by: order descending → take first 1 from each
+              ── أبرز أعمالي: آخر 3 أعمال منشورة حسب التاريخ (آخر مشروعين + آخر دراسة حالة) ──
+              Filter: publish_state=published AND lang=ar
+              Sort by: date descending
             {%- endcomment -%}
-            {%- assign latest_pr = site.projects | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign latest_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign latest_lab = site.lab | where: "lang", "ar" | where: "publish_state", "published" | sort: "order" | reverse | limit: 1 -%}
-            {%- assign featured_items = latest_pr | concat: latest_cs | concat: latest_lab -%}
+            {%- assign latest_pr = site.projects | where: "lang", "ar" | where: "publish_state", "published" | sort: "date" | reverse | limit: 2 -%}
+            {%- assign latest_cs = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" | sort: "date" | reverse | limit: 1 -%}
+            {%- assign featured_items = latest_pr | concat: latest_cs | sort: "date" | reverse | limit: 3 -%}
 
-            {% for item in featured_items %}
+            {% for item in featured_items limit: 3 %}
             <a href="{{ item.url | relative_url }}" class="card-link" aria-label="{{ item.title }}">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -200,7 +199,7 @@ description: "خالد هاشم — متخصص اتصال تسويقي؛ أحو�
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: الفترة الزمنية -->
-                        <div class="timeline-date">ابريل 2026 - الان</div>
+                        <div class="timeline-date">ابريل 2026 - اكتوبر 2026</div>
                         <!-- ✏️ EDIT: المسمى الوظيفي -->
                         <div class="timeline-role">نائب رئيس التحليل الرقمي</div>
                         <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->
@@ -222,7 +221,7 @@ description: "خالد هاشم — متخصص اتصال تسويقي؛ أحو�
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <!-- ✏️ EDIT: الفترة الزمنية -->
-                        <div class="timeline-date">ابريل 2026 - الان</div>
+                        <div class="timeline-date">ابريل 2026 - اكتوبر 2026</div>
                         <!-- ✏️ EDIT: المسمى الوظيفي -->
                         <div class="timeline-role">ممثل النادي</div>
                         <!-- ✏️ EDIT: اسم الشركة أو المؤسسة -->

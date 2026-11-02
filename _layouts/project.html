@@ -311,8 +311,94 @@ layout: default
             </div>
             {% endif %}
 
+            <!-- ═══════════════════════════════════════════════════════════════════
+                 القسم: تحميل وثيقة المشروع (Downloadable File Preview Card)
+                 ═══════════════════════════════════════════════════════════════════ -->
+            {% if page.download_file %}
+            <section class="mkt-pro-section mkt-pro-download-section" id="download">
+                <div class="mkt-pro-section-inner">
+                    <div class="mkt-pro-section-header">
+                        <span class="mkt-pro-section-number">
+                            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <h2 class="mkt-pro-section-title">{{ page.download_section_title | default: t.pro_download_title | default: 'تحميل وثيقة المشروع' }}</h2>
+                    </div>
+                    <div class="mkt-download-card">
+                        <div class="mkt-download-preview">
+                            <div class="mkt-download-preview-frame">
+                                <img src="{{ page.download_preview_image | default: page.image | relative_url }}" 
+                                     alt="{{ page.download_title | default: page.title }}"
+                                     loading="lazy"
+                                     decoding="async">
+                                <span class="mkt-download-format-badge">
+                                    <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+                                    {{ page.download_format | default: 'PDF' }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mkt-download-info">
+                            <div class="mkt-download-meta">
+                                <span class="mkt-download-badge">
+                                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                                    {{ page.download_badge | default: t.pro_download_type | default: 'وثيقة رسمية كاملة' }}
+                                </span>
+                                {% if page.download_file_size %}
+                                <span class="mkt-download-size">
+                                    <i class="fa-solid fa-hard-drive" aria-hidden="true"></i>
+                                    {{ page.download_file_size }}
+                                </span>
+                                {% endif %}
+                            </div>
+                            <h3 class="mkt-download-title">{{ page.download_title | default: page.title }}</h3>
+                            {% if page.download_description %}
+                            <p class="mkt-download-desc">{{ page.download_description }}</p>
+                            {% endif %}
+                            <div class="mkt-download-action">
+                                <a href="{{ page.download_file | relative_url }}" 
+                                   class="btn btn-primary mkt-download-btn" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   download>
+                                    <i class="fa-solid fa-download" aria-hidden="true"></i>
+                                    <span>{{ page.download_button_text | default: t.pro_download_button | default: 'تحميل الوثيقة الكاملة (PDF)' }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
         </div> <!-- End of mkt-cs-content -->
     </div> <!-- End of mkt-cs-body -->
+
+    <!-- Responsive Table Auto-Wrapper & Modular Content Enhancement Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Auto-wrap tables in responsive containers
+        var tables = document.querySelectorAll(".mkt-pro-prose table");
+        tables.forEach(function(table) {
+            if (!table.parentElement.classList.contains("table-responsive") && 
+                !table.parentElement.classList.contains("table-responsive-wrapper")) {
+                var wrapper = document.createElement("div");
+                wrapper.className = "table-responsive";
+                table.parentNode.insertBefore(wrapper, table);
+                wrapper.appendChild(table);
+            }
+        });
+
+        // 2. Progressive enhancement for legacy/standard blockquotes containing insight icons
+        var blockquotes = document.querySelectorAll(".mkt-pro-prose blockquote:not(.insight-box)");
+        blockquotes.forEach(function(bq) {
+            var text = bq.textContent || "";
+            if (text.includes("💡") || text.includes("رؤية تحليلية") || text.includes("Analytical Insight")) {
+                bq.classList.add("insight-box");
+            } else if (text.includes("⚠️") || text.includes("ملاحظة منهجية") || text.includes("Methodological Note")) {
+                bq.classList.add("insight-box", "insight-box--warning");
+            }
+        });
+    });
+    </script>
 
     <!-- ═══════════════════════════════════════════════════════════════════════
          القسم 9: دعوة للتواصل (CTA)
@@ -331,7 +417,7 @@ layout: default
   "inLanguage": "{{ current_lang }}",
   {% if page.date %}"datePublished": "{{ page.date | date_to_xmlschema }}",{% endif %}
   {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% elsif page.date %}"dateModified": "{{ page.date | date_to_xmlschema }}",{% endif %}
-  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/hero-pic.webp' | absolute_url | jsonify }}{% endif %}],
+  "image": [{% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/assets/images/LOGO.png' | absolute_url | jsonify }}{% endif %}],
   "author": {
     "@type": "Person",
     "name": "Khaled Hashem",

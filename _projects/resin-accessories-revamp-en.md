@@ -8,7 +8,7 @@ layout: project
 lang: en
 translation_key: resin-accessories-revamp
 date: 2026-01-01                  # Project date — used for sorting
-order: 1
+order: 2
 permalink: /en/portfolio/resin-accessories-revamp-en/  # Custom URL
 
 # ─── Content Classification ───────────────────────────────────────────

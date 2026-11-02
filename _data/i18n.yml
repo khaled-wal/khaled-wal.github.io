@@ -66,6 +66,9 @@ ar:
   pro_tools_used: "الأدوات المستخدمة"
   pro_gallery_title: "معرض المشروع"
   pro_status: "حالة المشروع"
+  pro_download_title: "تحميل وثيقة المشروع"
+  pro_download_button: "تحميل الوثيقة الكاملة (PDF)"
+  pro_download_type: "وثيقة استراتيجية كاملة"
 
 # English UI Strings
 en:
@@ -135,3 +138,6 @@ en:
   pro_tools_used: "Tools Used"
   pro_gallery_title: "Project Gallery"
   pro_status: "Status"
+  pro_download_title: "Download Project Document"
+  pro_download_button: "Download Full Document (PDF)"
+  pro_download_type: "Full Strategic Document"

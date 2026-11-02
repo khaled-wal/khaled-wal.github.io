@@ -8,7 +8,7 @@ layout: project
 lang: ar
 translation_key: resin-accessories-revamp
 date: 2026-01-01                  # تاريخ المشروع — يُستخدم للترتيب
-order: 1
+order: 2
 permalink: /portfolio/resin-accessories-revamp/  # الرابط المخصص
 
 # ─── تصنيف المحتوى (Content Classification) ──────────────────────────

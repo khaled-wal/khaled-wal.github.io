@@ -41,7 +41,7 @@ description: "استعرض دراسات الحالة والمشاريع التي
       {%- assign all_projects = site.projects | where: "lang", "ar" | where: "publish_state", "published" -%}
       {%- assign all_case_studies = site.case_studies | where: "lang", "ar" | where: "publish_state", "published" -%}
       {%- assign all_lab_items = site.lab | where: "lang", "ar" | where: "publish_state", "published" -%}
-      {%- assign all_published_works = all_projects | concat: all_case_studies | concat: all_lab_items | sort: "order" | reverse -%}
+      {%- assign all_published_works = all_projects | concat: all_case_studies | concat: all_lab_items | sort: "date" | reverse -%}
 
       {% for item in all_published_works %}
       <div class="portfolio-item-wrapper" data-work-type="{{ item.work_type | default: 'strategy' }}">
