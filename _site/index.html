@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Google tag (gtag.js) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon: Placed first so the browser detects and loads it immediately -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="shortcut icon" href="/favicon.ico"><!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -77,24 +81,20 @@
     </script>
     <!-- ═════════════════════════════════════════════════════════════════ -->
 
-    <link rel="icon" href="/assets/images/Favicon.png" type="image/png">
-
     <!-- LCP Optimization: Preload hero image so the browser fetches it immediately with high priority -->
     <link rel="preload" as="image" href="/assets/images/hero-pic.webp" type="image/webp" fetchpriority="high">
 
-    <!-- Google Fonts: preconnect + non-blocking load with fallback -->
+    <!-- Google Fonts: preconnect + display=swap for optimal performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&family=Inter:wght@400;600;700&display=swap">
 
     <!-- FontAwesome Icons (deferred for FCP optimization) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=1788898354">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1793591806">
 
     <!-- Portfolio detail-page styles — loaded only on pages that need them -->
 </head>
@@ -102,7 +102,7 @@
 <body class=""><header class="site-header"><div class="container header-inner">
     <a href="/" class="logo">
       <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
-      خالد هاشم<span>.</span>
+      خالد هاشم
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="التنقل الرئيسي">
@@ -164,7 +164,7 @@
                 <!-- ✏️ EDIT: الزر الأول يقود إلى صفحة الأعمال — لا تغيير في الرابط -->
                 <a href="/portfolio/" class="btn btn-primary">اكتشف أعمالي<i class="fa-solid fa-arrow-left arrow-icon"></i></a>
                 <!-- ✏️ EDIT: الزر الثاني يفتح السيرة الذاتية PDF -->
-                <a href="/assets/files/Khaled-Hashem-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> تحميل السيرة الذاتية</a>
+                <a href="/assets/files/Khaled_Hashem_MarCom_Specialist.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> تحميل السيرة الذاتية</a>
             </div>
         </div>
         <!-- ✏️ EDIT: صورة الملف الشخصي -->
@@ -205,11 +205,36 @@
             
             
             <div class="view-all-group reveal">
-                <span class="portfolio-counter-badge">+3 أعمال متخصصة</span>
+                <span class="portfolio-counter-badge">+5 أعمال متخصصة</span>
                 <a href="/portfolio/" class="btn btn-outline-dark view-all-btn">عرض كل الأعمال <i class="fa-solid fa-arrow-left arrow-icon"></i></a>
             </div>
         </div>
         <div class="portfolio-grid reveal">
+            <a href="/portfolio/phase-2-gtm-campaign-project/" class="card-link" aria-label="مشروع استراتيجية دخول السوق (GTM) وحملة الاتصال التسويقي المتكامل لمنصة (شنطة)">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/projects/shanta/shanta-gtm-hero.jpg" alt="مشروع استراتيجية دخول السوق (GTM) وحملة الاتصال التسويقي المتكامل لمنصة (شنطة)" width="505" height="300" loading="lazy" decoding="async" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            العميل: منصة شنطة (Shanta Platform)
+                        
+                    </span>
+                    
+                    <div class="card-tags">
+                        
+                    </div>
+                    
+                    <h3>مشروع استراتيجية دخول السوق (GTM) وحملة الاتصال التسويقي المتكامل لمنصة (شنطة)</h3>
+                    <p>استراتيجية دخول السوق والتواصل التسويقي المتكامل لإطلاق منصة شنطة بناءً على نتائج البحث الميداني: التموضع،...</p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
             <a href="/portfolio/resin-accessories-revamp/" class="card-link" aria-label="إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق">
             <article class="portfolio-card">
                 <div class="card-image">
@@ -236,6 +261,31 @@
                     
                     <h3>إعادة هيكلة وتموضع لمتجر اكسسوارات يدوية - رونق</h3>
                     <p>إعادة هيكلة شاملة وتدقيق تسويقي لمتجر إكسسوارات ريزن يدوية: من تشخيص الإشكاليات الجذرية وتطوير الهوية...</p>
+                    <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
+                </div>
+            </article>
+            </a>
+            
+            <a href="/portfolio/phase-1-market-research-project/" class="card-link" aria-label="مشروع البحث التسويقي ودراسة جاهزية السوق لمنصة الخدمات الطلابية (شنطة)">
+            <article class="portfolio-card">
+                <div class="card-image">
+                    
+                    <img src="/assets/images/projects/shanta/shanta-research-hero.jpg" alt="مشروع البحث التسويقي ودراسة جاهزية السوق لمنصة الخدمات الطلابية (شنطة)" width="505" height="300" loading="lazy" decoding="async" />
+                    
+                </div>
+                <div class="card-content">
+                    <span class="category">
+                        
+                            العميل: منصة شنطة (Shanta Platform)
+                        
+                    </span>
+                    
+                    <div class="card-tags">
+                        
+                    </div>
+                    
+                    <h3>مشروع البحث التسويقي ودراسة جاهزية السوق لمنصة الخدمات الطلابية (شنطة)</h3>
+                    <p>مشروع بحث تسويقي تطبيقي يتناول تقييم الاستعداد السلوكي لطلاب البكالوريوس بالرياض لتبني منصة C2C لتبادل...</p>
                     <span class="read-more" aria-hidden="true">اقرأ المزيد <i class="fa-solid fa-arrow-left arrow-icon"></i></span>
                 </div>
             </article>
@@ -335,7 +385,7 @@
         <!-- زر تحميل السيرة الذاتية — تحت العنوان مباشرة، مستقل عن منطقة التوسع -->
         <!-- ✏️ EDIT: مسار الملف يُعدَّل في _config.yml (cv_path) -->
         <div class="cv-download-btn-wrapper">
-            <a href="/assets/files/Khaled-Hashem-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary download-cv-btn" aria-label="تحميل السيرة الذاتية (PDF)">
+            <a href="/assets/files/Khaled_Hashem_MarCom_Specialist.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary download-cv-btn" aria-label="تحميل السيرة الذاتية (PDF)">
                 <i class="fa-solid fa-download" aria-hidden="true"></i>
                 <span>تحميل السيرة الذاتية</span>
             </a>
@@ -616,7 +666,7 @@
             <div class="footer-col brand-col">
                 <div class="logo">
                     <img src="/assets/images/LOGO.png" alt="خالد هاشم Logo" width="30" height="30" decoding="async">
-                    خالد هاشم<span>.</span>
+                    خالد هاشم
                 </div>
                 <!-- EDIT: Footer tagline (also editable in _layouts/default.html) -->
                 <p>مهمتي هي دعم رحلة بناء وتطوير علامتك التجارية باستراتيجيات مبنية على التحليل والابتكار.. تفكير أعمق لنتائج مستدامة، وتصرف أذكى لأثر ملموس.</p>

@@ -12,7 +12,7 @@
   <div class="container header-inner">
     <a href="{% if is_en %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="logo">
       <img src="{{ '/assets/images/LOGO.png' | relative_url }}" alt="{{ t.site_name }} Logo" width="30" height="30" decoding="async">
-      {{ t.site_name }}<span>.</span>
+      {{ t.site_name }}
     </a>
 
     <nav class="main-nav" id="main-nav" aria-label="{% if is_en %}Main navigation{% else %}التنقل الرئيسي{% endif %}">
